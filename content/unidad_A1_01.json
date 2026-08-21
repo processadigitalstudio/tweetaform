@@ -1,0 +1,106 @@
+{
+  "unit_id": "A1-01",
+  "level": "A1",
+  "title": "Nice to Meet You!",
+  "grammar_topic": "Verb to be: afirmativo, negativo y preguntas",
+  "vocab_theme": "Saludos, presentaciones, informacion personal",
+  "can_do": "Puede saludar, presentarse, decir quien es y de donde es",
+
+  "grammar_explanation": {
+    "language": "es",
+    "core_rule": "El verbo 'to be' (ser/estar) cambia segun la persona: am, is, are. En español muchas veces no se necesita un verbo para presentarse ('Yo, Camila'), pero en ingles el verbo 'to be' SIEMPRE tiene que aparecer.",
+    "structure_notes": [
+      {"label": "I", "explanation": "am / am not / Am I...?", "example": "I am Camila. I'm not a teacher. Am I late?"},
+      {"label": "You", "explanation": "are / aren't / Are you...?", "example": "You are a student. You aren't from here. Are you ready?"},
+      {"label": "He / She / It", "explanation": "is / isn't / Is he...?", "example": "She is a teacher. He isn't from Cartagena. Is it far?"},
+      {"label": "We / You / They", "explanation": "are / aren't / Are we...?", "example": "We are friends. They aren't students. Are we late?"}
+    ],
+    "examples": [
+      "I am Camila. (Soy Camila.)",
+      "She is a teacher. (Ella es profesora.)",
+      "They are not from Bogota. (Ellos no son de Bogota.)",
+      "Are you a student? (¿Eres estudiante?)"
+    ],
+    "common_mistake": "El error mas comun de hispanohablantes es OMITIR el verbo 'to be', porque en español a veces no hace falta ('Yo profesora' en vez de 'I am a teacher'). En ingles el verbo siempre va."
+  },
+
+  "grammar_practice": [
+    {"type": "fill_blank", "q": "I ___ Camila.", "answer": "am"},
+    {"type": "fill_blank", "q": "She ___ a teacher.", "answer": "is"},
+    {"type": "mcq", "q": "We _____ from Cartagena.", "options": ["am", "is", "are"], "answer": "are"},
+    {"type": "mcq", "q": "_____ you a student?", "options": ["Am", "Is", "Are"], "answer": "Are"},
+    {"type": "fill_blank", "q": "They ___ not from Bogota.", "answer": "are"}
+  ],
+
+  "vocabulary": [
+    {"word": "Hello / Hi", "meaning": "Hola", "example": "Hello! How are you?"},
+    {"word": "Good morning / afternoon / evening", "meaning": "Buenos dias / tardes / noches", "example": "Good morning, everyone."},
+    {"word": "Nice to meet you", "meaning": "Mucho gusto", "example": "Nice to meet you, Daniel."},
+    {"word": "My name is...", "meaning": "Mi nombre es...", "example": "My name is Camila."},
+    {"word": "What's your name?", "meaning": "¿Cual es tu nombre?", "example": "Hi, what's your name?"},
+    {"word": "I'm from...", "meaning": "Soy de...", "example": "I'm from Cartagena."},
+    {"word": "Where are you from?", "meaning": "¿De donde eres?", "example": "Where are you from, Marta?"},
+    {"word": "Teacher", "meaning": "Profesor/a", "example": "She is my English teacher."},
+    {"word": "Student", "meaning": "Estudiante", "example": "I am a new student."},
+    {"word": "Friend", "meaning": "Amigo/a", "example": "He is my friend from university."},
+    {"word": "See you later / Goodbye", "meaning": "Hasta luego / Adios", "example": "Goodbye, see you tomorrow!"}
+  ],
+
+  "reading": {
+    "title": "Hi, I'm Camila",
+    "level": "A1",
+    "word_count": 97,
+    "text": "Hi! My name is Camila and I am from Cartagena. I am a student at a language school. My teacher's name is Mr. Rojas, and he is from the United States. My best friend at school is Daniel. He is not from Cartagena; he is from Barranquilla. We are in the same class every morning. In my class, we are all beginners in English, but we are not shy! Every day we say 'Good morning' and practice new words together. I am very happy at this school.",
+    "questions": [
+      {"q": "Where is Camila from?", "type": "mcq", "options": ["Barranquilla", "Cartagena", "Bogota", "The United States"], "answer": "Cartagena"},
+      {"q": "What is Camila?", "type": "mcq", "options": ["A teacher", "A student", "A friend", "A doctor"], "answer": "A student"},
+      {"q": "Where is Mr. Rojas from?", "type": "mcq", "options": ["Cartagena", "Barranquilla", "The United States", "Spain"], "answer": "The United States"},
+      {"q": "Is Daniel from Cartagena?", "type": "true_false", "answer": false},
+      {"q": "How does Camila feel at the school?", "type": "mcq", "options": ["Sad", "Bored", "Happy", "Shy"], "answer": "Happy"}
+    ]
+  },
+
+  "listening": {
+    "title": "Meeting at Orientation",
+    "level": "A1",
+    "duration_seconds_estimate": 35,
+    "transcript": "A: Hi! My name is Sofia. What's your name?\nB: Hi, Sofia! I'm Andres. Nice to meet you.\nA: Nice to meet you too! Where are you from?\nB: I'm from Sincelejo. And you?\nA: I'm from Cartagena. Are you a new student here?\nB: Yes, I am! This is my first day.\nA: Me too! Good luck, Andres.\nB: Thanks, Sofia. See you in class!",
+    "audio_file_placeholder": "A1U01_orientation.mp3",
+    "questions": [
+      {"q": "What is the woman's name?", "type": "mcq", "options": ["Camila", "Sofia", "Andrea", "Marta"], "answer": "Sofia"},
+      {"q": "Where is Andres from?", "type": "mcq", "options": ["Cartagena", "Barranquilla", "Sincelejo", "Bogota"], "answer": "Sincelejo"},
+      {"q": "Is this Andres's first day?", "type": "true_false", "answer": true},
+      {"q": "What does Sofia say at the end?", "type": "mcq", "options": ["Goodbye forever", "See you in class", "Nice to meet you", "What's your name"], "answer": "See you in class"}
+    ]
+  },
+
+  "writing": {
+    "prompt": "Preséntate. Escribe de 3 a 5 oraciones usando el verbo 'to be'. Di: tu nombre, de dónde eres, qué eres (estudiante/profesor/etc.) y algo mas sobre ti.",
+    "example_answer": "Hi, my name is Laura. I am from Sincelejo. I am a student at Tweetalig. My teacher is very nice. I am happy to learn English.",
+    "rubric": [
+      {"criterio": "Cumple la tarea", "descripcion": "Incluye nombre, origen y ocupacion (estudiante/profesor/etc.)"},
+      {"criterio": "Uso del verbo to be", "descripcion": "Usa am/is/are correctamente segun la persona"},
+      {"criterio": "Vocabulario de la unidad", "descripcion": "Usa al menos 2 palabras de la lista de vocabulario"},
+      {"criterio": "Coherencia", "descripcion": "Las oraciones tienen sentido y se conectan entre si"}
+    ]
+  },
+
+  "quiz": [
+    {"type": "mcq", "q": "My name _____ Laura.", "options": ["am", "is", "are", "be"], "answer": "is"},
+    {"type": "mcq", "q": "We _____ from Cartagena.", "options": ["am", "is", "are", "be"], "answer": "are"},
+    {"type": "mcq", "q": "_____ you a student?", "options": ["Am", "Is", "Are", "Be"], "answer": "Are"},
+    {"type": "fill_blank", "q": "I ___ not a teacher, I am a student.", "answer": "am"},
+    {"type": "fill_blank", "q": "She ___ from Barranquilla.", "answer": "is"},
+    {"type": "true_false", "q": "'He are my friend' is correct.", "answer": false},
+    {"type": "true_false", "q": "'Nice to meet you' is a greeting used when you meet someone for the first time.", "answer": true},
+    {"type": "matching", "q": "Empareja el saludo con la respuesta correcta", "pairs": [
+      {"left": "What's your name?", "right": "My name is Ana."},
+      {"left": "Where are you from?", "right": "I'm from Cartagena."},
+      {"left": "Nice to meet you.", "right": "Nice to meet you too."}
+    ]},
+    {"type": "mcq", "q": "They _____ not from the United States.", "options": ["am", "is", "are", "be"], "answer": "are"},
+    {"type": "order_words", "q": "Ordena la oracion:", "words": ["you?", "your", "What's", "name"], "answer": "What's your name?"},
+    {"type": "mcq", "q": "Choose the correct greeting for the morning:", "options": ["Good evening", "Good night", "Good morning", "Goodbye"], "answer": "Good morning"},
+    {"type": "fill_blank", "q": "___ they students? Yes, they are.", "answer": "Are"}
+  ]
+}
