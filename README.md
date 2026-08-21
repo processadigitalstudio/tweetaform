@@ -56,6 +56,24 @@ Campos con `?` son opcionales — los usan los niveles B1/B2 para casos más com
 - Plan Spark (gratis) alcanza para desarrollo y para el piloto; pasar a Blaze (pago por uso) cuando haya tráfico real de estudiantes.
 - Audio real: Firebase Storage + ElevenLabs para generar los mp3 de Listening a partir de los transcripts ya escritos.
 
+## Respaldo en Firebase
+
+Firestore es la fuente de verdad del contenido (no los `.json` de `/content` — esos son la copia editable/versionada en Git; Firestore es lo que la app realmente lee en producción).
+
+```
+scripts/
+├── package.json
+└── seed_firestore.js     # sube /content/*.json a la colección "units" en Firestore
+```
+
+**Para cargar (o actualizar) el contenido en Firestore:**
+1. `cd scripts && npm install`
+2. Descarga tu clave de servicio desde Firebase Console → Configuración del proyecto → Cuentas de servicio → Generar nueva clave privada.
+3. Guárdala en `scripts/serviceAccountKey.json` (ya está en `.gitignore` — nunca se sube a GitHub).
+4. `node seed_firestore.js`
+
+Repite el paso 4 cada vez que agregues o edites una unidad en `/content`.
+
 ## Próximos pasos
 
 1. Completar las unidades 2–5 de cada nivel del piloto (16 unidades restantes).
