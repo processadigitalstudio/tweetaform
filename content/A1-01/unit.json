@@ -22,7 +22,7 @@
       {
         "label": "He / She / It",
         "explanation": "is / isn't / Is he...?",
-        "example": "She is a teacher. He isn't from Cartagena. Is it far?"
+        "example": "She is a teacher. He isn't from Riverside. Is it far?"
       },
       {
         "label": "We / You / They",
@@ -33,7 +33,7 @@
     "examples": [
       "I am Camila. (Soy Camila.)",
       "She is a teacher. (Ella es profesora.)",
-      "They are not from Bogotá. (Ellos no son de Bogotá.)",
+      "They are not from Millbrook. (Ellos no son de Millbrook.)",
       "Are you a student? (¿Eres estudiante?)"
     ],
     "common_mistake": "El error más común de hispanohablantes es OMITIR el verbo 'to be' ('Yo profesora' en vez de 'I am a teacher'). En inglés el verbo siempre va."
@@ -51,7 +51,7 @@
     },
     {
       "type": "fill_blank",
-      "q": "They ___ not from Bogotá.",
+      "q": "They ___ not from Millbrook.",
       "answer": "are"
     },
     {
@@ -71,7 +71,7 @@
     },
     {
       "type": "fill_blank",
-      "q": "___ she from Cartagena? (pregunta)",
+      "q": "___ she from Riverside? (pregunta)",
       "answer": "Is"
     },
     {
@@ -91,7 +91,7 @@
     },
     {
       "type": "mcq",
-      "q": "We _____ from Cartagena.",
+      "q": "We _____ from Riverside.",
       "options": [
         "am",
         "is",
@@ -223,7 +223,7 @@
     {
       "word": "I'm from...",
       "meaning": "Soy de...",
-      "example": "I'm from Cartagena."
+      "example": "I'm from Riverside."
     },
     {
       "word": "Where are you from?",
@@ -347,14 +347,14 @@
       "q": "Choose the correct response to 'Nice to meet you.'",
       "options": [
         "Nice to meet you too",
-        "I'm from Cartagena",
+        "I'm from Riverside",
         "Good morning"
       ],
       "answer": "Nice to meet you too"
     },
     {
       "type": "fill_blank",
-      "q": "___ are you from? — I'm from Sincelejo.",
+      "q": "___ are you from? — I'm from Lakeside.",
       "answer": "Where"
     },
     {
@@ -395,18 +395,18 @@
     {
       "title": "Hi, I'm Camila",
       "word_count": 97,
-      "text": "Hi! My name is Camila and I am from Cartagena. I am a student at a language school. My teacher's name is Mr. Rojas, and he is from the United States. My best friend at school is Daniel. He is not from Cartagena; he is from Barranquilla. We are in the same class every morning. In my class, we are all beginners in English, but we are not shy! Every day we say 'Good morning' and practice new words together. I am very happy at this school.",
+      "text": "Hi! My name is Camila and I am from Riverside. I am a student at a language school. My teacher's name is Mr. Rojas, and he is from the United States. My best friend at school is Daniel. He is not from Riverside; he is from Greenfield. We are in the same class every morning. In my class, we are all beginners in English, but we are not shy! Every day we say 'Good morning' and practice new words together. I am very happy at this school.",
       "questions": [
         {
           "q": "Where is Camila from?",
           "type": "mcq",
           "options": [
-            "Barranquilla",
-            "Cartagena",
-            "Bogotá",
+            "Greenfield",
+            "Riverside",
+            "Millbrook",
             "The United States"
           ],
-          "answer": "Cartagena"
+          "answer": "Riverside"
         },
         {
           "q": "What is Camila?",
@@ -420,7 +420,7 @@
           "answer": "A student"
         },
         {
-          "q": "Is Daniel from Cartagena?",
+          "q": "Is Daniel from Riverside?",
           "type": "true_false",
           "answer": false
         },
@@ -441,11 +441,11 @@
           "pairs": [
             {
               "left": "Camila",
-              "right": "Cartagena"
+              "right": "Riverside"
             },
             {
               "left": "Daniel",
-              "right": "Barranquilla"
+              "right": "Greenfield"
             },
             {
               "left": "Mr. Rojas",
@@ -458,18 +458,18 @@
     {
       "title": "My New Classmate",
       "word_count": 92,
-      "text": "Today is my first day at Tweetalig. My name is Julian, and I am from Sincelejo. There is a new student next to me. Her name is Valentina. She is from Cartagena, but she is not new to English — she is at a high level already! Our teacher is Miss Paola. She is very patient and friendly. Valentina and I are both nervous, but we are excited too. 'Nice to meet you,' Valentina says. 'Nice to meet you too,' I say. I think we are going to be good friends this year.",
+      "text": "Today is my first day at Tweetalig. My name is Julian, and I am from Lakeside. There is a new student next to me. Her name is Valentina. She is from Riverside, but she is not new to English — she is at a high level already! Our teacher is Miss Paola. She is very patient and friendly. Valentina and I are both nervous, but we are excited too. 'Nice to meet you,' Valentina says. 'Nice to meet you too,' I say. I think we are going to be good friends this year.",
       "questions": [
         {
           "q": "Where is Julian from?",
           "type": "mcq",
           "options": [
-            "Cartagena",
-            "Sincelejo",
-            "Barranquilla",
-            "Bogotá"
+            "Riverside",
+            "Lakeside",
+            "Greenfield",
+            "Millbrook"
           ],
-          "answer": "Sincelejo"
+          "answer": "Lakeside"
         },
         {
           "q": "Is Valentina new to English?",
@@ -511,7 +511,7 @@
       "title": "Meeting at Orientation",
       "duration_seconds_estimate": 35,
       "audio_file": "A1-01_listening_1.mp3",
-      "transcript": "A: Hi! My name is Sofia. What's your name?\nB: Hi, Sofia! I'm Andres. Nice to meet you.\nA: Nice to meet you too! Where are you from?\nB: I'm from Sincelejo. And you?\nA: I'm from Cartagena. Are you a new student here?\nB: Yes, I am! This is my first day.\nA: Me too! Good luck, Andres.\nB: Thanks, Sofia. See you in class!",
+      "transcript": "A: Hi! My name is Sofia. What's your name?\nB: Hi, Sofia! I'm Andres. Nice to meet you.\nA: Nice to meet you too! Where are you from?\nB: I'm from Lakeside. And you?\nA: I'm from Riverside. Are you a new student here?\nB: Yes, I am! This is my first day.\nA: Me too! Good luck, Andres.\nB: Thanks, Sofia. See you in class!",
       "questions": [
         {
           "q": "What is the woman's name?",
@@ -528,12 +528,12 @@
           "q": "Where is Andres from?",
           "type": "mcq",
           "options": [
-            "Cartagena",
-            "Barranquilla",
-            "Sincelejo",
-            "Bogotá"
+            "Riverside",
+            "Greenfield",
+            "Lakeside",
+            "Millbrook"
           ],
-          "answer": "Sincelejo"
+          "answer": "Lakeside"
         },
         {
           "q": "Is this Andres's first day?",
@@ -562,11 +562,11 @@
           "pairs": [
             {
               "left": "Sofia",
-              "right": "Cartagena"
+              "right": "Riverside"
             },
             {
               "left": "Andres",
-              "right": "Sincelejo"
+              "right": "Lakeside"
             }
           ]
         },
@@ -582,7 +582,7 @@
       "title": "My New Neighbor",
       "duration_seconds_estimate": 30,
       "audio_file": "A1-01_listening_2.mp3",
-      "transcript": "Let me tell you about my new neighbor. Her name is Laura, and she is from Cartagena. Yesterday, she came to say hello to my family. This is my wife, Ana, and this is our friend, Carlos — they are not from Cartagena, they are from Sincelejo, like me. Laura is very nice, and she is happy to be here. She says our street is quiet and friendly. I think Laura is going to be a great neighbor.",
+      "transcript": "Let me tell you about my new neighbor. Her name is Laura, and she is from Riverside. Yesterday, she came to say hello to my family. This is my wife, Ana, and this is our friend, Carlos — they are not from Riverside, they are from Lakeside, like me. Laura is very nice, and she is happy to be here. She says our street is quiet and friendly. I think Laura is going to be a great neighbor.",
       "questions": [
         {
           "q": "What is the new neighbor's name?",
@@ -599,12 +599,12 @@
           "q": "Where is Laura from?",
           "type": "mcq",
           "options": [
-            "Sincelejo",
-            "Cartagena",
-            "Barranquilla",
-            "Bogotá"
+            "Lakeside",
+            "Riverside",
+            "Greenfield",
+            "Millbrook"
           ],
-          "answer": "Cartagena"
+          "answer": "Riverside"
         },
         {
           "q": "Is Carlos the speaker's wife?",
@@ -681,7 +681,7 @@
     },
     {
       "type": "mcq",
-      "q": "We _____ from Cartagena.",
+      "q": "We _____ from Riverside.",
       "options": [
         "am",
         "is",
@@ -706,7 +706,7 @@
     },
     {
       "type": "fill_blank",
-      "q": "She ___ from Barranquilla.",
+      "q": "She ___ from Greenfield.",
       "answer": "is"
     },
     {

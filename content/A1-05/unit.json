@@ -386,7 +386,7 @@
     {
       "title": "A Visit to the Museum",
       "word_count": 93,
-      "text": "Yesterday, my class visited the city's art museum. There is a new exhibition of paintings from local artists. Our teacher says the artist is very talented and famous in Colombia. One painting is very big and colorful. Is it popular? Yes, it is! Many people take photos next to it. My friend Sara is an art student, and she loves this museum. She says she wants to be an artist too. The museum isn't far from our school, so we walk there every year. It's one of my favorite places to visit.",
+      "text": "Yesterday, my class visited the city's art museum. There is a new exhibition of paintings from local artists. Our teacher says the artist is very talented and famous nationally. One painting is very big and colorful. Is it popular? Yes, it is! Many people take photos next to it. My friend Sara is an art student, and she loves this museum. She says she wants to be an artist too. The museum isn't far from our school, so we walk there every year. It's one of my favorite places to visit.",
       "questions": [
         {
           "q": "What did the class visit?",
@@ -430,18 +430,18 @@
     {
       "title": "My Favorite Band",
       "word_count": 89,
-      "text": "My favorite band is called Luna Nueva. They're from Barranquilla, and they're very talented. Their songs are popular all over Colombia. I'm a big fan, and I have all their music. Last month, they performed at a big concert in my city. It wasn't cheap, but it was worth it! The singer is famous, but she's very humble too. My sister isn't a fan of their music, but she came with me anyway. It was an amazing night, and I hope they perform here again soon.",
+      "text": "My favorite band is called Luna Nueva. They're from Greenfield, and they're very talented. Their songs are popular all over the country. I'm a big fan, and I have all their music. Last month, they performed at a big concert in my city. It wasn't cheap, but it was worth it! The singer is famous, but she's very humble too. My sister isn't a fan of their music, but she came with me anyway. It was an amazing night, and I hope they perform here again soon.",
       "questions": [
         {
           "q": "Where is the band from?",
           "type": "mcq",
           "options": [
-            "Cartagena",
-            "Barranquilla",
-            "Bogotá",
-            "Sincelejo"
+            "Riverside",
+            "Greenfield",
+            "Millbrook",
+            "Lakeside"
           ],
-          "answer": "Barranquilla"
+          "answer": "Greenfield"
         },
         {
           "q": "Are the band's songs popular?",
@@ -465,7 +465,7 @@
           "answer": "No, but she went anyway"
         },
         {
-          "q": "They're ___ Barranquilla. (completa la preposición)",
+          "q": "They're ___ Greenfield. (completa la preposición)",
           "type": "fill_blank",
           "answer": "from"
         }
@@ -485,10 +485,10 @@
           "answer": true
         },
         {
-          "q": "Is the artist famous only in Colombia?",
+          "q": "Is the artist famous only in this country?",
           "type": "mcq",
           "options": [
-            "Yes, only in Colombia",
+            "Yes, only in this country",
             "No, also in Europe",
             "No, she's not famous",
             "It doesn't say"

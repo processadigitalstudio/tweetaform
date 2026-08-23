@@ -493,7 +493,7 @@
       "title": "Taking a Taxi",
       "duration_seconds_estimate": 32,
       "audio_file": "A1-02_listening_1.mp3",
-      "transcript": "A: Good morning! Where do you want to go?\nB: Hello! I need to go to the airport, please.\nA: OK, no problem. Is this your first time in Cartagena?\nB: Yes, it is! I'm here for work.\nA: Great! There is a little traffic today, so it might take twenty minutes.\nB: That's fine. Thank you.\nA: You're welcome. Please put on your seatbelt.",
+      "transcript": "A: Good morning! Where do you want to go?\nB: Hello! I need to go to the airport, please.\nA: OK, no problem. Is this your first time in Riverside?\nB: Yes, it is! I'm here for work.\nA: Great! There is a little traffic today, so it might take twenty minutes.\nB: That's fine. Thank you.\nA: You're welcome. Please put on your seatbelt.",
       "questions": [
         {
           "q": "Where does the passenger want to go?",
@@ -507,7 +507,7 @@
           "answer": "The airport"
         },
         {
-          "q": "Is this the passenger's first time in Cartagena?",
+          "q": "Is this the passenger's first time in Riverside?",
           "type": "true_false",
           "answer": true
         },
@@ -539,7 +539,7 @@
           "answer": false
         },
         {
-          "q": "___ this your first time in Cartagena? (completa)",
+          "q": "___ this your first time in Riverside? (completa)",
           "type": "fill_blank",
           "answer": "Is"
         },

@@ -23,8 +23,8 @@ Mantener este mismo estilo en las ~15-20 imágenes asegura que se vean como una 
 A: Hi! My name is Sofia. What's your name?
 B: Hi, Sofia! I'm Andres. Nice to meet you.
 A: Nice to meet you too! Where are you from?
-B: I'm from Sincelejo. And you?
-A: I'm from Cartagena. Are you a new student here?
+B: I'm from Lakeside. And you?
+A: I'm from Riverside. Are you a new student here?
 B: Yes, I am! This is my first day.
 A: Me too! Good luck, Andres.
 B: Thanks, Sofia. See you in class!
@@ -32,7 +32,7 @@ B: Thanks, Sofia. See you in class!
 
 **Archivo: `A1-01_listening_2.mp3`** *(MONÓLOGO — una sola voz narrando)*
 ```
-Let me tell you about my new neighbor. Her name is Laura, and she is from Cartagena. Yesterday, she came to say hello to my family. This is my wife, Ana, and this is our friend, Carlos — they are not from Cartagena, they are from Sincelejo, like me. Laura is very nice, and she is happy to be here. She says our street is quiet and friendly. I think Laura is going to be a great neighbor.
+Let me tell you about my new neighbor. Her name is Laura, and she is from Riverside. Yesterday, she came to say hello to my family. This is my wife, Ana, and this is our friend, Carlos — they are not from Riverside, they are from Lakeside, like me. Laura is very nice, and she is happy to be here. She says our street is quiet and friendly. I think Laura is going to be a great neighbor.
 ```
 
 ### Imágenes (guarda en `content/A1-01/images/`)
@@ -140,7 +140,7 @@ A: Sometimes things aren't what they look like from the outside.
 ```
 A: Good morning! Where do you want to go?
 B: Hello! I need to go to the airport, please.
-A: OK, no problem. Is this your first time in Cartagena?
+A: OK, no problem. Is this your first time in Riverside?
 B: Yes, it is! I'm here for work.
 A: Great! There is a little traffic today, so it might take twenty minutes.
 B: That's fine. Thank you.
