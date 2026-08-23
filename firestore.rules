@@ -1,0 +1,25 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Contenido de las unidades: lectura para cualquier usuario CON SESION INICIADA
+    // (ya no es publico sin login). Nadie escribe desde el navegador — solo tu script
+    // de carga con la clave de servicio, que se salta estas reglas.
+    match /units/{unitId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Progreso de cada estudiante: SOLO el propio estudiante puede leer o escribir
+    // su propio progreso. Nunca puede ver ni tocar el de otro compañero.
+    match /users/{userId}/progress/{unitId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Todo lo demas queda bloqueado por defecto.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
