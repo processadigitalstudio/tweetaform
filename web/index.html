@@ -644,44 +644,43 @@ function UnitMap({ unit, levelColor, progress, t, onOpenLesson, onBack }) {
   );
 }
 
-// ---------------- NIVELES ----------------
-function LevelsScreen({ units, t, onOpenUnit }) {
-  const [expanded, setExpanded] = useState(null);
-  const levels = ["A1", "A2", "B1", "B2"];
-  const byLevel = {};
-  units.forEach((u) => { (byLevel[u.level] = byLevel[u.level] || []).push(u); });
-
+// ---------------- NIVELES (un solo nivel por estudiante, con saludo y progreso general) ----------------
+function LevelsScreen({ units, t, name, overallProgress, onOpenUnit }) {
   return (
     <div>
       <div style={{ textAlign: "center", marginBottom: 8 }}>
         <img src={LOGO_SRC} alt="Tweetalig" style={{ height: 40 }} />
       </div>
-      <h1 style={{ fontFamily: font, fontSize: 28, color: C.ink, marginBottom: 4, fontWeight: 800, textAlign: "center" }}>Tweetaform</h1>
-      <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft, marginBottom: 28, textAlign: "center" }}>{t.tagline}</p>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 20 }}>
-        {levels.map((code) => {
-          const lc = LEVEL_COLORS[code];
-          const list = byLevel[code] || [];
+      <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, marginBottom: 4, fontWeight: 800, textAlign: "center" }}>
+        {name ? `Hola, ${name}` : "Tweetaform"}
+      </h1>
+      <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft, marginBottom: 20, textAlign: "center" }}>{t.tagline}</p>
+
+      {overallProgress && (
+        <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 14, padding: 16, marginBottom: 24 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+            <span style={{ fontFamily: font, fontSize: 13, fontWeight: 700, color: C.ink }}>{overallProgress.level}</span>
+            <span style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft }}>{overallProgress.pct}%</span>
+          </div>
+          <ProgressBar pct={overallProgress.pct} color={LEVEL_COLORS[overallProgress.level]?.main} />
+          <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, marginTop: 6 }}>
+            {overallProgress.unitsDone} / {overallProgress.unitsTotal} unidades completadas
+          </p>
+        </div>
+      )}
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {units.map((u) => {
+          const lc = LEVEL_COLORS[u.level];
           return (
-            <div key={code} onClick={() => setExpanded(expanded === code ? null : code)}
-              style={{ background: "#fff", border: `1.5px solid ${expanded === code ? C.ink : C.line}`, borderTop: `5px solid ${lc.main}`, borderRadius: 14, padding: "18px 14px", cursor: "pointer", textAlign: "center" }}>
-              <p style={{ fontFamily: font, fontSize: 22, color: C.ink, fontWeight: 800, margin: 0 }}>{code}</p>
-              <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: "4px 0 0" }}>{list.length} {list.length === 1 ? "unit" : "units"}</p>
+            <div key={u.unit_id} onClick={() => onOpenUnit(u)}
+              style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#fff", border: `1px solid ${C.line}`, borderLeft: `4px solid ${lc.main}`, borderRadius: 12, padding: "14px 16px", cursor: "pointer" }}>
+              <span style={{ fontFamily: font, fontSize: 14, color: C.ink }}>{u.title}</span>
+              <span style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft }}>{u.unit_id}</span>
             </div>
           );
         })}
       </div>
-      {expanded && (
-        <div>
-          {(byLevel[expanded] || []).map((u) => (
-            <div key={u.unit_id} onClick={() => onOpenUnit(u)}
-              style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#fff", border: `1px solid ${C.line}`, borderLeft: `4px solid ${LEVEL_COLORS[expanded].main}`, borderRadius: 12, padding: "14px 16px", marginBottom: 8, cursor: "pointer" }}>
-              <span style={{ fontFamily: font, fontSize: 14, color: C.ink }}>{u.title}</span>
-              <span style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft }}>{u.unit_id}</span>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 }
@@ -703,11 +702,9 @@ function AdminDashboard({ t, onLogout }) {
     })();
   }, []);
 
-  const toggleLevel = async (student, level) => {
-    const current = student.enabledLevels || [];
-    const next = current.includes(level) ? current.filter((l) => l !== level) : [...current, level];
-    await window.__db.collection("users").doc(student.uid).set({ enabledLevels: next }, { merge: true });
-    setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, enabledLevels: next } : s)));
+  const setLevel = async (student, level) => {
+    await window.__db.collection("users").doc(student.uid).set({ level }, { merge: true });
+    setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, level } : s)));
   };
 
   const openProgress = async (student) => {
@@ -746,19 +743,22 @@ function AdminDashboard({ t, onLogout }) {
               <span style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft }}>{expanded === s.uid ? "▲" : "▼"}</span>
             </div>
 
-            <div style={{ padding: "0 16px 14px", display: "flex", gap: 8, flexWrap: "wrap" }}>
-              {LEVELS.map((lvl) => {
-                const enabled = (s.enabledLevels || []).includes(lvl);
-                const lc = LEVEL_COLORS[lvl];
-                return (
-                  <button key={lvl} onClick={(e) => { e.stopPropagation(); toggleLevel(s, lvl); }}
-                    style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
-                      border: `1.5px solid ${enabled ? lc.main : C.line}`, background: enabled ? lc.soft : "#fff",
-                      color: enabled ? C.ink : C.inkSoft, cursor: "pointer" }}>
-                    {lvl} {enabled ? "✓" : ""}
-                  </button>
-                );
-              })}
+            <div style={{ padding: "0 16px 14px" }}>
+              <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginBottom: 6, letterSpacing: 1 }}>NIVEL HABILITADO (solo uno)</p>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                {LEVELS.map((lvl) => {
+                  const selected = s.level === lvl;
+                  const lc = LEVEL_COLORS[lvl];
+                  return (
+                    <button key={lvl} onClick={(e) => { e.stopPropagation(); setLevel(s, lvl); }}
+                      style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
+                        border: `1.5px solid ${selected ? lc.main : C.line}`, background: selected ? lc.soft : "#fff",
+                        color: selected ? C.ink : C.inkSoft, cursor: "pointer" }}>
+                      {lvl} {selected ? "✓" : ""}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             {expanded === s.uid && (
@@ -803,6 +803,7 @@ function App() {
   const [activeUnit, setActiveUnit] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [progress, setProgress] = useState({});
+  const [allProgress, setAllProgress] = useState(null); // progreso de TODAS las unidades, para la barra general
   const [lang, setLang] = useState("en");
   const t = STRINGS[lang];
 
@@ -834,8 +835,20 @@ function App() {
     })();
   }, [user]);
 
+  useEffect(() => {
+    if (!user || profile?.role !== "student" || allProgress) return;
+    (async () => {
+      const snap = await window.__db.collection("users").doc(user.uid).collection("progress").get();
+      const data = {};
+      snap.docs.forEach((d) => { data[d.id] = d.data(); });
+      setAllProgress(data);
+    })();
+  }, [user, profile]);
+
   const openUnit = async (u) => {
     setActiveUnit(u);
+    const cached = allProgress && allProgress[u.unit_id];
+    setProgress(cached || {});
     const ref = window.__db.collection("users").doc(user.uid).collection("progress").doc(u.unit_id);
     const snap = await ref.get();
     setProgress(snap.exists ? snap.data() : {});
@@ -844,6 +857,7 @@ function App() {
   const markComplete = async (key, extra) => {
     const next = { ...progress, [key]: true, ...(extra || {}) };
     setProgress(next);
+    setAllProgress((prev) => ({ ...(prev || {}), [activeUnit.unit_id]: next }));
     const ref = window.__db.collection("users").doc(user.uid).collection("progress").doc(activeUnit.unit_id);
     await ref.set({ [key]: true, ...(extra || {}) }, { merge: true });
     setActiveLesson(null);
@@ -853,11 +867,21 @@ function App() {
   if (!user) return <LoginScreen t={t} />;
   if (!profile) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
   if (profile.role === "master") return <AdminDashboard t={t} onLogout={() => window.__auth.signOut()} />;
-  if (!units) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
+  if (!units || !allProgress) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
 
-  const enabledLevels = profile.enabledLevels || [];
-  const visibleUnits = units.filter((u) => enabledLevels.includes(u.level));
+  const visibleUnits = units.filter((u) => u.level === profile.level);
   const levelColor = activeUnit ? LEVEL_COLORS[activeUnit.level] : null;
+
+  const unitsDone = visibleUnits.filter((u) => {
+    const p = allProgress[u.unit_id] || {};
+    return LESSON_ORDER.every((k) => p[k]);
+  }).length;
+  const overallProgress = {
+    level: profile.level,
+    unitsDone,
+    unitsTotal: visibleUnits.length,
+    pct: visibleUnits.length ? Math.round((unitsDone / visibleUnits.length) * 100) : 0,
+  };
 
   return (
     <div style={{ background: C.bg, minHeight: "100vh", padding: "24px 18px", boxSizing: "border-box", position: "relative" }}>
@@ -872,7 +896,7 @@ function App() {
         {t.logout}
       </button>
       <div style={{ maxWidth: 460, margin: "0 auto", paddingTop: 36 }}>
-        {!activeUnit && <LevelsScreen units={visibleUnits} t={t} onOpenUnit={openUnit} />}
+        {!activeUnit && <LevelsScreen units={visibleUnits} t={t} name={profile.name} overallProgress={overallProgress} onOpenUnit={openUnit} />}
         {activeUnit && !activeLesson && (
           <UnitMap unit={activeUnit} levelColor={levelColor} progress={progress} t={t}
             onOpenLesson={(k) => setActiveLesson(k)} onBack={() => setActiveUnit(null)} />
