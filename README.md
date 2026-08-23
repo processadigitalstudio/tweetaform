@@ -24,10 +24,10 @@ tweetaform/
 ├── app/
 │   └── Tweetaform.jsx        # prototipo funcional (React) — pantalla de niveles, mapa de unidad, 6 lecciones interactivas
 ├── content/
+│   ├── audio/                # TODOS los .mp3 de TODAS las unidades, juntos
+│   ├── images/               # TODAS las imágenes de TODAS las unidades, juntas
 │   ├── A1-01/
-│   │   ├── unit.json         # contenido completo de la unidad
-│   │   ├── audio/            # aquí van los .mp3 generados en ElevenLabs
-│   │   └── images/           # aquí van las imágenes de vocabulario generadas
+│   │   └── unit.json         # solo el contenido de texto de la unidad
 │   ├── A1-02/ ... A1-05/     # mismo patrón — nivel A1 completo
 │   ├── A2-01/                # formato viejo, pendiente ampliar a la receta nueva
 │   ├── B1.1-01/              # formato viejo, pendiente ampliar
@@ -36,13 +36,14 @@ tweetaform/
 ├── scripts/
 │   ├── package.json
 │   └── seed_firestore.js
+├── firestore.rules
 └── docs/
     ├── tracker_contenido_ingles.xlsx      # mapa de las 64 unidades, banco de 550, especificaciones
     ├── muestra_4_niveles.md               # unidades piloto en formato legible
     └── produccion_audio_imagenes.md       # scripts para ElevenLabs y prompts para Firefly, con nombre de archivo exacto de cada uno
 ```
 
-**Convención de nombres:** el nombre de cada archivo de audio/imagen (ej. `A1-01_listening_1.mp3`, `A1-01_vocab_teacher.png`) coincide exactamente con lo referenciado dentro de `unit.json` — así el script de carga los conecta automáticamente sin renombrar nada.
+**Convención de nombres:** cada archivo de audio/imagen lleva el prefijo de su unidad en el nombre (ej. `A1-01_listening_1.mp3`, `A1-01_vocab_teacher.png`) — por eso pueden vivir todos juntos en las mismas dos carpetas sin chocar entre sí. El nombre coincide exactamente con lo referenciado dentro de cada `unit.json`, así el script de carga los conecta automáticamente sin renombrar nada.
 
 ## Estado del contenido (nivel por nivel)
 

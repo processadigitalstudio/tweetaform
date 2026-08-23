@@ -33,21 +33,21 @@ const contentDir = path.join(__dirname, "..", "content");
 // AJUSTA esto si tu usuario/repo/rama son distintos:
 const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/processadigitalstudio/tweetaform/main/content";
 
-function githubUrlFor(unitId, subfolder, filename) {
+function githubUrlFor(subfolder, filename) {
   if (!filename) return null;
-  const localPath = path.join(contentDir, unitId, subfolder, filename);
+  const localPath = path.join(contentDir, subfolder, filename);
   if (!fs.existsSync(localPath)) {
     console.log(`    ⚠️  No encontrado localmente todavia: ${subfolder}/${filename} (¿ya lo pusiste en la carpeta?)`);
     return null;
   }
-  return `${GITHUB_RAW_BASE}/${unitId}/${subfolder}/${encodeURIComponent(filename)}`;
+  return `${GITHUB_RAW_BASE}/${subfolder}/${encodeURIComponent(filename)}`;
 }
 
 function processUnit(unitId, data) {
   if (Array.isArray(data.listening)) {
     for (const item of data.listening) {
       if (item.audio_file) {
-        const url = githubUrlFor(unitId, "audio", item.audio_file);
+        const url = githubUrlFor("audio", item.audio_file);
         if (url) item.audio_url = url;
       }
     }
@@ -56,7 +56,7 @@ function processUnit(unitId, data) {
   if (Array.isArray(data.vocabulary)) {
     for (const word of data.vocabulary) {
       if (word.image_file) {
-        const url = githubUrlFor(unitId, "images", word.image_file);
+        const url = githubUrlFor("images", word.image_file);
         if (url) word.image_url = url;
       }
     }
@@ -66,7 +66,7 @@ function processUnit(unitId, data) {
     if (Array.isArray(data[arrName])) {
       for (const item of data[arrName]) {
         if (item.image_file) {
-          const url = githubUrlFor(unitId, "images", item.image_file);
+          const url = githubUrlFor("images", item.image_file);
           if (url) item.image_url = url;
         }
       }
