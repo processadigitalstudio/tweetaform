@@ -30,16 +30,9 @@ A: Me too! Good luck, Andres.
 B: Thanks, Sofia. See you in class!
 ```
 
-**Archivo: `A1-01_listening_2.mp3`** *(nuevo — completa el patrón de 2 audios para A1)*
+**Archivo: `A1-01_listening_2.mp3`** *(MONÓLOGO — una sola voz narrando)*
 ```
-A: Hello! Are you our new neighbor?
-B: Yes, I am! My name is Laura.
-A: Nice to meet you, Laura. I'm Pedro.
-B: Nice to meet you too, Pedro. Is this your family?
-A: Yes, this is my wife, Ana, and this is our friend, Carlos.
-B: Hello, Ana. Hello, Carlos. Where are you all from?
-A: We are from Sincelejo. Where are you from?
-B: I'm from Cartagena. I'm very happy to be here!
+Let me tell you about my new neighbor. Her name is Laura, and she is from Cartagena. Yesterday, she came to say hello to my family. This is my wife, Ana, and this is our friend, Carlos — they are not from Cartagena, they are from Sincelejo, like me. Laura is very nice, and she is happy to be here. She says our street is quiet and friendly. I think Laura is going to be a great neighbor.
 ```
 
 ### Imágenes (guarda en `content/A1-01/images/`)
@@ -154,15 +147,9 @@ B: That's fine. Thank you.
 A: You're welcome. Please put on your seatbelt.
 ```
 
-**Archivo: `A1-02_listening_2.mp3`**
+**Archivo: `A1-02_listening_2.mp3`** *(MONÓLOGO — una sola voz narrando)*
 ```
-A: Are you OK? You look tired.
-B: I'm fine, but I missed my bus this morning!
-A: Oh no! What did you do?
-B: I took a taxi instead. It was expensive, but I couldn't be late for work.
-A: That's smart. Is the traffic bad today?
-B: Yes, it is. There are a lot of cars on the road.
-A: Well, at least you arrived on time!
+This morning was not easy for me. I missed my bus, so I had to take a taxi instead. It was expensive, but I couldn't be late for work. There was a lot of traffic on the road, so the taxi driver had to take a different street. I was very nervous, but I arrived on time! Next time, I want to leave my house earlier so I don't miss the bus again.
 ```
 
 ### Imágenes (guarda en `content/A1-02/images/`)
@@ -192,15 +179,9 @@ A: Perfect choice! It will be ready in fifteen minutes.
 B: Thank you very much.
 ```
 
-**Archivo: `A1-03_listening_2.mp3`**
+**Archivo: `A1-03_listening_2.mp3`** *(MONÓLOGO — una sola voz narrando)*
 ```
-A: Excuse me, can we have the bill, please?
-B: Of course! Was everything delicious?
-A: Yes, it was! The fish was excellent, and the dessert was amazing.
-B: I'm happy to hear that. Here is your bill.
-A: Thank you. Do you accept cards?
-B: Yes, we do. Cash or card, it's your choice.
-A: I'll pay with a card, please.
+Last night, I had dinner at a new restaurant with my family. The food was delicious! I ordered fish, and it was excellent. For dessert, we had chocolate cake, and it was amazing too. At the end, we asked for the bill. It wasn't very expensive, so we were happy. The restaurant accepts cash and cards, so I paid with my card. I think we are going back to that restaurant very soon.
 ```
 
 ### Imágenes (guarda en `content/A1-03/images/`)
@@ -230,16 +211,9 @@ A: Thank you. This information is very helpful.
 B: I hope you find him soon.
 ```
 
-**Archivo: `A1-04_listening_2.mp3`**
+**Archivo: `A1-04_listening_2.mp3`** *(MONÓLOGO — una sola voz narrando)*
 ```
-A: Hello, I want to report a stolen phone.
-B: OK. Is this your first time reporting a crime?
-A: Yes, it is.
-B: Don't worry, I'll help you. Where did it happen?
-A: Near the restaurant on Main Street.
-B: Are you sure it was stolen, and not lost?
-A: Yes, I'm sure. I saw the thief take it from my table.
-B: OK, let's write a report right now.
+Yesterday was a strange day. I was having lunch near a restaurant on Main Street when someone stole my phone right from my table! I saw the thief, but he ran away very fast. This was my first time reporting a crime, so I was a little nervous. I went to the police station right away. The officer was very helpful, and we wrote a report together. I hope the police find my phone soon.
 ```
 
 ### Imágenes (guarda en `content/A1-04/images/`)
@@ -268,15 +242,9 @@ B: Wow, that's impressive. Is the exhibition free?
 A: No, it isn't, but it's not expensive.
 ```
 
-**Archivo: `A1-05_listening_2.mp3`**
+**Archivo: `A1-05_listening_2.mp3`** *(MONÓLOGO — una sola voz narrando)*
 ```
-A: Are you going to the concert tonight?
-B: Yes, I am! I'm really excited.
-A: Is the band popular?
-B: Yes, they're very famous! It's their first concert here.
-A: Is it expensive?
-B: It isn't cheap, but it's worth it. Are you coming too?
-A: I'm not sure yet, but I want to!
+Last weekend, I went to a concert, and it was amazing! The band is very famous, and it was their first concert in our city. I was really excited before the show. The tickets weren't cheap, but it was worth it. My friend wasn't sure about coming at first, but she came with me in the end. We had a great time together, and now I want to go to another concert soon.
 ```
 
 ### Imágenes (guarda en `content/A1-05/images/`)

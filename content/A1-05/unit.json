@@ -5,14 +5,25 @@
   "grammar_topic": "Verb to be: afirmativo, Yes/No questions y contractions",
   "vocab_theme": "Arte, música, entretenimiento",
   "can_do": "Puede describir personas/situaciones sencillas y hablar de entretenimiento",
-
   "grammar_explanation": {
     "language": "es",
     "core_rule": "Las contracciones combinan el pronombre y el verbo 'to be' en una sola palabra (I am → I'm). Las preguntas Yes/No con 'to be' invierten el orden: el verbo va antes del sujeto.",
     "structure_notes": [
-      { "label": "Contracciones afirmativas", "explanation": "I'm, you're, he's, she's, it's, we're, they're.", "example": "She's a painter." },
-      { "label": "Contracciones negativas", "explanation": "isn't, aren't ('am not' no se contrae, se dice 'I'm not').", "example": "They're not musicians. / They aren't musicians." },
-      { "label": "Preguntas Yes/No", "explanation": "Verbo + sujeto + resto de la oración.", "example": "Is she an artist? Are they musicians?" }
+      {
+        "label": "Contracciones afirmativas",
+        "explanation": "I'm, you're, he's, she's, it's, we're, they're.",
+        "example": "She's a painter."
+      },
+      {
+        "label": "Contracciones negativas",
+        "explanation": "isn't, aren't ('am not' no se contrae, se dice 'I'm not').",
+        "example": "They're not musicians. / They aren't musicians."
+      },
+      {
+        "label": "Preguntas Yes/No",
+        "explanation": "Verbo + sujeto + resto de la oración.",
+        "example": "Is she an artist? Are they musicians?"
+      }
     ],
     "examples": [
       "She's a painter.",
@@ -22,83 +33,398 @@
     ],
     "common_mistake": "Intentar contraer 'am not' como 'amn't' — esa forma no existe, se dice 'I'm not'."
   },
-
   "grammar_practice": [
-    { "type": "fill_blank", "q": "She ___ a painter. (contracción de 'is')", "answer": "'s" },
-    { "type": "fill_blank", "q": "They ___ musicians. (contracción de 'are')", "answer": "'re" },
-    { "type": "fill_blank", "q": "I ___ an art student. (contracción de 'am')", "answer": "'m" },
-    { "type": "fill_blank", "q": "___ she an artist? (pregunta)", "answer": "Is" },
-    { "type": "fill_blank", "q": "___ they musicians? (pregunta)", "answer": "Are" },
-    { "type": "fill_blank", "q": "He ___ not a singer. (contracción negativa de 'is not')", "answer": "isn't" },
-    { "type": "fill_blank", "q": "We ___ not at the concert. (contracción negativa de 'are not')", "answer": "aren't" },
-    { "type": "fill_blank", "q": "___ this movie popular? (pregunta)", "answer": "Is" },
-    { "type": "fill_blank", "q": "It ___ a famous painting. (contracción de 'is')", "answer": "'s" },
-    { "type": "fill_blank", "q": "___ you an actor? (pregunta)", "answer": "Are" },
-    { "type": "mcq", "q": "_____ a talented artist.", "options": ["She's", "She are", "She am"], "answer": "She's" },
-    { "type": "mcq", "q": "_____ this song popular?", "options": ["Is", "Are", "Am"], "answer": "Is" },
-    { "type": "mcq", "q": "_____ musicians in a famous band.", "options": ["They're", "They's", "They am"], "answer": "They're" },
-    { "type": "mcq", "q": "_____ you an art student?", "options": ["Is", "Are", "Am"], "answer": "Are" },
-    { "type": "mcq", "q": "He _____ a singer, he's an actor.", "options": ["isn't", "aren't", "amn't"], "answer": "isn't" },
-    { "type": "mcq", "q": "_____ not at the museum today.", "options": ["We're", "We aren't", "We isn't"], "answer": "We aren't" },
-    { "type": "true_false", "q": "'Amn't' is a correct contraction of 'am not'.", "answer": false },
-    { "type": "true_false", "q": "'She's' can mean 'she is' or 'she has'.", "answer": true },
-    { "type": "matching", "q": "Empareja la forma completa con su contracción", "pairs": [
-      { "left": "she is", "right": "she's" },
-      { "left": "they are", "right": "they're" },
-      { "left": "is not", "right": "isn't" }
-    ]},
-    { "type": "order_words", "q": "Ordena la oración:", "words": ["popular?", "this", "Is", "song"], "answer": "Is this song popular?" }
+    {
+      "type": "fill_blank",
+      "q": "She ___ a painter. (contracción de 'is')",
+      "answer": "'s"
+    },
+    {
+      "type": "fill_blank",
+      "q": "They ___ musicians. (contracción de 'are')",
+      "answer": "'re"
+    },
+    {
+      "type": "fill_blank",
+      "q": "I ___ an art student. (contracción de 'am')",
+      "answer": "'m"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ she an artist? (pregunta)",
+      "answer": "Is"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ they musicians? (pregunta)",
+      "answer": "Are"
+    },
+    {
+      "type": "fill_blank",
+      "q": "He ___ not a singer. (contracción negativa de 'is not')",
+      "answer": "isn't"
+    },
+    {
+      "type": "fill_blank",
+      "q": "We ___ not at the concert. (contracción negativa de 'are not')",
+      "answer": "aren't"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ this movie popular? (pregunta)",
+      "answer": "Is"
+    },
+    {
+      "type": "fill_blank",
+      "q": "It ___ a famous painting. (contracción de 'is')",
+      "answer": "'s"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ you an actor? (pregunta)",
+      "answer": "Are"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ a talented artist.",
+      "options": [
+        "She's",
+        "She are",
+        "She am"
+      ],
+      "answer": "She's"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ this song popular?",
+      "options": [
+        "Is",
+        "Are",
+        "Am"
+      ],
+      "answer": "Is"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ musicians in a famous band.",
+      "options": [
+        "They're",
+        "They's",
+        "They am"
+      ],
+      "answer": "They're"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ you an art student?",
+      "options": [
+        "Is",
+        "Are",
+        "Am"
+      ],
+      "answer": "Are"
+    },
+    {
+      "type": "mcq",
+      "q": "He _____ a singer, he's an actor.",
+      "options": [
+        "isn't",
+        "aren't",
+        "amn't"
+      ],
+      "answer": "isn't"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ not at the museum today.",
+      "options": [
+        "We're",
+        "We aren't",
+        "We isn't"
+      ],
+      "answer": "We aren't"
+    },
+    {
+      "type": "true_false",
+      "q": "'Amn't' is a correct contraction of 'am not'.",
+      "answer": false
+    },
+    {
+      "type": "true_false",
+      "q": "'She's' can mean 'she is' or 'she has'.",
+      "answer": true
+    },
+    {
+      "type": "matching",
+      "q": "Empareja la forma completa con su contracción",
+      "pairs": [
+        {
+          "left": "she is",
+          "right": "she's"
+        },
+        {
+          "left": "they are",
+          "right": "they're"
+        },
+        {
+          "left": "is not",
+          "right": "isn't"
+        }
+      ]
+    },
+    {
+      "type": "order_words",
+      "q": "Ordena la oración:",
+      "words": [
+        "popular?",
+        "this",
+        "Is",
+        "song"
+      ],
+      "answer": "Is this song popular?"
+    }
   ],
-
   "vocabulary": [
-    { "word": "painting", "meaning": "pintura (obra)", "example": "This painting is very famous.", "has_image": true, "image_file": "A1-05_vocab_painting.png" },
-    { "word": "artist", "meaning": "artista", "example": "She is a talented artist." },
-    { "word": "museum", "meaning": "museo", "example": "We visited the art museum.", "has_image": true, "image_file": "A1-05_vocab_museum.png" },
-    { "word": "song", "meaning": "canción", "example": "This is my favorite song." },
-    { "word": "concert", "meaning": "concierto", "example": "The concert was amazing.", "has_image": true, "image_file": "A1-05_vocab_concert.png" },
-    { "word": "band", "meaning": "banda/grupo musical", "example": "They are in a rock band." },
-    { "word": "actor / actress", "meaning": "actor/actriz", "example": "He is a famous actor." },
-    { "word": "movie", "meaning": "película", "example": "This movie is very popular.", "has_image": true, "image_file": "A1-05_vocab_movie.png" },
-    { "word": "exhibition", "meaning": "exhibición/exposición", "example": "The exhibition is at the museum." },
-    { "word": "famous", "meaning": "famoso/a", "example": "She is a famous singer." },
-    { "word": "talented", "meaning": "talentoso/a", "example": "He is very talented." },
-    { "word": "to perform", "meaning": "actuar/presentarse", "example": "They perform every weekend." }
+    {
+      "word": "painting",
+      "meaning": "pintura (obra)",
+      "example": "This painting is very famous.",
+      "has_image": true,
+      "image_file": "A1-05_vocab_painting.png"
+    },
+    {
+      "word": "artist",
+      "meaning": "artista",
+      "example": "She is a talented artist."
+    },
+    {
+      "word": "museum",
+      "meaning": "museo",
+      "example": "We visited the art museum.",
+      "has_image": true,
+      "image_file": "A1-05_vocab_museum.png"
+    },
+    {
+      "word": "song",
+      "meaning": "canción",
+      "example": "This is my favorite song."
+    },
+    {
+      "word": "concert",
+      "meaning": "concierto",
+      "example": "The concert was amazing.",
+      "has_image": true,
+      "image_file": "A1-05_vocab_concert.png"
+    },
+    {
+      "word": "band",
+      "meaning": "banda/grupo musical",
+      "example": "They are in a rock band."
+    },
+    {
+      "word": "actor / actress",
+      "meaning": "actor/actriz",
+      "example": "He is a famous actor."
+    },
+    {
+      "word": "movie",
+      "meaning": "película",
+      "example": "This movie is very popular.",
+      "has_image": true,
+      "image_file": "A1-05_vocab_movie.png"
+    },
+    {
+      "word": "exhibition",
+      "meaning": "exhibición/exposición",
+      "example": "The exhibition is at the museum."
+    },
+    {
+      "word": "famous",
+      "meaning": "famoso/a",
+      "example": "She is a famous singer."
+    },
+    {
+      "word": "talented",
+      "meaning": "talentoso/a",
+      "example": "He is very talented."
+    },
+    {
+      "word": "to perform",
+      "meaning": "actuar/presentarse",
+      "example": "They perform every weekend."
+    }
   ],
-
   "vocab_practice": [
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-05_vocab_painting.png", "options": ["Painting", "Movie", "Concert"], "answer": "Painting" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-05_vocab_museum.png", "options": ["Museum", "Restaurant", "School"], "answer": "Museum" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-05_vocab_concert.png", "options": ["Concert", "Exhibition", "Museum"], "answer": "Concert" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-05_vocab_movie.png", "options": ["Movie", "Painting", "Song"], "answer": "Movie" },
-    { "type": "mcq", "q": "Where do you go to see paintings?", "options": ["The concert", "The museum", "The movie theater"], "answer": "The museum" },
-    { "type": "fill_blank", "q": "They are in a rock ___. (grupo musical)", "answer": "band" },
-    { "type": "matching", "q": "Empareja la palabra con su significado", "pairs": [
-      { "left": "famous", "right": "famoso" },
-      { "left": "talented", "right": "talentoso" },
-      { "left": "to perform", "right": "actuar" }
-    ]},
-    { "type": "true_false", "q": "An 'exhibition' is a type of song.", "answer": false },
-    { "type": "mcq", "q": "Who acts in movies?", "options": ["An artist", "An actor", "A band"], "answer": "An actor" },
-    { "type": "fill_blank", "q": "This ___ is very famous. (obra de arte)", "answer": "painting" },
-    { "type": "true_false", "q": "A 'concert' is a live music event.", "answer": true },
-    { "type": "mcq", "q": "Which word describes someone with a lot of skill?", "options": ["Famous", "Talented", "Popular"], "answer": "Talented" },
-    { "type": "matching", "q": "Empareja la persona con su actividad", "pairs": [
-      { "left": "artist", "right": "paints" },
-      { "left": "actor", "right": "performs in movies" }
-    ]}
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-05_vocab_painting.png",
+      "options": [
+        "Painting",
+        "Movie",
+        "Concert"
+      ],
+      "answer": "Painting"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-05_vocab_museum.png",
+      "options": [
+        "Museum",
+        "Restaurant",
+        "School"
+      ],
+      "answer": "Museum"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-05_vocab_concert.png",
+      "options": [
+        "Concert",
+        "Exhibition",
+        "Museum"
+      ],
+      "answer": "Concert"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-05_vocab_movie.png",
+      "options": [
+        "Movie",
+        "Painting",
+        "Song"
+      ],
+      "answer": "Movie"
+    },
+    {
+      "type": "mcq",
+      "q": "Where do you go to see paintings?",
+      "options": [
+        "The concert",
+        "The museum",
+        "The movie theater"
+      ],
+      "answer": "The museum"
+    },
+    {
+      "type": "fill_blank",
+      "q": "They are in a rock ___. (grupo musical)",
+      "answer": "band"
+    },
+    {
+      "type": "matching",
+      "q": "Empareja la palabra con su significado",
+      "pairs": [
+        {
+          "left": "famous",
+          "right": "famoso"
+        },
+        {
+          "left": "talented",
+          "right": "talentoso"
+        },
+        {
+          "left": "to perform",
+          "right": "actuar"
+        }
+      ]
+    },
+    {
+      "type": "true_false",
+      "q": "An 'exhibition' is a type of song.",
+      "answer": false
+    },
+    {
+      "type": "mcq",
+      "q": "Who acts in movies?",
+      "options": [
+        "An artist",
+        "An actor",
+        "A band"
+      ],
+      "answer": "An actor"
+    },
+    {
+      "type": "fill_blank",
+      "q": "This ___ is very famous. (obra de arte)",
+      "answer": "painting"
+    },
+    {
+      "type": "true_false",
+      "q": "A 'concert' is a live music event.",
+      "answer": true
+    },
+    {
+      "type": "mcq",
+      "q": "Which word describes someone with a lot of skill?",
+      "options": [
+        "Famous",
+        "Talented",
+        "Popular"
+      ],
+      "answer": "Talented"
+    },
+    {
+      "type": "matching",
+      "q": "Empareja la persona con su actividad",
+      "pairs": [
+        {
+          "left": "artist",
+          "right": "paints"
+        },
+        {
+          "left": "actor",
+          "right": "performs in movies"
+        }
+      ]
+    }
   ],
-
   "reading": [
     {
       "title": "A Visit to the Museum",
       "word_count": 93,
       "text": "Yesterday, my class visited the city's art museum. There is a new exhibition of paintings from local artists. Our teacher says the artist is very talented and famous in Colombia. One painting is very big and colorful. Is it popular? Yes, it is! Many people take photos next to it. My friend Sara is an art student, and she loves this museum. She says she wants to be an artist too. The museum isn't far from our school, so we walk there every year. It's one of my favorite places to visit.",
       "questions": [
-        { "q": "What did the class visit?", "type": "mcq", "options": ["A concert", "A museum", "A movie theater", "A restaurant"], "answer": "A museum" },
-        { "q": "Is the artist famous?", "type": "true_false", "answer": true },
-        { "q": "Who wants to be an artist?", "type": "mcq", "options": ["The teacher", "Sara", "The writer", "Nobody"], "answer": "Sara" },
-        { "q": "Is the museum far from the school?", "type": "true_false", "answer": false },
-        { "q": "___ this painting popular? (completa)", "type": "fill_blank", "answer": "Is" }
+        {
+          "q": "What did the class visit?",
+          "type": "mcq",
+          "options": [
+            "A concert",
+            "A museum",
+            "A movie theater",
+            "A restaurant"
+          ],
+          "answer": "A museum"
+        },
+        {
+          "q": "Is the artist famous?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "Who wants to be an artist?",
+          "type": "mcq",
+          "options": [
+            "The teacher",
+            "Sara",
+            "The writer",
+            "Nobody"
+          ],
+          "answer": "Sara"
+        },
+        {
+          "q": "Is the museum far from the school?",
+          "type": "true_false",
+          "answer": false
+        },
+        {
+          "q": "___ this painting popular? (completa)",
+          "type": "fill_blank",
+          "answer": "Is"
+        }
       ]
     },
     {
@@ -106,15 +432,46 @@
       "word_count": 89,
       "text": "My favorite band is called Luna Nueva. They're from Barranquilla, and they're very talented. Their songs are popular all over Colombia. I'm a big fan, and I have all their music. Last month, they performed at a big concert in my city. It wasn't cheap, but it was worth it! The singer is famous, but she's very humble too. My sister isn't a fan of their music, but she came with me anyway. It was an amazing night, and I hope they perform here again soon.",
       "questions": [
-        { "q": "Where is the band from?", "type": "mcq", "options": ["Cartagena", "Barranquilla", "Bogotá", "Sincelejo"], "answer": "Barranquilla" },
-        { "q": "Are the band's songs popular?", "type": "true_false", "answer": true },
-        { "q": "Is the singer humble?", "type": "true_false", "answer": true },
-        { "q": "Is the writer's sister a fan of the band?", "type": "mcq", "options": ["Yes, a big fan", "No, but she went anyway", "She's the singer", "She doesn't know them"], "answer": "No, but she went anyway" },
-        { "q": "They're ___ Barranquilla. (completa la preposición)", "type": "fill_blank", "answer": "from" }
+        {
+          "q": "Where is the band from?",
+          "type": "mcq",
+          "options": [
+            "Cartagena",
+            "Barranquilla",
+            "Bogotá",
+            "Sincelejo"
+          ],
+          "answer": "Barranquilla"
+        },
+        {
+          "q": "Are the band's songs popular?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "Is the singer humble?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "Is the writer's sister a fan of the band?",
+          "type": "mcq",
+          "options": [
+            "Yes, a big fan",
+            "No, but she went anyway",
+            "She's the singer",
+            "She doesn't know them"
+          ],
+          "answer": "No, but she went anyway"
+        },
+        {
+          "q": "They're ___ Barranquilla. (completa la preposición)",
+          "type": "fill_blank",
+          "answer": "from"
+        }
       ]
     }
   ],
-
   "listening": [
     {
       "title": "At the Art Exhibition",
@@ -122,34 +479,117 @@
       "audio_file": "A1-05_listening_1.mp3",
       "transcript": "A: Is this your first time at this exhibition?\nB: Yes, it is! The paintings are amazing.\nA: I agree. This artist is very talented.\nB: Is she famous in other countries too?\nA: Yes, she is! She's very popular in Europe.\nB: Wow, that's impressive. Is the exhibition free?\nA: No, it isn't, but it's not expensive.",
       "questions": [
-        { "q": "Is this the person's first time at the exhibition?", "type": "true_false", "answer": true },
-        { "q": "Is the artist famous only in Colombia?", "type": "mcq", "options": ["Yes, only in Colombia", "No, also in Europe", "No, she's not famous", "It doesn't say"], "answer": "No, also in Europe" },
-        { "q": "Is the exhibition free?", "type": "true_false", "answer": false },
-        { "q": "How does speaker B describe the paintings?", "type": "mcq", "options": ["Boring", "Amazing", "Small", "Expensive"], "answer": "Amazing" },
-        { "q": "Is the exhibition very expensive?", "type": "true_false", "answer": false },
-        { "q": "Is the exhibition ___? (completa)", "type": "fill_blank", "answer": "free" },
-        { "q": "Empareja quién dice qué", "type": "matching", "pairs": [
-          { "left": "Is the exhibition free?", "right": "El visitante nuevo" },
-          { "left": "She's very popular in Europe.", "right": "El visitante que ya sabe" }
-        ]}
-      ]
+        {
+          "q": "Is this the person's first time at the exhibition?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "Is the artist famous only in Colombia?",
+          "type": "mcq",
+          "options": [
+            "Yes, only in Colombia",
+            "No, also in Europe",
+            "No, she's not famous",
+            "It doesn't say"
+          ],
+          "answer": "No, also in Europe"
+        },
+        {
+          "q": "Is the exhibition free?",
+          "type": "true_false",
+          "answer": false
+        },
+        {
+          "q": "How does speaker B describe the paintings?",
+          "type": "mcq",
+          "options": [
+            "Boring",
+            "Amazing",
+            "Small",
+            "Expensive"
+          ],
+          "answer": "Amazing"
+        },
+        {
+          "q": "Is the exhibition very expensive?",
+          "type": "true_false",
+          "answer": false
+        },
+        {
+          "q": "Is the exhibition ___? (completa)",
+          "type": "fill_blank",
+          "answer": "free"
+        },
+        {
+          "q": "Empareja quién dice qué",
+          "type": "matching",
+          "pairs": [
+            {
+              "left": "Is the exhibition free?",
+              "right": "El visitante nuevo"
+            },
+            {
+              "left": "She's very popular in Europe.",
+              "right": "El visitante que ya sabe"
+            }
+          ]
+        }
+      ],
+      "format": "dialogue"
     },
     {
-      "title": "Talking About a Concert",
+      "title": "My Favorite Concert",
       "duration_seconds_estimate": 27,
       "audio_file": "A1-05_listening_2.mp3",
-      "transcript": "A: Are you going to the concert tonight?\nB: Yes, I am! I'm really excited.\nA: Is the band popular?\nB: Yes, they're very famous! It's their first concert here.\nA: Is it expensive?\nB: It isn't cheap, but it's worth it. Are you coming too?\nA: I'm not sure yet, but I want to!",
+      "transcript": "Last weekend, I went to a concert, and it was amazing! The band is very famous, and it was their first concert in our city. I was really excited before the show. The tickets weren't cheap, but it was worth it. My friend wasn't sure about coming at first, but she came with me in the end. We had a great time together, and now I want to go to another concert soon.",
       "questions": [
-        { "q": "Is speaker B going to the concert?", "type": "true_false", "answer": true },
-        { "q": "Is the band famous?", "type": "true_false", "answer": true },
-        { "q": "Is this the band's first concert here?", "type": "mcq", "options": ["Yes", "No", "It's their last one", "They don't say"], "answer": "Yes" },
-        { "q": "Is the ticket cheap?", "type": "true_false", "answer": false },
-        { "q": "Is speaker A sure about going?", "type": "mcq", "options": ["Yes, very sure", "No, not sure yet", "No, they can't go", "Yes, they already bought a ticket"], "answer": "No, not sure yet" },
-        { "q": "It isn't ___, but it's worth it. (completa)", "type": "fill_blank", "answer": "cheap" }
-      ]
+        {
+          "q": "Did the speaker go to a concert?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "Is the band famous?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "Was this the band's first concert in the city?",
+          "type": "mcq",
+          "options": [
+            "Yes",
+            "No",
+            "It doesn't say",
+            "They don't know"
+          ],
+          "answer": "Yes"
+        },
+        {
+          "q": "Were the tickets cheap?",
+          "type": "true_false",
+          "answer": false
+        },
+        {
+          "q": "Was the speaker's friend sure about coming at first?",
+          "type": "mcq",
+          "options": [
+            "Yes, very sure",
+            "No, not at first",
+            "She refused to come",
+            "She bought the tickets"
+          ],
+          "answer": "No, not at first"
+        },
+        {
+          "q": "The tickets ___ cheap, but it was worth it. (completa con weren't/wasn't)",
+          "type": "fill_blank",
+          "answer": "weren't"
+        }
+      ],
+      "format": "monologue"
     }
   ],
-
   "writing": {
     "text_type": "descripción de un artista/canción/película favorita",
     "target_word_count": "3-5 oraciones",
@@ -158,42 +598,212 @@
       "es": "Describe tu artista, canción o película favorita. Escribe de 3 a 5 oraciones usando contracciones con 'to be' (he's, they're, isn't, etc.)."
     },
     "rubric": [
-      { "criterio": "Cumple la tarea", "descripcion": "Describe claramente un artista, canción o película." },
-      { "criterio": "Uso de contracciones", "descripcion": "Usa al menos 2 contracciones con to be correctamente." },
-      { "criterio": "Vocabulario de la unidad", "descripcion": "Usa al menos 2 palabras de la lista." },
-      { "criterio": "Coherencia", "descripcion": "Las oraciones tienen sentido y se conectan." }
+      {
+        "criterio": "Cumple la tarea",
+        "descripcion": "Describe claramente un artista, canción o película."
+      },
+      {
+        "criterio": "Uso de contracciones",
+        "descripcion": "Usa al menos 2 contracciones con to be correctamente."
+      },
+      {
+        "criterio": "Vocabulario de la unidad",
+        "descripcion": "Usa al menos 2 palabras de la lista."
+      },
+      {
+        "criterio": "Coherencia",
+        "descripcion": "Las oraciones tienen sentido y se conectan."
+      }
     ]
   },
-
   "quiz_pool": [
-    { "type": "mcq", "q": "_____ a talented artist.", "options": ["She's", "She are", "She am"], "answer": "She's" },
-    { "type": "mcq", "q": "_____ this song popular?", "options": ["Is", "Are", "Am"], "answer": "Is" },
-    { "type": "fill_blank", "q": "They ___ musicians. (contracción de are)", "answer": "'re" },
-    { "type": "fill_blank", "q": "He ___ not a singer. (contracción negativa)", "answer": "isn't" },
-    { "type": "true_false", "q": "'Amn't' is a correct contraction.", "answer": false },
-    { "type": "true_false", "q": "An 'exhibition' is a type of song.", "answer": false },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-05_vocab_museum.png", "options": ["Museum", "Restaurant", "School"], "answer": "Museum" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-05_vocab_concert.png", "options": ["Concert", "Exhibition", "Museum"], "answer": "Concert" },
-    { "type": "mcq", "q": "Where do you go to see paintings?", "options": ["The concert", "The museum", "The movie theater"], "answer": "The museum" },
-    { "type": "fill_blank", "q": "They are in a rock ___.", "answer": "band" },
-    { "type": "matching", "q": "Empareja la forma completa con su contracción", "pairs": [
-      { "left": "she is", "right": "she's" },
-      { "left": "is not", "right": "isn't" }
-    ]},
-    { "type": "order_words", "q": "Ordena la oración:", "words": ["popular?", "this", "Is", "song"], "answer": "Is this song popular?" },
-    { "type": "mcq", "q": "Who acts in movies?", "options": ["An artist", "An actor", "A band"], "answer": "An actor" },
-    { "type": "mcq", "q": "Which word describes someone with a lot of skill?", "options": ["Famous", "Talented", "Popular"], "answer": "Talented" },
-    { "type": "fill_blank", "q": "___ they musicians? (pregunta)", "answer": "Are" },
-    { "type": "true_false", "q": "'She's' can mean 'she is' or 'she has'.", "answer": true },
-    { "type": "mcq", "q": "_____ not at the museum today.", "options": ["We're", "We aren't", "We isn't"], "answer": "We aren't" },
-    { "type": "matching", "q": "Empareja la persona con su actividad", "pairs": [
-      { "left": "artist", "right": "paints" },
-      { "left": "actor", "right": "performs in movies" }
-    ]},
-    { "type": "true_false", "q": "A 'concert' is a live music event.", "answer": true },
-    { "type": "fill_blank", "q": "It ___ a famous painting. (contracción de is)", "answer": "'s" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-05_vocab_movie.png", "options": ["Movie", "Painting", "Song"], "answer": "Movie" },
-    { "type": "mcq", "q": "_____ musicians in a famous band.", "options": ["They're", "They's", "They am"], "answer": "They're" }
+    {
+      "type": "mcq",
+      "q": "_____ a talented artist.",
+      "options": [
+        "She's",
+        "She are",
+        "She am"
+      ],
+      "answer": "She's"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ this song popular?",
+      "options": [
+        "Is",
+        "Are",
+        "Am"
+      ],
+      "answer": "Is"
+    },
+    {
+      "type": "fill_blank",
+      "q": "They ___ musicians. (contracción de are)",
+      "answer": "'re"
+    },
+    {
+      "type": "fill_blank",
+      "q": "He ___ not a singer. (contracción negativa)",
+      "answer": "isn't"
+    },
+    {
+      "type": "true_false",
+      "q": "'Amn't' is a correct contraction.",
+      "answer": false
+    },
+    {
+      "type": "true_false",
+      "q": "An 'exhibition' is a type of song.",
+      "answer": false
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-05_vocab_museum.png",
+      "options": [
+        "Museum",
+        "Restaurant",
+        "School"
+      ],
+      "answer": "Museum"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-05_vocab_concert.png",
+      "options": [
+        "Concert",
+        "Exhibition",
+        "Museum"
+      ],
+      "answer": "Concert"
+    },
+    {
+      "type": "mcq",
+      "q": "Where do you go to see paintings?",
+      "options": [
+        "The concert",
+        "The museum",
+        "The movie theater"
+      ],
+      "answer": "The museum"
+    },
+    {
+      "type": "fill_blank",
+      "q": "They are in a rock ___.",
+      "answer": "band"
+    },
+    {
+      "type": "matching",
+      "q": "Empareja la forma completa con su contracción",
+      "pairs": [
+        {
+          "left": "she is",
+          "right": "she's"
+        },
+        {
+          "left": "is not",
+          "right": "isn't"
+        }
+      ]
+    },
+    {
+      "type": "order_words",
+      "q": "Ordena la oración:",
+      "words": [
+        "popular?",
+        "this",
+        "Is",
+        "song"
+      ],
+      "answer": "Is this song popular?"
+    },
+    {
+      "type": "mcq",
+      "q": "Who acts in movies?",
+      "options": [
+        "An artist",
+        "An actor",
+        "A band"
+      ],
+      "answer": "An actor"
+    },
+    {
+      "type": "mcq",
+      "q": "Which word describes someone with a lot of skill?",
+      "options": [
+        "Famous",
+        "Talented",
+        "Popular"
+      ],
+      "answer": "Talented"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ they musicians? (pregunta)",
+      "answer": "Are"
+    },
+    {
+      "type": "true_false",
+      "q": "'She's' can mean 'she is' or 'she has'.",
+      "answer": true
+    },
+    {
+      "type": "mcq",
+      "q": "_____ not at the museum today.",
+      "options": [
+        "We're",
+        "We aren't",
+        "We isn't"
+      ],
+      "answer": "We aren't"
+    },
+    {
+      "type": "matching",
+      "q": "Empareja la persona con su actividad",
+      "pairs": [
+        {
+          "left": "artist",
+          "right": "paints"
+        },
+        {
+          "left": "actor",
+          "right": "performs in movies"
+        }
+      ]
+    },
+    {
+      "type": "true_false",
+      "q": "A 'concert' is a live music event.",
+      "answer": true
+    },
+    {
+      "type": "fill_blank",
+      "q": "It ___ a famous painting. (contracción de is)",
+      "answer": "'s"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-05_vocab_movie.png",
+      "options": [
+        "Movie",
+        "Painting",
+        "Song"
+      ],
+      "answer": "Movie"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ musicians in a famous band.",
+      "options": [
+        "They're",
+        "They's",
+        "They am"
+      ],
+      "answer": "They're"
+    }
   ],
   "quiz_draw_count": 15
 }

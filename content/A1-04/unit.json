@@ -5,15 +5,30 @@
   "grammar_topic": "Be: short answers; this/that/these/those",
   "vocab_theme": "Crimen, policía, situaciones legales básicas",
   "can_do": "Puede responder preguntas simples, identificar objetos y hablar de situaciones relacionadas con delitos",
-
   "grammar_explanation": {
     "language": "es",
     "core_rule": "Las respuestas cortas con 'to be' repiten el verbo, no toda la oración ('Are you a witness? Yes, I am.'). Los demostrativos this/that/these/those señalan objetos: this/these para algo cerca, that/those para algo lejos; this/that son singulares, these/those son plurales.",
     "structure_notes": [
-      { "label": "Respuestas cortas afirmativas", "explanation": "Yes, + sujeto + am/is/are.", "example": "Is this your wallet? Yes, it is." },
-      { "label": "Respuestas cortas negativas", "explanation": "No, + sujeto + am not/isn't/aren't.", "example": "Are you a witness? No, I'm not." },
-      { "label": "this / that (singular)", "explanation": "'this' para algo cerca, 'that' para algo lejos.", "example": "This is my ID. That is the police station." },
-      { "label": "these / those (plural)", "explanation": "'these' para varios cerca, 'those' para varios lejos.", "example": "These are my keys. Those are the suspects." }
+      {
+        "label": "Respuestas cortas afirmativas",
+        "explanation": "Yes, + sujeto + am/is/are.",
+        "example": "Is this your wallet? Yes, it is."
+      },
+      {
+        "label": "Respuestas cortas negativas",
+        "explanation": "No, + sujeto + am not/isn't/aren't.",
+        "example": "Are you a witness? No, I'm not."
+      },
+      {
+        "label": "this / that (singular)",
+        "explanation": "'this' para algo cerca, 'that' para algo lejos.",
+        "example": "This is my ID. That is the police station."
+      },
+      {
+        "label": "these / those (plural)",
+        "explanation": "'these' para varios cerca, 'those' para varios lejos.",
+        "example": "These are my keys. Those are the suspects."
+      }
     ],
     "examples": [
       "Is this your wallet? Yes, it is.",
@@ -23,83 +38,405 @@
     ],
     "common_mistake": "Usar 'this/that' con sustantivos plurales — 'this bikes' es incorrecto, debe ser 'these bikes'."
   },
-
   "grammar_practice": [
-    { "type": "fill_blank", "q": "Is this your wallet? Yes, it ___.", "answer": "is" },
-    { "type": "fill_blank", "q": "Are you a witness? No, I'm ___.", "answer": "not" },
-    { "type": "fill_blank", "q": "Is he a police officer? Yes, he ___.", "answer": "is" },
-    { "type": "fill_blank", "q": "Are they suspects? No, they ___.", "answer": "aren't" },
-    { "type": "fill_blank", "q": "___ is my ID. (algo cerca, singular)", "answer": "This" },
-    { "type": "fill_blank", "q": "___ is the police station. (algo lejos, singular)", "answer": "That" },
-    { "type": "fill_blank", "q": "___ are my keys. (algo cerca, plural)", "answer": "These" },
-    { "type": "fill_blank", "q": "___ are the suspects over there. (algo lejos, plural)", "answer": "Those" },
-    { "type": "fill_blank", "q": "Is this a crime? Yes, it ___.", "answer": "is" },
-    { "type": "fill_blank", "q": "Are those his bikes? No, they ___.", "answer": "aren't" },
-    { "type": "mcq", "q": "Is this your wallet? Yes, it _____.", "options": ["am", "is", "are"], "answer": "is" },
-    { "type": "mcq", "q": "Are you a witness? No, I'm _____.", "options": ["not", "isn't", "aren't"], "answer": "not" },
-    { "type": "mcq", "q": "_____ is my ID card. (cerca, singular)", "options": ["This", "These", "Those"], "answer": "This" },
-    { "type": "mcq", "q": "_____ are the stolen bikes. (lejos, plural)", "options": ["That", "This", "Those"], "answer": "Those" },
-    { "type": "mcq", "q": "Is he a suspect? Yes, he _____.", "options": ["am", "is", "are"], "answer": "is" },
-    { "type": "mcq", "q": "_____ are my keys. (cerca, plural)", "options": ["This", "These", "That"], "answer": "These" },
-    { "type": "true_false", "q": "'These' is used for one object far away.", "answer": false },
-    { "type": "true_false", "q": "Short answers repeat the full sentence.", "answer": false },
-    { "type": "matching", "q": "Empareja el demostrativo con su uso", "pairs": [
-      { "left": "this", "right": "singular, cerca" },
-      { "left": "these", "right": "plural, cerca" },
-      { "left": "those", "right": "plural, lejos" }
-    ]},
-    { "type": "order_words", "q": "Ordena la oración:", "words": ["officer", "a", "police", "This", "is"], "answer": "This is a police officer" }
+    {
+      "type": "fill_blank",
+      "q": "Is this your wallet? Yes, it ___.",
+      "answer": "is"
+    },
+    {
+      "type": "fill_blank",
+      "q": "Are you a witness? No, I'm ___.",
+      "answer": "not"
+    },
+    {
+      "type": "fill_blank",
+      "q": "Is he a police officer? Yes, he ___.",
+      "answer": "is"
+    },
+    {
+      "type": "fill_blank",
+      "q": "Are they suspects? No, they ___.",
+      "answer": "aren't"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ is my ID. (algo cerca, singular)",
+      "answer": "This"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ is the police station. (algo lejos, singular)",
+      "answer": "That"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ are my keys. (algo cerca, plural)",
+      "answer": "These"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ are the suspects over there. (algo lejos, plural)",
+      "answer": "Those"
+    },
+    {
+      "type": "fill_blank",
+      "q": "Is this a crime? Yes, it ___.",
+      "answer": "is"
+    },
+    {
+      "type": "fill_blank",
+      "q": "Are those his bikes? No, they ___.",
+      "answer": "aren't"
+    },
+    {
+      "type": "mcq",
+      "q": "Is this your wallet? Yes, it _____.",
+      "options": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "is"
+    },
+    {
+      "type": "mcq",
+      "q": "Are you a witness? No, I'm _____.",
+      "options": [
+        "not",
+        "isn't",
+        "aren't"
+      ],
+      "answer": "not"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ is my ID card. (cerca, singular)",
+      "options": [
+        "This",
+        "These",
+        "Those"
+      ],
+      "answer": "This"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ are the stolen bikes. (lejos, plural)",
+      "options": [
+        "That",
+        "This",
+        "Those"
+      ],
+      "answer": "Those"
+    },
+    {
+      "type": "mcq",
+      "q": "Is he a suspect? Yes, he _____.",
+      "options": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "is"
+    },
+    {
+      "type": "mcq",
+      "q": "_____ are my keys. (cerca, plural)",
+      "options": [
+        "This",
+        "These",
+        "That"
+      ],
+      "answer": "These"
+    },
+    {
+      "type": "true_false",
+      "q": "'These' is used for one object far away.",
+      "answer": false
+    },
+    {
+      "type": "true_false",
+      "q": "Short answers repeat the full sentence.",
+      "answer": false
+    },
+    {
+      "type": "matching",
+      "q": "Empareja el demostrativo con su uso",
+      "pairs": [
+        {
+          "left": "this",
+          "right": "singular, cerca"
+        },
+        {
+          "left": "these",
+          "right": "plural, cerca"
+        },
+        {
+          "left": "those",
+          "right": "plural, lejos"
+        }
+      ]
+    },
+    {
+      "type": "order_words",
+      "q": "Ordena la oración:",
+      "words": [
+        "officer",
+        "a",
+        "police",
+        "This",
+        "is"
+      ],
+      "answer": "This is a police officer"
+    }
   ],
-
   "vocabulary": [
-    { "word": "police officer", "meaning": "policía (persona)", "example": "The police officer helped us.", "has_image": true, "image_file": "A1-04_vocab_police-officer.png" },
-    { "word": "crime", "meaning": "crimen/delito", "example": "This is a serious crime." },
-    { "word": "witness", "meaning": "testigo", "example": "She is a witness to the accident." },
-    { "word": "suspect", "meaning": "sospechoso/a", "example": "He is not a suspect." },
-    { "word": "to steal", "meaning": "robar", "example": "Someone tried to steal my bike." },
-    { "word": "thief", "meaning": "ladrón/ladrona", "example": "The thief ran away.", "has_image": true, "image_file": "A1-04_vocab_thief.png" },
-    { "word": "wallet", "meaning": "billetera", "example": "Is this your wallet?", "has_image": true, "image_file": "A1-04_vocab_wallet.png" },
-    { "word": "ID (identification)", "meaning": "identificación/cédula", "example": "Can I see your ID, please?" },
-    { "word": "stolen", "meaning": "robado", "example": "This bike is stolen." },
-    { "word": "safe / dangerous", "meaning": "seguro / peligroso", "example": "This neighborhood is very safe." },
-    { "word": "to report (a crime)", "meaning": "denunciar", "example": "We need to report this." },
-    { "word": "police station", "meaning": "estación de policía", "example": "That is the police station.", "has_image": true, "image_file": "A1-04_vocab_police-station.png" }
+    {
+      "word": "police officer",
+      "meaning": "policía (persona)",
+      "example": "The police officer helped us.",
+      "has_image": true,
+      "image_file": "A1-04_vocab_police-officer.png"
+    },
+    {
+      "word": "crime",
+      "meaning": "crimen/delito",
+      "example": "This is a serious crime."
+    },
+    {
+      "word": "witness",
+      "meaning": "testigo",
+      "example": "She is a witness to the accident."
+    },
+    {
+      "word": "suspect",
+      "meaning": "sospechoso/a",
+      "example": "He is not a suspect."
+    },
+    {
+      "word": "to steal",
+      "meaning": "robar",
+      "example": "Someone tried to steal my bike."
+    },
+    {
+      "word": "thief",
+      "meaning": "ladrón/ladrona",
+      "example": "The thief ran away.",
+      "has_image": true,
+      "image_file": "A1-04_vocab_thief.png"
+    },
+    {
+      "word": "wallet",
+      "meaning": "billetera",
+      "example": "Is this your wallet?",
+      "has_image": true,
+      "image_file": "A1-04_vocab_wallet.png"
+    },
+    {
+      "word": "ID (identification)",
+      "meaning": "identificación/cédula",
+      "example": "Can I see your ID, please?"
+    },
+    {
+      "word": "stolen",
+      "meaning": "robado",
+      "example": "This bike is stolen."
+    },
+    {
+      "word": "safe / dangerous",
+      "meaning": "seguro / peligroso",
+      "example": "This neighborhood is very safe."
+    },
+    {
+      "word": "to report (a crime)",
+      "meaning": "denunciar",
+      "example": "We need to report this."
+    },
+    {
+      "word": "police station",
+      "meaning": "estación de policía",
+      "example": "That is the police station.",
+      "has_image": true,
+      "image_file": "A1-04_vocab_police-station.png"
+    }
   ],
-
   "vocab_practice": [
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-04_vocab_police-officer.png", "options": ["Police officer", "Thief", "Witness"], "answer": "Police officer" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-04_vocab_thief.png", "options": ["Thief", "Suspect", "Witness"], "answer": "Thief" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-04_vocab_wallet.png", "options": ["Wallet", "ID", "Bill"], "answer": "Wallet" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-04_vocab_police-station.png", "options": ["Police station", "Restaurant", "School"], "answer": "Police station" },
-    { "type": "mcq", "q": "Who sees a crime happen?", "options": ["A thief", "A witness", "A police officer"], "answer": "A witness" },
-    { "type": "fill_blank", "q": "Someone tried to ___ my bike. (robar)", "answer": "steal" },
-    { "type": "matching", "q": "Empareja la palabra con su significado", "pairs": [
-      { "left": "suspect", "right": "sospechoso" },
-      { "left": "stolen", "right": "robado" },
-      { "left": "to report", "right": "denunciar" }
-    ]},
-    { "type": "true_false", "q": "A 'witness' commits the crime.", "answer": false },
-    { "type": "mcq", "q": "Where do you go to report a crime?", "options": ["The restaurant", "The police station", "The museum"], "answer": "The police station" },
-    { "type": "fill_blank", "q": "This neighborhood is very ___. (lo opuesto a peligroso)", "answer": "safe" },
-    { "type": "true_false", "q": "A 'thief' is a person who steals.", "answer": true },
-    { "type": "mcq", "q": "What do you show to prove who you are?", "options": ["Your wallet", "Your ID", "Your bike"], "answer": "Your ID" },
-    { "type": "matching", "q": "Empareja el opuesto", "pairs": [
-      { "left": "safe", "right": "dangerous" },
-      { "left": "witness", "right": "suspect" }
-    ]}
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-04_vocab_police-officer.png",
+      "options": [
+        "Police officer",
+        "Thief",
+        "Witness"
+      ],
+      "answer": "Police officer"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-04_vocab_thief.png",
+      "options": [
+        "Thief",
+        "Suspect",
+        "Witness"
+      ],
+      "answer": "Thief"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-04_vocab_wallet.png",
+      "options": [
+        "Wallet",
+        "ID",
+        "Bill"
+      ],
+      "answer": "Wallet"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-04_vocab_police-station.png",
+      "options": [
+        "Police station",
+        "Restaurant",
+        "School"
+      ],
+      "answer": "Police station"
+    },
+    {
+      "type": "mcq",
+      "q": "Who sees a crime happen?",
+      "options": [
+        "A thief",
+        "A witness",
+        "A police officer"
+      ],
+      "answer": "A witness"
+    },
+    {
+      "type": "fill_blank",
+      "q": "Someone tried to ___ my bike. (robar)",
+      "answer": "steal"
+    },
+    {
+      "type": "matching",
+      "q": "Empareja la palabra con su significado",
+      "pairs": [
+        {
+          "left": "suspect",
+          "right": "sospechoso"
+        },
+        {
+          "left": "stolen",
+          "right": "robado"
+        },
+        {
+          "left": "to report",
+          "right": "denunciar"
+        }
+      ]
+    },
+    {
+      "type": "true_false",
+      "q": "A 'witness' commits the crime.",
+      "answer": false
+    },
+    {
+      "type": "mcq",
+      "q": "Where do you go to report a crime?",
+      "options": [
+        "The restaurant",
+        "The police station",
+        "The museum"
+      ],
+      "answer": "The police station"
+    },
+    {
+      "type": "fill_blank",
+      "q": "This neighborhood is very ___. (lo opuesto a peligroso)",
+      "answer": "safe"
+    },
+    {
+      "type": "true_false",
+      "q": "A 'thief' is a person who steals.",
+      "answer": true
+    },
+    {
+      "type": "mcq",
+      "q": "What do you show to prove who you are?",
+      "options": [
+        "Your wallet",
+        "Your ID",
+        "Your bike"
+      ],
+      "answer": "Your ID"
+    },
+    {
+      "type": "matching",
+      "q": "Empareja el opuesto",
+      "pairs": [
+        {
+          "left": "safe",
+          "right": "dangerous"
+        },
+        {
+          "left": "witness",
+          "right": "suspect"
+        }
+      ]
+    }
   ],
-
   "reading": [
     {
       "title": "A Stolen Bicycle",
       "word_count": 94,
       "text": "Yesterday, Carlos's bicycle was stolen outside his house. He called the police right away. A police officer arrived quickly and asked questions. 'Is this your bicycle?' he asked, showing a photo. 'Yes, it is!' said Carlos. A neighbor was a witness — she saw a young man take the bicycle. 'Is he a suspect?' asked the officer. 'Yes, he is,' said the neighbor. 'I can describe him.' The officer wrote a report. Carlos was worried, but the officer said the neighborhood is usually very safe. Two days later, the police found the bicycle near the police station.",
       "questions": [
-        { "q": "What happened to Carlos's bicycle?", "type": "mcq", "options": ["It broke", "It was stolen", "He sold it", "He lost it"], "answer": "It was stolen" },
-        { "q": "Who saw the thief take the bicycle?", "type": "mcq", "options": ["Carlos", "A police officer", "A neighbor", "Nobody"], "answer": "A neighbor" },
-        { "q": "Is the neighborhood usually dangerous?", "type": "true_false", "answer": false },
-        { "q": "Where did the police find the bicycle?", "type": "mcq", "options": ["At Carlos's house", "Near the police station", "At school", "In a park"], "answer": "Near the police station" },
-        { "q": "Did the officer write a report?", "type": "true_false", "answer": true }
+        {
+          "q": "What happened to Carlos's bicycle?",
+          "type": "mcq",
+          "options": [
+            "It broke",
+            "It was stolen",
+            "He sold it",
+            "He lost it"
+          ],
+          "answer": "It was stolen"
+        },
+        {
+          "q": "Who saw the thief take the bicycle?",
+          "type": "mcq",
+          "options": [
+            "Carlos",
+            "A police officer",
+            "A neighbor",
+            "Nobody"
+          ],
+          "answer": "A neighbor"
+        },
+        {
+          "q": "Is the neighborhood usually dangerous?",
+          "type": "true_false",
+          "answer": false
+        },
+        {
+          "q": "Where did the police find the bicycle?",
+          "type": "mcq",
+          "options": [
+            "At Carlos's house",
+            "Near the police station",
+            "At school",
+            "In a park"
+          ],
+          "answer": "Near the police station"
+        },
+        {
+          "q": "Did the officer write a report?",
+          "type": "true_false",
+          "answer": true
+        }
       ]
     },
     {
@@ -107,15 +444,52 @@
       "word_count": 90,
       "text": "Ana lost her wallet yesterday. She went to the police station to report it. 'Is this your ID?' the officer asked, showing a wallet someone found. 'Yes, it is! Thank you so much!' said Ana. The officer explained that a taxi driver found the wallet and brought it to the station. Ana was very happy. She said the city is very safe because people help each other. The officer smiled and said, 'These are the good stories we like to hear.' Ana thanked the officer again and went home.",
       "questions": [
-        { "q": "What did Ana lose?", "type": "mcq", "options": ["Her ID card", "Her wallet", "Her bicycle", "Her phone"], "answer": "Her wallet" },
-        { "q": "Who found the wallet?", "type": "mcq", "options": ["A police officer", "A taxi driver", "A witness", "A thief"], "answer": "A taxi driver" },
-        { "q": "Was Ana happy?", "type": "true_false", "answer": true },
-        { "q": "What does Ana say about the city?", "type": "mcq", "options": ["It's dangerous", "It's very safe", "It's boring", "It's expensive"], "answer": "It's very safe" },
-        { "q": "___ is your ID? (completa)", "type": "fill_blank", "answer": "Is this" }
+        {
+          "q": "What did Ana lose?",
+          "type": "mcq",
+          "options": [
+            "Her ID card",
+            "Her wallet",
+            "Her bicycle",
+            "Her phone"
+          ],
+          "answer": "Her wallet"
+        },
+        {
+          "q": "Who found the wallet?",
+          "type": "mcq",
+          "options": [
+            "A police officer",
+            "A taxi driver",
+            "A witness",
+            "A thief"
+          ],
+          "answer": "A taxi driver"
+        },
+        {
+          "q": "Was Ana happy?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "What does Ana say about the city?",
+          "type": "mcq",
+          "options": [
+            "It's dangerous",
+            "It's very safe",
+            "It's boring",
+            "It's expensive"
+          ],
+          "answer": "It's very safe"
+        },
+        {
+          "q": "___ is your ID? (completa)",
+          "type": "fill_blank",
+          "answer": "Is this"
+        }
       ]
     }
   ],
-
   "listening": [
     {
       "title": "A Witness Interview",
@@ -123,34 +497,123 @@
       "audio_file": "A1-04_listening_1.mp3",
       "transcript": "A: Are you a witness to the crime?\nB: Yes, I am. I saw everything.\nA: Can you describe the suspect?\nB: Yes. He is tall, and he has a black bag.\nA: Is this the bag? (showing a photo)\nB: Yes, it is! That's exactly it.\nA: Thank you. This information is very helpful.\nB: I hope you find him soon.",
       "questions": [
-        { "q": "Is the speaker a witness?", "type": "true_false", "answer": true },
-        { "q": "What does the suspect look like?", "type": "mcq", "options": ["Short with a red bag", "Tall with a black bag", "Tall with no bag", "Short with a hat"], "answer": "Tall with a black bag" },
-        { "q": "Does the witness recognize the bag in the photo?", "type": "true_false", "answer": true },
-        { "q": "What does the officer say about the information?", "type": "mcq", "options": ["It's not useful", "It's very helpful", "It's confusing", "It's wrong"], "answer": "It's very helpful" },
-        { "q": "Are you a witness ___ the crime? (completa la preposición)", "type": "fill_blank", "answer": "to" },
-        { "q": "Empareja quién dice qué", "type": "matching", "pairs": [
-          { "left": "Can you describe the suspect?", "right": "El oficial" },
-          { "left": "I hope you find him soon.", "right": "El testigo" }
-        ]},
-        { "q": "Is the suspect short?", "type": "true_false", "answer": false }
-      ]
+        {
+          "q": "Is the speaker a witness?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "What does the suspect look like?",
+          "type": "mcq",
+          "options": [
+            "Short with a red bag",
+            "Tall with a black bag",
+            "Tall with no bag",
+            "Short with a hat"
+          ],
+          "answer": "Tall with a black bag"
+        },
+        {
+          "q": "Does the witness recognize the bag in the photo?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "What does the officer say about the information?",
+          "type": "mcq",
+          "options": [
+            "It's not useful",
+            "It's very helpful",
+            "It's confusing",
+            "It's wrong"
+          ],
+          "answer": "It's very helpful"
+        },
+        {
+          "q": "Are you a witness ___ the crime? (completa la preposición)",
+          "type": "fill_blank",
+          "answer": "to"
+        },
+        {
+          "q": "Empareja quién dice qué",
+          "type": "matching",
+          "pairs": [
+            {
+              "left": "Can you describe the suspect?",
+              "right": "El oficial"
+            },
+            {
+              "left": "I hope you find him soon.",
+              "right": "El testigo"
+            }
+          ]
+        },
+        {
+          "q": "Is the suspect short?",
+          "type": "true_false",
+          "answer": false
+        }
+      ],
+      "format": "dialogue"
     },
     {
-      "title": "Reporting a Stolen Item",
+      "title": "My Stolen Phone",
       "duration_seconds_estimate": 28,
       "audio_file": "A1-04_listening_2.mp3",
-      "transcript": "A: Hello, I want to report a stolen phone.\nB: OK. Is this your first time reporting a crime?\nA: Yes, it is.\nB: Don't worry, I'll help you. Where did it happen?\nA: Near the restaurant on Main Street.\nB: Are you sure it was stolen, and not lost?\nA: Yes, I'm sure. I saw the thief take it from my table.\nB: OK, let's write a report right now.",
+      "transcript": "Yesterday was a strange day. I was having lunch near a restaurant on Main Street when someone stole my phone right from my table! I saw the thief, but he ran away very fast. This was my first time reporting a crime, so I was a little nervous. I went to the police station right away. The officer was very helpful, and we wrote a report together. I hope the police find my phone soon.",
       "questions": [
-        { "q": "What was stolen?", "type": "mcq", "options": ["A wallet", "A phone", "A bicycle", "A bag"], "answer": "A phone" },
-        { "q": "Where did it happen?", "type": "mcq", "options": ["At home", "Near the restaurant", "At the police station", "At school"], "answer": "Near the restaurant" },
-        { "q": "Is this the person's first time reporting a crime?", "type": "true_false", "answer": true },
-        { "q": "Did the person see the thief?", "type": "true_false", "answer": true },
-        { "q": "What does the officer suggest doing?", "type": "mcq", "options": ["Wait a week", "Write a report now", "Call a taxi", "Go home"], "answer": "Write a report now" },
-        { "q": "I want to ___ a stolen phone. (completa)", "type": "fill_blank", "answer": "report" }
-      ]
+        {
+          "q": "What was stolen?",
+          "type": "mcq",
+          "options": [
+            "A wallet",
+            "A phone",
+            "A bicycle",
+            "A bag"
+          ],
+          "answer": "A phone"
+        },
+        {
+          "q": "Where did it happen?",
+          "type": "mcq",
+          "options": [
+            "At home",
+            "Near the restaurant",
+            "At the police station",
+            "At school"
+          ],
+          "answer": "Near the restaurant"
+        },
+        {
+          "q": "Was this the speaker's first time reporting a crime?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "Did the speaker see the thief?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "What did the speaker do after the crime?",
+          "type": "mcq",
+          "options": [
+            "Went home",
+            "Went to the police station",
+            "Called a taxi",
+            "Did nothing"
+          ],
+          "answer": "Went to the police station"
+        },
+        {
+          "q": "I want to ___ a stolen phone. (completa)",
+          "type": "fill_blank",
+          "answer": "report"
+        }
+      ],
+      "format": "monologue"
     }
   ],
-
   "writing": {
     "text_type": "descripción simple de una situación",
     "target_word_count": "3-5 oraciones",
@@ -159,42 +622,213 @@
       "es": "Imagina que perdiste algo (una billetera, un teléfono, una bicicleta). Escribe de 3 a 5 oraciones describiendo la situación usando 'this/that/these/those' y respuestas cortas con 'to be'."
     },
     "rubric": [
-      { "criterio": "Cumple la tarea", "descripcion": "Describe una situación simple relacionada con un objeto perdido/robado." },
-      { "criterio": "Uso de demostrativos", "descripcion": "Usa correctamente this/that/these/those." },
-      { "criterio": "Vocabulario de la unidad", "descripcion": "Usa al menos 2 palabras de la lista." },
-      { "criterio": "Coherencia", "descripcion": "Las oraciones tienen sentido y se conectan." }
+      {
+        "criterio": "Cumple la tarea",
+        "descripcion": "Describe una situación simple relacionada con un objeto perdido/robado."
+      },
+      {
+        "criterio": "Uso de demostrativos",
+        "descripcion": "Usa correctamente this/that/these/those."
+      },
+      {
+        "criterio": "Vocabulario de la unidad",
+        "descripcion": "Usa al menos 2 palabras de la lista."
+      },
+      {
+        "criterio": "Coherencia",
+        "descripcion": "Las oraciones tienen sentido y se conectan."
+      }
     ]
   },
-
   "quiz_pool": [
-    { "type": "mcq", "q": "Is this your wallet? Yes, it _____.", "options": ["am", "is", "are"], "answer": "is" },
-    { "type": "mcq", "q": "Are you a witness? No, I'm _____.", "options": ["not", "isn't", "aren't"], "answer": "not" },
-    { "type": "fill_blank", "q": "___ is my ID. (cerca, singular)", "answer": "This" },
-    { "type": "fill_blank", "q": "___ are the suspects over there. (lejos, plural)", "answer": "Those" },
-    { "type": "true_false", "q": "'These' is used for one object far away.", "answer": false },
-    { "type": "true_false", "q": "A 'witness' commits the crime.", "answer": false },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-04_vocab_police-officer.png", "options": ["Police officer", "Thief", "Witness"], "answer": "Police officer" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-04_vocab_wallet.png", "options": ["Wallet", "ID", "Bill"], "answer": "Wallet" },
-    { "type": "mcq", "q": "Who sees a crime happen?", "options": ["A thief", "A witness", "A police officer"], "answer": "A witness" },
-    { "type": "fill_blank", "q": "Someone tried to ___ my bike.", "answer": "steal" },
-    { "type": "matching", "q": "Empareja el demostrativo con su uso", "pairs": [
-      { "left": "this", "right": "singular, cerca" },
-      { "left": "those", "right": "plural, lejos" }
-    ]},
-    { "type": "order_words", "q": "Ordena la oración:", "words": ["officer", "a", "police", "This", "is"], "answer": "This is a police officer" },
-    { "type": "mcq", "q": "Where do you go to report a crime?", "options": ["The restaurant", "The police station", "The museum"], "answer": "The police station" },
-    { "type": "mcq", "q": "What do you show to prove who you are?", "options": ["Your wallet", "Your ID", "Your bike"], "answer": "Your ID" },
-    { "type": "fill_blank", "q": "This neighborhood is very ___. (opuesto a peligroso)", "answer": "safe" },
-    { "type": "true_false", "q": "Short answers repeat the full sentence.", "answer": false },
-    { "type": "mcq", "q": "_____ are my keys. (cerca, plural)", "options": ["This", "These", "That"], "answer": "These" },
-    { "type": "matching", "q": "Empareja el opuesto", "pairs": [
-      { "left": "safe", "right": "dangerous" },
-      { "left": "witness", "right": "suspect" }
-    ]},
-    { "type": "true_false", "q": "A 'thief' is a person who steals.", "answer": true },
-    { "type": "fill_blank", "q": "Are those his bikes? No, they ___.", "answer": "aren't" },
-    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-04_vocab_thief.png", "options": ["Thief", "Suspect", "Witness"], "answer": "Thief" },
-    { "type": "mcq", "q": "Is he a suspect? Yes, he _____.", "options": ["am", "is", "are"], "answer": "is" }
+    {
+      "type": "mcq",
+      "q": "Is this your wallet? Yes, it _____.",
+      "options": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "is"
+    },
+    {
+      "type": "mcq",
+      "q": "Are you a witness? No, I'm _____.",
+      "options": [
+        "not",
+        "isn't",
+        "aren't"
+      ],
+      "answer": "not"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ is my ID. (cerca, singular)",
+      "answer": "This"
+    },
+    {
+      "type": "fill_blank",
+      "q": "___ are the suspects over there. (lejos, plural)",
+      "answer": "Those"
+    },
+    {
+      "type": "true_false",
+      "q": "'These' is used for one object far away.",
+      "answer": false
+    },
+    {
+      "type": "true_false",
+      "q": "A 'witness' commits the crime.",
+      "answer": false
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-04_vocab_police-officer.png",
+      "options": [
+        "Police officer",
+        "Thief",
+        "Witness"
+      ],
+      "answer": "Police officer"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-04_vocab_wallet.png",
+      "options": [
+        "Wallet",
+        "ID",
+        "Bill"
+      ],
+      "answer": "Wallet"
+    },
+    {
+      "type": "mcq",
+      "q": "Who sees a crime happen?",
+      "options": [
+        "A thief",
+        "A witness",
+        "A police officer"
+      ],
+      "answer": "A witness"
+    },
+    {
+      "type": "fill_blank",
+      "q": "Someone tried to ___ my bike.",
+      "answer": "steal"
+    },
+    {
+      "type": "matching",
+      "q": "Empareja el demostrativo con su uso",
+      "pairs": [
+        {
+          "left": "this",
+          "right": "singular, cerca"
+        },
+        {
+          "left": "those",
+          "right": "plural, lejos"
+        }
+      ]
+    },
+    {
+      "type": "order_words",
+      "q": "Ordena la oración:",
+      "words": [
+        "officer",
+        "a",
+        "police",
+        "This",
+        "is"
+      ],
+      "answer": "This is a police officer"
+    },
+    {
+      "type": "mcq",
+      "q": "Where do you go to report a crime?",
+      "options": [
+        "The restaurant",
+        "The police station",
+        "The museum"
+      ],
+      "answer": "The police station"
+    },
+    {
+      "type": "mcq",
+      "q": "What do you show to prove who you are?",
+      "options": [
+        "Your wallet",
+        "Your ID",
+        "Your bike"
+      ],
+      "answer": "Your ID"
+    },
+    {
+      "type": "fill_blank",
+      "q": "This neighborhood is very ___. (opuesto a peligroso)",
+      "answer": "safe"
+    },
+    {
+      "type": "true_false",
+      "q": "Short answers repeat the full sentence.",
+      "answer": false
+    },
+    {
+      "type": "mcq",
+      "q": "_____ are my keys. (cerca, plural)",
+      "options": [
+        "This",
+        "These",
+        "That"
+      ],
+      "answer": "These"
+    },
+    {
+      "type": "matching",
+      "q": "Empareja el opuesto",
+      "pairs": [
+        {
+          "left": "safe",
+          "right": "dangerous"
+        },
+        {
+          "left": "witness",
+          "right": "suspect"
+        }
+      ]
+    },
+    {
+      "type": "true_false",
+      "q": "A 'thief' is a person who steals.",
+      "answer": true
+    },
+    {
+      "type": "fill_blank",
+      "q": "Are those his bikes? No, they ___.",
+      "answer": "aren't"
+    },
+    {
+      "type": "image_match",
+      "q": "Which word matches the image?",
+      "image_file": "A1-04_vocab_thief.png",
+      "options": [
+        "Thief",
+        "Suspect",
+        "Witness"
+      ],
+      "answer": "Thief"
+    },
+    {
+      "type": "mcq",
+      "q": "Is he a suspect? Yes, he _____.",
+      "options": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "is"
+    }
   ],
   "quiz_draw_count": 15
 }
