@@ -59,6 +59,7 @@ const LEVEL_COLORS = {
   B2: { main: "#4DD0E1", soft: "#DEF6F8" },
 };
 const font = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+const LOGO_SRC = "logo.png";
 const mono = "ui-monospace, 'SF Mono', Menlo, monospace";
 
 const STRINGS = {
@@ -582,6 +583,9 @@ function LoginScreen({ t }) {
   return (
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.bg }}>
       <form onSubmit={submit} style={{ width: 320, padding: 32, border: `1px solid ${C.line}`, borderRadius: 16 }}>
+        <div style={{ textAlign: "center", marginBottom: 8 }}>
+          <img src={LOGO_SRC} alt="Tweetalig" style={{ height: 40 }} />
+        </div>
         <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, textAlign: "center", marginBottom: 4, fontWeight: 800 }}>Tweetaform</h1>
         <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, textAlign: "center", marginBottom: 24 }}>{t.tagline}</p>
         <label style={{ fontFamily: font, fontSize: 12, color: C.inkSoft }}>{t.email}</label>
@@ -649,6 +653,9 @@ function LevelsScreen({ units, t, onOpenUnit }) {
 
   return (
     <div>
+      <div style={{ textAlign: "center", marginBottom: 8 }}>
+        <img src={LOGO_SRC} alt="Tweetalig" style={{ height: 40 }} />
+      </div>
       <h1 style={{ fontFamily: font, fontSize: 28, color: C.ink, marginBottom: 4, fontWeight: 800, textAlign: "center" }}>Tweetaform</h1>
       <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft, marginBottom: 28, textAlign: "center" }}>{t.tagline}</p>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 20 }}>
