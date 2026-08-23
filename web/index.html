@@ -28,10 +28,10 @@
   window.dispatchEvent(new Event("firebase-ready"));
 </script>
 
-<!-- React (sin paso de build, via CDN) -->
-<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- React y Babel — archivos propios, no de internet (para evitar bloqueos de red) -->
+<script src="vendor/react.production.min.js"></script>
+<script src="vendor/react-dom.production.min.js"></script>
+<script src="vendor/babel.min.js"></script>
 
 <script type="text/plain" id="app-source">
 const { useState, useEffect, useRef } = React;
