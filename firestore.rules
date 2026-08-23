@@ -3,21 +3,37 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Contenido de las unidades: lectura para cualquier usuario CON SESION INICIADA
-    // (ya no es publico sin login). Nadie escribe desde el navegador — solo tu script
-    // de carga con la clave de servicio, que se salta estas reglas.
+    function isMaster() {
+      return request.auth != null &&
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "master";
+    }
+
+    // Contenido de las unidades: lectura para cualquier usuario con sesion.
+    // Nadie escribe desde el navegador — solo el script de carga.
     match /units/{unitId} {
       allow read: if request.auth != null;
       allow write: if false;
     }
 
-    // Progreso de cada estudiante: SOLO el propio estudiante puede leer o escribir
-    // su propio progreso. Nunca puede ver ni tocar el de otro compañero.
-    match /users/{userId}/progress/{unitId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+    // Perfil de cada usuario (rol + niveles habilitados):
+    // - Cualquiera puede leer SU PROPIO perfil (para saber su rol y que niveles ve).
+    // - El master puede leer el perfil de cualquiera (para el panel).
+    // - SOLO el master puede escribir/editar perfiles — un estudiante nunca puede
+    //   auto-asignarse el rol de master ni habilitarse niveles el mismo.
+    match /users/{userId} {
+      allow read: if request.auth != null && (request.auth.uid == userId || isMaster());
+      allow write: if isMaster();
     }
 
-    // Todo lo demas queda bloqueado por defecto.
+    // Progreso de cada estudiante (incluye el texto del writing):
+    // - El propio estudiante lee/escribe su progreso.
+    // - El master puede leer el de cualquiera (para el panel de revision).
+    match /users/{userId}/progress/{unitId} {
+      allow read: if request.auth != null && (request.auth.uid == userId || isMaster());
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

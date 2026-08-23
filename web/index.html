@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tweetaform</title>
+</head>
+<body style="margin:0;">
+<div id="root"></div>
+
+<!-- Firebase (modulos ES) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut }
+    from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+  import { getFirestore, collection, getDocs, doc, getDoc, setDoc }
+    from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCF3ArsdP0UjepFN3ekSsbqFzWyVTI-8mE",
+    authDomain: "tweetaform.firebaseapp.com",
+    projectId: "tweetaform",
+    storageBucket: "tweetaform.firebasestorage.app",
+    messagingSenderId: "13535522342",
+    appId: "1:13535522342:web:f72f1fef56de25c57580e7"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  window.__auth = getAuth(app);
+  window.__db = getFirestore(app);
+  window.__fb = { signInWithEmailAndPassword, onAuthStateChanged, signOut, collection, getDocs, doc, getDoc, setDoc };
+  window.__firebaseReady = true;
+  window.dispatchEvent(new Event("firebase-ready"));
+</script>
+
+<!-- React (sin paso de build, via CDN) -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef } = React;
+
+// ---------------------------------------------------------------------------
+// MARCA TWEETALIG
+// ---------------------------------------------------------------------------
+const C = {
+  bg: "#FFFFFF",
+  cream: "#F4EDDE",
+  ink: "#2C3D4D",
+  teal: "#5DB69C",
+  gold: "#E6C14F",
+  goldSoft: "#F7E9BE",
+  inkSoft: "#6B7A88",
+  line: "#E3DDD0",
+  coral: "#C1503F",
+  coralSoft: "#F6E1DC",
+  coralText: "#8B3226",
+};
+const LEVEL_COLORS = {
+  A1: { main: "#8BC34A", soft: "#E7F3D9" },
+  A2: { main: "#FFB74D", soft: "#FFF1DE" },
+  B1: { main: "#9575CD", soft: "#EAE3F7" },
+  B2: { main: "#4DD0E1", soft: "#DEF6F8" },
+};
+const font = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+const mono = "ui-monospace, 'SF Mono', Menlo, monospace";
+
+const STRINGS = {
+  en: {
+    tagline: "Your English course",
+    levels: "Levels", lesson: "LESSON",
+    lessons: { vocab: "Vocabulary", grammar: "Grammar", reading: "Reading", listening: "Listening", writing: "Writing", quiz: "Unit quiz" },
+    completed: "Completed", available: "Available", lockedQuiz: "Complete the 5 lessons first",
+    unitComplete: "Unit complete!", previous: "Previous", next: "Next", finishLesson: "Finish lesson",
+    guidedPractice: "Practice", commonMistake: "Common mistake: ",
+    playAudio: "Play audio", playAgain: "Play again", send: "Send", sent: "Sent ✓",
+    quizTitle: "Unit quiz", quizSubtitle: "Final assessment", backToUnit: "Back to unit",
+    check: "Check", answerLabel: "Answer: ", typeAnswer: "Type your answer", trueLabel: "True", falseLabel: "False",
+    login: "Log in", email: "Email", password: "Password", loginBtn: "Log in", loginError: "Incorrect email or password.",
+    logout: "Log out", textN: (i, n) => `Text ${i} of ${n}`, audioN: (i, n) => `Audio ${i} of ${n}`,
+    correctOutOf: (c, t) => `${c} out of ${t} correct`, loading: "Loading...",
+  },
+  es: {
+    tagline: "Tu curso de inglés",
+    levels: "Niveles", lesson: "LECCIÓN",
+    lessons: { vocab: "Vocabulario", grammar: "Gramática", reading: "Reading", listening: "Listening", writing: "Writing", quiz: "Quiz de unidad" },
+    completed: "Completada", available: "Disponible", lockedQuiz: "Completa las 5 lecciones primero",
+    unitComplete: "¡Unidad completada!", previous: "Anterior", next: "Siguiente", finishLesson: "Terminar lección",
+    guidedPractice: "Práctica", commonMistake: "Error común: ",
+    playAudio: "Reproducir audio", playAgain: "Reproducir de nuevo", send: "Enviar", sent: "Enviado ✓",
+    quizTitle: "Quiz de unidad", quizSubtitle: "Evaluación final", backToUnit: "Volver a la unidad",
+    check: "Comprobar", answerLabel: "Respuesta: ", typeAnswer: "Escribe tu respuesta", trueLabel: "Verdadero", falseLabel: "Falso",
+    login: "Iniciar sesión", email: "Correo", password: "Contraseña", loginBtn: "Iniciar sesión", loginError: "Correo o contraseña incorrectos.",
+    logout: "Cerrar sesión", textN: (i, n) => `Texto ${i} de ${n}`, audioN: (i, n) => `Audio ${i} de ${n}`,
+    correctOutOf: (c, t) => `${c} de ${t} correctas`, loading: "Cargando...",
+  },
+};
+
+const LESSON_ORDER = ["vocab", "grammar", "reading", "listening", "writing", "quiz"];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ---------------------------------------------------------------------------
+// BARRA DE PROGRESO (horizontal, no circular)
+// ---------------------------------------------------------------------------
+function ProgressBar({ pct, color }) {
+  return (
+    <div style={{ width: "100%", height: 8, background: C.line, borderRadius: 999, overflow: "hidden" }}>
+      <div style={{ width: `${pct}%`, height: "100%", background: color || C.ink, borderRadius: 999, transition: "width .3s" }} />
+    </div>
+  );
+}
+
+function Stamp({ label }) {
+  return (
+    <svg width="86" height="86" viewBox="0 0 86 86" style={{ transform: "rotate(-8deg)" }}>
+      <defs>
+        <filter id="stampTexture">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise" />
+          <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0" />
+          <feComposite operator="in" in2="SourceGraphic" />
+        </filter>
+      </defs>
+      <circle cx="43" cy="43" r="38" fill="none" stroke={C.gold} strokeWidth="3" />
+      <circle cx="43" cy="43" r="30" fill="none" stroke={C.gold} strokeWidth="1.5" />
+      <text x="43" y="40" textAnchor="middle" fontWeight="bold" fontSize="11" fill={C.gold}>{label}</text>
+      <text x="43" y="54" textAnchor="middle" fontSize="8" fill={C.gold} letterSpacing="1">DONE</text>
+      <circle cx="43" cy="43" r="38" fill={C.gold} filter="url(#stampTexture)" />
+    </svg>
+  );
+}
+
+function navBtn(disabled) {
+  return { fontFamily: font, fontSize: 14, padding: "10px 18px", borderRadius: 10, border: "none",
+    background: disabled ? C.cream : C.ink, color: disabled ? C.inkSoft : "#fff", cursor: disabled ? "default" : "pointer" };
+}
+
+// ---------------------------------------------------------------------------
+// UN EJERCICIO INDIVIDUAL
+// ---------------------------------------------------------------------------
+function Exercise({ item, levelColor, t, onAnswered }) {
+  const [selected, setSelected] = useState(null);
+  const [textVal, setTextVal] = useState("");
+  const [checked, setChecked] = useState(false);
+
+  const isCorrect = (val) => {
+    if (item.type === "true_false") return val === item.answer;
+    if (typeof item.answer === "string") return val.trim().toLowerCase() === item.answer.trim().toLowerCase();
+    return val === item.answer;
+  };
+  const commit = (val) => { setSelected(val); setChecked(true); onAnswered && onAnswered(isCorrect(val)); };
+
+  return (
+    <div>
+      <p style={{ fontFamily: font, color: C.ink, fontSize: 17, marginBottom: 20, lineHeight: 1.5 }}>{item.q}</p>
+
+      {item.type === "image_match" && item.image_url && (
+        <img src={item.image_url} alt="" style={{ width: "100%", maxWidth: 240, borderRadius: 12, marginBottom: 16, display: "block" }} />
+      )}
+
+      {(item.type === "mcq" || item.type === "image_match") && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+          {item.options.map((opt) => {
+            const isSel = selected === opt;
+            const good = checked && isSel && isCorrect(opt);
+            const bad = checked && isSel && !isCorrect(opt);
+            return (
+              <button key={opt} onClick={() => !checked && commit(opt)}
+                style={{ fontFamily: font, fontSize: 15, padding: "12px 18px", borderRadius: 12,
+                  border: `1.5px solid ${good ? levelColor.main : bad ? C.coral : C.line}`,
+                  background: good ? levelColor.soft : bad ? C.coralSoft : C.cream,
+                  color: C.ink, cursor: checked ? "default" : "pointer", fontWeight: isSel ? 700 : 400 }}>
+                {opt}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {item.type === "true_false" && (
+        <div style={{ display: "flex", gap: 10 }}>
+          {[true, false].map((val) => {
+            const label = val ? t.trueLabel : t.falseLabel;
+            const isSel = selected === val;
+            const good = checked && isSel && isCorrect(val);
+            const bad = checked && isSel && !isCorrect(val);
+            return (
+              <button key={label} onClick={() => !checked && commit(val)}
+                style={{ fontFamily: font, fontSize: 15, padding: "12px 24px", borderRadius: 12,
+                  border: `1.5px solid ${good ? levelColor.main : bad ? C.coral : C.line}`,
+                  background: good ? levelColor.soft : bad ? C.coralSoft : C.cream,
+                  color: C.ink, cursor: checked ? "default" : "pointer", fontWeight: isSel ? 700 : 400 }}>
+                {label}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {item.type === "fill_blank" && (
+        <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+          <input value={textVal} disabled={checked} onChange={(e) => setTextVal(e.target.value)} placeholder={t.typeAnswer}
+            style={{ fontFamily: mono, fontSize: 15, padding: "10px 14px", borderRadius: 10,
+              border: `1.5px solid ${checked ? (isCorrect(textVal) ? levelColor.main : C.coral) : C.line}`,
+              background: checked ? (isCorrect(textVal) ? levelColor.soft : C.coralSoft) : "#fff", color: C.ink, width: 180 }} />
+          {!checked && (
+            <button onClick={() => textVal.trim() && commit(textVal)}
+              style={{ fontFamily: font, fontSize: 14, padding: "10px 16px", borderRadius: 10, border: "none", background: C.ink, color: "#fff", cursor: "pointer" }}>
+              {t.check}
+            </button>
+          )}
+          {checked && !isCorrect(textVal) && <span style={{ fontFamily: font, fontSize: 14, color: C.coralText }}>{t.answerLabel}{item.answer}</span>}
+        </div>
+      )}
+
+      {item.type === "matching" && (
+        <MatchingExercise item={item} levelColor={levelColor} checked={checked} onDone={(ok) => commit(ok)} />
+      )}
+
+      {item.type === "order_words" && (
+        <OrderWordsExercise item={item} levelColor={levelColor} checked={checked} onDone={(val) => commit(val)} />
+      )}
+    </div>
+  );
+}
+
+function MatchingExercise({ item, levelColor, checked, onDone }) {
+  const [picked, setPicked] = useState({});
+  const [leftSel, setLeftSel] = useState(null);
+  const rightOptions = shuffle(item.pairs.map((p) => p.right));
+
+  const pickRight = (right) => {
+    if (leftSel == null || checked) return;
+    const next = { ...picked, [leftSel]: right };
+    setPicked(next);
+    setLeftSel(null);
+    if (Object.keys(next).length === item.pairs.length) {
+      const allCorrect = item.pairs.every((p) => next[p.left] === p.right);
+      onDone(allCorrect);
+    }
+  };
+
+  return (
+    <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {item.pairs.map((p) => (
+          <button key={p.left} disabled={checked || picked[p.left]} onClick={() => setLeftSel(p.left)}
+            style={{ fontFamily: font, fontSize: 14, padding: "10px 14px", borderRadius: 10,
+              border: `1.5px solid ${leftSel === p.left ? C.ink : C.line}`,
+              background: picked[p.left] ? levelColor.soft : "#fff", cursor: checked ? "default" : "pointer", textAlign: "left" }}>
+            {p.left} {picked[p.left] ? `→ ${picked[p.left]}` : ""}
+          </button>
+        ))}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {rightOptions.map((r) => {
+          const used = Object.values(picked).includes(r);
+          return (
+            <button key={r} disabled={used || checked} onClick={() => pickRight(r)}
+              style={{ fontFamily: font, fontSize: 14, padding: "10px 14px", borderRadius: 10,
+                border: `1.5px solid ${C.line}`, background: used ? C.cream : "#fff",
+                color: used ? C.inkSoft : C.ink, cursor: used || checked ? "default" : "pointer" }}>
+              {r}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function OrderWordsExercise({ item, levelColor, checked, onDone }) {
+  const [pool, setPool] = useState(shuffle(item.words));
+  const [built, setBuilt] = useState([]);
+
+  const addWord = (w, i) => {
+    if (checked) return;
+    setBuilt([...built, w]);
+    const next = [...pool];
+    next.splice(i, 1);
+    setPool(next);
+  };
+  const finish = () => onDone(built.join(" "));
+
+  return (
+    <div>
+      <div style={{ minHeight: 46, border: `1.5px dashed ${C.line}`, borderRadius: 10, padding: 10, marginBottom: 14, display: "flex", flexWrap: "wrap", gap: 8 }}>
+        {built.map((w, i) => <span key={i} style={{ fontFamily: font, fontSize: 15, padding: "6px 10px", background: levelColor.soft, borderRadius: 8 }}>{w}</span>)}
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
+        {pool.map((w, i) => (
+          <button key={i} onClick={() => addWord(w, i)}
+            style={{ fontFamily: font, fontSize: 15, padding: "8px 14px", borderRadius: 8, border: `1px solid ${C.line}`, background: "#fff", cursor: "pointer" }}>
+            {w}
+          </button>
+        ))}
+      </div>
+      {!checked && pool.length === 0 && (
+        <button onClick={finish} style={{ ...navBtn(false) }}>{"OK"}</button>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// FLUJO: un ejercicio a la vez, con barra de progreso arriba
+// ---------------------------------------------------------------------------
+function ExerciseFlow({ items, levelColor, t, onFinish }) {
+  const [idx, setIdx] = useState(0);
+  const [answered, setAnswered] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
+  const pct = Math.round((idx / items.length) * 100);
+
+  if (idx >= items.length) {
+    onFinish(correctCount, items.length);
+    return null;
+  }
+
+  return (
+    <div>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 22 }}>
+        <ProgressBar pct={pct} color={levelColor.main} />
+        <span style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, whiteSpace: "nowrap" }}>{idx + 1}/{items.length}</span>
+      </div>
+      <Exercise
+        key={idx}
+        item={items[idx]}
+        levelColor={levelColor}
+        t={t}
+        onAnswered={(ok) => { setAnswered(true); if (ok) setCorrectCount((c) => c + 1); }}
+      />
+      <button
+        disabled={!answered}
+        onClick={() => { setAnswered(false); setIdx((i) => i + 1); }}
+        style={{ ...navBtn(!answered), width: "100%", marginTop: 24 }}>
+        {t.next}
+      </button>
+    </div>
+  );
+}
+
+function LessonHeader({ title, subtitle, levelColor, t }) {
+  return (
+    <div style={{ marginBottom: 24 }}>
+      <div style={{ display: "inline-block", background: levelColor.soft, color: C.ink, fontFamily: mono, fontSize: 11, padding: "3px 10px", borderRadius: 999, marginBottom: 8, letterSpacing: 1, fontWeight: 700 }}>
+        {t.lesson}
+      </div>
+      <h2 style={{ fontFamily: font, color: C.ink, fontSize: 24, margin: 0, fontWeight: 800 }}>{title}</h2>
+      {subtitle && <p style={{ fontFamily: font, color: C.inkSoft, fontSize: 14, marginTop: 4 }}>{subtitle}</p>}
+    </div>
+  );
+}
+
+// ---------------- VOCABULARIO ----------------
+function VocabLesson({ unit, levelColor, t, onComplete }) {
+  const [phase, setPhase] = useState("present");
+  const [idx, setIdx] = useState(0);
+  const [flip, setFlip] = useState(false);
+  const v = unit.vocabulary[idx];
+
+  if (phase === "practice") {
+    return (
+      <div>
+        <LessonHeader title={t.lessons.vocab} subtitle={t.guidedPractice} levelColor={levelColor} t={t} />
+        <ExerciseFlow items={unit.vocab_practice} levelColor={levelColor} t={t} onFinish={() => onComplete()} />
+      </div>
+    );
+  }
+
+  const last = idx === unit.vocabulary.length - 1;
+  return (
+    <div>
+      <LessonHeader title={t.lessons.vocab} subtitle={unit.vocab_theme} levelColor={levelColor} t={t} />
+      <div onClick={() => setFlip((f) => !f)}
+        style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 18, padding: "32px 24px", textAlign: "center",
+          cursor: "pointer", minHeight: 200, display: "flex", flexDirection: "column", justifyContent: "center", borderTop: `4px solid ${levelColor.main}` }}>
+        {v.image_url && !flip && <img src={v.image_url} alt="" style={{ maxHeight: 120, margin: "0 auto 14px", borderRadius: 10 }} />}
+        {!flip ? (
+          <p style={{ fontFamily: font, fontSize: 22, color: C.ink, fontWeight: 700 }}>{v.word}</p>
+        ) : (
+          <>
+            <p style={{ fontFamily: font, fontSize: 20, color: C.ink, marginBottom: 8, fontWeight: 700 }}>{v.meaning}</p>
+            <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft, fontStyle: "italic" }}>"{v.example}"</p>
+          </>
+        )}
+      </div>
+      <p style={{ textAlign: "center", fontFamily: mono, fontSize: 12, color: C.inkSoft, margin: "14px 0" }}>{idx + 1} / {unit.vocabulary.length}</p>
+      <div style={{ display: "flex", gap: 10 }}>
+        <button disabled={idx === 0} onClick={() => { setFlip(false); setIdx((i) => i - 1); }}
+          style={{ ...navBtn(idx === 0), background: idx === 0 ? C.cream : "#fff", color: idx === 0 ? C.inkSoft : C.ink, border: `1px solid ${C.line}` }}>
+          {t.previous}
+        </button>
+        <button onClick={() => { if (last) setPhase("practice"); else { setFlip(false); setIdx((i) => i + 1); } }}
+          style={{ ...navBtn(false), flex: 1 }}>
+          {last ? t.guidedPractice : t.next}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ---------------- GRAMATICA ----------------
+function GrammarLesson({ unit, levelColor, t, onComplete }) {
+  const [phase, setPhase] = useState("present");
+  const g = unit.grammar_explanation;
+
+  if (phase === "practice") {
+    return (
+      <div>
+        <LessonHeader title={t.lessons.grammar} subtitle={t.guidedPractice} levelColor={levelColor} t={t} />
+        <ExerciseFlow items={unit.grammar_practice} levelColor={levelColor} t={t} onFinish={() => onComplete()} />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <LessonHeader title={t.lessons.grammar} subtitle={unit.grammar_topic} levelColor={levelColor} t={t} />
+      <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 14, padding: 20, marginBottom: 20, borderTop: `4px solid ${levelColor.main}` }}>
+        <p style={{ fontFamily: font, fontSize: 14, color: C.ink, lineHeight: 1.6, marginBottom: 16 }}>{g.core_rule}</p>
+        {g.structure_notes.map((s, i) => (
+          <div key={i} style={{ marginBottom: 10, paddingLeft: 12, borderLeft: `3px solid ${levelColor.soft}` }}>
+            <span style={{ fontFamily: mono, fontSize: 13, fontWeight: "bold", color: C.ink }}>{s.label}</span>
+            <span style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}> — {s.explanation}</span>
+            <p style={{ fontFamily: font, fontSize: 13, fontStyle: "italic", color: C.ink, margin: "2px 0 0" }}>{s.example}</p>
+          </div>
+        ))}
+        <div style={{ marginTop: 14, background: C.coralSoft, borderRadius: 10, padding: "10px 14px" }}>
+          <span style={{ fontFamily: font, fontSize: 12, fontWeight: "bold", color: C.coralText }}>{t.commonMistake}</span>
+          <span style={{ fontFamily: font, fontSize: 12, color: C.ink }}>{g.common_mistake}</span>
+        </div>
+      </div>
+      <button onClick={() => setPhase("practice")} style={{ ...navBtn(false), width: "100%" }}>{t.guidedPractice}</button>
+    </div>
+  );
+}
+
+// ---------------- READING (2 textos, cada uno en su pagina) ----------------
+function ReadingLesson({ unit, levelColor, t, onComplete }) {
+  const [textIdx, setTextIdx] = useState(0);
+  const [phase, setPhase] = useState("read");
+  const texts = unit.reading;
+  const r = texts[textIdx];
+  const isLast = textIdx === texts.length - 1;
+
+  if (phase === "practice") {
+    return (
+      <div>
+        <LessonHeader title={t.lessons.reading} subtitle={t.textN(textIdx + 1, texts.length)} levelColor={levelColor} t={t} />
+        <ExerciseFlow items={r.questions} levelColor={levelColor} t={t}
+          onFinish={() => { if (isLast) onComplete(); else { setTextIdx((i) => i + 1); setPhase("read"); } }} />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <LessonHeader title={t.lessons.reading} subtitle={`${r.title} · ${t.textN(textIdx + 1, texts.length)}`} levelColor={levelColor} t={t} />
+      <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 14, padding: 20, marginBottom: 20, borderTop: `4px solid ${levelColor.main}` }}>
+        <p style={{ fontFamily: font, fontSize: 15, color: C.ink, lineHeight: 1.7 }}>{r.text}</p>
+      </div>
+      <button onClick={() => setPhase("practice")} style={{ ...navBtn(false), width: "100%" }}>{t.next}</button>
+    </div>
+  );
+}
+
+// ---------------- LISTENING (2 audios, cada uno en su pagina) ----------------
+function ListeningLesson({ unit, levelColor, t, onComplete }) {
+  const [audioIdx, setAudioIdx] = useState(0);
+  const [phase, setPhase] = useState("listen");
+  const [played, setPlayed] = useState(false);
+  const audioRef = useRef(null);
+  const audios = unit.listening;
+  const l = audios[audioIdx];
+  const isLast = audioIdx === audios.length - 1;
+
+  const play = () => {
+    if (l.audio_url && audioRef.current) {
+      audioRef.current.play();
+    } else {
+      try {
+        const utter = new SpeechSynthesisUtterance(l.transcript.replace(/^[AB]:\s*/gm, ""));
+        utter.lang = "en-US"; utter.rate = 0.95;
+        window.speechSynthesis.cancel(); window.speechSynthesis.speak(utter);
+      } catch (e) {}
+    }
+    setPlayed(true);
+  };
+
+  if (phase === "practice") {
+    return (
+      <div>
+        <LessonHeader title={t.lessons.listening} subtitle={t.audioN(audioIdx + 1, audios.length)} levelColor={levelColor} t={t} />
+        <ExerciseFlow items={l.questions} levelColor={levelColor} t={t}
+          onFinish={() => { if (isLast) onComplete(); else { setAudioIdx((i) => i + 1); setPhase("listen"); setPlayed(false); } }} />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <LessonHeader title={t.lessons.listening} subtitle={`${l.title} · ${t.audioN(audioIdx + 1, audios.length)}`} levelColor={levelColor} t={t} />
+      <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 14, padding: 28, marginBottom: 20, textAlign: "center", borderTop: `4px solid ${levelColor.main}` }}>
+        {l.audio_url && <audio ref={audioRef} src={l.audio_url} />}
+        <button onClick={play} style={{ fontFamily: font, fontSize: 15, padding: "14px 26px", borderRadius: 999, border: "none", background: C.ink, color: "#fff", cursor: "pointer" }}>
+          {played ? t.playAgain : t.playAudio}
+        </button>
+      </div>
+      <button disabled={!played} onClick={() => setPhase("practice")} style={{ ...navBtn(!played), width: "100%" }}>{t.next}</button>
+    </div>
+  );
+}
+
+// ---------------- WRITING (solo enviar, sin IA) ----------------
+function WritingLesson({ unit, levelColor, t, lang, onComplete }) {
+  const w = unit.writing;
+  const [text, setText] = useState("");
+  const [sent, setSent] = useState(false);
+
+  return (
+    <div>
+      <LessonHeader title={t.lessons.writing} levelColor={levelColor} t={t} />
+      <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 14, padding: 20, marginBottom: 16, borderTop: `4px solid ${levelColor.main}` }}>
+        <p style={{ fontFamily: font, fontSize: 14, color: C.ink, marginBottom: 14 }}>{w.prompt[lang] || w.prompt.en}</p>
+        <textarea value={text} disabled={sent} onChange={(e) => setText(e.target.value)} rows={5}
+          style={{ width: "100%", fontFamily: font, fontSize: 14, padding: 12, borderRadius: 10, border: `1px solid ${C.line}`, boxSizing: "border-box", background: sent ? C.cream : "#fff" }} />
+        <button onClick={() => setSent(true)} disabled={!text.trim() || sent}
+          style={{ ...navBtn(!text.trim() || sent), marginTop: 10 }}>
+          {sent ? t.sent : t.send}
+        </button>
+      </div>
+      <button disabled={!sent} onClick={() => onComplete(text)} style={{ ...navBtn(!sent), width: "100%" }}>{t.finishLesson}</button>
+    </div>
+  );
+}
+
+// ---------------- QUIZ (15 al azar del banco) ----------------
+function QuizLesson({ unit, levelColor, t, onComplete }) {
+  const [pool] = useState(() => shuffle(unit.quiz_pool).slice(0, unit.quiz_draw_count || 15));
+  const [result, setResult] = useState(null);
+
+  if (result) {
+    return (
+      <div style={{ textAlign: "center", padding: "30px 0" }}>
+        <Stamp label={unit.level} />
+        <p style={{ fontFamily: font, fontSize: 30, color: C.ink, marginTop: 16, fontWeight: 800 }}>{Math.round((result.c / result.n) * 100)}%</p>
+        <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft, marginBottom: 20 }}>{t.correctOutOf(result.c, result.n)}</p>
+        <button onClick={() => onComplete(Math.round((result.c / result.n) * 100))} style={{ ...navBtn(false), padding: "12px 30px" }}>{t.backToUnit}</button>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <LessonHeader title={t.quizTitle} subtitle={t.quizSubtitle} levelColor={levelColor} t={t} />
+      <ExerciseFlow items={pool} levelColor={levelColor} t={t} onFinish={(c, n) => setResult({ c, n })} />
+    </div>
+  );
+}
+
+// ---------------- LOGIN ----------------
+function LoginScreen({ t }) {
+  const [email, setEmail] = useState("");
+  const [pw, setPw] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const submit = async (e) => {
+    e.preventDefault();
+    setError(null); setLoading(true);
+    try {
+      await window.__fb.signInWithEmailAndPassword(window.__auth, email, pw);
+    } catch (err) {
+      setError(t.loginError);
+    }
+    setLoading(false);
+  };
+
+  return (
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.bg }}>
+      <form onSubmit={submit} style={{ width: 320, padding: 32, border: `1px solid ${C.line}`, borderRadius: 16 }}>
+        <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, textAlign: "center", marginBottom: 4, fontWeight: 800 }}>Tweetaform</h1>
+        <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, textAlign: "center", marginBottom: 24 }}>{t.tagline}</p>
+        <label style={{ fontFamily: font, fontSize: 12, color: C.inkSoft }}>{t.email}</label>
+        <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
+          style={{ width: "100%", boxSizing: "border-box", fontFamily: font, fontSize: 14, padding: 10, borderRadius: 8, border: `1px solid ${C.line}`, marginBottom: 14, marginTop: 4 }} />
+        <label style={{ fontFamily: font, fontSize: 12, color: C.inkSoft }}>{t.password}</label>
+        <input type="password" required value={pw} onChange={(e) => setPw(e.target.value)}
+          style={{ width: "100%", boxSizing: "border-box", fontFamily: font, fontSize: 14, padding: 10, borderRadius: 8, border: `1px solid ${C.line}`, marginBottom: 18, marginTop: 4 }} />
+        {error && <p style={{ fontFamily: font, fontSize: 13, color: C.coralText, marginBottom: 14 }}>{error}</p>}
+        <button type="submit" disabled={loading} style={{ ...navBtn(loading), width: "100%" }}>{loading ? t.loading : t.loginBtn}</button>
+      </form>
+    </div>
+  );
+}
+
+// ---------------- MAPA DE UNIDAD ----------------
+function UnitMap({ unit, levelColor, progress, t, onOpenLesson, onBack }) {
+  const doneCount = LESSON_ORDER.filter((k) => progress[k]).length;
+  const pct = Math.round((doneCount / LESSON_ORDER.length) * 100);
+
+  return (
+    <div>
+      <button onClick={onBack} style={{ border: "none", background: "none", padding: 0, color: C.inkSoft, fontFamily: font, fontSize: 14, cursor: "pointer", marginBottom: 18 }}>← {t.levels}</button>
+      <span style={{ fontFamily: mono, fontSize: 12, color: levelColor.main, fontWeight: 700 }}>{unit.unit_id}</span>
+      <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, margin: "4px 0", fontWeight: 800 }}>{unit.title}</h1>
+      <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 14 }}>{unit.can_do}</p>
+      <ProgressBar pct={pct} color={levelColor.main} />
+      <p style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, marginTop: 6, marginBottom: 28 }}>{pct}%</p>
+
+      {LESSON_ORDER.map((key, i) => {
+        const done = progress[key];
+        const isQuiz = key === "quiz";
+        const locked = isQuiz && !LESSON_ORDER.slice(0, 5).every((k) => progress[k]);
+        return (
+          <div key={key} onClick={() => !locked && onOpenLesson(key)}
+            style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 0", borderBottom: i < 5 ? `1px solid ${C.line}` : "none", cursor: locked ? "default" : "pointer", opacity: locked ? 0.5 : 1 }}>
+            <div style={{ width: 40, height: 40, borderRadius: "50%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
+              background: done ? C.ink : "#fff", border: `2px solid ${done ? C.ink : levelColor.main}` }}>
+              <span style={{ color: done ? "#fff" : levelColor.main, fontFamily: font, fontWeight: 700 }}>{done ? "✓" : i + 1}</span>
+            </div>
+            <div>
+              <p style={{ fontFamily: font, fontSize: 15, fontWeight: 600, color: C.ink, margin: 0 }}>{t.lessons[key]}</p>
+              <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: 0 }}>{done ? t.completed : locked ? t.lockedQuiz : t.available}</p>
+            </div>
+          </div>
+        );
+      })}
+
+      {doneCount === LESSON_ORDER.length && (
+        <div style={{ textAlign: "center", marginTop: 24 }}>
+          <Stamp label={unit.level} />
+          <p style={{ fontFamily: font, fontSize: 16, color: C.ink, marginTop: 10, fontWeight: 700 }}>{t.unitComplete}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------------- NIVELES ----------------
+function LevelsScreen({ units, t, onOpenUnit }) {
+  const [expanded, setExpanded] = useState(null);
+  const levels = ["A1", "A2", "B1", "B2"];
+  const byLevel = {};
+  units.forEach((u) => { (byLevel[u.level] = byLevel[u.level] || []).push(u); });
+
+  return (
+    <div>
+      <h1 style={{ fontFamily: font, fontSize: 28, color: C.ink, marginBottom: 4, fontWeight: 800, textAlign: "center" }}>Tweetaform</h1>
+      <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft, marginBottom: 28, textAlign: "center" }}>{t.tagline}</p>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 20 }}>
+        {levels.map((code) => {
+          const lc = LEVEL_COLORS[code];
+          const list = byLevel[code] || [];
+          return (
+            <div key={code} onClick={() => setExpanded(expanded === code ? null : code)}
+              style={{ background: "#fff", border: `1.5px solid ${expanded === code ? C.ink : C.line}`, borderTop: `5px solid ${lc.main}`, borderRadius: 14, padding: "18px 14px", cursor: "pointer", textAlign: "center" }}>
+              <p style={{ fontFamily: font, fontSize: 22, color: C.ink, fontWeight: 800, margin: 0 }}>{code}</p>
+              <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: "4px 0 0" }}>{list.length} {list.length === 1 ? "unit" : "units"}</p>
+            </div>
+          );
+        })}
+      </div>
+      {expanded && (
+        <div>
+          {(byLevel[expanded] || []).map((u) => (
+            <div key={u.unit_id} onClick={() => onOpenUnit(u)}
+              style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#fff", border: `1px solid ${C.line}`, borderLeft: `4px solid ${LEVEL_COLORS[expanded].main}`, borderRadius: 12, padding: "14px 16px", marginBottom: 8, cursor: "pointer" }}>
+              <span style={{ fontFamily: font, fontSize: 14, color: C.ink }}>{u.title}</span>
+              <span style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft }}>{u.unit_id}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------------- DASHBOARD DE MASTER ----------------
+function AdminDashboard({ t, onLogout }) {
+  const [students, setStudents] = useState(null);
+  const [expanded, setExpanded] = useState(null);
+  const [progressByStudent, setProgressByStudent] = useState({});
+  const LEVELS = ["A1", "A2", "B1", "B2"];
+
+  useEffect(() => {
+    (async () => {
+      const q = window.__fb.collection(window.__db, "users");
+      const snap = await window.__fb.getDocs(q);
+      const list = snap.docs
+        .map((d) => ({ uid: d.id, ...d.data() }))
+        .filter((u) => u.role === "student");
+      setStudents(list);
+    })();
+  }, []);
+
+  const toggleLevel = async (student, level) => {
+    const current = student.enabledLevels || [];
+    const next = current.includes(level) ? current.filter((l) => l !== level) : [...current, level];
+    await window.__fb.setDoc(window.__fb.doc(window.__db, "users", student.uid), { enabledLevels: next }, { merge: true });
+    setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, enabledLevels: next } : s)));
+  };
+
+  const openProgress = async (student) => {
+    if (expanded === student.uid) { setExpanded(null); return; }
+    setExpanded(student.uid);
+    if (!progressByStudent[student.uid]) {
+      const snap = await window.__fb.getDocs(window.__fb.collection(window.__db, "users", student.uid, "progress"));
+      const data = {};
+      snap.docs.forEach((d) => { data[d.id] = d.data(); });
+      setProgressByStudent((prev) => ({ ...prev, [student.uid]: data }));
+    }
+  };
+
+  return (
+    <div style={{ background: C.bg, minHeight: "100vh", padding: "24px 18px", boxSizing: "border-box" }}>
+      <button onClick={onLogout} style={{ position: "absolute", top: 18, right: 18, fontFamily: mono, fontSize: 12, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
+        {t.logout}
+      </button>
+      <div style={{ maxWidth: 640, margin: "0 auto", paddingTop: 20 }}>
+        <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, fontWeight: 800, marginBottom: 4 }}>Panel de administración</h1>
+        <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 24 }}>{students ? `${students.length} estudiantes` : "Cargando..."}</p>
+
+        {students && students.length === 0 && (
+          <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft }}>
+            Todavía no hay estudiantes. Créalos con <code>node create_students.js</code> desde tu repositorio.
+          </p>
+        )}
+
+        {students && students.map((s) => (
+          <div key={s.uid} style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, marginBottom: 10, overflow: "hidden" }}>
+            <div style={{ padding: "14px 16px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }} onClick={() => openProgress(s)}>
+              <div>
+                <p style={{ fontFamily: font, fontSize: 15, fontWeight: 700, color: C.ink, margin: 0 }}>{s.name || s.email}</p>
+                <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: 0 }}>{s.email}</p>
+              </div>
+              <span style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft }}>{expanded === s.uid ? "▲" : "▼"}</span>
+            </div>
+
+            <div style={{ padding: "0 16px 14px", display: "flex", gap: 8, flexWrap: "wrap" }}>
+              {LEVELS.map((lvl) => {
+                const enabled = (s.enabledLevels || []).includes(lvl);
+                const lc = LEVEL_COLORS[lvl];
+                return (
+                  <button key={lvl} onClick={(e) => { e.stopPropagation(); toggleLevel(s, lvl); }}
+                    style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
+                      border: `1.5px solid ${enabled ? lc.main : C.line}`, background: enabled ? lc.soft : "#fff",
+                      color: enabled ? C.ink : C.inkSoft, cursor: "pointer" }}>
+                    {lvl} {enabled ? "✓" : ""}
+                  </button>
+                );
+              })}
+            </div>
+
+            {expanded === s.uid && (
+              <div style={{ borderTop: `1px solid ${C.line}`, padding: 16, background: C.cream }}>
+                {!progressByStudent[s.uid] && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>{t.loading}</p>}
+                {progressByStudent[s.uid] && Object.keys(progressByStudent[s.uid]).length === 0 && (
+                  <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin actividad todavía.</p>
+                )}
+                {progressByStudent[s.uid] && Object.entries(progressByStudent[s.uid]).map(([unitId, p]) => (
+                  <div key={unitId} style={{ marginBottom: 12 }}>
+                    <p style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 4 }}>{unitId}</p>
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 6 }}>
+                      {LESSON_ORDER.map((k) => (
+                        <span key={k} style={{ fontFamily: mono, fontSize: 10, padding: "2px 8px", borderRadius: 999,
+                          background: p[k] ? C.ink : "#fff", color: p[k] ? "#fff" : C.inkSoft, border: `1px solid ${C.line}` }}>
+                          {k}
+                        </span>
+                      ))}
+                    </div>
+                    {p.writing_text && (
+                      <div style={{ background: "#fff", borderRadius: 8, padding: 10, marginTop: 4 }}>
+                        <p style={{ fontFamily: font, fontSize: 12, color: C.inkSoft, marginBottom: 4 }}>Writing enviado:</p>
+                        <p style={{ fontFamily: font, fontSize: 13, color: C.ink, whiteSpace: "pre-wrap" }}>{p.writing_text}</p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [ready, setReady] = useState(!!window.__firebaseReady);
+  const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null); // { role, enabledLevels, ... }
+  const [units, setUnits] = useState(null);
+  const [activeUnit, setActiveUnit] = useState(null);
+  const [activeLesson, setActiveLesson] = useState(null);
+  const [progress, setProgress] = useState({});
+  const [lang, setLang] = useState("en");
+  const t = STRINGS[lang];
+
+  useEffect(() => {
+    if (window.__firebaseReady) { setReady(true); return; }
+    const h = () => setReady(true);
+    window.addEventListener("firebase-ready", h);
+    return () => window.removeEventListener("firebase-ready", h);
+  }, []);
+
+  useEffect(() => {
+    if (!ready) return;
+    return window.__fb.onAuthStateChanged(window.__auth, (u) => { setUser(u); setProfile(null); });
+  }, [ready]);
+
+  useEffect(() => {
+    if (!user || profile) return;
+    (async () => {
+      const snap = await window.__fb.getDoc(window.__fb.doc(window.__db, "users", user.uid));
+      setProfile(snap.exists() ? snap.data() : { role: "unknown" });
+    })();
+  }, [user]);
+
+  useEffect(() => {
+    if (!user || units) return;
+    (async () => {
+      const snap = await window.__fb.getDocs(window.__fb.collection(window.__db, "units"));
+      setUnits(snap.docs.map((d) => d.data()));
+    })();
+  }, [user]);
+
+  const openUnit = async (u) => {
+    setActiveUnit(u);
+    const ref = window.__fb.doc(window.__db, "users", user.uid, "progress", u.unit_id);
+    const snap = await window.__fb.getDoc(ref);
+    setProgress(snap.exists() ? snap.data() : {});
+  };
+
+  const markComplete = async (key, extra) => {
+    const next = { ...progress, [key]: true, ...(extra || {}) };
+    setProgress(next);
+    const ref = window.__fb.doc(window.__db, "users", user.uid, "progress", activeUnit.unit_id);
+    await window.__fb.setDoc(ref, { [key]: true, ...(extra || {}) }, { merge: true });
+    setActiveLesson(null);
+  };
+
+  if (!ready) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{STRINGS.en.loading}</div>;
+  if (!user) return <LoginScreen t={t} />;
+  if (!profile) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
+  if (profile.role === "master") return <AdminDashboard t={t} onLogout={() => window.__fb.signOut(window.__auth)} />;
+  if (!units) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
+
+  const enabledLevels = profile.enabledLevels || [];
+  const visibleUnits = units.filter((u) => enabledLevels.includes(u.level));
+  const levelColor = activeUnit ? LEVEL_COLORS[activeUnit.level] : null;
+
+  return (
+    <div style={{ background: C.bg, minHeight: "100vh", padding: "24px 18px", boxSizing: "border-box", position: "relative" }}>
+      {!(activeLesson === "quiz") && (
+        <button onClick={() => setLang((l) => (l === "en" ? "es" : "en"))}
+          style={{ position: "absolute", top: 18, right: 18, fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 12px", borderRadius: 999, border: `1px solid ${C.line}`, background: "#fff", color: C.ink, cursor: "pointer" }}>
+          {lang === "en" ? "Ver en español" : "View in English"}
+        </button>
+      )}
+      <button onClick={() => window.__fb.signOut(window.__auth)}
+        style={{ position: "absolute", top: 18, left: 18, fontFamily: mono, fontSize: 12, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
+        {t.logout}
+      </button>
+      <div style={{ maxWidth: 460, margin: "0 auto", paddingTop: 36 }}>
+        {!activeUnit && <LevelsScreen units={visibleUnits} t={t} onOpenUnit={openUnit} />}
+        {activeUnit && !activeLesson && (
+          <UnitMap unit={activeUnit} levelColor={levelColor} progress={progress} t={t}
+            onOpenLesson={(k) => setActiveLesson(k)} onBack={() => setActiveUnit(null)} />
+        )}
+        {activeUnit && activeLesson && (
+          <div>
+            <button onClick={() => setActiveLesson(null)} style={{ border: "none", background: "none", padding: 0, color: C.inkSoft, fontFamily: font, fontSize: 14, cursor: "pointer", marginBottom: 16 }}>
+              ← {activeUnit.title}
+            </button>
+            {activeLesson === "vocab" && <VocabLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("vocab")} />}
+            {activeLesson === "grammar" && <GrammarLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("grammar")} />}
+            {activeLesson === "reading" && <ReadingLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("reading")} />}
+            {activeLesson === "listening" && <ListeningLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("listening")} />}
+            {activeLesson === "writing" && <WritingLesson unit={activeUnit} levelColor={levelColor} t={t} lang={lang} onComplete={(text) => markComplete("writing", { writing_text: text, writing_submitted_at: new Date().toISOString() })} />}
+            {activeLesson === "quiz" && <QuizLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={(score) => markComplete("quiz", { quiz_score: score })} />}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+</script>
+</body>
+</html>
