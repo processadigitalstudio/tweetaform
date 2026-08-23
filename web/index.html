@@ -8,14 +8,11 @@
 <body style="margin:0;">
 <div id="root"></div>
 
-<!-- Firebase (modulos ES) -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut }
-    from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
-  import { getFirestore, collection, getDocs, doc, getDoc, setDoc }
-    from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-
+<!-- Firebase (SDK clasico, sin "import" — mas compatible con navegadores administrados) -->
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script>
   const firebaseConfig = {
     apiKey: "AIzaSyCF3ArsdP0UjepFN3ekSsbqFzWyVTI-8mE",
     authDomain: "tweetaform.firebaseapp.com",
@@ -24,11 +21,9 @@
     messagingSenderId: "13535522342",
     appId: "1:13535522342:web:f72f1fef56de25c57580e7"
   };
-
-  const app = initializeApp(firebaseConfig);
-  window.__auth = getAuth(app);
-  window.__db = getFirestore(app);
-  window.__fb = { signInWithEmailAndPassword, onAuthStateChanged, signOut, collection, getDocs, doc, getDoc, setDoc };
+  firebase.initializeApp(firebaseConfig);
+  window.__auth = firebase.auth();
+  window.__db = firebase.firestore();
   window.__firebaseReady = true;
   window.dispatchEvent(new Event("firebase-ready"));
 </script>
@@ -577,7 +572,7 @@ function LoginScreen({ t }) {
     e.preventDefault();
     setError(null); setLoading(true);
     try {
-      await window.__fb.signInWithEmailAndPassword(window.__auth, email, pw);
+      await window.__auth.signInWithEmailAndPassword(email, pw);
     } catch (err) {
       setError(t.loginError);
     }
@@ -693,8 +688,7 @@ function AdminDashboard({ t, onLogout }) {
 
   useEffect(() => {
     (async () => {
-      const q = window.__fb.collection(window.__db, "users");
-      const snap = await window.__fb.getDocs(q);
+      const snap = await window.__db.collection("users").get();
       const list = snap.docs
         .map((d) => ({ uid: d.id, ...d.data() }))
         .filter((u) => u.role === "student");
@@ -705,7 +699,7 @@ function AdminDashboard({ t, onLogout }) {
   const toggleLevel = async (student, level) => {
     const current = student.enabledLevels || [];
     const next = current.includes(level) ? current.filter((l) => l !== level) : [...current, level];
-    await window.__fb.setDoc(window.__fb.doc(window.__db, "users", student.uid), { enabledLevels: next }, { merge: true });
+    await window.__db.collection("users").doc(student.uid).set({ enabledLevels: next }, { merge: true });
     setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, enabledLevels: next } : s)));
   };
 
@@ -713,7 +707,7 @@ function AdminDashboard({ t, onLogout }) {
     if (expanded === student.uid) { setExpanded(null); return; }
     setExpanded(student.uid);
     if (!progressByStudent[student.uid]) {
-      const snap = await window.__fb.getDocs(window.__fb.collection(window.__db, "users", student.uid, "progress"));
+      const snap = await window.__db.collection("users").doc(student.uid).collection("progress").get();
       const data = {};
       snap.docs.forEach((d) => { data[d.id] = d.data(); });
       setProgressByStudent((prev) => ({ ...prev, [student.uid]: data }));
@@ -814,44 +808,44 @@ function App() {
 
   useEffect(() => {
     if (!ready) return;
-    return window.__fb.onAuthStateChanged(window.__auth, (u) => { setUser(u); setProfile(null); });
+    return window.__auth.onAuthStateChanged((u) => { setUser(u); setProfile(null); });
   }, [ready]);
 
   useEffect(() => {
     if (!user || profile) return;
     (async () => {
-      const snap = await window.__fb.getDoc(window.__fb.doc(window.__db, "users", user.uid));
-      setProfile(snap.exists() ? snap.data() : { role: "unknown" });
+      const snap = await window.__db.collection("users").doc(user.uid).get();
+      setProfile(snap.exists ? snap.data() : { role: "unknown" });
     })();
   }, [user]);
 
   useEffect(() => {
     if (!user || units) return;
     (async () => {
-      const snap = await window.__fb.getDocs(window.__fb.collection(window.__db, "units"));
+      const snap = await window.__db.collection("units").get();
       setUnits(snap.docs.map((d) => d.data()));
     })();
   }, [user]);
 
   const openUnit = async (u) => {
     setActiveUnit(u);
-    const ref = window.__fb.doc(window.__db, "users", user.uid, "progress", u.unit_id);
-    const snap = await window.__fb.getDoc(ref);
-    setProgress(snap.exists() ? snap.data() : {});
+    const ref = window.__db.collection("users").doc(user.uid).collection("progress").doc(u.unit_id);
+    const snap = await ref.get();
+    setProgress(snap.exists ? snap.data() : {});
   };
 
   const markComplete = async (key, extra) => {
     const next = { ...progress, [key]: true, ...(extra || {}) };
     setProgress(next);
-    const ref = window.__fb.doc(window.__db, "users", user.uid, "progress", activeUnit.unit_id);
-    await window.__fb.setDoc(ref, { [key]: true, ...(extra || {}) }, { merge: true });
+    const ref = window.__db.collection("users").doc(user.uid).collection("progress").doc(activeUnit.unit_id);
+    await ref.set({ [key]: true, ...(extra || {}) }, { merge: true });
     setActiveLesson(null);
   };
 
   if (!ready) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{STRINGS.en.loading}</div>;
   if (!user) return <LoginScreen t={t} />;
   if (!profile) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
-  if (profile.role === "master") return <AdminDashboard t={t} onLogout={() => window.__fb.signOut(window.__auth)} />;
+  if (profile.role === "master") return <AdminDashboard t={t} onLogout={() => window.__auth.signOut()} />;
   if (!units) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
 
   const enabledLevels = profile.enabledLevels || [];
@@ -866,7 +860,7 @@ function App() {
           {lang === "en" ? "Ver en español" : "View in English"}
         </button>
       )}
-      <button onClick={() => window.__fb.signOut(window.__auth)}
+      <button onClick={() => window.__auth.signOut()}
         style={{ position: "absolute", top: 18, left: 18, fontFamily: mono, fontSize: 12, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
         {t.logout}
       </button>

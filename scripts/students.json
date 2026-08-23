@@ -1,0 +1,5 @@
+[
+  { "email": "estudiante1@tweetalig.local", "password": "cambiame123", "name": "Nombre Apellido 1", "enabledLevels": ["A1"] },
+  { "email": "estudiante2@tweetalig.local", "password": "cambiame123", "name": "Nombre Apellido 2", "enabledLevels": ["A2"] },
+  { "email": "estudiante3@tweetalig.local", "password": "cambiame123", "name": "Nombre Apellido 3", "enabledLevels": ["A1", "A2"] }
+]
