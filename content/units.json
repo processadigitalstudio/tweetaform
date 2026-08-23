@@ -1,0 +1,5444 @@
+[
+  {
+    "unit_id": "A1-01",
+    "level": "A1",
+    "title": "Nice to Meet You!",
+    "grammar_topic": "Verb to be: afirmativo, negativo y preguntas",
+    "vocab_theme": "Saludos, presentaciones, información personal",
+    "can_do": "Puede saludar, presentarse, decir quién es y de dónde es",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "El verbo 'to be' (ser/estar) cambia según la persona: am, is, are. En español muchas veces no se necesita un verbo para presentarse ('Yo, Camila'), pero en inglés el verbo 'to be' SIEMPRE tiene que aparecer.",
+      "structure_notes": [
+        {
+          "label": "I",
+          "explanation": "am / am not / Am I...?",
+          "example": "I am Camila. I'm not a teacher. Am I late?"
+        },
+        {
+          "label": "You",
+          "explanation": "are / aren't / Are you...?",
+          "example": "You are a student. You aren't from here. Are you ready?"
+        },
+        {
+          "label": "He / She / It",
+          "explanation": "is / isn't / Is he...?",
+          "example": "She is a teacher. He isn't from Madrid. Is it far?"
+        },
+        {
+          "label": "We / You / They",
+          "explanation": "are / aren't / Are we...?",
+          "example": "We are friends. They aren't students. Are we late?"
+        }
+      ],
+      "examples": [
+        "I am Camila. (Soy Camila.)",
+        "She is a teacher. (Ella es profesora.)",
+        "They are not from Tokyo. (Ellos no son de Tokyo.)",
+        "Are you a student? (¿Eres estudiante?)"
+      ],
+      "common_mistake": "El error más común de hispanohablantes es OMITIR el verbo 'to be' ('Yo profesora' en vez de 'I am a teacher'). En inglés el verbo siempre va."
+    },
+    "grammar_practice": [
+      {
+        "type": "fill_blank",
+        "q": "I ___ Camila.",
+        "answer": "am"
+      },
+      {
+        "type": "fill_blank",
+        "q": "She ___ a teacher.",
+        "answer": "is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "They ___ not from Tokyo.",
+        "answer": "are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "We ___ friends.",
+        "answer": "are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "He ___ not a student.",
+        "answer": "is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ you ready? (pregunta)",
+        "answer": "Are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ she from Madrid? (pregunta)",
+        "answer": "Is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I ___ not late.",
+        "answer": "am"
+      },
+      {
+        "type": "fill_blank",
+        "q": "You ___ my friend.",
+        "answer": "are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "It ___ far from here.",
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "We _____ from Madrid.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you a student?",
+        "options": [
+          "Am",
+          "Is",
+          "Are"
+        ],
+        "answer": "Are"
+      },
+      {
+        "type": "mcq",
+        "q": "My teacher _____ from the United States.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "I _____ a new student here.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "am"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ they ready?",
+        "options": [
+          "Am",
+          "Is",
+          "Are"
+        ],
+        "answer": "Are"
+      },
+      {
+        "type": "mcq",
+        "q": "This _____ my friend, Daniel.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "true_false",
+        "q": "'He are my friend' is grammatically correct.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "'Am' is used with 'I' only.",
+        "answer": true
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el pronombre con su forma de 'to be'",
+        "pairs": [
+          {
+            "left": "I",
+            "right": "am"
+          },
+          {
+            "left": "You / We / They",
+            "right": "are"
+          },
+          {
+            "left": "He / She / It",
+            "right": "is"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oracion:",
+        "words": [
+          "your",
+          "name?",
+          "is",
+          "What"
+        ],
+        "answer": "What is your name?"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "Hello / Hi",
+        "meaning": "Hola",
+        "example": "Hello! How are you?"
+      },
+      {
+        "word": "Good morning / afternoon / evening",
+        "meaning": "Buenos días / tardes / noches",
+        "example": "Good morning, everyone."
+      },
+      {
+        "word": "How are you?",
+        "meaning": "¿Cómo estás?",
+        "example": "Hi Daniel, how are you?"
+      },
+      {
+        "word": "Nice to meet you",
+        "meaning": "Mucho gusto",
+        "example": "Nice to meet you, Daniel."
+      },
+      {
+        "word": "My name is...",
+        "meaning": "Mi nombre es...",
+        "example": "My name is Camila."
+      },
+      {
+        "word": "What's your name?",
+        "meaning": "¿Cuál es tu nombre?",
+        "example": "Hi, what's your name?"
+      },
+      {
+        "word": "I'm from...",
+        "meaning": "Soy de...",
+        "example": "I'm from Madrid."
+      },
+      {
+        "word": "Where are you from?",
+        "meaning": "¿De dónde eres?",
+        "example": "Where are you from, Marta?"
+      },
+      {
+        "word": "Teacher",
+        "meaning": "Profesor/a",
+        "example": "She is my English teacher.",
+        "has_image": true,
+        "image_file": "A1-01_vocab_teacher.png"
+      },
+      {
+        "word": "Student",
+        "meaning": "Estudiante",
+        "example": "I am a new student.",
+        "has_image": true,
+        "image_file": "A1-01_vocab_student.png"
+      },
+      {
+        "word": "Friend",
+        "meaning": "Amigo/a",
+        "example": "He is my friend from university.",
+        "has_image": true,
+        "image_file": "A1-01_vocab_friend.png"
+      },
+      {
+        "word": "See you later / Goodbye",
+        "meaning": "Hasta luego / Adiós",
+        "example": "Goodbye, see you tomorrow!",
+        "has_image": true,
+        "image_file": "A1-01_vocab_goodbye.png"
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-01_vocab_teacher.png",
+        "options": [
+          "Teacher",
+          "Student",
+          "Friend"
+        ],
+        "answer": "Teacher"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-01_vocab_student.png",
+        "options": [
+          "Teacher",
+          "Student",
+          "Goodbye"
+        ],
+        "answer": "Student"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-01_vocab_friend.png",
+        "options": [
+          "Friend",
+          "Teacher",
+          "Student"
+        ],
+        "answer": "Friend"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-01_vocab_goodbye.png",
+        "options": [
+          "Hello",
+          "Goodbye",
+          "Nice to meet you"
+        ],
+        "answer": "Goodbye"
+      },
+      {
+        "type": "mcq",
+        "q": "What does 'Nice to meet you' mean?",
+        "options": [
+          "Hasta luego",
+          "Mucho gusto",
+          "¿Cómo estás?"
+        ],
+        "answer": "Mucho gusto"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Nice to ___ you.",
+        "answer": "meet"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la frase con su significado",
+        "pairs": [
+          {
+            "left": "What's your name?",
+            "right": "¿Cuál es tu nombre?"
+          },
+          {
+            "left": "Where are you from?",
+            "right": "¿De dónde eres?"
+          },
+          {
+            "left": "I'm from...",
+            "right": "Soy de..."
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "'Good morning' is used at night.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "Choose the correct response to 'Nice to meet you.'",
+        "options": [
+          "Nice to meet you too",
+          "I'm from Madrid",
+          "Good morning"
+        ],
+        "answer": "Nice to meet you too"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ are you from? — I'm from Toronto.",
+        "answer": "Where"
+      },
+      {
+        "type": "true_false",
+        "q": "'Teacher' means 'estudiante'.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "Which greeting is correct for the morning?",
+        "options": [
+          "Good evening",
+          "Good night",
+          "Good morning"
+        ],
+        "answer": "Good morning"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el saludo con la respuesta correcta",
+        "pairs": [
+          {
+            "left": "How are you?",
+            "right": "I'm fine, thanks."
+          },
+          {
+            "left": "What's your name?",
+            "right": "My name is Ana."
+          },
+          {
+            "left": "Nice to meet you.",
+            "right": "Nice to meet you too."
+          }
+        ]
+      }
+    ],
+    "reading": [
+      {
+        "title": "Hi, I'm Camila",
+        "word_count": 97,
+        "text": "Hi! My name is Camila and I am from Madrid. I am a student at a language school. My teacher's name is Mr. Rojas, and he is from the United States. My best friend at school is Daniel. He is not from Madrid; he is from Sydney. We are in the same class every morning. In my class, we are all beginners in English, but we are not shy! Every day we say 'Good morning' and practice new words together. I am very happy at this school.",
+        "questions": [
+          {
+            "q": "Where is Camila from?",
+            "type": "mcq",
+            "options": [
+              "Sydney",
+              "Madrid",
+              "Tokyo",
+              "The United States"
+            ],
+            "answer": "Madrid"
+          },
+          {
+            "q": "What is Camila?",
+            "type": "mcq",
+            "options": [
+              "A teacher",
+              "A student",
+              "A friend",
+              "A doctor"
+            ],
+            "answer": "A student"
+          },
+          {
+            "q": "Is Daniel from Madrid?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "How does Camila feel at the school?",
+            "type": "mcq",
+            "options": [
+              "Sad",
+              "Bored",
+              "Happy",
+              "Shy"
+            ],
+            "answer": "Happy"
+          },
+          {
+            "q": "Empareja la persona con su origen",
+            "type": "matching",
+            "pairs": [
+              {
+                "left": "Camila",
+                "right": "Madrid"
+              },
+              {
+                "left": "Daniel",
+                "right": "Sydney"
+              },
+              {
+                "left": "Mr. Rojas",
+                "right": "The United States"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "My New Classmate",
+        "word_count": 92,
+        "text": "Today is my first day at Tweetalig. My name is Julian, and I am from Toronto. There is a new student next to me. Her name is Valentina. She is from Madrid, but she is not new to English — she is at a high level already! Our teacher is Miss Paola. She is very patient and friendly. Valentina and I are both nervous, but we are excited too. 'Nice to meet you,' Valentina says. 'Nice to meet you too,' I say. I think we are going to be good friends this year.",
+        "questions": [
+          {
+            "q": "Where is Julian from?",
+            "type": "mcq",
+            "options": [
+              "Madrid",
+              "Toronto",
+              "Sydney",
+              "Tokyo"
+            ],
+            "answer": "Toronto"
+          },
+          {
+            "q": "Is Valentina new to English?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "What is the teacher's name?",
+            "type": "mcq",
+            "options": [
+              "Mr. Rojas",
+              "Miss Paola",
+              "Daniel",
+              "Camila"
+            ],
+            "answer": "Miss Paola"
+          },
+          {
+            "q": "How do Julian and Valentina feel?",
+            "type": "mcq",
+            "options": [
+              "Angry and bored",
+              "Nervous and excited",
+              "Sad and tired",
+              "Shy and confused"
+            ],
+            "answer": "Nervous and excited"
+          },
+          {
+            "q": "___ this Julian's first day? (completa con Is/Are)",
+            "type": "fill_blank",
+            "answer": "Is"
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "Meeting at Orientation",
+        "duration_seconds_estimate": 35,
+        "audio_file": "A1-01_listening_1.mp3",
+        "transcript": "A: Hi! My name is Sofia. What's your name?\nB: Hi, Sofia! I'm Andres. Nice to meet you.\nA: Nice to meet you too! Where are you from?\nB: I'm from Toronto. And you?\nA: I'm from Madrid. Are you a new student here?\nB: Yes, I am! This is my first day.\nA: Me too! Good luck, Andres.\nB: Thanks, Sofia. See you in class!",
+        "questions": [
+          {
+            "q": "What is the woman's name?",
+            "type": "mcq",
+            "options": [
+              "Camila",
+              "Sofia",
+              "Andrea",
+              "Marta"
+            ],
+            "answer": "Sofia"
+          },
+          {
+            "q": "Where is Andres from?",
+            "type": "mcq",
+            "options": [
+              "Madrid",
+              "Sydney",
+              "Toronto",
+              "Tokyo"
+            ],
+            "answer": "Toronto"
+          },
+          {
+            "q": "Is this Andres's first day?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "What does Sofia say at the end?",
+            "type": "mcq",
+            "options": [
+              "Goodbye forever",
+              "See you in class",
+              "Nice to meet you",
+              "What's your name"
+            ],
+            "answer": "See you in class"
+          },
+          {
+            "q": "Is Sofia a new student too?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Empareja el hablante con su ciudad",
+            "type": "matching",
+            "pairs": [
+              {
+                "left": "Sofia",
+                "right": "Madrid"
+              },
+              {
+                "left": "Andres",
+                "right": "Toronto"
+              }
+            ]
+          },
+          {
+            "q": "___ you a new student? (completa)",
+            "type": "fill_blank",
+            "answer": "Are"
+          }
+        ],
+        "format": "dialogue"
+      },
+      {
+        "title": "My New Neighbor",
+        "duration_seconds_estimate": 30,
+        "audio_file": "A1-01_listening_2.mp3",
+        "transcript": "Let me tell you about my new neighbor. Her name is Laura, and she is from Madrid. Yesterday, she came to say hello to my family. This is my wife, Ana, and this is our friend, Carlos — they are not from Madrid, they are from Toronto, like me. Laura is very nice, and she is happy to be here. She says our street is quiet and friendly. I think Laura is going to be a great neighbor.",
+        "questions": [
+          {
+            "q": "What is the new neighbor's name?",
+            "type": "mcq",
+            "options": [
+              "Ana",
+              "Laura",
+              "Carlos",
+              "Pedro"
+            ],
+            "answer": "Laura"
+          },
+          {
+            "q": "Where is Laura from?",
+            "type": "mcq",
+            "options": [
+              "Toronto",
+              "Madrid",
+              "Sydney",
+              "Tokyo"
+            ],
+            "answer": "Madrid"
+          },
+          {
+            "q": "Is Carlos the speaker's wife?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "Who is Ana?",
+            "type": "mcq",
+            "options": [
+              "The speaker's friend",
+              "The speaker's wife",
+              "Laura's sister",
+              "The teacher"
+            ],
+            "answer": "The speaker's wife"
+          },
+          {
+            "q": "How does Laura feel about being there?",
+            "type": "mcq",
+            "options": [
+              "Sad",
+              "Nervous",
+              "Happy",
+              "Bored"
+            ],
+            "answer": "Happy"
+          },
+          {
+            "q": "The street ___ quiet and friendly. (completa con is/are)",
+            "type": "fill_blank",
+            "answer": "is"
+          }
+        ],
+        "format": "monologue"
+      }
+    ],
+    "writing": {
+      "text_type": "presentación personal",
+      "target_word_count": "3-5 oraciones",
+      "prompt": {
+        "en": "Introduce yourself. Write 3 to 5 sentences using the verb 'to be'. Say: your name, where you're from, what you are (student/teacher/etc.) and something else about you.",
+        "es": "Preséntate. Escribe de 3 a 5 oraciones usando el verbo 'to be'. Di: tu nombre, de dónde eres, qué eres (estudiante/profesor/etc.) y algo más sobre ti."
+      },
+      "rubric": [
+        {
+          "criterio": "Cumple la tarea",
+          "descripcion": "Incluye nombre, origen y ocupación."
+        },
+        {
+          "criterio": "Uso del verbo to be",
+          "descripcion": "Usa am/is/are correctamente según la persona."
+        },
+        {
+          "criterio": "Vocabulario de la unidad",
+          "descripcion": "Usa al menos 2 palabras de la lista."
+        },
+        {
+          "criterio": "Coherencia",
+          "descripcion": "Las oraciones tienen sentido y se conectan."
+        }
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "My name _____ Laura.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "We _____ from Madrid.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you a student?",
+        "options": [
+          "Am",
+          "Is",
+          "Are"
+        ],
+        "answer": "Are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I ___ not a teacher, I am a student.",
+        "answer": "am"
+      },
+      {
+        "type": "fill_blank",
+        "q": "She ___ from Sydney.",
+        "answer": "is"
+      },
+      {
+        "type": "true_false",
+        "q": "'He are my friend' is correct.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "'Nice to meet you' is a greeting for meeting someone for the first time.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "They _____ not from the United States.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "mcq",
+        "q": "Choose the correct morning greeting:",
+        "options": [
+          "Good evening",
+          "Good night",
+          "Good morning",
+          "Goodbye"
+        ],
+        "answer": "Good morning"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ they students? Yes, they are.",
+        "answer": "Are"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el pronombre con su forma de 'to be'",
+        "pairs": [
+          {
+            "left": "I",
+            "right": "am"
+          },
+          {
+            "left": "You / We / They",
+            "right": "are"
+          },
+          {
+            "left": "He / She / It",
+            "right": "is"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oracion:",
+        "words": [
+          "you?",
+          "your",
+          "What's",
+          "name"
+        ],
+        "answer": "What's your name?"
+      },
+      {
+        "type": "mcq",
+        "q": "This _____ my friend, Daniel.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "true_false",
+        "q": "'Teacher' means 'estudiante'.",
+        "answer": false
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-01_vocab_friend.png",
+        "options": [
+          "Friend",
+          "Teacher",
+          "Student"
+        ],
+        "answer": "Friend"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Nice to ___ you.",
+        "answer": "meet"
+      },
+      {
+        "type": "mcq",
+        "q": "Where _____ you from?",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "true_false",
+        "q": "'Am' is used with 'she'.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la frase con su significado",
+        "pairs": [
+          {
+            "left": "Where are you from?",
+            "right": "¿De dónde eres?"
+          },
+          {
+            "left": "I'm from...",
+            "right": "Soy de..."
+          }
+        ]
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ a new student.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "We ___ friends.",
+        "answer": "are"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-01_vocab_goodbye.png",
+        "options": [
+          "Hello",
+          "Goodbye",
+          "Nice to meet you"
+        ],
+        "answer": "Goodbye"
+      }
+    ],
+    "quiz_draw_count": 15
+  },
+  {
+    "unit_id": "A1-02",
+    "level": "A1",
+    "title": "Transportation",
+    "grammar_topic": "Subject, object y possessive pronouns",
+    "vocab_theme": "Transporte y desplazamientos",
+    "can_do": "Puede hablar de personas y objetos y desenvolverse en transporte",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Los pronombres cambian de forma según su función en la oración: sujeto (quién hace la acción), objeto (quién recibe la acción), y posesivo (de quién es algo).",
+      "structure_notes": [
+        {
+          "label": "Pronombres de sujeto",
+          "explanation": "I, you, he, she, it, we, they — van antes del verbo.",
+          "example": "She takes the bus every morning."
+        },
+        {
+          "label": "Pronombres de objeto",
+          "explanation": "me, you, him, her, it, us, them — van después del verbo o de una preposición.",
+          "example": "The driver helps her with the bags."
+        },
+        {
+          "label": "Adjetivos posesivos",
+          "explanation": "my, your, his, her, its, our, their — van antes de un sustantivo.",
+          "example": "This is my bicycle."
+        }
+      ],
+      "examples": [
+        "He drives to work every day.",
+        "Can you help me, please?",
+        "This is her bicycle.",
+        "We take our bags with us."
+      ],
+      "common_mistake": "Confundir 'his' y 'her' — muchos hispanohablantes usan 'his' para todo. 'His' es de él, 'her' es de ella, sin importar el género del objeto."
+    },
+    "grammar_practice": [
+      {
+        "type": "fill_blank",
+        "q": "___ takes the bus every day. (Ana)",
+        "answer": "She"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Can you help ___? (a mí)",
+        "answer": "me"
+      },
+      {
+        "type": "fill_blank",
+        "q": "This is ___ car. (de él)",
+        "answer": "his"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ take the train to school. (nosotros)",
+        "answer": "We"
+      },
+      {
+        "type": "fill_blank",
+        "q": "The driver helps ___. (a ellos)",
+        "answer": "them"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Is this ___ bicycle? (de ti)",
+        "answer": "your"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ drives a taxi. (él)",
+        "answer": "He"
+      },
+      {
+        "type": "fill_blank",
+        "q": "The taxi driver talks to ___. (a nosotros)",
+        "answer": "us"
+      },
+      {
+        "type": "fill_blank",
+        "q": "This is ___ ticket. (de ella)",
+        "answer": "her"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ arrive at 8 AM. (ellos)",
+        "answer": "They"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ takes the bus to work.",
+        "options": [
+          "Him",
+          "He",
+          "His"
+        ],
+        "answer": "He"
+      },
+      {
+        "type": "mcq",
+        "q": "Can you drive _____ to the station?",
+        "options": [
+          "I",
+          "me",
+          "my"
+        ],
+        "answer": "me"
+      },
+      {
+        "type": "mcq",
+        "q": "This is _____ bicycle, not yours.",
+        "options": [
+          "I",
+          "me",
+          "my"
+        ],
+        "answer": "my"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ take the train every morning.",
+        "options": [
+          "We",
+          "Us",
+          "Our"
+        ],
+        "answer": "We"
+      },
+      {
+        "type": "mcq",
+        "q": "The bus driver helps _____.",
+        "options": [
+          "they",
+          "them",
+          "their"
+        ],
+        "answer": "them"
+      },
+      {
+        "type": "mcq",
+        "q": "Is that _____ car?",
+        "options": [
+          "she",
+          "her",
+          "hers"
+        ],
+        "answer": "her"
+      },
+      {
+        "type": "true_false",
+        "q": "'Her' can be used before a noun, like 'her car'.",
+        "answer": true
+      },
+      {
+        "type": "true_false",
+        "q": "'Him' is a subject pronoun.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el pronombre de sujeto con su forma de objeto",
+        "pairs": [
+          {
+            "left": "I",
+            "right": "me"
+          },
+          {
+            "left": "he",
+            "right": "him"
+          },
+          {
+            "left": "they",
+            "right": "them"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oración:",
+        "words": [
+          "car",
+          "his",
+          "is",
+          "This"
+        ],
+        "answer": "This is his car"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "bus",
+        "meaning": "autobús",
+        "example": "I take the bus to school.",
+        "has_image": true,
+        "image_file": "A1-02_vocab_bus.png"
+      },
+      {
+        "word": "car",
+        "meaning": "carro",
+        "example": "My father drives a car.",
+        "has_image": true,
+        "image_file": "A1-02_vocab_car.png"
+      },
+      {
+        "word": "bicycle / bike",
+        "meaning": "bicicleta",
+        "example": "She rides her bicycle to work.",
+        "has_image": true,
+        "image_file": "A1-02_vocab_bicycle.png"
+      },
+      {
+        "word": "train",
+        "meaning": "tren",
+        "example": "The train arrives at nine."
+      },
+      {
+        "word": "taxi",
+        "meaning": "taxi",
+        "example": "We took a taxi to the airport.",
+        "has_image": true,
+        "image_file": "A1-02_vocab_taxi.png"
+      },
+      {
+        "word": "to drive",
+        "meaning": "conducir/manejar",
+        "example": "He drives every day."
+      },
+      {
+        "word": "to take (the bus/train)",
+        "meaning": "tomar (el bus/tren)",
+        "example": "I take the train every morning."
+      },
+      {
+        "word": "ticket",
+        "meaning": "tiquete/boleto",
+        "example": "I need a ticket for the bus."
+      },
+      {
+        "word": "driver",
+        "meaning": "conductor/a",
+        "example": "The driver is very friendly."
+      },
+      {
+        "word": "passenger",
+        "meaning": "pasajero/a",
+        "example": "There are many passengers today."
+      },
+      {
+        "word": "traffic",
+        "meaning": "tráfico",
+        "example": "There is a lot of traffic this morning."
+      },
+      {
+        "word": "to arrive",
+        "meaning": "llegar",
+        "example": "We arrive at 8 AM."
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-02_vocab_bus.png",
+        "options": [
+          "Bus",
+          "Car",
+          "Taxi"
+        ],
+        "answer": "Bus"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-02_vocab_car.png",
+        "options": [
+          "Bicycle",
+          "Car",
+          "Train"
+        ],
+        "answer": "Car"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-02_vocab_bicycle.png",
+        "options": [
+          "Bicycle",
+          "Taxi",
+          "Bus"
+        ],
+        "answer": "Bicycle"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-02_vocab_taxi.png",
+        "options": [
+          "Car",
+          "Bus",
+          "Taxi"
+        ],
+        "answer": "Taxi"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you call the person who drives a bus or taxi?",
+        "options": [
+          "Passenger",
+          "Driver",
+          "Ticket"
+        ],
+        "answer": "Driver"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I need to buy a ___ for the train.",
+        "answer": "ticket"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la palabra con su significado",
+        "pairs": [
+          {
+            "left": "traffic",
+            "right": "tráfico"
+          },
+          {
+            "left": "passenger",
+            "right": "pasajero"
+          },
+          {
+            "left": "to arrive",
+            "right": "llegar"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "A 'passenger' drives the vehicle.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "Which word means 'conducir'?",
+        "options": [
+          "to arrive",
+          "to drive",
+          "to take"
+        ],
+        "answer": "to drive"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There is a lot of ___ this morning.",
+        "answer": "traffic"
+      },
+      {
+        "type": "true_false",
+        "q": "A 'driver' rides a bicycle only.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "Which is the fastest way to describe going by taxi?",
+        "options": [
+          "to take a taxi",
+          "to walk",
+          "to ride a bicycle"
+        ],
+        "answer": "to take a taxi"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el vehículo con su nombre en inglés",
+        "pairs": [
+          {
+            "left": "autobús",
+            "right": "bus"
+          },
+          {
+            "left": "tren",
+            "right": "train"
+          },
+          {
+            "left": "bicicleta",
+            "right": "bicycle"
+          }
+        ]
+      }
+    ],
+    "reading": [
+      {
+        "title": "Going to School by Bus",
+        "word_count": 93,
+        "text": "Every morning, Julian takes the bus to school. He waits for it at the corner near his house. The bus driver is very kind, and he always says hello to him. Today, there are many passengers on the bus, and there is a lot of traffic. Julian looks out the window and sees his friend Marta. She is riding her bicycle. He waves at her. The bus arrives at school at 7:30. Julian is never late because his bus is always on time. He likes taking the bus with his classmates every day.",
+        "questions": [
+          {
+            "q": "How does Julian go to school?",
+            "type": "mcq",
+            "options": [
+              "By car",
+              "By bus",
+              "By bicycle",
+              "By taxi"
+            ],
+            "answer": "By bus"
+          },
+          {
+            "q": "Is the bus driver kind?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "What does Julian see out the window?",
+            "type": "mcq",
+            "options": [
+              "A taxi",
+              "His friend on a bicycle",
+              "A train",
+              "His house"
+            ],
+            "answer": "His friend on a bicycle"
+          },
+          {
+            "q": "What time does the bus arrive at school?",
+            "type": "mcq",
+            "options": [
+              "7:00",
+              "7:30",
+              "8:00",
+              "8:30"
+            ],
+            "answer": "7:30"
+          },
+          {
+            "q": "Is Julian usually late?",
+            "type": "true_false",
+            "answer": false
+          }
+        ]
+      },
+      {
+        "title": "My Sister's Bicycle",
+        "word_count": 88,
+        "text": "My sister Valentina has a new bicycle. It is blue and very fast. She rides it to work every day because there is always a lot of traffic in our city. I usually take the bus, but sometimes I take a taxi if I am late. Valentina says her bicycle is better than a car because she never waits in traffic. Our father drives his car to work, and he says he wants a bicycle too. Maybe next year we will all ride bicycles together on the weekend.",
+        "questions": [
+          {
+            "q": "What color is Valentina's bicycle?",
+            "type": "mcq",
+            "options": [
+              "Red",
+              "Blue",
+              "Black",
+              "Green"
+            ],
+            "answer": "Blue"
+          },
+          {
+            "q": "Why does Valentina prefer her bicycle?",
+            "type": "mcq",
+            "options": [
+              "It's cheaper",
+              "She never waits in traffic",
+              "It's a gift",
+              "She doesn't like buses"
+            ],
+            "answer": "She never waits in traffic"
+          },
+          {
+            "q": "How does the writer usually travel?",
+            "type": "mcq",
+            "options": [
+              "By bicycle",
+              "By bus",
+              "By train",
+              "By taxi"
+            ],
+            "answer": "By bus"
+          },
+          {
+            "q": "Does their father want a bicycle too?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "___ drives his car to work. (completa con el pronombre correcto)",
+            "type": "fill_blank",
+            "answer": "He"
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "Taking a Taxi",
+        "duration_seconds_estimate": 32,
+        "audio_file": "A1-02_listening_1.mp3",
+        "transcript": "A: Good morning! Where do you want to go?\nB: Hello! I need to go to the airport, please.\nA: OK, no problem. Is this your first time in Madrid?\nB: Yes, it is! I'm here for work.\nA: Great! There is a little traffic today, so it might take twenty minutes.\nB: That's fine. Thank you.\nA: You're welcome. Please put on your seatbelt.",
+        "questions": [
+          {
+            "q": "Where does the passenger want to go?",
+            "type": "mcq",
+            "options": [
+              "The bus station",
+              "The airport",
+              "The train station",
+              "A restaurant"
+            ],
+            "answer": "The airport"
+          },
+          {
+            "q": "Is this the passenger's first time in Madrid?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Why might the trip take twenty minutes?",
+            "type": "mcq",
+            "options": [
+              "It's far away",
+              "There is traffic",
+              "The taxi is slow",
+              "It's raining"
+            ],
+            "answer": "There is traffic"
+          },
+          {
+            "q": "What does the driver ask the passenger to do?",
+            "type": "mcq",
+            "options": [
+              "Pay now",
+              "Put on the seatbelt",
+              "Open the window",
+              "Wait outside"
+            ],
+            "answer": "Put on the seatbelt"
+          },
+          {
+            "q": "Is the passenger here on vacation?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "___ this your first time in Madrid? (completa)",
+            "type": "fill_blank",
+            "answer": "Is"
+          },
+          {
+            "q": "Empareja quién dice qué",
+            "type": "matching",
+            "pairs": [
+              {
+                "left": "Where do you want to go?",
+                "right": "El conductor"
+              },
+              {
+                "left": "I'm here for work.",
+                "right": "El pasajero"
+              }
+            ]
+          }
+        ],
+        "format": "dialogue"
+      },
+      {
+        "title": "A Bad Morning",
+        "duration_seconds_estimate": 28,
+        "audio_file": "A1-02_listening_2.mp3",
+        "transcript": "This morning was not easy for me. I missed my bus, so I had to take a taxi instead. It was expensive, but I couldn't be late for work. There was a lot of traffic on the road, so the taxi driver had to take a different street. I was very nervous, but I arrived on time! Next time, I want to leave my house earlier so I don't miss the bus again.",
+        "questions": [
+          {
+            "q": "What happened to the speaker this morning?",
+            "type": "mcq",
+            "options": [
+              "They missed the bus",
+              "They lost their ticket",
+              "Their bicycle broke",
+              "They were early"
+            ],
+            "answer": "They missed the bus"
+          },
+          {
+            "q": "What did they do instead?",
+            "type": "mcq",
+            "options": [
+              "Walked",
+              "Took a taxi",
+              "Took the train",
+              "Rode a bicycle"
+            ],
+            "answer": "Took a taxi"
+          },
+          {
+            "q": "Was the taxi expensive?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Was there a lot of traffic?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Did the speaker arrive on time?",
+            "type": "mcq",
+            "options": [
+              "Yes",
+              "No",
+              "It doesn't say",
+              "They didn't arrive"
+            ],
+            "answer": "Yes"
+          },
+          {
+            "q": "I couldn't be late ___ work. (completa la preposición)",
+            "type": "fill_blank",
+            "answer": "for"
+          }
+        ],
+        "format": "monologue"
+      }
+    ],
+    "writing": {
+      "text_type": "descripción de rutina",
+      "target_word_count": "3-5 oraciones",
+      "prompt": {
+        "en": "Describe how you get to school or work. Write 3 to 5 sentences using subject, object, or possessive pronouns and at least 2 transportation words.",
+        "es": "Describe cómo llegas a la escuela o al trabajo. Escribe de 3 a 5 oraciones usando pronombres de sujeto, objeto o posesivos, y al menos 2 palabras de transporte."
+      },
+      "rubric": [
+        {
+          "criterio": "Cumple la tarea",
+          "descripcion": "Describe claramente un medio de transporte y una rutina."
+        },
+        {
+          "criterio": "Uso de pronombres",
+          "descripcion": "Usa correctamente al menos un pronombre de sujeto, objeto o posesivo."
+        },
+        {
+          "criterio": "Vocabulario de la unidad",
+          "descripcion": "Usa al menos 2 palabras de la lista de vocabulario."
+        },
+        {
+          "criterio": "Coherencia",
+          "descripcion": "Las oraciones tienen sentido y se conectan."
+        }
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "_____ takes the bus every day.",
+        "options": [
+          "Him",
+          "He",
+          "His"
+        ],
+        "answer": "He"
+      },
+      {
+        "type": "mcq",
+        "q": "Can you help _____?",
+        "options": [
+          "I",
+          "me",
+          "my"
+        ],
+        "answer": "me"
+      },
+      {
+        "type": "fill_blank",
+        "q": "This is ___ bicycle. (de ella)",
+        "answer": "her"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ take the train. (nosotros)",
+        "answer": "We"
+      },
+      {
+        "type": "true_false",
+        "q": "'Him' is a subject pronoun.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "A 'passenger' drives the vehicle.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "The driver helps _____.",
+        "options": [
+          "they",
+          "them",
+          "their"
+        ],
+        "answer": "them"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-02_vocab_bus.png",
+        "options": [
+          "Bus",
+          "Car",
+          "Taxi"
+        ],
+        "answer": "Bus"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-02_vocab_taxi.png",
+        "options": [
+          "Car",
+          "Bus",
+          "Taxi"
+        ],
+        "answer": "Taxi"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There is a lot of ___ this morning.",
+        "answer": "traffic"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el pronombre de sujeto con su forma de objeto",
+        "pairs": [
+          {
+            "left": "I",
+            "right": "me"
+          },
+          {
+            "left": "he",
+            "right": "him"
+          },
+          {
+            "left": "they",
+            "right": "them"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oración:",
+        "words": [
+          "car",
+          "his",
+          "is",
+          "This"
+        ],
+        "answer": "This is his car"
+      },
+      {
+        "type": "mcq",
+        "q": "Is that _____ car?",
+        "options": [
+          "she",
+          "her",
+          "hers"
+        ],
+        "answer": "her"
+      },
+      {
+        "type": "mcq",
+        "q": "Which word means 'conducir'?",
+        "options": [
+          "to arrive",
+          "to drive",
+          "to take"
+        ],
+        "answer": "to drive"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I need to buy a ___ for the train.",
+        "answer": "ticket"
+      },
+      {
+        "type": "true_false",
+        "q": "'Her' can be used before a noun, like 'her car'.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "This is _____ bicycle, not yours.",
+        "options": [
+          "I",
+          "me",
+          "my"
+        ],
+        "answer": "my"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la palabra con su significado",
+        "pairs": [
+          {
+            "left": "traffic",
+            "right": "tráfico"
+          },
+          {
+            "left": "passenger",
+            "right": "pasajero"
+          }
+        ]
+      },
+      {
+        "type": "mcq",
+        "q": "_____ arrive at 8 AM.",
+        "options": [
+          "They",
+          "Them",
+          "Their"
+        ],
+        "answer": "They"
+      },
+      {
+        "type": "fill_blank",
+        "q": "The taxi driver talks to ___. (a nosotros)",
+        "answer": "us"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-02_vocab_bicycle.png",
+        "options": [
+          "Bicycle",
+          "Taxi",
+          "Bus"
+        ],
+        "answer": "Bicycle"
+      },
+      {
+        "type": "true_false",
+        "q": "A 'driver' rides a bicycle only.",
+        "answer": false
+      }
+    ],
+    "quiz_draw_count": 15
+  },
+  {
+    "unit_id": "A1-03",
+    "level": "A1",
+    "title": "Restaurants",
+    "grammar_topic": "Singular/plural nouns; there is/there are; artículos",
+    "vocab_theme": "Restaurantes, comida, biblioteca/estudios",
+    "can_do": "Puede describir lo que hay en un lugar y hablar de comida/restaurantes",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Usamos 'there is' con sustantivos singulares y 'there are' con plurales para decir que algo existe en un lugar. Los artículos 'a/an' se usan para algo no específico, 'the' para algo específico ya mencionado o conocido.",
+      "structure_notes": [
+        {
+          "label": "there is + singular",
+          "explanation": "Para un solo objeto o persona.",
+          "example": "There is a table by the window."
+        },
+        {
+          "label": "there are + plural",
+          "explanation": "Para varios objetos o personas.",
+          "example": "There are three chairs here."
+        },
+        {
+          "label": "a / an",
+          "explanation": "'a' antes de sonido consonante, 'an' antes de sonido vocal.",
+          "example": "I would like an orange juice and a sandwich."
+        },
+        {
+          "label": "plural de sustantivos",
+          "explanation": "Se agrega -s a la mayoría de sustantivos.",
+          "example": "table → tables, dish → dishes"
+        }
+      ],
+      "examples": [
+        "There is a menu on the table.",
+        "There are two waiters today.",
+        "I would like an orange juice.",
+        "The restaurant is very popular."
+      ],
+      "common_mistake": "Usar 'there is' con sustantivos plurales: 'there is two tables' es incorrecto — debe ser 'there are two tables'."
+    },
+    "grammar_practice": [
+      {
+        "type": "fill_blank",
+        "q": "There ___ a menu on the table. (is/are)",
+        "answer": "is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There ___ three waiters today. (is/are)",
+        "answer": "are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I would like ___ apple. (a/an)",
+        "answer": "an"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I would like ___ sandwich. (a/an)",
+        "answer": "a"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There ___ a chef in the kitchen.",
+        "answer": "is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There ___ five tables in this restaurant.",
+        "answer": "are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Can I have ___ orange juice, please? (a/an)",
+        "answer": "an"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There ___ two desserts on the menu.",
+        "answer": "are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There ___ a bill on the table.",
+        "answer": "is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There ___ many dishes to choose from.",
+        "answer": "are"
+      },
+      {
+        "type": "mcq",
+        "q": "There _____ a table for two available.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "There _____ four forks on the table.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "mcq",
+        "q": "I want _____ orange, please.",
+        "options": [
+          "a",
+          "an"
+        ],
+        "answer": "an"
+      },
+      {
+        "type": "mcq",
+        "q": "I want _____ banana, please.",
+        "options": [
+          "a",
+          "an"
+        ],
+        "answer": "a"
+      },
+      {
+        "type": "mcq",
+        "q": "There _____ a waiter near the door.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "There _____ three desserts today.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "true_false",
+        "q": "'There is two tables' is correct.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "We use 'an' before a word that starts with a vowel sound.",
+        "answer": true
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el sustantivo con su plural",
+        "pairs": [
+          {
+            "left": "table",
+            "right": "tables"
+          },
+          {
+            "left": "dish",
+            "right": "dishes"
+          },
+          {
+            "left": "fork",
+            "right": "forks"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oración:",
+        "words": [
+          "are",
+          "There",
+          "waiters",
+          "two"
+        ],
+        "answer": "There are two waiters"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "restaurant",
+        "meaning": "restaurante",
+        "example": "We are eating at a new restaurant."
+      },
+      {
+        "word": "menu",
+        "meaning": "menú/carta",
+        "example": "Can I see the menu, please?",
+        "has_image": true,
+        "image_file": "A1-03_vocab_menu.png"
+      },
+      {
+        "word": "waiter / waitress",
+        "meaning": "mesero/a",
+        "example": "The waiter is very friendly."
+      },
+      {
+        "word": "table",
+        "meaning": "mesa",
+        "example": "We have a table for four.",
+        "has_image": true,
+        "image_file": "A1-03_vocab_table.png"
+      },
+      {
+        "word": "dish",
+        "meaning": "plato (de comida)",
+        "example": "This dish is delicious."
+      },
+      {
+        "word": "drink",
+        "meaning": "bebida",
+        "example": "What drink do you want?"
+      },
+      {
+        "word": "bill",
+        "meaning": "cuenta",
+        "example": "Can we have the bill, please?"
+      },
+      {
+        "word": "to order",
+        "meaning": "pedir/ordenar",
+        "example": "I would like to order now."
+      },
+      {
+        "word": "delicious",
+        "meaning": "delicioso",
+        "example": "The soup is delicious."
+      },
+      {
+        "word": "fork / knife / spoon",
+        "meaning": "tenedor / cuchillo / cuchara",
+        "example": "I need a fork and a knife.",
+        "has_image": true,
+        "image_file": "A1-03_vocab_cutlery.png"
+      },
+      {
+        "word": "chef",
+        "meaning": "chef/cocinero",
+        "example": "The chef is from Italy.",
+        "has_image": true,
+        "image_file": "A1-03_vocab_chef.png"
+      },
+      {
+        "word": "dessert",
+        "meaning": "postre",
+        "example": "For dessert, I want ice cream."
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-03_vocab_menu.png",
+        "options": [
+          "Menu",
+          "Bill",
+          "Table"
+        ],
+        "answer": "Menu"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-03_vocab_table.png",
+        "options": [
+          "Chef",
+          "Table",
+          "Dish"
+        ],
+        "answer": "Table"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-03_vocab_cutlery.png",
+        "options": [
+          "Fork, knife, spoon",
+          "Menu",
+          "Dessert"
+        ],
+        "answer": "Fork, knife, spoon"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-03_vocab_chef.png",
+        "options": [
+          "Waiter",
+          "Chef",
+          "Customer"
+        ],
+        "answer": "Chef"
+      },
+      {
+        "type": "mcq",
+        "q": "Who cooks the food in a restaurant?",
+        "options": [
+          "The waiter",
+          "The chef",
+          "The customer"
+        ],
+        "answer": "The chef"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Can I see the ___, please? (lo que muestra los platos disponibles)",
+        "answer": "menu"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la palabra con su significado",
+        "pairs": [
+          {
+            "left": "bill",
+            "right": "cuenta"
+          },
+          {
+            "left": "delicious",
+            "right": "delicioso"
+          },
+          {
+            "left": "to order",
+            "right": "pedir"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "A 'waiter' cooks the food.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What do you ask for when you finish eating and want to pay?",
+        "options": [
+          "The menu",
+          "The bill",
+          "The dessert"
+        ],
+        "answer": "The bill"
+      },
+      {
+        "type": "fill_blank",
+        "q": "For ___, I want ice cream. (lo dulce al final)",
+        "answer": "dessert"
+      },
+      {
+        "type": "true_false",
+        "q": "A 'dish' is a drink.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "Which word means 'pedir comida'?",
+        "options": [
+          "to order",
+          "to drink",
+          "to arrive"
+        ],
+        "answer": "to order"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el utensilio con su uso",
+        "pairs": [
+          {
+            "left": "fork",
+            "right": "para pinchar comida"
+          },
+          {
+            "left": "knife",
+            "right": "para cortar"
+          },
+          {
+            "left": "spoon",
+            "right": "para sopa"
+          }
+        ]
+      }
+    ],
+    "reading": [
+      {
+        "title": "Lunch at Mama Rosa's",
+        "word_count": 96,
+        "text": "Today, my family is having lunch at Mama Rosa's restaurant. There is a nice table for four near the window. Our waiter brings us the menu. There are many delicious dishes to choose from. My mother orders a soup, and my father orders fish with rice. I want a sandwich and an orange juice. There are also many desserts on the menu. My sister orders a chocolate cake for dessert. The chef at Mama Rosa's is very famous in our city. At the end, the waiter brings us the bill, and we pay together.",
+        "questions": [
+          {
+            "q": "How many people are having lunch?",
+            "type": "mcq",
+            "options": [
+              "Two",
+              "Three",
+              "Four",
+              "Five"
+            ],
+            "answer": "Four"
+          },
+          {
+            "q": "What does the father order?",
+            "type": "mcq",
+            "options": [
+              "Soup",
+              "A sandwich",
+              "Fish with rice",
+              "Chocolate cake"
+            ],
+            "answer": "Fish with rice"
+          },
+          {
+            "q": "Is the chef famous?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "What does the sister order for dessert?",
+            "type": "mcq",
+            "options": [
+              "Ice cream",
+              "Chocolate cake",
+              "Fruit",
+              "Nothing"
+            ],
+            "answer": "Chocolate cake"
+          },
+          {
+            "q": "There ___ many delicious dishes. (completa)",
+            "type": "fill_blank",
+            "answer": "are"
+          }
+        ]
+      },
+      {
+        "title": "A New Restaurant in Town",
+        "word_count": 90,
+        "text": "There is a new restaurant near my house. There are five tables and a small kitchen. The chef is young, but he is very talented. There is a short menu with only ten dishes, but everything is delicious. Yesterday, I ordered a soup and a sandwich. My friend ordered a salad. There wasn't a long wait for our food. At the end, the bill was not expensive. I think this restaurant is going to be very popular soon. There are already many customers every day.",
+        "questions": [
+          {
+            "q": "How many tables are there?",
+            "type": "mcq",
+            "options": [
+              "Three",
+              "Five",
+              "Ten",
+              "Two"
+            ],
+            "answer": "Five"
+          },
+          {
+            "q": "Is the chef old?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "How many dishes are on the menu?",
+            "type": "mcq",
+            "options": [
+              "Five",
+              "Ten",
+              "Twenty",
+              "Fifteen"
+            ],
+            "answer": "Ten"
+          },
+          {
+            "q": "What did the writer order?",
+            "type": "mcq",
+            "options": [
+              "A salad",
+              "Soup and a sandwich",
+              "Fish",
+              "Dessert only"
+            ],
+            "answer": "Soup and a sandwich"
+          },
+          {
+            "q": "Was the bill expensive?",
+            "type": "true_false",
+            "answer": false
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "Ordering Food",
+        "duration_seconds_estimate": 34,
+        "audio_file": "A1-03_listening_1.mp3",
+        "transcript": "A: Good afternoon! Are you ready to order?\nB: Yes, I am. Can I have the chicken with rice, please?\nA: Of course. Would you like a drink with that?\nB: Yes, an orange juice, please.\nA: Great. And for dessert?\nB: There is a chocolate cake on the menu, right? I'll have that.\nA: Perfect choice! It will be ready in fifteen minutes.\nB: Thank you very much.",
+        "questions": [
+          {
+            "q": "What does the customer order to eat?",
+            "type": "mcq",
+            "options": [
+              "Fish",
+              "Chicken with rice",
+              "A sandwich",
+              "Soup"
+            ],
+            "answer": "Chicken with rice"
+          },
+          {
+            "q": "What drink does the customer order?",
+            "type": "mcq",
+            "options": [
+              "Water",
+              "Orange juice",
+              "Coffee",
+              "Soda"
+            ],
+            "answer": "Orange juice"
+          },
+          {
+            "q": "What dessert does the customer choose?",
+            "type": "mcq",
+            "options": [
+              "Ice cream",
+              "Chocolate cake",
+              "Fruit",
+              "Nothing"
+            ],
+            "answer": "Chocolate cake"
+          },
+          {
+            "q": "How long will the food take?",
+            "type": "mcq",
+            "options": [
+              "Five minutes",
+              "Ten minutes",
+              "Fifteen minutes",
+              "Thirty minutes"
+            ],
+            "answer": "Fifteen minutes"
+          },
+          {
+            "q": "Is the customer ready to order at the start?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "There ___ a chocolate cake on the menu. (completa)",
+            "type": "fill_blank",
+            "answer": "is"
+          },
+          {
+            "q": "Empareja quién dice qué",
+            "type": "matching",
+            "pairs": [
+              {
+                "left": "Are you ready to order?",
+                "right": "El mesero"
+              },
+              {
+                "left": "I'll have that.",
+                "right": "El cliente"
+              }
+            ]
+          }
+        ],
+        "format": "dialogue"
+      },
+      {
+        "title": "A Great Dinner",
+        "duration_seconds_estimate": 26,
+        "audio_file": "A1-03_listening_2.mp3",
+        "transcript": "Last night, I had dinner at a new restaurant with my family. The food was delicious! I ordered fish, and it was excellent. For dessert, we had chocolate cake, and it was amazing too. At the end, we asked for the bill. It wasn't very expensive, so we were happy. The restaurant accepts cash and cards, so I paid with my card. I think we are going back to that restaurant very soon.",
+        "questions": [
+          {
+            "q": "When did the speaker have dinner at the restaurant?",
+            "type": "mcq",
+            "options": [
+              "This morning",
+              "Last night",
+              "Tomorrow",
+              "Last year"
+            ],
+            "answer": "Last night"
+          },
+          {
+            "q": "Was the food good?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "How did the speaker pay?",
+            "type": "mcq",
+            "options": [
+              "Cash",
+              "Card",
+              "They didn't pay",
+              "They don't say"
+            ],
+            "answer": "Card"
+          },
+          {
+            "q": "Does the restaurant accept cash and cards?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "What was amazing according to the speaker?",
+            "type": "mcq",
+            "options": [
+              "The fish",
+              "The chocolate cake",
+              "The bill",
+              "The table"
+            ],
+            "answer": "The chocolate cake"
+          },
+          {
+            "q": "The restaurant ___ cash and cards. (completa con accepts/accept)",
+            "type": "fill_blank",
+            "answer": "accepts"
+          }
+        ],
+        "format": "monologue"
+      }
+    ],
+    "writing": {
+      "text_type": "descripción de un restaurante",
+      "target_word_count": "3-5 oraciones",
+      "prompt": {
+        "en": "Describe your favorite restaurant. Write 3 to 5 sentences using 'there is/there are' and at least 2 vocabulary words from this unit.",
+        "es": "Describe tu restaurante favorito. Escribe de 3 a 5 oraciones usando 'there is/there are' y al menos 2 palabras del vocabulario de esta unidad."
+      },
+      "rubric": [
+        {
+          "criterio": "Cumple la tarea",
+          "descripcion": "Describe un restaurante con al menos una característica concreta."
+        },
+        {
+          "criterio": "Uso de there is/are",
+          "descripcion": "Usa correctamente there is (singular) y/o there are (plural)."
+        },
+        {
+          "criterio": "Vocabulario de la unidad",
+          "descripcion": "Usa al menos 2 palabras de la lista."
+        },
+        {
+          "criterio": "Coherencia",
+          "descripcion": "Las oraciones tienen sentido y se conectan."
+        }
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "There _____ a table for two available.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "There _____ four forks on the table.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I want ___ orange, please. (a/an)",
+        "answer": "an"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I want ___ banana, please. (a/an)",
+        "answer": "a"
+      },
+      {
+        "type": "true_false",
+        "q": "'There is two tables' is correct.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "A 'waiter' cooks the food.",
+        "answer": false
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-03_vocab_menu.png",
+        "options": [
+          "Menu",
+          "Bill",
+          "Table"
+        ],
+        "answer": "Menu"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-03_vocab_chef.png",
+        "options": [
+          "Waiter",
+          "Chef",
+          "Customer"
+        ],
+        "answer": "Chef"
+      },
+      {
+        "type": "mcq",
+        "q": "Who cooks the food in a restaurant?",
+        "options": [
+          "The waiter",
+          "The chef",
+          "The customer"
+        ],
+        "answer": "The chef"
+      },
+      {
+        "type": "fill_blank",
+        "q": "For ___, I want ice cream.",
+        "answer": "dessert"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el sustantivo con su plural",
+        "pairs": [
+          {
+            "left": "table",
+            "right": "tables"
+          },
+          {
+            "left": "dish",
+            "right": "dishes"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oración:",
+        "words": [
+          "are",
+          "There",
+          "waiters",
+          "two"
+        ],
+        "answer": "There are two waiters"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you ask for when you want to pay?",
+        "options": [
+          "The menu",
+          "The bill",
+          "The dessert"
+        ],
+        "answer": "The bill"
+      },
+      {
+        "type": "mcq",
+        "q": "Which word means 'pedir comida'?",
+        "options": [
+          "to order",
+          "to drink",
+          "to arrive"
+        ],
+        "answer": "to order"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There ___ a chef in the kitchen.",
+        "answer": "is"
+      },
+      {
+        "type": "true_false",
+        "q": "We use 'an' before a vowel sound.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "There _____ three desserts today.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la palabra con su significado",
+        "pairs": [
+          {
+            "left": "bill",
+            "right": "cuenta"
+          },
+          {
+            "left": "delicious",
+            "right": "delicioso"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "A 'dish' is a drink.",
+        "answer": false
+      },
+      {
+        "type": "fill_blank",
+        "q": "There ___ many dishes to choose from.",
+        "answer": "are"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-03_vocab_table.png",
+        "options": [
+          "Chef",
+          "Table",
+          "Dish"
+        ],
+        "answer": "Table"
+      },
+      {
+        "type": "mcq",
+        "q": "There _____ a waiter near the door.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      }
+    ],
+    "quiz_draw_count": 15
+  },
+  {
+    "unit_id": "A1-04",
+    "level": "A1",
+    "title": "Crime",
+    "grammar_topic": "Be: short answers; this/that/these/those",
+    "vocab_theme": "Crimen, policía, situaciones legales básicas",
+    "can_do": "Puede responder preguntas simples, identificar objetos y hablar de situaciones relacionadas con delitos",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Las respuestas cortas con 'to be' repiten el verbo, no toda la oración ('Are you a witness? Yes, I am.'). Los demostrativos this/that/these/those señalan objetos: this/these para algo cerca, that/those para algo lejos; this/that son singulares, these/those son plurales.",
+      "structure_notes": [
+        {
+          "label": "Respuestas cortas afirmativas",
+          "explanation": "Yes, + sujeto + am/is/are.",
+          "example": "Is this your wallet? Yes, it is."
+        },
+        {
+          "label": "Respuestas cortas negativas",
+          "explanation": "No, + sujeto + am not/isn't/aren't.",
+          "example": "Are you a witness? No, I'm not."
+        },
+        {
+          "label": "this / that (singular)",
+          "explanation": "'this' para algo cerca, 'that' para algo lejos.",
+          "example": "This is my ID. That is the police station."
+        },
+        {
+          "label": "these / those (plural)",
+          "explanation": "'these' para varios cerca, 'those' para varios lejos.",
+          "example": "These are my keys. Those are the suspects."
+        }
+      ],
+      "examples": [
+        "Is this your wallet? Yes, it is.",
+        "Are you a witness? No, I'm not.",
+        "This is a police officer.",
+        "Those are stolen bikes."
+      ],
+      "common_mistake": "Usar 'this/that' con sustantivos plurales — 'this bikes' es incorrecto, debe ser 'these bikes'."
+    },
+    "grammar_practice": [
+      {
+        "type": "fill_blank",
+        "q": "Is this your wallet? Yes, it ___.",
+        "answer": "is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Are you a witness? No, I'm ___.",
+        "answer": "not"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Is he a police officer? Yes, he ___.",
+        "answer": "is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Are they suspects? No, they ___.",
+        "answer": "aren't"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ is my ID. (algo cerca, singular)",
+        "answer": "This"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ is the police station. (algo lejos, singular)",
+        "answer": "That"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ are my keys. (algo cerca, plural)",
+        "answer": "These"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ are the suspects over there. (algo lejos, plural)",
+        "answer": "Those"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Is this a crime? Yes, it ___.",
+        "answer": "is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Are those his bikes? No, they ___.",
+        "answer": "aren't"
+      },
+      {
+        "type": "mcq",
+        "q": "Is this your wallet? Yes, it _____.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "Are you a witness? No, I'm _____.",
+        "options": [
+          "not",
+          "isn't",
+          "aren't"
+        ],
+        "answer": "not"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ is my ID card. (cerca, singular)",
+        "options": [
+          "This",
+          "These",
+          "Those"
+        ],
+        "answer": "This"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ are the stolen bikes. (lejos, plural)",
+        "options": [
+          "That",
+          "This",
+          "Those"
+        ],
+        "answer": "Those"
+      },
+      {
+        "type": "mcq",
+        "q": "Is he a suspect? Yes, he _____.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ are my keys. (cerca, plural)",
+        "options": [
+          "This",
+          "These",
+          "That"
+        ],
+        "answer": "These"
+      },
+      {
+        "type": "true_false",
+        "q": "'These' is used for one object far away.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "Short answers repeat the full sentence.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el demostrativo con su uso",
+        "pairs": [
+          {
+            "left": "this",
+            "right": "singular, cerca"
+          },
+          {
+            "left": "these",
+            "right": "plural, cerca"
+          },
+          {
+            "left": "those",
+            "right": "plural, lejos"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oración:",
+        "words": [
+          "officer",
+          "a",
+          "police",
+          "This",
+          "is"
+        ],
+        "answer": "This is a police officer"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "police officer",
+        "meaning": "policía (persona)",
+        "example": "The police officer helped us.",
+        "has_image": true,
+        "image_file": "A1-04_vocab_police-officer.png"
+      },
+      {
+        "word": "crime",
+        "meaning": "crimen/delito",
+        "example": "This is a serious crime."
+      },
+      {
+        "word": "witness",
+        "meaning": "testigo",
+        "example": "She is a witness to the accident."
+      },
+      {
+        "word": "suspect",
+        "meaning": "sospechoso/a",
+        "example": "He is not a suspect."
+      },
+      {
+        "word": "to steal",
+        "meaning": "robar",
+        "example": "Someone tried to steal my bike."
+      },
+      {
+        "word": "thief",
+        "meaning": "ladrón/ladrona",
+        "example": "The thief ran away.",
+        "has_image": true,
+        "image_file": "A1-04_vocab_thief.png"
+      },
+      {
+        "word": "wallet",
+        "meaning": "billetera",
+        "example": "Is this your wallet?",
+        "has_image": true,
+        "image_file": "A1-04_vocab_wallet.png"
+      },
+      {
+        "word": "ID (identification)",
+        "meaning": "identificación/cédula",
+        "example": "Can I see your ID, please?"
+      },
+      {
+        "word": "stolen",
+        "meaning": "robado",
+        "example": "This bike is stolen."
+      },
+      {
+        "word": "safe / dangerous",
+        "meaning": "seguro / peligroso",
+        "example": "This neighborhood is very safe."
+      },
+      {
+        "word": "to report (a crime)",
+        "meaning": "denunciar",
+        "example": "We need to report this."
+      },
+      {
+        "word": "police station",
+        "meaning": "estación de policía",
+        "example": "That is the police station.",
+        "has_image": true,
+        "image_file": "A1-04_vocab_police-station.png"
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-04_vocab_police-officer.png",
+        "options": [
+          "Police officer",
+          "Thief",
+          "Witness"
+        ],
+        "answer": "Police officer"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-04_vocab_thief.png",
+        "options": [
+          "Thief",
+          "Suspect",
+          "Witness"
+        ],
+        "answer": "Thief"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-04_vocab_wallet.png",
+        "options": [
+          "Wallet",
+          "ID",
+          "Bill"
+        ],
+        "answer": "Wallet"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-04_vocab_police-station.png",
+        "options": [
+          "Police station",
+          "Restaurant",
+          "School"
+        ],
+        "answer": "Police station"
+      },
+      {
+        "type": "mcq",
+        "q": "Who sees a crime happen?",
+        "options": [
+          "A thief",
+          "A witness",
+          "A police officer"
+        ],
+        "answer": "A witness"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Someone tried to ___ my bike. (robar)",
+        "answer": "steal"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la palabra con su significado",
+        "pairs": [
+          {
+            "left": "suspect",
+            "right": "sospechoso"
+          },
+          {
+            "left": "stolen",
+            "right": "robado"
+          },
+          {
+            "left": "to report",
+            "right": "denunciar"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "A 'witness' commits the crime.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "Where do you go to report a crime?",
+        "options": [
+          "The restaurant",
+          "The police station",
+          "The museum"
+        ],
+        "answer": "The police station"
+      },
+      {
+        "type": "fill_blank",
+        "q": "This neighborhood is very ___. (lo opuesto a peligroso)",
+        "answer": "safe"
+      },
+      {
+        "type": "true_false",
+        "q": "A 'thief' is a person who steals.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "What do you show to prove who you are?",
+        "options": [
+          "Your wallet",
+          "Your ID",
+          "Your bike"
+        ],
+        "answer": "Your ID"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el opuesto",
+        "pairs": [
+          {
+            "left": "safe",
+            "right": "dangerous"
+          },
+          {
+            "left": "witness",
+            "right": "suspect"
+          }
+        ]
+      }
+    ],
+    "reading": [
+      {
+        "title": "A Stolen Bicycle",
+        "word_count": 94,
+        "text": "Yesterday, Carlos's bicycle was stolen outside his house. He called the police right away. A police officer arrived quickly and asked questions. 'Is this your bicycle?' he asked, showing a photo. 'Yes, it is!' said Carlos. A neighbor was a witness — she saw a young man take the bicycle. 'Is he a suspect?' asked the officer. 'Yes, he is,' said the neighbor. 'I can describe him.' The officer wrote a report. Carlos was worried, but the officer said the neighborhood is usually very safe. Two days later, the police found the bicycle near the police station.",
+        "questions": [
+          {
+            "q": "What happened to Carlos's bicycle?",
+            "type": "mcq",
+            "options": [
+              "It broke",
+              "It was stolen",
+              "He sold it",
+              "He lost it"
+            ],
+            "answer": "It was stolen"
+          },
+          {
+            "q": "Who saw the thief take the bicycle?",
+            "type": "mcq",
+            "options": [
+              "Carlos",
+              "A police officer",
+              "A neighbor",
+              "Nobody"
+            ],
+            "answer": "A neighbor"
+          },
+          {
+            "q": "Is the neighborhood usually dangerous?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "Where did the police find the bicycle?",
+            "type": "mcq",
+            "options": [
+              "At Carlos's house",
+              "Near the police station",
+              "At school",
+              "In a park"
+            ],
+            "answer": "Near the police station"
+          },
+          {
+            "q": "Did the officer write a report?",
+            "type": "true_false",
+            "answer": true
+          }
+        ]
+      },
+      {
+        "title": "At the Police Station",
+        "word_count": 90,
+        "text": "Ana lost her wallet yesterday. She went to the police station to report it. 'Is this your ID?' the officer asked, showing a wallet someone found. 'Yes, it is! Thank you so much!' said Ana. The officer explained that a taxi driver found the wallet and brought it to the station. Ana was very happy. She said the city is very safe because people help each other. The officer smiled and said, 'These are the good stories we like to hear.' Ana thanked the officer again and went home.",
+        "questions": [
+          {
+            "q": "What did Ana lose?",
+            "type": "mcq",
+            "options": [
+              "Her ID card",
+              "Her wallet",
+              "Her bicycle",
+              "Her phone"
+            ],
+            "answer": "Her wallet"
+          },
+          {
+            "q": "Who found the wallet?",
+            "type": "mcq",
+            "options": [
+              "A police officer",
+              "A taxi driver",
+              "A witness",
+              "A thief"
+            ],
+            "answer": "A taxi driver"
+          },
+          {
+            "q": "Was Ana happy?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "What does Ana say about the city?",
+            "type": "mcq",
+            "options": [
+              "It's dangerous",
+              "It's very safe",
+              "It's boring",
+              "It's expensive"
+            ],
+            "answer": "It's very safe"
+          },
+          {
+            "q": "___ is your ID? (completa)",
+            "type": "fill_blank",
+            "answer": "Is this"
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "A Witness Interview",
+        "duration_seconds_estimate": 30,
+        "audio_file": "A1-04_listening_1.mp3",
+        "transcript": "A: Are you a witness to the crime?\nB: Yes, I am. I saw everything.\nA: Can you describe the suspect?\nB: Yes. He is tall, and he has a black bag.\nA: Is this the bag? (showing a photo)\nB: Yes, it is! That's exactly it.\nA: Thank you. This information is very helpful.\nB: I hope you find him soon.",
+        "questions": [
+          {
+            "q": "Is the speaker a witness?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "What does the suspect look like?",
+            "type": "mcq",
+            "options": [
+              "Short with a red bag",
+              "Tall with a black bag",
+              "Tall with no bag",
+              "Short with a hat"
+            ],
+            "answer": "Tall with a black bag"
+          },
+          {
+            "q": "Does the witness recognize the bag in the photo?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "What does the officer say about the information?",
+            "type": "mcq",
+            "options": [
+              "It's not useful",
+              "It's very helpful",
+              "It's confusing",
+              "It's wrong"
+            ],
+            "answer": "It's very helpful"
+          },
+          {
+            "q": "Are you a witness ___ the crime? (completa la preposición)",
+            "type": "fill_blank",
+            "answer": "to"
+          },
+          {
+            "q": "Empareja quién dice qué",
+            "type": "matching",
+            "pairs": [
+              {
+                "left": "Can you describe the suspect?",
+                "right": "El oficial"
+              },
+              {
+                "left": "I hope you find him soon.",
+                "right": "El testigo"
+              }
+            ]
+          },
+          {
+            "q": "Is the suspect short?",
+            "type": "true_false",
+            "answer": false
+          }
+        ],
+        "format": "dialogue"
+      },
+      {
+        "title": "My Stolen Phone",
+        "duration_seconds_estimate": 28,
+        "audio_file": "A1-04_listening_2.mp3",
+        "transcript": "Yesterday was a strange day. I was having lunch near a restaurant on Main Street when someone stole my phone right from my table! I saw the thief, but he ran away very fast. This was my first time reporting a crime, so I was a little nervous. I went to the police station right away. The officer was very helpful, and we wrote a report together. I hope the police find my phone soon.",
+        "questions": [
+          {
+            "q": "What was stolen?",
+            "type": "mcq",
+            "options": [
+              "A wallet",
+              "A phone",
+              "A bicycle",
+              "A bag"
+            ],
+            "answer": "A phone"
+          },
+          {
+            "q": "Where did it happen?",
+            "type": "mcq",
+            "options": [
+              "At home",
+              "Near the restaurant",
+              "At the police station",
+              "At school"
+            ],
+            "answer": "Near the restaurant"
+          },
+          {
+            "q": "Was this the speaker's first time reporting a crime?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Did the speaker see the thief?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "What did the speaker do after the crime?",
+            "type": "mcq",
+            "options": [
+              "Went home",
+              "Went to the police station",
+              "Called a taxi",
+              "Did nothing"
+            ],
+            "answer": "Went to the police station"
+          },
+          {
+            "q": "I want to ___ a stolen phone. (completa)",
+            "type": "fill_blank",
+            "answer": "report"
+          }
+        ],
+        "format": "monologue"
+      }
+    ],
+    "writing": {
+      "text_type": "descripción simple de una situación",
+      "target_word_count": "3-5 oraciones",
+      "prompt": {
+        "en": "Imagine you lost something (a wallet, a phone, a bicycle). Write 3 to 5 sentences describing the situation using 'this/that/these/those' and short answers with 'to be'.",
+        "es": "Imagina que perdiste algo (una billetera, un teléfono, una bicicleta). Escribe de 3 a 5 oraciones describiendo la situación usando 'this/that/these/those' y respuestas cortas con 'to be'."
+      },
+      "rubric": [
+        {
+          "criterio": "Cumple la tarea",
+          "descripcion": "Describe una situación simple relacionada con un objeto perdido/robado."
+        },
+        {
+          "criterio": "Uso de demostrativos",
+          "descripcion": "Usa correctamente this/that/these/those."
+        },
+        {
+          "criterio": "Vocabulario de la unidad",
+          "descripcion": "Usa al menos 2 palabras de la lista."
+        },
+        {
+          "criterio": "Coherencia",
+          "descripcion": "Las oraciones tienen sentido y se conectan."
+        }
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "Is this your wallet? Yes, it _____.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "Are you a witness? No, I'm _____.",
+        "options": [
+          "not",
+          "isn't",
+          "aren't"
+        ],
+        "answer": "not"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ is my ID. (cerca, singular)",
+        "answer": "This"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ are the suspects over there. (lejos, plural)",
+        "answer": "Those"
+      },
+      {
+        "type": "true_false",
+        "q": "'These' is used for one object far away.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "A 'witness' commits the crime.",
+        "answer": false
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-04_vocab_police-officer.png",
+        "options": [
+          "Police officer",
+          "Thief",
+          "Witness"
+        ],
+        "answer": "Police officer"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-04_vocab_wallet.png",
+        "options": [
+          "Wallet",
+          "ID",
+          "Bill"
+        ],
+        "answer": "Wallet"
+      },
+      {
+        "type": "mcq",
+        "q": "Who sees a crime happen?",
+        "options": [
+          "A thief",
+          "A witness",
+          "A police officer"
+        ],
+        "answer": "A witness"
+      },
+      {
+        "type": "fill_blank",
+        "q": "Someone tried to ___ my bike.",
+        "answer": "steal"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el demostrativo con su uso",
+        "pairs": [
+          {
+            "left": "this",
+            "right": "singular, cerca"
+          },
+          {
+            "left": "those",
+            "right": "plural, lejos"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oración:",
+        "words": [
+          "officer",
+          "a",
+          "police",
+          "This",
+          "is"
+        ],
+        "answer": "This is a police officer"
+      },
+      {
+        "type": "mcq",
+        "q": "Where do you go to report a crime?",
+        "options": [
+          "The restaurant",
+          "The police station",
+          "The museum"
+        ],
+        "answer": "The police station"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you show to prove who you are?",
+        "options": [
+          "Your wallet",
+          "Your ID",
+          "Your bike"
+        ],
+        "answer": "Your ID"
+      },
+      {
+        "type": "fill_blank",
+        "q": "This neighborhood is very ___. (opuesto a peligroso)",
+        "answer": "safe"
+      },
+      {
+        "type": "true_false",
+        "q": "Short answers repeat the full sentence.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "_____ are my keys. (cerca, plural)",
+        "options": [
+          "This",
+          "These",
+          "That"
+        ],
+        "answer": "These"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el opuesto",
+        "pairs": [
+          {
+            "left": "safe",
+            "right": "dangerous"
+          },
+          {
+            "left": "witness",
+            "right": "suspect"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "A 'thief' is a person who steals.",
+        "answer": true
+      },
+      {
+        "type": "fill_blank",
+        "q": "Are those his bikes? No, they ___.",
+        "answer": "aren't"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-04_vocab_thief.png",
+        "options": [
+          "Thief",
+          "Suspect",
+          "Witness"
+        ],
+        "answer": "Thief"
+      },
+      {
+        "type": "mcq",
+        "q": "Is he a suspect? Yes, he _____.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      }
+    ],
+    "quiz_draw_count": 15
+  },
+  {
+    "unit_id": "A1-05",
+    "level": "A1",
+    "title": "Art",
+    "grammar_topic": "Verb to be: afirmativo, Yes/No questions y contractions",
+    "vocab_theme": "Arte, música, entretenimiento",
+    "can_do": "Puede describir personas/situaciones sencillas y hablar de entretenimiento",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Las contracciones combinan el pronombre y el verbo 'to be' en una sola palabra (I am → I'm). Las preguntas Yes/No con 'to be' invierten el orden: el verbo va antes del sujeto.",
+      "structure_notes": [
+        {
+          "label": "Contracciones afirmativas",
+          "explanation": "I'm, you're, he's, she's, it's, we're, they're.",
+          "example": "She's a painter."
+        },
+        {
+          "label": "Contracciones negativas",
+          "explanation": "isn't, aren't ('am not' no se contrae, se dice 'I'm not').",
+          "example": "They're not musicians. / They aren't musicians."
+        },
+        {
+          "label": "Preguntas Yes/No",
+          "explanation": "Verbo + sujeto + resto de la oración.",
+          "example": "Is she an artist? Are they musicians?"
+        }
+      ],
+      "examples": [
+        "She's a painter.",
+        "They're not musicians.",
+        "Is this song popular?",
+        "Are you an art student?"
+      ],
+      "common_mistake": "Intentar contraer 'am not' como 'amn't' — esa forma no existe, se dice 'I'm not'."
+    },
+    "grammar_practice": [
+      {
+        "type": "fill_blank",
+        "q": "She ___ a painter. (contracción de 'is')",
+        "answer": "'s"
+      },
+      {
+        "type": "fill_blank",
+        "q": "They ___ musicians. (contracción de 'are')",
+        "answer": "'re"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I ___ an art student. (contracción de 'am')",
+        "answer": "'m"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ she an artist? (pregunta)",
+        "answer": "Is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ they musicians? (pregunta)",
+        "answer": "Are"
+      },
+      {
+        "type": "fill_blank",
+        "q": "He ___ not a singer. (contracción negativa de 'is not')",
+        "answer": "isn't"
+      },
+      {
+        "type": "fill_blank",
+        "q": "We ___ not at the concert. (contracción negativa de 'are not')",
+        "answer": "aren't"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ this movie popular? (pregunta)",
+        "answer": "Is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "It ___ a famous painting. (contracción de 'is')",
+        "answer": "'s"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ you an actor? (pregunta)",
+        "answer": "Are"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ a talented artist.",
+        "options": [
+          "She's",
+          "She are",
+          "She am"
+        ],
+        "answer": "She's"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ this song popular?",
+        "options": [
+          "Is",
+          "Are",
+          "Am"
+        ],
+        "answer": "Is"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ musicians in a famous band.",
+        "options": [
+          "They're",
+          "They's",
+          "They am"
+        ],
+        "answer": "They're"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you an art student?",
+        "options": [
+          "Is",
+          "Are",
+          "Am"
+        ],
+        "answer": "Are"
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ a singer, he's an actor.",
+        "options": [
+          "isn't",
+          "aren't",
+          "amn't"
+        ],
+        "answer": "isn't"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ not at the museum today.",
+        "options": [
+          "We're",
+          "We aren't",
+          "We isn't"
+        ],
+        "answer": "We aren't"
+      },
+      {
+        "type": "true_false",
+        "q": "'Amn't' is a correct contraction of 'am not'.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "'She's' can mean 'she is' or 'she has'.",
+        "answer": true
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la forma completa con su contracción",
+        "pairs": [
+          {
+            "left": "she is",
+            "right": "she's"
+          },
+          {
+            "left": "they are",
+            "right": "they're"
+          },
+          {
+            "left": "is not",
+            "right": "isn't"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oración:",
+        "words": [
+          "popular?",
+          "this",
+          "Is",
+          "song"
+        ],
+        "answer": "Is this song popular?"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "painting",
+        "meaning": "pintura (obra)",
+        "example": "This painting is very famous.",
+        "has_image": true,
+        "image_file": "A1-05_vocab_painting.png"
+      },
+      {
+        "word": "artist",
+        "meaning": "artista",
+        "example": "She is a talented artist."
+      },
+      {
+        "word": "museum",
+        "meaning": "museo",
+        "example": "We visited the art museum.",
+        "has_image": true,
+        "image_file": "A1-05_vocab_museum.png"
+      },
+      {
+        "word": "song",
+        "meaning": "canción",
+        "example": "This is my favorite song."
+      },
+      {
+        "word": "concert",
+        "meaning": "concierto",
+        "example": "The concert was amazing.",
+        "has_image": true,
+        "image_file": "A1-05_vocab_concert.png"
+      },
+      {
+        "word": "band",
+        "meaning": "banda/grupo musical",
+        "example": "They are in a rock band."
+      },
+      {
+        "word": "actor / actress",
+        "meaning": "actor/actriz",
+        "example": "He is a famous actor."
+      },
+      {
+        "word": "movie",
+        "meaning": "película",
+        "example": "This movie is very popular.",
+        "has_image": true,
+        "image_file": "A1-05_vocab_movie.png"
+      },
+      {
+        "word": "exhibition",
+        "meaning": "exhibición/exposición",
+        "example": "The exhibition is at the museum."
+      },
+      {
+        "word": "famous",
+        "meaning": "famoso/a",
+        "example": "She is a famous singer."
+      },
+      {
+        "word": "talented",
+        "meaning": "talentoso/a",
+        "example": "He is very talented."
+      },
+      {
+        "word": "to perform",
+        "meaning": "actuar/presentarse",
+        "example": "They perform every weekend."
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-05_vocab_painting.png",
+        "options": [
+          "Painting",
+          "Movie",
+          "Concert"
+        ],
+        "answer": "Painting"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-05_vocab_museum.png",
+        "options": [
+          "Museum",
+          "Restaurant",
+          "School"
+        ],
+        "answer": "Museum"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-05_vocab_concert.png",
+        "options": [
+          "Concert",
+          "Exhibition",
+          "Museum"
+        ],
+        "answer": "Concert"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-05_vocab_movie.png",
+        "options": [
+          "Movie",
+          "Painting",
+          "Song"
+        ],
+        "answer": "Movie"
+      },
+      {
+        "type": "mcq",
+        "q": "Where do you go to see paintings?",
+        "options": [
+          "The concert",
+          "The museum",
+          "The movie theater"
+        ],
+        "answer": "The museum"
+      },
+      {
+        "type": "fill_blank",
+        "q": "They are in a rock ___. (grupo musical)",
+        "answer": "band"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la palabra con su significado",
+        "pairs": [
+          {
+            "left": "famous",
+            "right": "famoso"
+          },
+          {
+            "left": "talented",
+            "right": "talentoso"
+          },
+          {
+            "left": "to perform",
+            "right": "actuar"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "An 'exhibition' is a type of song.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "Who acts in movies?",
+        "options": [
+          "An artist",
+          "An actor",
+          "A band"
+        ],
+        "answer": "An actor"
+      },
+      {
+        "type": "fill_blank",
+        "q": "This ___ is very famous. (obra de arte)",
+        "answer": "painting"
+      },
+      {
+        "type": "true_false",
+        "q": "A 'concert' is a live music event.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "Which word describes someone with a lot of skill?",
+        "options": [
+          "Famous",
+          "Talented",
+          "Popular"
+        ],
+        "answer": "Talented"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la persona con su actividad",
+        "pairs": [
+          {
+            "left": "artist",
+            "right": "paints"
+          },
+          {
+            "left": "actor",
+            "right": "performs in movies"
+          }
+        ]
+      }
+    ],
+    "reading": [
+      {
+        "title": "A Visit to the Museum",
+        "word_count": 93,
+        "text": "Yesterday, my class visited the city's art museum. There is a new exhibition of paintings from local artists. Our teacher says the artist is very talented and famous nationally. One painting is very big and colorful. Is it popular? Yes, it is! Many people take photos next to it. My friend Sara is an art student, and she loves this museum. She says she wants to be an artist too. The museum isn't far from our school, so we walk there every year. It's one of my favorite places to visit.",
+        "questions": [
+          {
+            "q": "What did the class visit?",
+            "type": "mcq",
+            "options": [
+              "A concert",
+              "A museum",
+              "A movie theater",
+              "A restaurant"
+            ],
+            "answer": "A museum"
+          },
+          {
+            "q": "Is the artist famous?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Who wants to be an artist?",
+            "type": "mcq",
+            "options": [
+              "The teacher",
+              "Sara",
+              "The writer",
+              "Nobody"
+            ],
+            "answer": "Sara"
+          },
+          {
+            "q": "Is the museum far from the school?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "___ this painting popular? (completa)",
+            "type": "fill_blank",
+            "answer": "Is"
+          }
+        ]
+      },
+      {
+        "title": "My Favorite Band",
+        "word_count": 89,
+        "text": "My favorite band is called Luna Nueva. They're from Sydney, and they're very talented. Their songs are popular all over the country. I'm a big fan, and I have all their music. Last month, they performed at a big concert in my city. It wasn't cheap, but it was worth it! The singer is famous, but she's very humble too. My sister isn't a fan of their music, but she came with me anyway. It was an amazing night, and I hope they perform here again soon.",
+        "questions": [
+          {
+            "q": "Where is the band from?",
+            "type": "mcq",
+            "options": [
+              "Madrid",
+              "Sydney",
+              "Tokyo",
+              "Toronto"
+            ],
+            "answer": "Sydney"
+          },
+          {
+            "q": "Are the band's songs popular?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Is the singer humble?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Is the writer's sister a fan of the band?",
+            "type": "mcq",
+            "options": [
+              "Yes, a big fan",
+              "No, but she went anyway",
+              "She's the singer",
+              "She doesn't know them"
+            ],
+            "answer": "No, but she went anyway"
+          },
+          {
+            "q": "They're ___ Sydney. (completa la preposición)",
+            "type": "fill_blank",
+            "answer": "from"
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "At the Art Exhibition",
+        "duration_seconds_estimate": 30,
+        "audio_file": "A1-05_listening_1.mp3",
+        "transcript": "A: Is this your first time at this exhibition?\nB: Yes, it is! The paintings are amazing.\nA: I agree. This artist is very talented.\nB: Is she famous in other countries too?\nA: Yes, she is! She's very popular in Europe.\nB: Wow, that's impressive. Is the exhibition free?\nA: No, it isn't, but it's not expensive.",
+        "questions": [
+          {
+            "q": "Is this the person's first time at the exhibition?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Is the artist famous only in this country?",
+            "type": "mcq",
+            "options": [
+              "Yes, only in this country",
+              "No, also in Europe",
+              "No, she's not famous",
+              "It doesn't say"
+            ],
+            "answer": "No, also in Europe"
+          },
+          {
+            "q": "Is the exhibition free?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "How does speaker B describe the paintings?",
+            "type": "mcq",
+            "options": [
+              "Boring",
+              "Amazing",
+              "Small",
+              "Expensive"
+            ],
+            "answer": "Amazing"
+          },
+          {
+            "q": "Is the exhibition very expensive?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "Is the exhibition ___? (completa)",
+            "type": "fill_blank",
+            "answer": "free"
+          },
+          {
+            "q": "Empareja quién dice qué",
+            "type": "matching",
+            "pairs": [
+              {
+                "left": "Is the exhibition free?",
+                "right": "El visitante nuevo"
+              },
+              {
+                "left": "She's very popular in Europe.",
+                "right": "El visitante que ya sabe"
+              }
+            ]
+          }
+        ],
+        "format": "dialogue"
+      },
+      {
+        "title": "My Favorite Concert",
+        "duration_seconds_estimate": 27,
+        "audio_file": "A1-05_listening_2.mp3",
+        "transcript": "Last weekend, I went to a concert, and it was amazing! The band is very famous, and it was their first concert in our city. I was really excited before the show. The tickets weren't cheap, but it was worth it. My friend wasn't sure about coming at first, but she came with me in the end. We had a great time together, and now I want to go to another concert soon.",
+        "questions": [
+          {
+            "q": "Did the speaker go to a concert?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Is the band famous?",
+            "type": "true_false",
+            "answer": true
+          },
+          {
+            "q": "Was this the band's first concert in the city?",
+            "type": "mcq",
+            "options": [
+              "Yes",
+              "No",
+              "It doesn't say",
+              "They don't know"
+            ],
+            "answer": "Yes"
+          },
+          {
+            "q": "Were the tickets cheap?",
+            "type": "true_false",
+            "answer": false
+          },
+          {
+            "q": "Was the speaker's friend sure about coming at first?",
+            "type": "mcq",
+            "options": [
+              "Yes, very sure",
+              "No, not at first",
+              "She refused to come",
+              "She bought the tickets"
+            ],
+            "answer": "No, not at first"
+          },
+          {
+            "q": "The tickets ___ cheap, but it was worth it. (completa con weren't/wasn't)",
+            "type": "fill_blank",
+            "answer": "weren't"
+          }
+        ],
+        "format": "monologue"
+      }
+    ],
+    "writing": {
+      "text_type": "descripción de un artista/canción/película favorita",
+      "target_word_count": "3-5 oraciones",
+      "prompt": {
+        "en": "Describe your favorite artist, song, or movie. Write 3 to 5 sentences using contractions with 'to be' (he's, they're, isn't, etc.).",
+        "es": "Describe tu artista, canción o película favorita. Escribe de 3 a 5 oraciones usando contracciones con 'to be' (he's, they're, isn't, etc.)."
+      },
+      "rubric": [
+        {
+          "criterio": "Cumple la tarea",
+          "descripcion": "Describe claramente un artista, canción o película."
+        },
+        {
+          "criterio": "Uso de contracciones",
+          "descripcion": "Usa al menos 2 contracciones con to be correctamente."
+        },
+        {
+          "criterio": "Vocabulario de la unidad",
+          "descripcion": "Usa al menos 2 palabras de la lista."
+        },
+        {
+          "criterio": "Coherencia",
+          "descripcion": "Las oraciones tienen sentido y se conectan."
+        }
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "_____ a talented artist.",
+        "options": [
+          "She's",
+          "She are",
+          "She am"
+        ],
+        "answer": "She's"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ this song popular?",
+        "options": [
+          "Is",
+          "Are",
+          "Am"
+        ],
+        "answer": "Is"
+      },
+      {
+        "type": "fill_blank",
+        "q": "They ___ musicians. (contracción de are)",
+        "answer": "'re"
+      },
+      {
+        "type": "fill_blank",
+        "q": "He ___ not a singer. (contracción negativa)",
+        "answer": "isn't"
+      },
+      {
+        "type": "true_false",
+        "q": "'Amn't' is a correct contraction.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "An 'exhibition' is a type of song.",
+        "answer": false
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-05_vocab_museum.png",
+        "options": [
+          "Museum",
+          "Restaurant",
+          "School"
+        ],
+        "answer": "Museum"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-05_vocab_concert.png",
+        "options": [
+          "Concert",
+          "Exhibition",
+          "Museum"
+        ],
+        "answer": "Concert"
+      },
+      {
+        "type": "mcq",
+        "q": "Where do you go to see paintings?",
+        "options": [
+          "The concert",
+          "The museum",
+          "The movie theater"
+        ],
+        "answer": "The museum"
+      },
+      {
+        "type": "fill_blank",
+        "q": "They are in a rock ___.",
+        "answer": "band"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la forma completa con su contracción",
+        "pairs": [
+          {
+            "left": "she is",
+            "right": "she's"
+          },
+          {
+            "left": "is not",
+            "right": "isn't"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oración:",
+        "words": [
+          "popular?",
+          "this",
+          "Is",
+          "song"
+        ],
+        "answer": "Is this song popular?"
+      },
+      {
+        "type": "mcq",
+        "q": "Who acts in movies?",
+        "options": [
+          "An artist",
+          "An actor",
+          "A band"
+        ],
+        "answer": "An actor"
+      },
+      {
+        "type": "mcq",
+        "q": "Which word describes someone with a lot of skill?",
+        "options": [
+          "Famous",
+          "Talented",
+          "Popular"
+        ],
+        "answer": "Talented"
+      },
+      {
+        "type": "fill_blank",
+        "q": "___ they musicians? (pregunta)",
+        "answer": "Are"
+      },
+      {
+        "type": "true_false",
+        "q": "'She's' can mean 'she is' or 'she has'.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "_____ not at the museum today.",
+        "options": [
+          "We're",
+          "We aren't",
+          "We isn't"
+        ],
+        "answer": "We aren't"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la persona con su actividad",
+        "pairs": [
+          {
+            "left": "artist",
+            "right": "paints"
+          },
+          {
+            "left": "actor",
+            "right": "performs in movies"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "A 'concert' is a live music event.",
+        "answer": true
+      },
+      {
+        "type": "fill_blank",
+        "q": "It ___ a famous painting. (contracción de is)",
+        "answer": "'s"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A1-05_vocab_movie.png",
+        "options": [
+          "Movie",
+          "Painting",
+          "Song"
+        ],
+        "answer": "Movie"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ musicians in a famous band.",
+        "options": [
+          "They're",
+          "They's",
+          "They am"
+        ],
+        "answer": "They're"
+      }
+    ],
+    "quiz_draw_count": 15
+  },
+  {
+    "unit_id": "A2-01",
+    "level": "A2",
+    "title": "Buying and Selling",
+    "grammar_topic": "Be en pasado: afirmativo, negativo y preguntas; count/non-count nouns",
+    "vocab_theme": "Compras, ventas, productos",
+    "can_do": "Puede hablar de compras y situaciones pasadas, describir productos, aceptar/rechazar invitaciones",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "El pasado del verbo 'to be' es was/were — funciona igual que am/is/are pero para el pasado. Tambien repasamos sustantivos contables (tienen plural: shirt/shirts) y no contables (no tienen plural: money, no 'moneys') porque en compras se usan constantemente juntos.",
+      "structure_notes": [
+        {
+          "label": "was/were afirmativo",
+          "explanation": "I/he/she/it + was; you/we/they + were.",
+          "example": "The store was closed yesterday."
+        },
+        {
+          "label": "was/were negativo",
+          "explanation": "wasn't / weren't.",
+          "example": "The shoes weren't expensive."
+        },
+        {
+          "label": "was/were preguntas",
+          "explanation": "Was/Were + sujeto + ...?",
+          "example": "Was the sale good this year?"
+        },
+        {
+          "label": "sustantivos contables",
+          "explanation": "Tienen plural, se cuentan con numeros: a/an, two, three...",
+          "example": "I bought two shirts and a jacket."
+        },
+        {
+          "label": "sustantivos no contables",
+          "explanation": "No tienen plural. Se usan con some/any/much/a lot of.",
+          "example": "I don't have much money left."
+        }
+      ],
+      "examples": [
+        "The market was full of people on Saturday.",
+        "There weren't any discounts last week.",
+        "Were the prices high at that store?",
+        "I bought some fruit and three apples."
+      ],
+      "exceptions": [
+        "'You' siempre usa 'were', incluso hablando de una sola persona: 'You were late', nunca 'you was' — error comun por analogia informal."
+      ],
+      "common_mistake": "Usar 'was' con sujetos plurales (they was, we was) o confundir 'money' como contable (a money, moneys) — es no contable."
+    },
+    "grammar_practice": [
+      {
+        "type": "fill_blank",
+        "q": "The store ___ open until 9pm yesterday.",
+        "answer": "was"
+      },
+      {
+        "type": "fill_blank",
+        "q": "They ___ not happy with the price.",
+        "answer": "were"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ the shoes expensive?",
+        "options": [
+          "Was",
+          "Were",
+          "Is"
+        ],
+        "answer": "Were"
+      },
+      {
+        "type": "mcq",
+        "q": "I need ___ information before I buy this.",
+        "options": [
+          "a",
+          "some",
+          "many"
+        ],
+        "answer": "some"
+      },
+      {
+        "type": "fill_blank",
+        "q": "She bought two ___ (shirt) at the sale.",
+        "answer": "shirts"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "store / shop",
+        "meaning": "tienda",
+        "example": "This store has great prices."
+      },
+      {
+        "word": "sale / discount",
+        "meaning": "oferta / descuento",
+        "example": "Everything is 20% off during the sale."
+      },
+      {
+        "word": "receipt",
+        "meaning": "recibo",
+        "example": "Keep your receipt in case you need a refund."
+      },
+      {
+        "word": "expensive / cheap",
+        "meaning": "caro / barato",
+        "example": "That jacket is too expensive for me."
+      },
+      {
+        "word": "refund",
+        "meaning": "reembolso",
+        "example": "I asked for a refund because it didn't fit."
+      },
+      {
+        "word": "customer",
+        "meaning": "cliente",
+        "example": "The customer was waiting at the counter."
+      },
+      {
+        "word": "cash / card",
+        "meaning": "efectivo / tarjeta",
+        "example": "Do you pay by cash or card?"
+      },
+      {
+        "word": "to bargain",
+        "meaning": "regatear",
+        "example": "You can bargain for a better price at the market."
+      },
+      {
+        "word": "to exchange (an item)",
+        "meaning": "cambiar un producto",
+        "example": "Can I exchange this for a bigger size?"
+      },
+      {
+        "word": "price / cost",
+        "meaning": "precio / costo",
+        "example": "The price went up last month."
+      },
+      {
+        "word": "second-hand",
+        "meaning": "de segunda mano",
+        "example": "I bought a second-hand bike."
+      },
+      {
+        "word": "brand new",
+        "meaning": "completamente nuevo",
+        "example": "This phone is brand new."
+      }
+    ],
+    "reading": {
+      "title": "My Trip to the Market",
+      "level": "A2",
+      "word_count": 145,
+      "text_type": "narrative",
+      "text": "Last Saturday, I went to the market with my mother. It was very crowded because there was a big sale. We wanted to buy some fruit and vegetables, but the lines were long. There weren't many discounts on fruit, but the vegetables were cheap. My mother bought some tomatoes, two kilos of potatoes, and a bag of onions. I bought a new shirt from a small shop near the entrance. It was brand new and not very expensive. The seller was very friendly and gave us a small discount because we bought a lot. Later, we were tired, so we sat down and had some coffee. It was a good day, even though it was very busy. Next time, I want to go earlier so the lines aren't so long.",
+      "questions": [
+        {
+          "q": "Where did the writer go last Saturday?",
+          "type": "mcq",
+          "options": [
+            "The market",
+            "A restaurant",
+            "School",
+            "Work"
+          ],
+          "answer": "The market"
+        },
+        {
+          "q": "Why were the lines long?",
+          "type": "mcq",
+          "options": [
+            "It was closing time",
+            "There was a big sale",
+            "It was raining",
+            "The market was small"
+          ],
+          "answer": "There was a big sale"
+        },
+        {
+          "q": "What did the writer buy?",
+          "type": "mcq",
+          "options": [
+            "A jacket",
+            "A shirt",
+            "Shoes",
+            "A bag"
+          ],
+          "answer": "A shirt"
+        },
+        {
+          "q": "Was the shirt expensive?",
+          "type": "true_false",
+          "answer": false
+        },
+        {
+          "q": "Why did the seller give a discount?",
+          "type": "mcq",
+          "options": [
+            "It was a holiday",
+            "They bought a lot",
+            "They paid in cash",
+            "They were regular customers"
+          ],
+          "answer": "They bought a lot"
+        }
+      ]
+    },
+    "listening": {
+      "title": "Can I Get a Refund?",
+      "level": "A2",
+      "duration_seconds_estimate": 50,
+      "text_type": "dialogue (customer service)",
+      "transcript": "A: Hi, I bought this jacket last week, but it doesn't fit. Can I get a refund?\nB: Do you have the receipt?\nA: Yes, here it is.\nB: OK, let me check... The jacket was on sale, so I can only offer a store credit, not cash.\nA: Oh, I didn't know that. Was there a sign about it?\nB: Yes, it was next to the discount rack. I'm sorry about that.\nA: That's OK. Can I exchange it for a bigger size instead?\nB: Yes, of course! Let me check if we have your size.",
+      "audio_file_placeholder": "A2U01_refund.mp3",
+      "questions": [
+        {
+          "q": "What does the customer want at first?",
+          "type": "mcq",
+          "options": [
+            "An exchange",
+            "A refund",
+            "A discount",
+            "A receipt"
+          ],
+          "answer": "A refund"
+        },
+        {
+          "q": "Why can't the customer get cash back?",
+          "type": "mcq",
+          "options": [
+            "No receipt",
+            "The jacket was on sale",
+            "The store is closing",
+            "It's too old"
+          ],
+          "answer": "The jacket was on sale"
+        },
+        {
+          "q": "Does the customer have the receipt?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "What does the customer ask for instead?",
+          "type": "mcq",
+          "options": [
+            "A refund",
+            "A different color",
+            "A bigger size",
+            "A cheaper item"
+          ],
+          "answer": "A bigger size"
+        }
+      ]
+    },
+    "writing": {
+      "text_type": "párrafo corto",
+      "target_word_count": "40-60 palabras",
+      "prompt": "Escribe un párrafo corto (40-60 palabras) sobre la última vez que fuiste de compras. Usa was/were y al menos un sustantivo contable y uno no contable.",
+      "example_answer": "Last weekend I went shopping with my sister. The store was very busy because there was a big sale. We bought some clothes and two pairs of shoes. The prices were good, but there wasn't much time because we were in a hurry.",
+      "rubric": [
+        {
+          "criterio": "Cumplimiento de la tarea",
+          "descripcion": "Describe una experiencia de compras pasada real o inventada."
+        },
+        {
+          "criterio": "Uso de was/were",
+          "descripcion": "Usa correctamente el pasado del verbo to be en afirmativo y/o negativo."
+        },
+        {
+          "criterio": "Sustantivos contables/no contables",
+          "descripcion": "Usa al menos un ejemplo de cada tipo correctamente."
+        },
+        {
+          "criterio": "Vocabulario de la unidad",
+          "descripcion": "Usa al menos 2 palabras de la lista de vocabulario."
+        }
+      ]
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "q": "The shoes _____ very expensive.",
+        "options": [
+          "was",
+          "were",
+          "is",
+          "are"
+        ],
+        "answer": "were"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you at the store yesterday?",
+        "options": [
+          "Was",
+          "Were",
+          "Did",
+          "Are"
+        ],
+        "answer": "Were"
+      },
+      {
+        "type": "fill_blank",
+        "q": "There ___ not many customers in the morning.",
+        "answer": "were"
+      },
+      {
+        "type": "true_false",
+        "q": "'Money' es un sustantivo contable (tiene plural: moneys).",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "I need ___ apples for the recipe.",
+        "options": [
+          "some",
+          "much",
+          "a"
+        ],
+        "answer": "some"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la palabra con su significado",
+        "pairs": [
+          {
+            "left": "refund",
+            "right": "reembolso"
+          },
+          {
+            "left": "receipt",
+            "right": "recibo"
+          },
+          {
+            "left": "discount",
+            "right": "descuento"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oracion:",
+        "words": [
+          "expensive?",
+          "the",
+          "Was",
+          "jacket"
+        ],
+        "answer": "Was the jacket expensive?"
+      },
+      {
+        "type": "fill_blank",
+        "q": "He ___ not happy with his purchase.",
+        "answer": "was"
+      },
+      {
+        "type": "mcq",
+        "q": "This bike is not new, it's _____.",
+        "options": [
+          "brand new",
+          "second-hand",
+          "expensive",
+          "on sale"
+        ],
+        "answer": "second-hand"
+      },
+      {
+        "type": "true_false",
+        "q": "'Were you at the market?' es una pregunta correcta en pasado.",
+        "answer": true
+      }
+    ]
+  },
+  {
+    "unit_id": "B1.1-01",
+    "level": "B1.1",
+    "title": "Education",
+    "grammar_topic": "Present Perfect; contraste del Present Perfect con otros tiempos",
+    "vocab_theme": "Educacion, trabajo",
+    "can_do": "Puede hablar de experiencias y acciones pasadas relevantes para el presente y hablar de educacion/trabajo",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "El Present Perfect (have/has + participio pasado) conecta el pasado con el presente: se usa para experiencias de vida o acciones pasadas cuyo resultado importa AHORA, sin decir exactamente cuando pasaron. Si dices CUANDO exactamente (yesterday, last year, in 2020), tienes que usar Past Simple, no Present Perfect.",
+      "structure_notes": [
+        {
+          "label": "afirmativo",
+          "explanation": "have/has + participio.",
+          "example": "She has finished her degree."
+        },
+        {
+          "label": "negativo",
+          "explanation": "haven't/hasn't + participio.",
+          "example": "I haven't applied for that job yet."
+        },
+        {
+          "label": "preguntas",
+          "explanation": "Have/Has + sujeto + participio...?",
+          "example": "Have you ever worked abroad?"
+        },
+        {
+          "label": "Present Perfect vs Past Simple",
+          "explanation": "Present Perfect = sin tiempo especifico / relevante ahora. Past Simple = tiempo especifico mencionado.",
+          "example": "I have graduated (en algun momento) vs. I graduated in 2020 (tiempo especifico)."
+        }
+      ],
+      "examples": [
+        "I have worked in marketing for three years.",
+        "She hasn't started her new job yet.",
+        "Have you ever studied abroad?",
+        "He graduated last year. (NO 'he has graduated last year')"
+      ],
+      "exceptions": [
+        "'Ever' y 'never' se usan para hablar de experiencia general en la vida, casi siempre con Present Perfect: 'Have you ever worked in a restaurant?' — nunca con Past Simple con este sentido.",
+        "'Just', 'already' y 'yet' acompañan frecuentemente al Present Perfect: 'I have just finished my degree' (recien), 'I haven't finished yet' (todavia no)."
+      ],
+      "common_mistake": "Usar Present Perfect con una fecha o tiempo especifico: 'I have graduated in 2020' es incorrecto — debe ser 'I graduated in 2020' (Past Simple)."
+    },
+    "grammar_practice": [
+      {
+        "type": "mcq",
+        "q": "She _____ her degree last year.",
+        "options": [
+          "has finished",
+          "finished",
+          "have finished"
+        ],
+        "answer": "finished"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you ever worked abroad?",
+        "options": [
+          "Did",
+          "Have",
+          "Do"
+        ],
+        "answer": "Have"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I ___ not started my new job yet.",
+        "answer": "have"
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ for that company since 2019.",
+        "options": [
+          "worked",
+          "has worked",
+          "work"
+        ],
+        "answer": "has worked"
+      },
+      {
+        "type": "fill_blank",
+        "q": "They ___ (graduate) two years ago. (Past Simple)",
+        "answer": "graduated"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "to graduate",
+        "meaning": "graduarse",
+        "example": "She graduated from university last year."
+      },
+      {
+        "word": "degree",
+        "meaning": "titulo universitario",
+        "example": "He has a degree in engineering."
+      },
+      {
+        "word": "major / field of study",
+        "meaning": "carrera / area de estudio",
+        "example": "My major was international business."
+      },
+      {
+        "word": "scholarship",
+        "meaning": "beca",
+        "example": "She got a scholarship to study abroad."
+      },
+      {
+        "word": "résumé / CV",
+        "meaning": "hoja de vida",
+        "example": "I updated my resume last week."
+      },
+      {
+        "word": "job interview",
+        "meaning": "entrevista de trabajo",
+        "example": "I have a job interview tomorrow."
+      },
+      {
+        "word": "to apply for a job",
+        "meaning": "postularse a un empleo",
+        "example": "I've applied for five jobs this month."
+      },
+      {
+        "word": "promotion",
+        "meaning": "ascenso",
+        "example": "She got a promotion after one year."
+      },
+      {
+        "word": "qualification",
+        "meaning": "cualificacion / requisito",
+        "example": "Do you have the qualifications for this role?"
+      },
+      {
+        "word": "internship",
+        "meaning": "practica / pasantia",
+        "example": "He did an internship at a bank."
+      },
+      {
+        "word": "to enroll",
+        "meaning": "matricularse",
+        "example": "I enrolled in an English course."
+      },
+      {
+        "word": "tuition",
+        "meaning": "matricula (costo)",
+        "example": "Tuition has increased this year."
+      },
+      {
+        "word": "coursework",
+        "meaning": "trabajo academico del curso",
+        "example": "The coursework was very demanding."
+      },
+      {
+        "word": "to hire / to get hired",
+        "meaning": "contratar / ser contratado",
+        "example": "She was hired last month."
+      },
+      {
+        "word": "entry-level (job)",
+        "meaning": "puesto de nivel inicial",
+        "example": "This is an entry-level position."
+      }
+    ],
+    "reading": {
+      "title": "From Classroom to Career",
+      "level": "B1",
+      "word_count": 230,
+      "text_type": "article",
+      "text": "Laura has always been interested in technology. She studied computer science at university and graduated three years ago. Since then, she has worked for two different companies, and she has learned a lot about the software industry.\n\nHer first job was an internship at a small startup. She hasn't forgotten how nervous she felt on her first day. 'I had never worked in a real company before,' she says. 'I had a lot to learn.' During that internship, she gained practical experience that her university courses hadn't fully prepared her for.\n\nAfter six months, she applied for a full-time position at a larger company. She has been there for over two years now, and she has already received one promotion. 'I've learned that qualifications on paper aren't everything,' she explains. 'Employers also want to see that you can apply what you know.'\n\nLaura's advice for students who haven't started their careers yet is simple: get as much practical experience as possible, even before graduating. 'I did an internship every summer during university,' she says. 'That experience has helped me more than any single class.' She also recommends applying for scholarships and taking on projects outside of regular coursework whenever possible.",
+      "questions": [
+        {
+          "q": "What did Laura study at university?",
+          "type": "mcq",
+          "options": [
+            "Marketing",
+            "Computer science",
+            "Business",
+            "Design"
+          ],
+          "answer": "Computer science"
+        },
+        {
+          "q": "How long ago did Laura graduate?",
+          "type": "mcq",
+          "options": [
+            "One year ago",
+            "Three years ago",
+            "Five years ago",
+            "She hasn't graduated yet"
+          ],
+          "answer": "Three years ago"
+        },
+        {
+          "q": "What was Laura's first job?",
+          "type": "mcq",
+          "options": [
+            "A full-time position",
+            "An internship",
+            "A promotion",
+            "A teaching job"
+          ],
+          "answer": "An internship"
+        },
+        {
+          "q": "According to Laura, what matters besides qualifications on paper?",
+          "type": "mcq",
+          "options": [
+            "Having a scholarship",
+            "Being able to apply what you know",
+            "Studying abroad",
+            "Getting good grades only"
+          ],
+          "answer": "Being able to apply what you know"
+        },
+        {
+          "q": "Has Laura received a promotion?",
+          "type": "true_false",
+          "answer": true
+        },
+        {
+          "q": "What can we infer about the value Laura places on internships?",
+          "type": "mcq",
+          "options": [
+            "She thinks they are a waste of time",
+            "She believes they were more valuable than her classes",
+            "She never did one herself",
+            "She thinks only summer internships count"
+          ],
+          "answer": "She believes they were more valuable than her classes"
+        }
+      ]
+    },
+    "listening": {
+      "title": "A Career Interview",
+      "level": "B1",
+      "duration_seconds_estimate": 75,
+      "text_type": "interview",
+      "transcript": "Host: So, tell me about your career so far. Have you always worked in education?\nGuest: Not always, actually. I've had a few different jobs. I started in sales right after I graduated.\nHost: Interesting! What made you switch to teaching?\nGuest: Well, I hadn't really enjoyed sales, and I've always liked helping people learn. So I did a teaching certificate a few years later.\nHost: Have you ever regretted the change?\nGuest: Never. I've been teaching for six years now, and I've never been happier professionally.\nHost: That's great to hear. Have you thought about what's next for you?\nGuest: Yes, actually. I've just applied for a coordinator position at my school. I haven't heard back yet, but I'm hopeful.",
+      "audio_file_placeholder": "B1U01_career_interview.mp3",
+      "questions": [
+        {
+          "q": "What was the guest's first job after graduating?",
+          "type": "mcq",
+          "options": [
+            "Teaching",
+            "Sales",
+            "Coordination",
+            "Marketing"
+          ],
+          "answer": "Sales"
+        },
+        {
+          "q": "Why did the guest switch careers?",
+          "type": "mcq",
+          "options": [
+            "They were fired from sales",
+            "They didn't enjoy sales and liked helping people learn",
+            "A friend recommended it",
+            "It paid more money"
+          ],
+          "answer": "They didn't enjoy sales and liked helping people learn"
+        },
+        {
+          "q": "How long has the guest been teaching?",
+          "type": "mcq",
+          "options": [
+            "Two years",
+            "Four years",
+            "Six years",
+            "Ten years"
+          ],
+          "answer": "Six years"
+        },
+        {
+          "q": "Has the guest heard back about the coordinator position?",
+          "type": "true_false",
+          "answer": false
+        },
+        {
+          "q": "What can we infer about the guest's feelings about teaching?",
+          "type": "mcq",
+          "options": [
+            "They regret the change",
+            "They are very satisfied with the change",
+            "They want to go back to sales",
+            "They are unsure about their career"
+          ],
+          "answer": "They are very satisfied with the change"
+        }
+      ]
+    },
+    "writing": {
+      "text_type": "correo informal a un amigo",
+      "target_word_count": "80-120 palabras",
+      "prompt": "Escribe un correo informal (80-120 palabras) a un amigo contándole sobre tu experiencia educativa o laboral. Usa el Present Perfect para hablar de experiencias generales y el Past Simple para hechos con tiempo especifico. Usa al menos 3 palabras de la lista de vocabulario.",
+      "example_answer": "Hi Andres, I hope you're doing well! I wanted to tell you some news. I've finally finished my degree — I graduated last month, actually! It's been a long journey. I've also applied for a few jobs already, and I have an interview next week for an entry-level position at a marketing company. I've never worked in marketing before, but I did an internship in a similar area last year, so I have some experience. I haven't heard back from the other companies yet, but I'm staying positive. How about you? Have you started your new job yet? Write back soon!",
+      "rubric": [
+        {
+          "criterio": "Cumplimiento de la tarea",
+          "descripcion": "Cuenta una experiencia educativa/laboral con formato de correo informal claro.",
+          "band_focus": "task_achievement"
+        },
+        {
+          "criterio": "Present Perfect vs Past Simple",
+          "descripcion": "Usa ambos tiempos correctamente segun corresponda (experiencia general vs. tiempo especifico).",
+          "band_focus": "grammar_range_accuracy"
+        },
+        {
+          "criterio": "Vocabulario de la unidad",
+          "descripcion": "Usa al menos 3 palabras de la lista de vocabulario de forma natural.",
+          "band_focus": "vocabulary_range"
+        },
+        {
+          "criterio": "Coherencia y formato",
+          "descripcion": "Sigue la estructura de un correo informal (saludo, cuerpo, despedida) con ideas conectadas.",
+          "band_focus": "coherence_cohesion"
+        }
+      ]
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "q": "I _____ my degree two years ago.",
+        "options": [
+          "have finished",
+          "finished",
+          "has finished"
+        ],
+        "answer": "finished"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you ever applied for a scholarship?",
+        "options": [
+          "Did",
+          "Have",
+          "Do"
+        ],
+        "answer": "Have"
+      },
+      {
+        "type": "fill_blank",
+        "q": "She ___ not started her internship yet.",
+        "answer": "has"
+      },
+      {
+        "type": "true_false",
+        "q": "Se puede decir 'I have graduated in 2020'.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "He ___ for this company since 2021.",
+        "options": [
+          "worked",
+          "has worked",
+          "work"
+        ],
+        "answer": "has worked"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja la palabra con su significado",
+        "pairs": [
+          {
+            "left": "résumé",
+            "right": "hoja de vida"
+          },
+          {
+            "left": "internship",
+            "right": "pasantia"
+          },
+          {
+            "left": "promotion",
+            "right": "ascenso"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Ordena la oracion:",
+        "words": [
+          "worked",
+          "Have",
+          "abroad?",
+          "you",
+          "ever"
+        ],
+        "answer": "Have you ever worked abroad?"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I ___ just finished my coursework.",
+        "answer": "have"
+      },
+      {
+        "type": "mcq",
+        "q": "She got a _____ to study in Canada.",
+        "options": [
+          "résumé",
+          "scholarship",
+          "promotion",
+          "internship"
+        ],
+        "answer": "scholarship"
+      },
+      {
+        "type": "true_false",
+        "q": "'Ever' y 'never' casi siempre se usan con Present Perfect para hablar de experiencia general.",
+        "answer": true
+      }
+    ]
+  },
+  {
+    "unit_id": "B2-01",
+    "level": "B2",
+    "title": "Couples",
+    "grammar_topic": "Past modals: should have, could have, might have, may have, must have",
+    "vocab_theme": "Relaciones, parejas, matrimonio, divorcio",
+    "can_do": "Puede especular sobre situaciones pasadas, expresar arrepentimiento/critica y formular opiniones sobre acontecimientos pasados",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Los modales en pasado (modal + have + participio pasado) sirven para hablar de cosas que NO pasaron pero pudieron pasar, para criticar o lamentar decisiones pasadas, o para especular sobre algo que probablemente pasó. No confundir con 'have to' en pasado ('had to'), que es obligacion real, no especulacion.",
+      "structure_notes": [
+        {
+          "label": "should have + participio",
+          "explanation": "Critica o arrepentimiento sobre algo que NO se hizo pero debio hacerse.",
+          "example": "You should have told me about the wedding. (No me dijiste, y fue un error.)"
+        },
+        {
+          "label": "shouldn't have + participio",
+          "explanation": "Critica sobre algo que SI se hizo pero fue un error hacerlo.",
+          "example": "She shouldn't have canceled the engagement over text. (Lo hizo, y estuvo mal.)"
+        },
+        {
+          "label": "could have + participio",
+          "explanation": "Una posibilidad o habilidad que existio pero no se uso.",
+          "example": "He could have proposed sooner, but he waited two years."
+        },
+        {
+          "label": "might have / may have + participio",
+          "explanation": "Especulacion incierta sobre el pasado — no estamos seguros.",
+          "example": "They might have broken up because of the distance. We're not sure."
+        },
+        {
+          "label": "must have + participio",
+          "explanation": "Deduccion casi segura basada en evidencia.",
+          "example": "She must have forgiven him — they're back together now."
+        }
+      ],
+      "examples": [
+        "You should have called before showing up. (critica)",
+        "I could have married her, but I wasn't ready. (oportunidad no tomada)",
+        "He might have cheated, but nobody really knows. (especulacion incierta)",
+        "They must have had a huge argument — they haven't spoken in months. (deduccion casi segura)"
+      ],
+      "exceptions": [
+        "'must have' NO se niega con 'mustn't have' para deduccion. Para negar una deduccion casi segura se usa 'can't have' o 'couldn't have': 'He can't have forgotten our anniversary' (NO 'He mustn't have forgotten...').",
+        "'could have' tambien puede expresar una queja sarcastica ('You could have asked!' = ¡Pudiste haber preguntado!), distinto de su uso como posibilidad neutral — el tono cambia el significado, no la gramatica."
+      ],
+      "register_notes": "En ingles hablado, estas formas casi siempre se contraen y se pronuncian 'should've' (sueldan como 'shoulda'), 'could've', 'might've'. En escritura formal o academica SIEMPRE se escriben completas: 'should have', nunca 'should of' (error ortografico comun incluso entre hablantes nativos, por la pronunciacion identica a 'should've').",
+      "common_mistake": "Usar el verbo base en vez del participio: 'She must have go' en vez de 'She must have gone'. Tambien escribir 'should of' en vez de 'should have', copiando la pronunciacion."
+    },
+    "grammar_practice": [
+      {
+        "type": "mcq",
+        "q": "You look upset. What happened? — I _____ my phone somewhere. I can't find it.",
+        "options": [
+          "must have lost",
+          "should have lost",
+          "could have lost",
+          "must lose"
+        ],
+        "answer": "must have lost"
+      },
+      {
+        "type": "fill_blank",
+        "q": "She ___ have told him earlier — now it's too late. (critica)",
+        "answer": "should"
+      },
+      {
+        "type": "mcq",
+        "q": "He wasn't at the party. He _____ had to work late.",
+        "options": [
+          "might have",
+          "shouldn't have",
+          "should have",
+          "mustn't have"
+        ],
+        "answer": "might have"
+      },
+      {
+        "type": "fill_blank",
+        "q": "I ___ have helped you if you had asked. (oportunidad no aprovechada)",
+        "answer": "could"
+      },
+      {
+        "type": "mcq",
+        "q": "That's not Marta's coat. It _____ have been left by a guest.",
+        "options": [
+          "must",
+          "should",
+          "shouldn't",
+          "could of"
+        ],
+        "answer": "must"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "to get engaged",
+        "meaning": "comprometerse",
+        "example": "They got engaged after five years together."
+      },
+      {
+        "word": "to propose",
+        "meaning": "proponer matrimonio",
+        "example": "He proposed to her on the beach."
+      },
+      {
+        "word": "to get married / wedding",
+        "meaning": "casarse / boda",
+        "example": "Their wedding is next spring."
+      },
+      {
+        "word": "to break up (with someone)",
+        "meaning": "terminar una relacion",
+        "example": "She broke up with him last month."
+      },
+      {
+        "word": "to get divorced / divorce",
+        "meaning": "divorciarse / divorcio",
+        "example": "They got divorced after ten years of marriage."
+      },
+      {
+        "word": "to grow apart",
+        "meaning": "distanciarse (emocionalmente)",
+        "example": "Over time, they grew apart."
+      },
+      {
+        "word": "to cheat on someone",
+        "meaning": "ser infiel",
+        "example": "He never cheated on her, as far as she knows."
+      },
+      {
+        "word": "to make up / reconciliation",
+        "meaning": "reconciliarse",
+        "example": "They had a huge fight but made up the next day."
+      },
+      {
+        "word": "trust",
+        "meaning": "confianza",
+        "example": "Trust is the foundation of any relationship."
+      },
+      {
+        "word": "jealousy",
+        "meaning": "celos",
+        "example": "His jealousy became a real problem."
+      },
+      {
+        "word": "commitment",
+        "meaning": "compromiso (emocional)",
+        "example": "She wasn't ready for that level of commitment."
+      },
+      {
+        "word": "ex-partner",
+        "meaning": "ex pareja",
+        "example": "Her ex-partner still calls sometimes."
+      },
+      {
+        "word": "second thoughts",
+        "meaning": "dudas de ultimo momento",
+        "example": "He had second thoughts right before the wedding."
+      },
+      {
+        "word": "to forgive",
+        "meaning": "perdonar",
+        "example": "It took her years to forgive him."
+      },
+      {
+        "word": "argument",
+        "meaning": "discusion / pelea",
+        "example": "They had a huge argument about money."
+      },
+      {
+        "word": "soulmate",
+        "meaning": "alma gemela",
+        "example": "She believes he is her soulmate."
+      },
+      {
+        "word": "in hindsight",
+        "meaning": "en retrospectiva / visto en retrospectiva",
+        "example": "In hindsight, they married too young."
+      },
+      {
+        "word": "to drift apart",
+        "meaning": "alejarse gradualmente",
+        "example": "Long distance made them drift apart."
+      }
+    ],
+    "reading": {
+      "title": "Why We Almost Didn't Get Married",
+      "level": "B2",
+      "word_count": 312,
+      "text_type": "opinion/personal essay",
+      "text": "Two weeks before our wedding, I called my fiance and told him I wasn't sure anymore. In hindsight, I could have handled it better — a phone call at eleven at night probably wasn't the ideal moment. But I had been having second thoughts for months, and I couldn't keep pretending everything was fine.\n\nMy friends had mixed reactions. Some said I should have spoken up much sooner, before we'd already booked the venue and sent the invitations. Others thought I was simply panicking, and that plenty of people must have felt exactly the same way before their own weddings. Maybe they're right. Getting married is a huge decision, and it would be strange NOT to feel nervous.\n\nWhat surprised me most was my fiance's reaction. He didn't get angry. He said that if I'd stayed quiet just to avoid an awkward conversation, we might have ended up divorced within a few years anyway — and that would have hurt far more than one difficult phone call. He might have been more upset than he showed, but he never let it seem that way.\n\nWe postponed the wedding by six months, not canceled it. During that time, we talked more honestly than we ever had before — about money, about where we wanted to live, about whether we both actually wanted children. Looking back, I think we shouldn't have rushed into wedding planning in the first place without having those conversations. We must have assumed that love alone would sort out the rest.\n\nWe got married eventually, in a small ceremony with close family only. It wasn't the wedding either of us had originally planned, but I don't regret the delay. If I hadn't made that phone call, we could have gone through with a wedding neither of us was fully ready for. Sometimes the right decision doesn't look like progress at the time.",
+      "questions": [
+        {
+          "q": "Why does the writer say she 'could have handled it better'?",
+          "type": "mcq",
+          "options": [
+            "Because she called too late at night",
+            "Because she never told her fiance",
+            "Because she canceled the wedding completely",
+            "Because she told her friends first"
+          ],
+          "answer": "Because she called too late at night"
+        },
+        {
+          "q": "What did some of her friends think she should have done?",
+          "type": "mcq",
+          "options": [
+            "Canceled the wedding sooner",
+            "Spoken up before booking the venue",
+            "Never gotten engaged",
+            "Talked to her fiance's family"
+          ],
+          "answer": "Spoken up before booking the venue"
+        },
+        {
+          "q": "How did the fiance react to the phone call?",
+          "type": "mcq",
+          "options": [
+            "He got angry and ended the engagement",
+            "He stayed calm and wanted to talk honestly",
+            "He refused to speak to her again",
+            "He immediately canceled the wedding"
+          ],
+          "answer": "He stayed calm and wanted to talk honestly"
+        },
+        {
+          "q": "What can we infer about why the couple 'must have assumed love alone would sort out the rest'?",
+          "type": "mcq",
+          "options": [
+            "They had discussed everything in detail beforehand",
+            "They hadn't had important practical conversations before planning the wedding",
+            "They didn't love each other",
+            "They didn't want to get married at all"
+          ],
+          "answer": "They hadn't had important practical conversations before planning the wedding"
+        },
+        {
+          "q": "Did the couple cancel the wedding completely?",
+          "type": "true_false",
+          "answer": false
+        },
+        {
+          "q": "According to the text, what does the writer believe now, looking back?",
+          "type": "mcq",
+          "options": [
+            "She regrets postponing the wedding",
+            "She wishes she had never called her fiance",
+            "The delay was the right decision, even though it didn't feel that way at the time",
+            "She wishes they had married on the original date"
+          ],
+          "answer": "The delay was the right decision, even though it didn't feel that way at the time"
+        }
+      ]
+    },
+    "listening": {
+      "title": "What Happened to Marco and Elena?",
+      "level": "B2",
+      "duration_seconds_estimate": 110,
+      "text_type": "dialogue (two friends catching up)",
+      "transcript": "A: Did you hear about Marco and Elena? They broke up.\nB: What? I thought they were about to get married! What happened?\nA: I don't really know the details, but apparently they'd been arguing a lot.\nB: That's strange, they always seemed so happy together. She must have been really hurt.\nA: Yeah, I heard she found out he'd been talking to his ex-partner again.\nB: Talking, or... cheating? Because those are very different things.\nA: I'm not sure, honestly. He might have just been catching up with her, or it could have been more than that. Nobody really knows for sure.\nB: Well, he shouldn't have kept it a secret either way. That's probably what hurt her the most — not knowing.\nA: True. If he'd just told her from the start, she might have understood. Instead, she found out from someone else.\nB: That would explain why she's so upset. Trust is hard to rebuild once it's broken like that.\nA: Exactly. I heard they tried to make up, but it didn't work out.\nB: That's really sad. They seemed like soulmates to everyone else, at least.\nA: Sometimes things aren't what they look like from the outside.",
+      "audio_file_placeholder": "B2U01_marco_elena.mp3",
+      "questions": [
+        {
+          "q": "What happened between Marco and Elena?",
+          "type": "mcq",
+          "options": [
+            "They got married",
+            "They broke up",
+            "They got engaged",
+            "They moved abroad"
+          ],
+          "answer": "They broke up"
+        },
+        {
+          "q": "Why does speaker B say Elena 'must have been really hurt'?",
+          "type": "mcq",
+          "options": [
+            "Because Elena told her directly",
+            "Because it's a reasonable deduction based on the situation",
+            "Because Marco confirmed it",
+            "Because Elena is always emotional"
+          ],
+          "answer": "Because it's a reasonable deduction based on the situation"
+        },
+        {
+          "q": "Are the speakers certain that Marco cheated?",
+          "type": "true_false",
+          "answer": false
+        },
+        {
+          "q": "What does speaker B think Marco should NOT have done?",
+          "type": "mcq",
+          "options": [
+            "Talked to his ex-partner at all",
+            "Kept the contact a secret from Elena",
+            "Broken up with Elena",
+            "Told Elena the truth"
+          ],
+          "answer": "Kept the contact a secret from Elena"
+        },
+        {
+          "q": "How did Elena find out about the contact with the ex-partner?",
+          "type": "mcq",
+          "options": [
+            "Marco told her himself",
+            "She found out from someone else",
+            "She never found out",
+            "She saw messages on his phone"
+          ],
+          "answer": "She found out from someone else"
+        },
+        {
+          "q": "What can we infer about how the couple appeared to other people?",
+          "type": "mcq",
+          "options": [
+            "Everyone knew they had problems",
+            "They seemed happy and like soulmates to others",
+            "Nobody liked them as a couple",
+            "They rarely spent time together publicly"
+          ],
+          "answer": "They seemed happy and like soulmates to others"
+        }
+      ]
+    },
+    "writing": {
+      "text_type": "blog post reflection (informal-neutral register)",
+      "target_word_count": "120-180 palabras",
+      "prompt": "Escribe una entrada de blog (120-180 palabras) reflexionando sobre una decision del pasado — real o inventada — relacionada con una relacion (pareja, amistad o familia). Usa al menos TRES estructuras distintas de modales en pasado (should have, could have, might/may have, must have) para expresar arrepentimiento, especulacion o critica.",
+      "example_answer": "Looking back, I think I could have handled my first serious breakup very differently. At the time, I was convinced I had done nothing wrong, but in hindsight, I probably should have listened more instead of trying to defend myself in every conversation. We must have had the same argument a dozen times without ever really solving anything. I sometimes wonder if we might have stayed together if we'd talked to someone — a friend, a counselor, anyone outside the relationship. We never did, and eventually we just grew apart. I shouldn't have assumed that love was enough to fix everything on its own. These days, I try to remember that a relationship takes more than good intentions.",
+      "rubric": [
+        {
+          "criterio": "Cumplimiento de la tarea",
+          "descripcion": "Reflexiona claramente sobre una decision pasada relacionada con una relacion, con una idea central identificable.",
+          "band_focus": "task_achievement"
+        },
+        {
+          "criterio": "Uso de modales en pasado",
+          "descripcion": "Usa correctamente al menos 3 estructuras distintas (should have / could have / might-may have / must have) con el participio correcto.",
+          "band_focus": "grammar_range_accuracy"
+        },
+        {
+          "criterio": "Vocabulario de la unidad",
+          "descripcion": "Usa al menos 3 palabras/expresiones de la lista de vocabulario de forma natural.",
+          "band_focus": "vocabulary_range"
+        },
+        {
+          "criterio": "Coherencia y cohesion",
+          "descripcion": "Las ideas fluyen logicamente, con conectores apropiados entre oraciones.",
+          "band_focus": "coherence_cohesion"
+        },
+        {
+          "criterio": "Registro",
+          "descripcion": "Mantiene un tono coherente con una entrada de blog personal (semi-informal, reflexivo).",
+          "band_focus": "register"
+        }
+      ]
+    },
+    "quiz": [
+      {
+        "type": "mcq",
+        "q": "You look tired. You _____ stayed up so late last night.",
+        "options": [
+          "should have",
+          "shouldn't have",
+          "must have",
+          "could have"
+        ],
+        "answer": "shouldn't have"
+      },
+      {
+        "type": "mcq",
+        "q": "She's not answering her phone. She _____ it at home.",
+        "options": [
+          "must have forgot",
+          "must have forgotten",
+          "must forgotten",
+          "must have forgetting"
+        ],
+        "answer": "must have forgotten"
+      },
+      {
+        "type": "find_error",
+        "q": "Find the error: 'He should of told her the truth from the beginning.'",
+        "answer": "should of → should have"
+      },
+      {
+        "type": "mcq",
+        "q": "I'm not sure why they broke up. They _____ had a big argument, but I don't really know.",
+        "options": [
+          "must have",
+          "might have",
+          "shouldn't have",
+          "can't have"
+        ],
+        "answer": "might have"
+      },
+      {
+        "type": "fill_blank",
+        "q": "You ___ have called me — I was so worried! (critica por algo que no hiciste)",
+        "answer": "should"
+      },
+      {
+        "type": "true_false",
+        "q": "'must have' se puede negar con 'mustn't have' para expresar una deduccion negativa.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "He can't _____ cheated — he was traveling for work the whole month.",
+        "options": [
+          "have",
+          "has",
+          "had",
+          "having"
+        ],
+        "answer": "have"
+      },
+      {
+        "type": "find_error",
+        "q": "Find the error: 'They could have get married sooner if they had wanted to.'",
+        "answer": "could have get → could have gotten"
+      },
+      {
+        "type": "mcq",
+        "q": "In hindsight, we _____ rushed into the wedding — we barely knew each other.",
+        "options": [
+          "shouldn't have",
+          "should have",
+          "must have",
+          "can't have"
+        ],
+        "answer": "shouldn't have"
+      },
+      {
+        "type": "matching",
+        "q": "Empareja el modal con su funcion principal",
+        "pairs": [
+          {
+            "left": "must have + participio",
+            "right": "deduccion casi segura"
+          },
+          {
+            "left": "might/may have + participio",
+            "right": "especulacion incierta"
+          },
+          {
+            "left": "should have + participio",
+            "right": "critica/arrepentimiento por algo que no se hizo"
+          },
+          {
+            "left": "could have + participio",
+            "right": "posibilidad u oportunidad no aprovechada"
+          }
+        ]
+      },
+      {
+        "type": "mcq",
+        "q": "Which sentence uses the CORRECT informal spoken contraction?",
+        "options": [
+          "I should of called.",
+          "I should've called.",
+          "I should had called.",
+          "I should have called of."
+        ],
+        "answer": "I should've called."
+      }
+    ]
+  }
+]
