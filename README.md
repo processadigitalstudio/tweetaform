@@ -24,14 +24,36 @@ tweetaform/
 ├── app/
 │   └── Tweetaform.jsx        # prototipo funcional (React) — pantalla de niveles, mapa de unidad, 6 lecciones interactivas
 ├── content/
-│   ├── unidad_A1_01.json     # unidad piloto A1, en el formato que usará la base de datos
-│   ├── unidad_A2_01.json
-│   ├── unidad_B1.1_01.json
-│   └── unidad_B2_01.json
+│   ├── A1-01/
+│   │   ├── unit.json         # contenido completo de la unidad
+│   │   ├── audio/            # aquí van los .mp3 generados en ElevenLabs
+│   │   └── images/           # aquí van las imágenes de vocabulario generadas
+│   ├── A1-02/ ... A1-05/     # mismo patrón — nivel A1 completo
+│   ├── A2-01/                # formato viejo, pendiente ampliar a la receta nueva
+│   ├── B1.1-01/              # formato viejo, pendiente ampliar
+│   ├── B1.2-01/              # no escrita todavía (PENDIENTE.txt)
+│   └── B2-01/                # formato viejo, pendiente ampliar
+├── scripts/
+│   ├── package.json
+│   └── seed_firestore.js
 └── docs/
-    ├── tracker_contenido_ingles.xlsx   # mapa de las 64 unidades, gramática, clasificación del banco de 550 preguntas, especificaciones de contenido
-    └── muestra_4_niveles.md            # las 4 unidades piloto en formato legible, para revisión
+    ├── tracker_contenido_ingles.xlsx      # mapa de las 64 unidades, banco de 550, especificaciones
+    ├── muestra_4_niveles.md               # unidades piloto en formato legible
+    └── produccion_audio_imagenes.md       # scripts para ElevenLabs y prompts para Firefly, con nombre de archivo exacto de cada uno
 ```
+
+**Convención de nombres:** el nombre de cada archivo de audio/imagen (ej. `A1-01_listening_1.mp3`, `A1-01_vocab_teacher.png`) coincide exactamente con lo referenciado dentro de `unit.json` — así el script de carga los conecta automáticamente sin renombrar nada.
+
+## Estado del contenido (nivel por nivel)
+
+| Nivel | Estado |
+|---|---|
+| **A1** | ✅ Completo — 5 unidades con la receta final (13 ejercicios/skill, 20 de gramática, 2 textos/2 audios, quiz de 22) |
+| A2 | 1 de 5 unidades (formato viejo, pendiente ampliar) |
+| B1.1 | 1 de 5 unidades (formato viejo, pendiente ampliar) |
+| B1.2 | 0 de 5 unidades (no escrita) |
+| B2 | 1 de 5 unidades (formato viejo, pendiente ampliar) |
+
 
 ## Modelo de datos por unidad
 

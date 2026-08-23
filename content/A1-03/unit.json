@@ -1,0 +1,201 @@
+{
+  "unit_id": "A1-03",
+  "level": "A1",
+  "title": "Restaurants",
+  "grammar_topic": "Singular/plural nouns; there is/there are; artículos",
+  "vocab_theme": "Restaurantes, comida, biblioteca/estudios",
+  "can_do": "Puede describir lo que hay en un lugar y hablar de comida/restaurantes",
+
+  "grammar_explanation": {
+    "language": "es",
+    "core_rule": "Usamos 'there is' con sustantivos singulares y 'there are' con plurales para decir que algo existe en un lugar. Los artículos 'a/an' se usan para algo no específico, 'the' para algo específico ya mencionado o conocido.",
+    "structure_notes": [
+      { "label": "there is + singular", "explanation": "Para un solo objeto o persona.", "example": "There is a table by the window." },
+      { "label": "there are + plural", "explanation": "Para varios objetos o personas.", "example": "There are three chairs here." },
+      { "label": "a / an", "explanation": "'a' antes de sonido consonante, 'an' antes de sonido vocal.", "example": "I would like an orange juice and a sandwich." },
+      { "label": "plural de sustantivos", "explanation": "Se agrega -s a la mayoría de sustantivos.", "example": "table → tables, dish → dishes" }
+    ],
+    "examples": [
+      "There is a menu on the table.",
+      "There are two waiters today.",
+      "I would like an orange juice.",
+      "The restaurant is very popular."
+    ],
+    "common_mistake": "Usar 'there is' con sustantivos plurales: 'there is two tables' es incorrecto — debe ser 'there are two tables'."
+  },
+
+  "grammar_practice": [
+    { "type": "fill_blank", "q": "There ___ a menu on the table. (is/are)", "answer": "is" },
+    { "type": "fill_blank", "q": "There ___ three waiters today. (is/are)", "answer": "are" },
+    { "type": "fill_blank", "q": "I would like ___ apple. (a/an)", "answer": "an" },
+    { "type": "fill_blank", "q": "I would like ___ sandwich. (a/an)", "answer": "a" },
+    { "type": "fill_blank", "q": "There ___ a chef in the kitchen.", "answer": "is" },
+    { "type": "fill_blank", "q": "There ___ five tables in this restaurant.", "answer": "are" },
+    { "type": "fill_blank", "q": "Can I have ___ orange juice, please? (a/an)", "answer": "an" },
+    { "type": "fill_blank", "q": "There ___ two desserts on the menu.", "answer": "are" },
+    { "type": "fill_blank", "q": "There ___ a bill on the table.", "answer": "is" },
+    { "type": "fill_blank", "q": "There ___ many dishes to choose from.", "answer": "are" },
+    { "type": "mcq", "q": "There _____ a table for two available.", "options": ["is", "are"], "answer": "is" },
+    { "type": "mcq", "q": "There _____ four forks on the table.", "options": ["is", "are"], "answer": "are" },
+    { "type": "mcq", "q": "I want _____ orange, please.", "options": ["a", "an"], "answer": "an" },
+    { "type": "mcq", "q": "I want _____ banana, please.", "options": ["a", "an"], "answer": "a" },
+    { "type": "mcq", "q": "There _____ a waiter near the door.", "options": ["is", "are"], "answer": "is" },
+    { "type": "mcq", "q": "There _____ three desserts today.", "options": ["is", "are"], "answer": "are" },
+    { "type": "true_false", "q": "'There is two tables' is correct.", "answer": false },
+    { "type": "true_false", "q": "We use 'an' before a word that starts with a vowel sound.", "answer": true },
+    { "type": "matching", "q": "Empareja el sustantivo con su plural", "pairs": [
+      { "left": "table", "right": "tables" },
+      { "left": "dish", "right": "dishes" },
+      { "left": "fork", "right": "forks" }
+    ]},
+    { "type": "order_words", "q": "Ordena la oración:", "words": ["are", "There", "waiters", "two"], "answer": "There are two waiters" }
+  ],
+
+  "vocabulary": [
+    { "word": "restaurant", "meaning": "restaurante", "example": "We are eating at a new restaurant." },
+    { "word": "menu", "meaning": "menú/carta", "example": "Can I see the menu, please?", "has_image": true, "image_file": "A1-03_vocab_menu.png" },
+    { "word": "waiter / waitress", "meaning": "mesero/a", "example": "The waiter is very friendly." },
+    { "word": "table", "meaning": "mesa", "example": "We have a table for four.", "has_image": true, "image_file": "A1-03_vocab_table.png" },
+    { "word": "dish", "meaning": "plato (de comida)", "example": "This dish is delicious." },
+    { "word": "drink", "meaning": "bebida", "example": "What drink do you want?" },
+    { "word": "bill", "meaning": "cuenta", "example": "Can we have the bill, please?" },
+    { "word": "to order", "meaning": "pedir/ordenar", "example": "I would like to order now." },
+    { "word": "delicious", "meaning": "delicioso", "example": "The soup is delicious." },
+    { "word": "fork / knife / spoon", "meaning": "tenedor / cuchillo / cuchara", "example": "I need a fork and a knife.", "has_image": true, "image_file": "A1-03_vocab_cutlery.png" },
+    { "word": "chef", "meaning": "chef/cocinero", "example": "The chef is from Italy.", "has_image": true, "image_file": "A1-03_vocab_chef.png" },
+    { "word": "dessert", "meaning": "postre", "example": "For dessert, I want ice cream." }
+  ],
+
+  "vocab_practice": [
+    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-03_vocab_menu.png", "options": ["Menu", "Bill", "Table"], "answer": "Menu" },
+    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-03_vocab_table.png", "options": ["Chef", "Table", "Dish"], "answer": "Table" },
+    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-03_vocab_cutlery.png", "options": ["Fork, knife, spoon", "Menu", "Dessert"], "answer": "Fork, knife, spoon" },
+    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-03_vocab_chef.png", "options": ["Waiter", "Chef", "Customer"], "answer": "Chef" },
+    { "type": "mcq", "q": "Who cooks the food in a restaurant?", "options": ["The waiter", "The chef", "The customer"], "answer": "The chef" },
+    { "type": "fill_blank", "q": "Can I see the ___, please? (lo que muestra los platos disponibles)", "answer": "menu" },
+    { "type": "matching", "q": "Empareja la palabra con su significado", "pairs": [
+      { "left": "bill", "right": "cuenta" },
+      { "left": "delicious", "right": "delicioso" },
+      { "left": "to order", "right": "pedir" }
+    ]},
+    { "type": "true_false", "q": "A 'waiter' cooks the food.", "answer": false },
+    { "type": "mcq", "q": "What do you ask for when you finish eating and want to pay?", "options": ["The menu", "The bill", "The dessert"], "answer": "The bill" },
+    { "type": "fill_blank", "q": "For ___, I want ice cream. (lo dulce al final)", "answer": "dessert" },
+    { "type": "true_false", "q": "A 'dish' is a drink.", "answer": false },
+    { "type": "mcq", "q": "Which word means 'pedir comida'?", "options": ["to order", "to drink", "to arrive"], "answer": "to order" },
+    { "type": "matching", "q": "Empareja el utensilio con su uso", "pairs": [
+      { "left": "fork", "right": "para pinchar comida" },
+      { "left": "knife", "right": "para cortar" },
+      { "left": "spoon", "right": "para sopa" }
+    ]}
+  ],
+
+  "reading": [
+    {
+      "title": "Lunch at Mama Rosa's",
+      "word_count": 96,
+      "text": "Today, my family is having lunch at Mama Rosa's restaurant. There is a nice table for four near the window. Our waiter brings us the menu. There are many delicious dishes to choose from. My mother orders a soup, and my father orders fish with rice. I want a sandwich and an orange juice. There are also many desserts on the menu. My sister orders a chocolate cake for dessert. The chef at Mama Rosa's is very famous in our city. At the end, the waiter brings us the bill, and we pay together.",
+      "questions": [
+        { "q": "How many people are having lunch?", "type": "mcq", "options": ["Two", "Three", "Four", "Five"], "answer": "Four" },
+        { "q": "What does the father order?", "type": "mcq", "options": ["Soup", "A sandwich", "Fish with rice", "Chocolate cake"], "answer": "Fish with rice" },
+        { "q": "Is the chef famous?", "type": "true_false", "answer": true },
+        { "q": "What does the sister order for dessert?", "type": "mcq", "options": ["Ice cream", "Chocolate cake", "Fruit", "Nothing"], "answer": "Chocolate cake" },
+        { "q": "There ___ many delicious dishes. (completa)", "type": "fill_blank", "answer": "are" }
+      ]
+    },
+    {
+      "title": "A New Restaurant in Town",
+      "word_count": 90,
+      "text": "There is a new restaurant near my house. There are five tables and a small kitchen. The chef is young, but he is very talented. There is a short menu with only ten dishes, but everything is delicious. Yesterday, I ordered a soup and a sandwich. My friend ordered a salad. There wasn't a long wait for our food. At the end, the bill was not expensive. I think this restaurant is going to be very popular soon. There are already many customers every day.",
+      "questions": [
+        { "q": "How many tables are there?", "type": "mcq", "options": ["Three", "Five", "Ten", "Two"], "answer": "Five" },
+        { "q": "Is the chef old?", "type": "true_false", "answer": false },
+        { "q": "How many dishes are on the menu?", "type": "mcq", "options": ["Five", "Ten", "Twenty", "Fifteen"], "answer": "Ten" },
+        { "q": "What did the writer order?", "type": "mcq", "options": ["A salad", "Soup and a sandwich", "Fish", "Dessert only"], "answer": "Soup and a sandwich" },
+        { "q": "Was the bill expensive?", "type": "true_false", "answer": false }
+      ]
+    }
+  ],
+
+  "listening": [
+    {
+      "title": "Ordering Food",
+      "duration_seconds_estimate": 34,
+      "audio_file": "A1-03_listening_1.mp3",
+      "transcript": "A: Good afternoon! Are you ready to order?\nB: Yes, I am. Can I have the chicken with rice, please?\nA: Of course. Would you like a drink with that?\nB: Yes, an orange juice, please.\nA: Great. And for dessert?\nB: There is a chocolate cake on the menu, right? I'll have that.\nA: Perfect choice! It will be ready in fifteen minutes.\nB: Thank you very much.",
+      "questions": [
+        { "q": "What does the customer order to eat?", "type": "mcq", "options": ["Fish", "Chicken with rice", "A sandwich", "Soup"], "answer": "Chicken with rice" },
+        { "q": "What drink does the customer order?", "type": "mcq", "options": ["Water", "Orange juice", "Coffee", "Soda"], "answer": "Orange juice" },
+        { "q": "What dessert does the customer choose?", "type": "mcq", "options": ["Ice cream", "Chocolate cake", "Fruit", "Nothing"], "answer": "Chocolate cake" },
+        { "q": "How long will the food take?", "type": "mcq", "options": ["Five minutes", "Ten minutes", "Fifteen minutes", "Thirty minutes"], "answer": "Fifteen minutes" },
+        { "q": "Is the customer ready to order at the start?", "type": "true_false", "answer": true },
+        { "q": "There ___ a chocolate cake on the menu. (completa)", "type": "fill_blank", "answer": "is" },
+        { "q": "Empareja quién dice qué", "type": "matching", "pairs": [
+          { "left": "Are you ready to order?", "right": "El mesero" },
+          { "left": "I'll have that.", "right": "El cliente" }
+        ]}
+      ]
+    },
+    {
+      "title": "Asking for the Bill",
+      "duration_seconds_estimate": 26,
+      "audio_file": "A1-03_listening_2.mp3",
+      "transcript": "A: Excuse me, can we have the bill, please?\nB: Of course! Was everything delicious?\nA: Yes, it was! The fish was excellent, and the dessert was amazing.\nB: I'm happy to hear that. Here is your bill.\nA: Thank you. Do you accept cards?\nB: Yes, we do. Cash or card, it's your choice.\nA: I'll pay with a card, please.",
+      "questions": [
+        { "q": "What does the customer ask for?", "type": "mcq", "options": ["The menu", "The bill", "A drink", "A table"], "answer": "The bill" },
+        { "q": "Was the food good?", "type": "true_false", "answer": true },
+        { "q": "How does the customer want to pay?", "type": "mcq", "options": ["Cash", "Card", "They don't say", "They can't pay"], "answer": "Card" },
+        { "q": "Does the restaurant accept cards?", "type": "true_false", "answer": true },
+        { "q": "What was amazing according to the customer?", "type": "mcq", "options": ["The drink", "The dessert", "The waiter", "The table"], "answer": "The dessert" },
+        { "q": "Do you accept ___? (completa)", "type": "fill_blank", "answer": "cards" }
+      ]
+    }
+  ],
+
+  "writing": {
+    "text_type": "descripción de un restaurante",
+    "target_word_count": "3-5 oraciones",
+    "prompt": {
+      "en": "Describe your favorite restaurant. Write 3 to 5 sentences using 'there is/there are' and at least 2 vocabulary words from this unit.",
+      "es": "Describe tu restaurante favorito. Escribe de 3 a 5 oraciones usando 'there is/there are' y al menos 2 palabras del vocabulario de esta unidad."
+    },
+    "rubric": [
+      { "criterio": "Cumple la tarea", "descripcion": "Describe un restaurante con al menos una característica concreta." },
+      { "criterio": "Uso de there is/are", "descripcion": "Usa correctamente there is (singular) y/o there are (plural)." },
+      { "criterio": "Vocabulario de la unidad", "descripcion": "Usa al menos 2 palabras de la lista." },
+      { "criterio": "Coherencia", "descripcion": "Las oraciones tienen sentido y se conectan." }
+    ]
+  },
+
+  "quiz_pool": [
+    { "type": "mcq", "q": "There _____ a table for two available.", "options": ["is", "are"], "answer": "is" },
+    { "type": "mcq", "q": "There _____ four forks on the table.", "options": ["is", "are"], "answer": "are" },
+    { "type": "fill_blank", "q": "I want ___ orange, please. (a/an)", "answer": "an" },
+    { "type": "fill_blank", "q": "I want ___ banana, please. (a/an)", "answer": "a" },
+    { "type": "true_false", "q": "'There is two tables' is correct.", "answer": false },
+    { "type": "true_false", "q": "A 'waiter' cooks the food.", "answer": false },
+    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-03_vocab_menu.png", "options": ["Menu", "Bill", "Table"], "answer": "Menu" },
+    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-03_vocab_chef.png", "options": ["Waiter", "Chef", "Customer"], "answer": "Chef" },
+    { "type": "mcq", "q": "Who cooks the food in a restaurant?", "options": ["The waiter", "The chef", "The customer"], "answer": "The chef" },
+    { "type": "fill_blank", "q": "For ___, I want ice cream.", "answer": "dessert" },
+    { "type": "matching", "q": "Empareja el sustantivo con su plural", "pairs": [
+      { "left": "table", "right": "tables" },
+      { "left": "dish", "right": "dishes" }
+    ]},
+    { "type": "order_words", "q": "Ordena la oración:", "words": ["are", "There", "waiters", "two"], "answer": "There are two waiters" },
+    { "type": "mcq", "q": "What do you ask for when you want to pay?", "options": ["The menu", "The bill", "The dessert"], "answer": "The bill" },
+    { "type": "mcq", "q": "Which word means 'pedir comida'?", "options": ["to order", "to drink", "to arrive"], "answer": "to order" },
+    { "type": "fill_blank", "q": "There ___ a chef in the kitchen.", "answer": "is" },
+    { "type": "true_false", "q": "We use 'an' before a vowel sound.", "answer": true },
+    { "type": "mcq", "q": "There _____ three desserts today.", "options": ["is", "are"], "answer": "are" },
+    { "type": "matching", "q": "Empareja la palabra con su significado", "pairs": [
+      { "left": "bill", "right": "cuenta" },
+      { "left": "delicious", "right": "delicioso" }
+    ]},
+    { "type": "true_false", "q": "A 'dish' is a drink.", "answer": false },
+    { "type": "fill_blank", "q": "There ___ many dishes to choose from.", "answer": "are" },
+    { "type": "image_match", "q": "Which word matches the image?", "image_file": "A1-03_vocab_table.png", "options": ["Chef", "Table", "Dish"], "answer": "Table" },
+    { "type": "mcq", "q": "There _____ a waiter near the door.", "options": ["is", "are"], "answer": "is" }
+  ],
+  "quiz_draw_count": 15
+}
