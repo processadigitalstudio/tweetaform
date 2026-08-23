@@ -163,42 +163,58 @@ function Exercise({ item, levelColor, t, onAnswered }) {
       )}
 
       {(item.type === "mcq" || item.type === "image_match") && (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-          {item.options.map((opt) => {
-            const isSel = selected === opt;
-            const good = checked && isSel && isCorrect(opt);
-            const bad = checked && isSel && !isCorrect(opt);
-            return (
-              <button key={opt} onClick={() => !checked && commit(opt)}
-                style={{ fontFamily: font, fontSize: 15, padding: "12px 18px", borderRadius: 12,
-                  border: `1.5px solid ${good ? levelColor.main : bad ? C.coral : C.line}`,
-                  background: good ? levelColor.soft : bad ? C.coralSoft : C.cream,
-                  color: C.ink, cursor: checked ? "default" : "pointer", fontWeight: isSel ? 700 : 400 }}>
-                {opt}
-              </button>
-            );
-          })}
-        </div>
+        <>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {item.options.map((opt) => {
+              const isSel = selected === opt;
+              const good = checked && isSel && isCorrect(opt);
+              const bad = checked && isSel && !isCorrect(opt);
+              return (
+                <button key={opt} onClick={() => !checked && setSelected(opt)}
+                  style={{ fontFamily: font, fontSize: 15, padding: "12px 18px", borderRadius: 12,
+                    border: `1.5px solid ${good ? levelColor.main : bad ? C.coral : isSel ? C.ink : C.line}`,
+                    background: good ? levelColor.soft : bad ? C.coralSoft : isSel ? C.cream : "#fff",
+                    color: C.ink, cursor: checked ? "default" : "pointer", fontWeight: isSel ? 700 : 400 }}>
+                  {opt}
+                </button>
+              );
+            })}
+          </div>
+          {!checked && (
+            <button disabled={selected == null} onClick={() => commit(selected)}
+              style={{ ...navBtn(selected == null), marginTop: 14 }}>
+              {t.check}
+            </button>
+          )}
+        </>
       )}
 
       {item.type === "true_false" && (
-        <div style={{ display: "flex", gap: 10 }}>
-          {[true, false].map((val) => {
-            const label = val ? t.trueLabel : t.falseLabel;
-            const isSel = selected === val;
-            const good = checked && isSel && isCorrect(val);
-            const bad = checked && isSel && !isCorrect(val);
-            return (
-              <button key={label} onClick={() => !checked && commit(val)}
-                style={{ fontFamily: font, fontSize: 15, padding: "12px 24px", borderRadius: 12,
-                  border: `1.5px solid ${good ? levelColor.main : bad ? C.coral : C.line}`,
-                  background: good ? levelColor.soft : bad ? C.coralSoft : C.cream,
-                  color: C.ink, cursor: checked ? "default" : "pointer", fontWeight: isSel ? 700 : 400 }}>
-                {label}
-              </button>
-            );
-          })}
-        </div>
+        <>
+          <div style={{ display: "flex", gap: 10 }}>
+            {[true, false].map((val) => {
+              const label = val ? t.trueLabel : t.falseLabel;
+              const isSel = selected === val;
+              const good = checked && isSel && isCorrect(val);
+              const bad = checked && isSel && !isCorrect(val);
+              return (
+                <button key={label} onClick={() => !checked && setSelected(val)}
+                  style={{ fontFamily: font, fontSize: 15, padding: "12px 24px", borderRadius: 12,
+                    border: `1.5px solid ${good ? levelColor.main : bad ? C.coral : isSel ? C.ink : C.line}`,
+                    background: good ? levelColor.soft : bad ? C.coralSoft : isSel ? C.cream : "#fff",
+                    color: C.ink, cursor: checked ? "default" : "pointer", fontWeight: isSel ? 700 : 400 }}>
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+          {!checked && (
+            <button disabled={selected == null} onClick={() => commit(selected)}
+              style={{ ...navBtn(selected == null), marginTop: 14 }}>
+              {t.check}
+            </button>
+          )}
+        </>
       )}
 
       {item.type === "fill_blank" && (
@@ -218,63 +234,69 @@ function Exercise({ item, levelColor, t, onAnswered }) {
       )}
 
       {item.type === "matching" && (
-        <MatchingExercise item={item} levelColor={levelColor} checked={checked} onDone={(ok) => commit(ok)} />
+        <MatchingExercise item={item} levelColor={levelColor} checked={checked} t={t} onDone={(ok) => commit(ok)} />
       )}
 
       {item.type === "order_words" && (
-        <OrderWordsExercise item={item} levelColor={levelColor} checked={checked} onDone={(val) => commit(val)} />
+        <OrderWordsExercise item={item} levelColor={levelColor} checked={checked} t={t} onDone={(val) => commit(val)} />
       )}
     </div>
   );
 }
 
-function MatchingExercise({ item, levelColor, checked, onDone }) {
+function MatchingExercise({ item, levelColor, checked, onDone, t }) {
   const [picked, setPicked] = useState({});
   const [leftSel, setLeftSel] = useState(null);
-  const rightOptions = shuffle(item.pairs.map((p) => p.right));
+  const [rightOptions] = useState(() => shuffle(item.pairs.map((p) => p.right))); // se baraja UNA sola vez, no en cada render
+  const allPicked = Object.keys(picked).length === item.pairs.length;
 
   const pickRight = (right) => {
     if (leftSel == null || checked) return;
-    const next = { ...picked, [leftSel]: right };
-    setPicked(next);
+    setPicked({ ...picked, [leftSel]: right });
     setLeftSel(null);
-    if (Object.keys(next).length === item.pairs.length) {
-      const allCorrect = item.pairs.every((p) => next[p.left] === p.right);
-      onDone(allCorrect);
-    }
+  };
+
+  const verify = () => {
+    const allCorrect = item.pairs.every((p) => picked[p.left] === p.right);
+    onDone(allCorrect);
   };
 
   return (
-    <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {item.pairs.map((p) => (
-          <button key={p.left} disabled={checked || picked[p.left]} onClick={() => setLeftSel(p.left)}
-            style={{ fontFamily: font, fontSize: 14, padding: "10px 14px", borderRadius: 10,
-              border: `1.5px solid ${leftSel === p.left ? C.ink : C.line}`,
-              background: picked[p.left] ? levelColor.soft : "#fff", cursor: checked ? "default" : "pointer", textAlign: "left" }}>
-            {p.left} {picked[p.left] ? `→ ${picked[p.left]}` : ""}
-          </button>
-        ))}
-      </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {rightOptions.map((r) => {
-          const used = Object.values(picked).includes(r);
-          return (
-            <button key={r} disabled={used || checked} onClick={() => pickRight(r)}
+    <div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 14 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          {item.pairs.map((p) => (
+            <button key={p.left} disabled={checked || picked[p.left]} onClick={() => setLeftSel(p.left)}
               style={{ fontFamily: font, fontSize: 14, padding: "10px 14px", borderRadius: 10,
-                border: `1.5px solid ${C.line}`, background: used ? C.cream : "#fff",
-                color: used ? C.inkSoft : C.ink, cursor: used || checked ? "default" : "pointer" }}>
-              {r}
+                border: `1.5px solid ${leftSel === p.left ? C.ink : C.line}`,
+                background: picked[p.left] ? levelColor.soft : "#fff", cursor: checked ? "default" : "pointer", textAlign: "left" }}>
+              {p.left} {picked[p.left] ? `→ ${picked[p.left]}` : ""}
             </button>
-          );
-        })}
+          ))}
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          {rightOptions.map((r) => {
+            const used = Object.values(picked).includes(r);
+            return (
+              <button key={r} disabled={used || checked} onClick={() => pickRight(r)}
+                style={{ fontFamily: font, fontSize: 14, padding: "10px 14px", borderRadius: 10,
+                  border: `1.5px solid ${C.line}`, background: used ? C.cream : "#fff",
+                  color: used ? C.inkSoft : C.ink, cursor: used || checked ? "default" : "pointer" }}>
+                {r}
+              </button>
+            );
+          })}
+        </div>
       </div>
+      {!checked && (
+        <button disabled={!allPicked} onClick={verify} style={navBtn(!allPicked)}>{t.check}</button>
+      )}
     </div>
   );
 }
 
-function OrderWordsExercise({ item, levelColor, checked, onDone }) {
-  const [pool, setPool] = useState(shuffle(item.words));
+function OrderWordsExercise({ item, levelColor, checked, onDone, t }) {
+  const [pool, setPool] = useState(() => shuffle(item.words));
   const [built, setBuilt] = useState([]);
 
   const addWord = (w, i) => {
@@ -300,7 +322,7 @@ function OrderWordsExercise({ item, levelColor, checked, onDone }) {
         ))}
       </div>
       {!checked && pool.length === 0 && (
-        <button onClick={finish} style={{ ...navBtn(false) }}>{"OK"}</button>
+        <button onClick={finish} style={navBtn(false)}>{t.check}</button>
       )}
     </div>
   );
@@ -314,11 +336,13 @@ function ExerciseFlow({ items, levelColor, t, onFinish }) {
   const [answered, setAnswered] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const pct = Math.round((idx / items.length) * 100);
+  const finished = idx >= items.length;
 
-  if (idx >= items.length) {
-    onFinish(correctCount, items.length);
-    return null;
-  }
+  useEffect(() => {
+    if (finished) onFinish(correctCount, items.length);
+  }, [finished]);
+
+  if (finished) return null;
 
   return (
     <div>
