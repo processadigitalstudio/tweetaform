@@ -895,7 +895,7 @@ root.render(<App />);
   // Transformamos y ejecutamos el codigo manualmente, en vez de dejar que
   // Babel escanee automaticamente la pagina (eso es lo que estaba fallando).
   var __source = document.getElementById("app-source").textContent;
-  var __compiled = Babel.transform(__source, { presets: ["react"] }).code;
+  var __compiled = Babel.transform(__source, { presets: [["react", { runtime: "classic" }]] }).code;
   (0, eval)(__compiled);
 </script>
 </body>
