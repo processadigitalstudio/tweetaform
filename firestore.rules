@@ -55,6 +55,11 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    // Ciclos de estudio (fechas de inicio/fin de cada clase): solo el master.
+    match /studyCycles/{cycleId} {
+      allow read, write: if isMaster();
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

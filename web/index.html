@@ -882,26 +882,49 @@ async function logChange(action, target, details) {
   } catch (e) { /* si falla el log no debe frenar la accion principal */ }
 }
 
+function HomeIcon({ color }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 11l9-8 9 8" />
+      <path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10" />
+    </svg>
+  );
+}
+function HelpIcon({ color }) {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 2-2.4 3.7" />
+      <circle cx="12" cy="17" r="0.6" fill={color} stroke="none" />
+    </svg>
+  );
+}
+
 function AdminDashboard({ t, onLogout }) {
+  const [view, setView] = useState("main"); // "main" | "log" | "reports" | "profile" | "cycles"
+  const [profileUid, setProfileUid] = useState(null);
   const [students, setStudents] = useState(null);
   const [units, setUnits] = useState(null);
-  const [expanded, setExpanded] = useState(null);
   const [progressByStudent, setProgressByStudent] = useState({});
   const [reloadFlag, setReloadFlag] = useState(0);
+  const [logEntries, setLogEntries] = useState(null);
+  const [reports, setReports] = useState(null);
+  const [cycles, setCycles] = useState(null);
   const LEVELS = ["A1", "A2", "B1", "B2"];
 
   useEffect(() => {
     (async () => {
-      const [usersSnap, unitsSnap] = await Promise.all([
+      const [usersSnap, unitsSnap, cyclesSnap] = await Promise.all([
         window.__db.collection("users").get(),
         window.__db.collection("units").get(),
+        window.__db.collection("studyCycles").orderBy("startDate", "desc").get(),
       ]);
       const allUnits = unitsSnap.docs.map((d) => d.data());
       setUnits(allUnits);
+      setCycles(cyclesSnap.docs.map((d) => ({ id: d.id, ...d.data() })));
 
       const list = usersSnap.docs.map((d) => ({ uid: d.id, ...d.data() })).filter((u) => u.role === "student");
 
-      // Traer el progreso de TODOS de una vez, para poder mostrar el % en la lista sin tener que abrir cada uno
       const withProgress = await Promise.all(list.map(async (s) => {
         const psnap = await window.__db.collection("users").doc(s.uid).collection("progress").get();
         const data = {};
@@ -925,6 +948,17 @@ function AdminDashboard({ t, onLogout }) {
     setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, level } : s)));
   };
 
+  const setEndDate = async (student, endDate) => {
+    await window.__db.collection("users").doc(student.uid).set({ enrollmentEndDate: endDate }, { merge: true });
+    await logChange("cambiar_fecha_fin", student.email, `Nueva fecha: ${endDate || "ninguna"}`);
+    setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, enrollmentEndDate: endDate } : s)));
+  };
+
+  const setCycle = async (student, cycleId) => {
+    await window.__db.collection("users").doc(student.uid).set({ cycleId: cycleId || null }, { merge: true });
+    setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, cycleId } : s)));
+  };
+
   const deleteStudent = async (student) => {
     if (!window.confirm(`¿Eliminar a ${student.name || student.email}? Esto borra su perfil y progreso (no la cuenta de login — eso se borra aparte en Firebase Console).`)) return;
     const psnap = await window.__db.collection("users").doc(student.uid).collection("progress").get();
@@ -932,70 +966,207 @@ function AdminDashboard({ t, onLogout }) {
     await window.__db.collection("users").doc(student.uid).delete();
     await logChange("eliminar_estudiante", student.email, `Nivel que tenia: ${student.level || "sin nivel"}`);
     setStudents((prev) => prev.filter((s) => s.uid !== student.uid));
-    setExpanded(null);
+    setView("main");
   };
 
-  const [showLog, setShowLog] = useState(false);
-  const [logEntries, setLogEntries] = useState(null);
   const openLog = async () => {
-    setShowLog(true);
+    setView("log");
     if (!logEntries) {
       const snap = await window.__db.collection("changelog").orderBy("timestamp", "desc").limit(100).get();
       setLogEntries(snap.docs.map((d) => d.data()));
     }
   };
 
-  const [showReports, setShowReports] = useState(false);
-  const [reports, setReports] = useState(null);
   const openReports = async () => {
-    setShowReports(true);
+    setView("reports");
     if (!reports) {
       const snap = await window.__db.collection("supportReports").orderBy("timestamp", "desc").limit(50).get();
       setReports(snap.docs.map((d) => d.data()));
     }
   };
 
+  const addCycle = async (name, startDate, endDate) => {
+    const ref = await window.__db.collection("studyCycles").add({ name, startDate, endDate });
+    setCycles((prev) => [{ id: ref.id, name, startDate, endDate }, ...(prev || [])]);
+  };
+
+  const downloadStudentsCSV = () => {
+    const header = "name,email,level,cycle,enrollment_end_date,total_minutes,overall_pct,unit_id,vocab,grammar,reading,listening,writing,quiz,quiz_score\n";
+    const rows = [];
+    students.forEach((s) => {
+      const cycleName = (cycles || []).find((c) => c.id === s.cycleId)?.name || "";
+      const p = progressByStudent[s.uid] || {};
+      const unitIds = Object.keys(p);
+      if (unitIds.length === 0) {
+        rows.push([s.name, s.email, s.level || "", cycleName, s.enrollmentEndDate || "", s.totalMinutes || 0, s._pct, "", "", "", "", "", "", "", ""].join(","));
+      } else {
+        unitIds.forEach((unitId) => {
+          const up = p[unitId];
+          rows.push([
+            s.name, s.email, s.level || "", cycleName, s.enrollmentEndDate || "", s.totalMinutes || 0, s._pct,
+            unitId, up.vocab ? "1" : "0", up.grammar ? "1" : "0", up.reading ? "1" : "0", up.listening ? "1" : "0", up.writing ? "1" : "0", up.quiz ? "1" : "0", up.quiz_score ?? "",
+          ].join(","));
+        });
+      }
+    });
+    const blob = new Blob([header + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "progreso_estudiantes.csv"; a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const backBtn = (
+    <button onClick={() => setView("main")} style={{ fontFamily: font, fontSize: 13, fontWeight: 700, color: C.ink, background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6, marginBottom: 16 }}>
+      ← Volver al panel
+    </button>
+  );
+
   return (
-    <div style={{ background: C.bg, minHeight: "100vh", padding: "24px 18px", boxSizing: "border-box" }}>
-      <button onClick={onLogout} style={{ position: "absolute", top: 18, right: 18, fontFamily: mono, fontSize: 12, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
+    <div style={{ background: C.bg, minHeight: "100vh", padding: "24px 28px", boxSizing: "border-box" }}>
+      <button onClick={onLogout} style={{ position: "absolute", top: 18, right: 24, fontFamily: mono, fontSize: 12, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
         {t.logout}
       </button>
-      <div style={{ maxWidth: 780, margin: "0 auto", paddingTop: 20 }}>
-        <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, fontWeight: 800, marginBottom: 4 }}>Panel de administración</h1>
-        <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 24 }}>{students ? `${students.length} estudiantes` : "Cargando..."}</p>
+      <div style={{ maxWidth: 1100, margin: "0 auto", paddingTop: 20 }}>
+        <h1 style={{ fontFamily: font, fontSize: 28, color: C.ink, fontWeight: 800, marginBottom: 4 }}>Panel de administración</h1>
 
-        <div style={{ display: "flex", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
-          <CreateStudentForm onCreated={() => setReloadFlag((f) => f + 1)} />
-          <button onClick={openLog} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>📋 Historial de cambios</button>
-          <button onClick={openReports} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>🐛 Reportes de problemas</button>
-        </div>
+        {view !== "main" && backBtn}
 
-        {showReports && (
-          <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
-              <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, margin: 0 }}>Últimos 50 reportes</p>
-              <button onClick={() => setShowReports(false)} style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>Cerrar</button>
+        {view === "main" && (
+          <>
+            <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 24 }}>{students ? `${students.length} estudiantes` : "Cargando..."}</p>
+
+            <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
+              <CreateStudentForm onCreated={() => setReloadFlag((f) => f + 1)} />
+              <button onClick={openLog} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>📋 Historial de cambios</button>
+              <button onClick={openReports} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>🐛 Reportes de problemas</button>
+              <button onClick={() => setView("cycles")} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>📅 Ciclos de estudio</button>
+              {students && students.length > 0 && (
+                <button onClick={downloadStudentsCSV} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>⬇️ Descargar CSV de progreso</button>
+              )}
             </div>
-            {!reports && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>{t.loading}</p>}
-            {reports && reports.length === 0 && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin reportes todavía.</p>}
-            {reports && reports.map((r, i) => (
-              <div key={i} style={{ padding: "10px 0", borderBottom: `1px solid ${C.line}` }}>
-                <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: 0 }}>
-                  {r.studentName || r.studentEmail} · {r.level} · {r.unitId} · {r.lesson} · {r.timestamp ? new Date(r.timestamp.seconds * 1000).toLocaleString() : ""}
-                </p>
-                <p style={{ fontFamily: font, fontSize: 13, color: C.ink, margin: "4px 0" }}>{r.description}</p>
-                {r.screenshot && <img src={r.screenshot} alt="" style={{ maxWidth: "100%", borderRadius: 8, marginTop: 6 }} />}
+
+            {students && students.length === 0 && (
+              <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft }}>
+                Todavía no hay estudiantes. Créalos con "+ Crear estudiantes" arriba.
+              </p>
+            )}
+
+            {students && students.length > 0 && (
+              <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, overflow: "hidden" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "2fr 0.6fr 1fr 0.7fr 1fr 40px", gap: 8, padding: "10px 16px", background: C.cream, fontFamily: mono, fontSize: 10, color: C.inkSoft, letterSpacing: 1 }}>
+                  <span>NOMBRE</span><span>NIVEL</span><span>PROGRESO</span><span>TIEMPO</span><span>CICLO</span><span></span>
+                </div>
+                {students.map((s) => (
+                  <div key={s.uid} onClick={() => { setProfileUid(s.uid); setView("profile"); }}
+                    style={{ display: "grid", gridTemplateColumns: "2fr 0.6fr 1fr 0.7fr 1fr 40px", gap: 8, alignItems: "center", padding: "12px 16px", borderTop: `1px solid ${C.line}`, cursor: "pointer" }}>
+                    <div style={{ overflow: "hidden" }}>
+                      <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{s.name || s.email}</p>
+                      <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, margin: 0 }}>{s.email}</p>
+                    </div>
+                    <span style={{ fontFamily: mono, fontSize: 11, fontWeight: 700, color: LEVEL_COLORS[s.level]?.main || C.inkSoft }}>{s.level || "—"}</span>
+                    <div>
+                      <ProgressBar pct={s._pct} color={LEVEL_COLORS[s.level]?.main} />
+                      <span style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft }}>{s._pct}%</span>
+                    </div>
+                    <span style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft }}>{s.totalMinutes ? `${s.totalMinutes}m` : "—"}</span>
+                    <span style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft }}>{(cycles || []).find((c) => c.id === s.cycleId)?.name || "—"}</span>
+                    <span style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, textAlign: "center" }}>›</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
 
-        {showLog && (
-          <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
-              <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, margin: 0 }}>Últimos 100 cambios</p>
-              <button onClick={() => setShowLog(false)} style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>Cerrar</button>
+        {view === "profile" && (() => {
+          const s = students.find((st) => st.uid === profileUid);
+          if (!s) return <p style={{ fontFamily: font, color: C.inkSoft }}>Estudiante no encontrado.</p>;
+          const p = progressByStudent[s.uid] || {};
+          return (
+            <div>
+              <h2 style={{ fontFamily: font, fontSize: 22, color: C.ink, fontWeight: 800, marginBottom: 4 }}>{s.name || s.email}</h2>
+              <p style={{ fontFamily: mono, fontSize: 13, color: C.inkSoft, marginBottom: 20 }}>{s.email}</p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, marginBottom: 24 }}>
+                <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 14 }}>
+                  <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, letterSpacing: 1, marginBottom: 6 }}>PROGRESO</p>
+                  <ProgressBar pct={s._pct} color={LEVEL_COLORS[s.level]?.main} />
+                  <p style={{ fontFamily: mono, fontSize: 12, color: C.ink, marginTop: 6 }}>{s._pct}%</p>
+                </div>
+                <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 14 }}>
+                  <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, letterSpacing: 1, marginBottom: 6 }}>TIEMPO EN LA PLATAFORMA</p>
+                  <p style={{ fontFamily: font, fontSize: 20, color: C.ink, fontWeight: 700, margin: 0 }}>{s.totalMinutes || 0} min</p>
+                </div>
+                <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 14 }}>
+                  <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, letterSpacing: 1, marginBottom: 6 }}>HABILITADO HASTA</p>
+                  <input type="date" value={s.enrollmentEndDate || ""} onChange={(e) => setEndDate(s, e.target.value)}
+                    style={{ fontFamily: font, fontSize: 13, padding: 6, borderRadius: 6, border: `1px solid ${C.line}`, width: "100%", boxSizing: "border-box" }} />
+                </div>
+              </div>
+
+              <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginBottom: 6, letterSpacing: 1 }}>NIVEL HABILITADO</p>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
+                {LEVELS.map((lvl) => {
+                  const selected = s.level === lvl;
+                  const lc = LEVEL_COLORS[lvl];
+                  return (
+                    <button key={lvl} onClick={() => setLevel(s, lvl)}
+                      style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
+                        border: `1.5px solid ${selected ? lc.main : C.line}`, background: selected ? lc.soft : "#fff",
+                        color: selected ? C.ink : C.inkSoft, cursor: "pointer" }}>
+                      {lvl} {selected ? "✓" : ""}
+                    </button>
+                  );
+                })}
+                <button onClick={() => setLevel(s, "ALL")}
+                  style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
+                    border: `1.5px solid ${s.level === "ALL" ? C.ink : C.line}`, background: s.level === "ALL" ? C.cream : "#fff",
+                    color: C.ink, cursor: "pointer" }}>
+                  TODOS (prueba) {s.level === "ALL" ? "✓" : ""}
+                </button>
+              </div>
+
+              <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginBottom: 6, letterSpacing: 1 }}>CICLO DE ESTUDIO</p>
+              <select value={s.cycleId || ""} onChange={(e) => setCycle(s, e.target.value)}
+                style={{ fontFamily: font, fontSize: 13, padding: 8, borderRadius: 8, border: `1px solid ${C.line}`, marginBottom: 20 }}>
+                <option value="">Sin ciclo asignado</option>
+                {(cycles || []).map((c) => <option key={c.id} value={c.id}>{c.name} ({c.startDate} a {c.endDate})</option>)}
+              </select>
+
+              <button onClick={() => deleteStudent(s)}
+                style={{ display: "block", fontFamily: mono, fontSize: 11, color: C.coralText, background: "none", border: `1px solid ${C.coral}`, borderRadius: 8, padding: "6px 12px", cursor: "pointer", marginBottom: 24 }}>
+                🗑️ Eliminar estudiante
+              </button>
+
+              <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginBottom: 10, letterSpacing: 1 }}>PROGRESO POR UNIDAD</p>
+              {Object.keys(p).length === 0 && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin actividad todavía.</p>}
+              {Object.entries(p).map(([unitId, up]) => (
+                <div key={unitId} style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 10, padding: 12, marginBottom: 8 }}>
+                  <p style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 4 }}>{unitId}</p>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 6 }}>
+                    {LESSON_ORDER.map((k) => (
+                      <span key={k} style={{ fontFamily: mono, fontSize: 10, padding: "2px 8px", borderRadius: 999,
+                        background: up[k] ? C.ink : "#fff", color: up[k] ? "#fff" : C.inkSoft, border: `1px solid ${C.line}` }}>
+                        {k}{up.quiz_score != null && k === "quiz" ? ` ${up.quiz_score}%` : ""}
+                      </span>
+                    ))}
+                  </div>
+                  {up.writing_text && (
+                    <div style={{ background: C.cream, borderRadius: 8, padding: 10, marginTop: 4 }}>
+                      <p style={{ fontFamily: font, fontSize: 12, color: C.inkSoft, marginBottom: 4 }}>Writing enviado:</p>
+                      <p style={{ fontFamily: font, fontSize: 13, color: C.ink, whiteSpace: "pre-wrap" }}>{up.writing_text}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
+          );
+        })()}
+
+        {view === "log" && (
+          <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16 }}>
+            <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 10 }}>Últimos 100 cambios</p>
             {!logEntries && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>{t.loading}</p>}
             {logEntries && logEntries.length === 0 && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin cambios registrados todavía.</p>}
             {logEntries && logEntries.map((e, i) => (
@@ -1006,95 +1177,68 @@ function AdminDashboard({ t, onLogout }) {
           </div>
         )}
 
-        {students && students.length === 0 && (
-          <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft }}>
-            Todavía no hay estudiantes. Créalos con <code>node create_students.js</code> desde tu repositorio.
-          </p>
-        )}
-
-        {students && students.length > 0 && (
-          <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, overflow: "hidden" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "2fr 0.7fr 1fr 0.8fr 24px", gap: 8, padding: "10px 14px", background: C.cream, fontFamily: mono, fontSize: 10, color: C.inkSoft, letterSpacing: 1 }}>
-              <span>NOMBRE</span><span>NIVEL</span><span>PROGRESO</span><span>TIEMPO</span><span></span>
-            </div>
-            {students.map((s) => (
-              <div key={s.uid}>
-                <div onClick={() => setExpanded(expanded === s.uid ? null : s.uid)}
-                  style={{ display: "grid", gridTemplateColumns: "2fr 0.7fr 1fr 0.8fr 24px", gap: 8, alignItems: "center", padding: "12px 14px", borderTop: `1px solid ${C.line}`, cursor: "pointer" }}>
-                  <div style={{ overflow: "hidden" }}>
-                    <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{s.name || s.email}</p>
-                    <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, margin: 0 }}>{s.email}</p>
-                  </div>
-                  <span style={{ fontFamily: mono, fontSize: 11, fontWeight: 700, color: LEVEL_COLORS[s.level]?.main || C.inkSoft }}>{s.level || "—"}</span>
-                  <div>
-                    <ProgressBar pct={s._pct} color={LEVEL_COLORS[s.level]?.main} />
-                    <span style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft }}>{s._pct}%</span>
-                  </div>
-                  <span style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft }}>{s.totalMinutes ? `${s.totalMinutes}m` : "—"}</span>
-                  <span style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, textAlign: "center" }}>{expanded === s.uid ? "▲" : "▼"}</span>
-                </div>
-
-                {expanded === s.uid && (
-                  <div style={{ borderTop: `1px solid ${C.line}`, padding: 16, background: C.cream }}>
-                    <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginBottom: 6, letterSpacing: 1 }}>NIVEL HABILITADO</p>
-                    <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
-                      {LEVELS.map((lvl) => {
-                        const selected = s.level === lvl;
-                        const lc = LEVEL_COLORS[lvl];
-                        return (
-                          <button key={lvl} onClick={(e) => { e.stopPropagation(); setLevel(s, lvl); }}
-                            style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
-                              border: `1.5px solid ${selected ? lc.main : C.line}`, background: selected ? lc.soft : "#fff",
-                              color: selected ? C.ink : C.inkSoft, cursor: "pointer" }}>
-                            {lvl} {selected ? "✓" : ""}
-                          </button>
-                        );
-                      })}
-                      <button onClick={(e) => { e.stopPropagation(); setLevel(s, "ALL"); }}
-                        style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
-                          border: `1.5px solid ${s.level === "ALL" ? C.ink : C.line}`, background: s.level === "ALL" ? C.cream : "#fff",
-                          color: C.ink, cursor: "pointer" }}>
-                        TODOS (prueba) {s.level === "ALL" ? "✓" : ""}
-                      </button>
-                    </div>
-
-                    <button onClick={(e) => { e.stopPropagation(); deleteStudent(s); }}
-                      style={{ fontFamily: mono, fontSize: 11, color: C.coralText, background: "none", border: `1px solid ${C.coral}`, borderRadius: 8, padding: "6px 12px", cursor: "pointer", marginBottom: 16 }}>
-                      🗑️ Eliminar estudiante
-                    </button>
-
-                    {Object.keys(progressByStudent[s.uid] || {}).length === 0 && (
-                      <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin actividad todavía.</p>
-                    )}
-                    {Object.entries(progressByStudent[s.uid] || {}).map(([unitId, p]) => (
-                      <div key={unitId} style={{ marginBottom: 12 }}>
-                        <p style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 4 }}>{unitId}</p>
-                        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 6 }}>
-                          {LESSON_ORDER.map((k) => (
-                            <span key={k} style={{ fontFamily: mono, fontSize: 10, padding: "2px 8px", borderRadius: 999,
-                              background: p[k] ? C.ink : "#fff", color: p[k] ? "#fff" : C.inkSoft, border: `1px solid ${C.line}` }}>
-                              {k}{p.quiz_score != null && k === "quiz" ? ` ${p.quiz_score}%` : ""}
-                            </span>
-                          ))}
-                        </div>
-                        {p.writing_text && (
-                          <div style={{ background: "#fff", borderRadius: 8, padding: 10, marginTop: 4 }}>
-                            <p style={{ fontFamily: font, fontSize: 12, color: C.inkSoft, marginBottom: 4 }}>Writing enviado:</p>
-                            <p style={{ fontFamily: font, fontSize: 13, color: C.ink, whiteSpace: "pre-wrap" }}>{p.writing_text}</p>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
+        {view === "reports" && (
+          <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16 }}>
+            <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 10 }}>Últimos 50 reportes</p>
+            {!reports && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>{t.loading}</p>}
+            {reports && reports.length === 0 && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin reportes todavía.</p>}
+            {reports && reports.map((r, i) => (
+              <div key={i} style={{ padding: "10px 0", borderBottom: `1px solid ${C.line}` }}>
+                <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: 0 }}>
+                  {r.studentName || r.studentEmail} · {r.level} · {r.unitId} · {r.lesson} · {r.timestamp ? new Date(r.timestamp.seconds * 1000).toLocaleString() : ""}
+                </p>
+                <p style={{ fontFamily: font, fontSize: 13, color: C.ink, margin: "4px 0" }}>{r.description}</p>
+                {r.screenshot && <img src={r.screenshot} alt="" style={{ maxWidth: 400, borderRadius: 8, marginTop: 6 }} />}
               </div>
             ))}
           </div>
+        )}
+
+        {view === "cycles" && (
+          <CyclesPanel cycles={cycles} onAdd={addCycle} />
         )}
       </div>
     </div>
   );
 }
+
+function CyclesPanel({ cycles, onAdd }) {
+  const [name, setName] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+
+  const add = () => {
+    if (!name.trim() || !startDate || !endDate) return;
+    onAdd(name.trim(), startDate, endDate);
+    setName(""); setStartDate(""); setEndDate("");
+  };
+
+  return (
+    <div>
+      <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, marginBottom: 10 }}>Nuevo ciclo de estudio</p>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
+          <input placeholder="Nombre (ej. Ciclo 1 - 2026)" value={name} onChange={(e) => setName(e.target.value)}
+            style={{ fontFamily: font, fontSize: 13, padding: 8, borderRadius: 8, border: `1px solid ${C.line}`, flex: "1 1 200px" }} />
+          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)}
+            style={{ fontFamily: font, fontSize: 13, padding: 8, borderRadius: 8, border: `1px solid ${C.line}` }} />
+          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)}
+            style={{ fontFamily: font, fontSize: 13, padding: 8, borderRadius: 8, border: `1px solid ${C.line}` }} />
+        </div>
+        <button onClick={add} style={navBtn(false)}>+ Crear ciclo</button>
+      </div>
+
+      {(cycles || []).length === 0 && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin ciclos creados todavía.</p>}
+      {(cycles || []).map((c) => (
+        <div key={c.id} style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 10, padding: 12, marginBottom: 8 }}>
+          <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, margin: 0 }}>{c.name}</p>
+          <p style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, margin: 0 }}>{c.startDate} → {c.endDate}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
 function ReportProblemForm({ user, profile, activeUnit, activeLesson, onClose }) {
   const [description, setDescription] = useState("");
@@ -1344,8 +1488,8 @@ function App() {
     <div style={{ background: C.bg, minHeight: "100vh", boxSizing: "border-box" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 18px", borderBottom: `1px solid ${C.line}`, background: "#fff" }}>
         <button onClick={goHome}
-          style={{ fontFamily: font, fontSize: 13, fontWeight: 700, color: C.ink, background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
-          🏠 {t.home}
+          style={{ fontFamily: font, fontSize: 15, fontWeight: 700, color: C.ink, background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+          <HomeIcon color={C.ink} /> {t.home}
         </button>
         {activeUnit && (
           <button onClick={() => goToUnit(activeUnit.unit_id)}
@@ -1361,8 +1505,8 @@ function App() {
             </button>
           )}
           <button onClick={() => setShowReport(true)}
-            style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: `1px solid ${C.line}`, borderRadius: 999, padding: "5px 10px", cursor: "pointer" }}>
-            ❓ Help
+            style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: `1px solid ${C.line}`, borderRadius: 999, padding: "5px 10px", cursor: "pointer", display: "flex", alignItems: "center", gap: 5 }}>
+            <HelpIcon color={C.inkSoft} /> Help
           </button>
           <button onClick={() => confirmLeave() && window.__auth.signOut()}
             style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
