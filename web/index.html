@@ -911,6 +911,16 @@ function HelpIcon({ color }) {
   );
 }
 
+function dateStrToTimestamp(dateStr) {
+  if (!dateStr) return null;
+  return firebase.firestore.Timestamp.fromDate(new Date(dateStr + "T23:59:59"));
+}
+function timestampToDateStr(ts) {
+  if (!ts) return "";
+  const d = ts.toDate ? ts.toDate() : new Date(ts);
+  return d.toISOString().slice(0, 10);
+}
+
 function AdminDashboard({ t, onLogout }) {
   const [view, setView] = useState("main"); // "main" | "log" | "reports" | "profile" | "cycles"
   const [profileUid, setProfileUid] = useState(null);
@@ -960,9 +970,10 @@ function AdminDashboard({ t, onLogout }) {
   };
 
   const setEndDate = async (student, endDate) => {
-    await window.__db.collection("users").doc(student.uid).set({ enrollmentEndDate: endDate }, { merge: true });
+    const ts = dateStrToTimestamp(endDate);
+    await window.__db.collection("users").doc(student.uid).set({ enrollmentEndDate: ts }, { merge: true });
     await logChange("cambiar_fecha_fin", student.email, `Nueva fecha: ${endDate || "ninguna"}`);
-    setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, enrollmentEndDate: endDate } : s)));
+    setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, enrollmentEndDate: ts } : s)));
   };
 
   const setCycle = async (student, cycleId) => {
@@ -997,8 +1008,10 @@ function AdminDashboard({ t, onLogout }) {
   };
 
   const addCycle = async (name, startDate, endDate) => {
-    await window.__db.collection("studyCycles").doc(name).set({ name, startDate, endDate });
-    setCycles((prev) => [{ id: name, name, startDate, endDate }, ...(prev || []).filter((c) => c.id !== name)]);
+    const startTs = dateStrToTimestamp(startDate);
+    const endTs = dateStrToTimestamp(endDate);
+    await window.__db.collection("studyCycles").doc(name).set({ name, startDate: startTs, endDate: endTs });
+    setCycles((prev) => [{ id: name, name, startDate: startTs, endDate: endTs }, ...(prev || []).filter((c) => c.id !== name)]);
   };
 
   const [cycleFilter, setCycleFilter] = useState("");
@@ -1012,12 +1025,12 @@ function AdminDashboard({ t, onLogout }) {
       const p = progressByStudent[s.uid] || {};
       const unitIds = Object.keys(p);
       if (unitIds.length === 0) {
-        rows.push([s.name, s.email, s.level || "", cycleName, s.enrollmentEndDate || "", s.totalMinutes || 0, s._pct, "", "", "", "", "", "", "", ""].join(","));
+        rows.push([s.name, s.email, s.level || "", cycleName, timestampToDateStr(s.enrollmentEndDate), s.totalMinutes || 0, s._pct, "", "", "", "", "", "", "", ""].join(","));
       } else {
         unitIds.forEach((unitId) => {
           const up = p[unitId];
           rows.push([
-            s.name, s.email, s.level || "", cycleName, s.enrollmentEndDate || "", s.totalMinutes || 0, s._pct,
+            s.name, s.email, s.level || "", cycleName, timestampToDateStr(s.enrollmentEndDate), s.totalMinutes || 0, s._pct,
             unitId, up.vocab ? "1" : "0", up.grammar ? "1" : "0", up.reading ? "1" : "0", up.listening ? "1" : "0", up.writing ? "1" : "0", up.quiz ? "1" : "0", up.quiz_score ?? "",
           ].join(","));
         });
@@ -1125,7 +1138,7 @@ function AdminDashboard({ t, onLogout }) {
                 </div>
                 <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 14 }}>
                   <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, letterSpacing: 1, marginBottom: 6 }}>HABILITADO HASTA</p>
-                  <input type="date" value={s.enrollmentEndDate || ""} onChange={(e) => setEndDate(s, e.target.value)}
+                  <input type="date" value={timestampToDateStr(s.enrollmentEndDate)} onChange={(e) => setEndDate(s, e.target.value)}
                     style={{ fontFamily: font, fontSize: 13, padding: 6, borderRadius: 6, border: `1px solid ${C.line}`, width: "100%", boxSizing: "border-box" }} />
                 </div>
               </div>
@@ -1156,7 +1169,7 @@ function AdminDashboard({ t, onLogout }) {
               <select value={s.cycleId || ""} onChange={(e) => setCycle(s, e.target.value)}
                 style={{ fontFamily: font, fontSize: 13, padding: 8, borderRadius: 8, border: `1px solid ${C.line}`, marginBottom: 20 }}>
                 <option value="">Sin ciclo asignado</option>
-                {(cycles || []).map((c) => <option key={c.id} value={c.id}>{c.name} ({c.startDate} a {c.endDate})</option>)}
+                {(cycles || []).map((c) => <option key={c.id} value={c.id}>{c.name} ({timestampToDateStr(c.startDate)} a {timestampToDateStr(c.endDate)})</option>)}
               </select>
 
               <button onClick={() => deleteStudent(s)}
@@ -1257,7 +1270,7 @@ function CyclesPanel({ cycles, onAdd }) {
       {(cycles || []).map((c) => (
         <div key={c.id} style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 10, padding: 12, marginBottom: 8 }}>
           <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, margin: 0 }}>{c.name}</p>
-          <p style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, margin: 0 }}>{c.startDate} → {c.endDate}</p>
+          <p style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, margin: 0 }}>{timestampToDateStr(c.startDate)} → {timestampToDateStr(c.endDate)}</p>
         </div>
       ))}
     </div>
@@ -1379,6 +1392,7 @@ function App() {
   const [allProgress, setAllProgress] = useState(null); // progreso de TODAS las unidades, para la barra general
   const [justFinished, setJustFinished] = useState(null); // que leccion se acaba de terminar (para la pantalla de "Back to unit / Next lesson")
   const [showReport, setShowReport] = useState(false);
+  const [accessExpired, setAccessExpired] = useState(false);
   const [lang, setLang] = useState("en");
   const t = STRINGS[lang];
 
@@ -1407,6 +1421,21 @@ function App() {
       setProfile(snap.exists ? snap.data() : { role: "unknown" });
     })();
   }, [user]);
+
+  // Revisar si al estudiante ya se le vencio el acceso (fecha individual, o si no tiene, la del ciclo)
+  useEffect(() => {
+    if (!profile || profile.role !== "student") return;
+    (async () => {
+      let endTs = profile.enrollmentEndDate || null;
+      if (!endTs && profile.cycleId) {
+        const csnap = await window.__db.collection("studyCycles").doc(profile.cycleId).get();
+        if (csnap.exists) endTs = csnap.data().endDate || null;
+      }
+      if (endTs) {
+        setAccessExpired(new Date() > endTs.toDate());
+      }
+    })();
+  }, [profile]);
 
   useEffect(() => {
     if (!user || units) return;
@@ -1491,6 +1520,37 @@ function App() {
   if (!user) return <LoginScreen t={t} />;
   if (!profile) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
   if (profile.role === "master") return <AdminDashboard t={t} onLogout={() => window.__auth.signOut()} />;
+  if (accessExpired) {
+    return (
+      <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: C.bg, padding: 24 }}>
+        <div style={{ textAlign: "center", maxWidth: 440 }}>
+          <div style={{ marginBottom: 8 }}><img src={LOGO_SRC} alt="Tweetalig" style={{ height: 34 }} /></div>
+          <p style={{ fontSize: 36, margin: 0 }}>🔒</p>
+          <h2 style={{ fontFamily: font, fontSize: 20, color: C.ink, fontWeight: 800 }}>Your license has expired</h2>
+          <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft, marginBottom: 20 }}>
+            Please contact Tweetalig:
+          </p>
+          <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 18, textAlign: "left", fontFamily: font, fontSize: 12, color: C.ink, lineHeight: 1.6, marginBottom: 24 }}>
+            <p style={{ fontWeight: 700, marginBottom: 2 }}>CARTAGENA</p>
+            <p style={{ margin: "0 0 2px" }}>Avenida Pedro de Heredia, Calle 49A # 31-45, Sector Tesca</p>
+            <p style={{ margin: "0 0 2px" }}>Segunda Sede: Cra. 32a #30-22, Esperanza</p>
+            <p style={{ margin: "0 0 10px" }}>info.cartaegna@tweetalig.edu.co</p>
+
+            <p style={{ fontWeight: 700, marginBottom: 2 }}>SINCELEJO</p>
+            <p style={{ margin: "0 0 2px" }}>Sucre – Barrio La María – Carrera 21 # 25-59</p>
+            <p style={{ margin: "0 0 10px" }}>info.sincelejo@tweetalig.edu.co</p>
+
+            <p style={{ fontWeight: 700, marginBottom: 2 }}>BARRANQUILLA</p>
+            <p style={{ margin: "0 0 2px" }}>Atlántico – Edificio Royal Cra. 54 # 68-94</p>
+            <p style={{ margin: "0 0 10px" }}>info.barranquilla@tweetalig.edu.co</p>
+
+            <p style={{ margin: 0, fontWeight: 700 }}>318 351 6814</p>
+          </div>
+          <button onClick={() => window.__auth.signOut()} style={navBtn(false)}>{t.logout}</button>
+        </div>
+      </div>
+    );
+  }
   if (!units || !allProgress) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
 
   const visibleUnits = profile.level === "ALL" ? units : units.filter((u) => u.level === profile.level);

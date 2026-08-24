@@ -9,10 +9,25 @@ service cloud.firestore {
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "master";
     }
 
-    // Contenido de las unidades: lectura para cualquier usuario con sesion.
+    function myProfile() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    // Revisa si al usuario ya se le vencio el acceso: primero su fecha individual;
+    // si no tiene, la del ciclo al que pertenece; si no tiene ninguna, sin limite.
+    function hasActiveAccess() {
+      let u = myProfile();
+      let individualEnd = u.enrollmentEndDate;
+      let hasCycle = u.cycleId != null && exists(/databases/$(database)/documents/studyCycles/$(u.cycleId));
+      let cycleEnd = hasCycle ? get(/databases/$(database)/documents/studyCycles/$(u.cycleId)).data.endDate : null;
+      let effectiveEnd = individualEnd != null ? individualEnd : cycleEnd;
+      return effectiveEnd == null || request.time <= effectiveEnd;
+    }
+
+    // Contenido de las unidades: lectura solo si tiene sesion Y el acceso no ha vencido.
     // Nadie escribe desde el navegador — solo el script de carga.
     match /units/{unitId} {
-      allow read: if request.auth != null;
+      allow read: if request.auth != null && (isMaster() || hasActiveAccess());
       allow write: if false;
     }
 
@@ -36,7 +51,7 @@ service cloud.firestore {
     // - El master puede leer/borrar el de cualquiera (para el panel de revision y eliminar cuentas).
     match /users/{userId}/progress/{unitId} {
       allow read: if request.auth != null && (request.auth.uid == userId || isMaster());
-      allow write: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId && hasActiveAccess();
       allow delete: if isMaster();
     }
 
