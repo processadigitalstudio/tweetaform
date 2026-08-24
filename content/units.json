@@ -4,8 +4,8 @@
     "level": "A1",
     "title": "Nice to Meet You!",
     "grammar_topic": "Verb to be: afirmativo, negativo y preguntas",
-    "vocab_theme": "Saludos, presentaciones, información personal",
-    "can_do": "Puede saludar, presentarse, decir quién es y de dónde es",
+    "vocab_theme": "Greetings, introductions, personal information",
+    "can_do": "Can greet people, introduce themselves, say who they are and where they're from",
     "grammar_explanation": {
       "language": "es",
       "core_rule": "El verbo 'to be' (ser/estar) cambia según la persona: am, is, are. En español muchas veces no se necesita un verbo para presentarse ('Yo, Camila'), pero en inglés el verbo 'to be' SIEMPRE tiene que aparecer.",
@@ -212,7 +212,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja el pronombre con su forma de 'to be'",
+        "q": "Match the pronoun with its form of 'to be'",
         "pairs": [
           {
             "left": "I",
@@ -230,7 +230,7 @@
       },
       {
         "type": "order_words",
-        "q": "Ordena la oracion:",
+        "q": "Put the words in the correct order:",
         "words": [
           "your",
           "name?",
@@ -366,13 +366,18 @@
         "answer": "Mucho gusto"
       },
       {
-        "type": "fill_blank",
-        "q": "Nice to ___ you.",
+        "type": "mcq",
+        "q": "Nice to _____ you.",
+        "options": [
+          "meet",
+          "meets",
+          "meeting"
+        ],
         "answer": "meet"
       },
       {
         "type": "matching",
-        "q": "Empareja la frase con su significado",
+        "q": "Match the phrase with its meaning",
         "pairs": [
           {
             "left": "What's your name?",
@@ -404,8 +409,13 @@
         "answer": "Nice to meet you too"
       },
       {
-        "type": "fill_blank",
-        "q": "___ are you from? — I'm from Toronto.",
+        "type": "mcq",
+        "q": "_____ are you from? — I'm from Toronto.",
+        "options": [
+          "Where",
+          "What",
+          "Who"
+        ],
         "answer": "Where"
       },
       {
@@ -425,7 +435,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja el saludo con la respuesta correcta",
+        "q": "Match the greeting with the correct response",
         "pairs": [
           {
             "left": "How are you?",
@@ -487,7 +497,7 @@
             "answer": "Happy"
           },
           {
-            "q": "Empareja la persona con su origen",
+            "q": "Match the person with where they're from",
             "type": "matching",
             "pairs": [
               {
@@ -550,8 +560,13 @@
             "answer": "Nervous and excited"
           },
           {
-            "q": "___ this Julian's first day? (completa con Is/Are)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "_____ this Julian's first day?",
+            "options": [
+              "Is",
+              "Are",
+              "Am"
+            ],
             "answer": "Is"
           }
         ]
@@ -608,7 +623,7 @@
             "answer": true
           },
           {
-            "q": "Empareja el hablante con su ciudad",
+            "q": "Match the speaker with their city",
             "type": "matching",
             "pairs": [
               {
@@ -622,8 +637,13 @@
             ]
           },
           {
-            "q": "___ you a new student? (completa)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "_____ you a new student?",
+            "options": [
+              "Is",
+              "Are",
+              "Am"
+            ],
             "answer": "Are"
           }
         ],
@@ -685,8 +705,13 @@
             "answer": "Happy"
           },
           {
-            "q": "The street ___ quiet and friendly. (completa con is/are)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "The street _____ quiet and friendly.",
+            "options": [
+              "is",
+              "are",
+              "am"
+            ],
             "answer": "is"
           }
         ],
@@ -751,13 +776,23 @@
         "answer": "Are"
       },
       {
-        "type": "fill_blank",
-        "q": "I ___ not a teacher, I am a student.",
+        "type": "mcq",
+        "q": "I _____ not a teacher, I am a student.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "am"
       },
       {
-        "type": "fill_blank",
-        "q": "She ___ from Sydney.",
+        "type": "mcq",
+        "q": "She _____ from Sydney.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "is"
       },
       {
@@ -792,13 +827,18 @@
         "answer": "Good morning"
       },
       {
-        "type": "fill_blank",
-        "q": "___ they students? Yes, they are.",
+        "type": "mcq",
+        "q": "_____ they students? Yes, they are.",
+        "options": [
+          "Is",
+          "Are",
+          "Am"
+        ],
         "answer": "Are"
       },
       {
         "type": "matching",
-        "q": "Empareja el pronombre con su forma de 'to be'",
+        "q": "Match the pronoun with its form of 'to be'",
         "pairs": [
           {
             "left": "I",
@@ -816,7 +856,7 @@
       },
       {
         "type": "order_words",
-        "q": "Ordena la oracion:",
+        "q": "Put the words in the correct order:",
         "words": [
           "you?",
           "your",
@@ -852,8 +892,13 @@
         "answer": "Friend"
       },
       {
-        "type": "fill_blank",
-        "q": "Nice to ___ you.",
+        "type": "mcq",
+        "q": "Nice to _____ you.",
+        "options": [
+          "meet",
+          "meets",
+          "meeting"
+        ],
         "answer": "meet"
       },
       {
@@ -873,7 +918,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja la frase con su significado",
+        "q": "Match the phrase with its meaning",
         "pairs": [
           {
             "left": "Where are you from?",
@@ -896,8 +941,13 @@
         "answer": "is"
       },
       {
-        "type": "fill_blank",
-        "q": "We ___ friends.",
+        "type": "mcq",
+        "q": "We _____ friends.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "are"
       },
       {
@@ -951,53 +1001,103 @@
     },
     "grammar_practice": [
       {
-        "type": "fill_blank",
-        "q": "___ takes the bus every day. (Ana)",
+        "type": "mcq",
+        "q": "_____ takes the bus every day.",
+        "options": [
+          "She",
+          "Her",
+          "Hers"
+        ],
         "answer": "She"
       },
       {
-        "type": "fill_blank",
-        "q": "Can you help ___? (a mí)",
+        "type": "mcq",
+        "q": "Can you help _____?",
+        "options": [
+          "I",
+          "me",
+          "my"
+        ],
         "answer": "me"
       },
       {
-        "type": "fill_blank",
-        "q": "This is ___ car. (de él)",
+        "type": "mcq",
+        "q": "This is _____ car.",
+        "options": [
+          "he",
+          "him",
+          "his"
+        ],
         "answer": "his"
       },
       {
-        "type": "fill_blank",
-        "q": "___ take the train to school. (nosotros)",
+        "type": "mcq",
+        "q": "_____ take the train to school.",
+        "options": [
+          "We",
+          "Us",
+          "Our"
+        ],
         "answer": "We"
       },
       {
-        "type": "fill_blank",
-        "q": "The driver helps ___. (a ellos)",
+        "type": "mcq",
+        "q": "The driver helps _____.",
+        "options": [
+          "they",
+          "them",
+          "their"
+        ],
         "answer": "them"
       },
       {
-        "type": "fill_blank",
-        "q": "Is this ___ bicycle? (de ti)",
+        "type": "mcq",
+        "q": "Is this _____ bicycle?",
+        "options": [
+          "you",
+          "your",
+          "yours"
+        ],
         "answer": "your"
       },
       {
-        "type": "fill_blank",
-        "q": "___ drives a taxi. (él)",
+        "type": "mcq",
+        "q": "_____ drives a taxi.",
+        "options": [
+          "He",
+          "Him",
+          "His"
+        ],
         "answer": "He"
       },
       {
-        "type": "fill_blank",
-        "q": "The taxi driver talks to ___. (a nosotros)",
+        "type": "mcq",
+        "q": "The taxi driver talks to _____.",
+        "options": [
+          "we",
+          "us",
+          "our"
+        ],
         "answer": "us"
       },
       {
-        "type": "fill_blank",
-        "q": "This is ___ ticket. (de ella)",
+        "type": "mcq",
+        "q": "This is _____ ticket.",
+        "options": [
+          "she",
+          "her",
+          "hers"
+        ],
         "answer": "her"
       },
       {
-        "type": "fill_blank",
-        "q": "___ arrive at 8 AM. (ellos)",
+        "type": "mcq",
+        "q": "_____ arrive at 8 AM.",
+        "options": [
+          "They",
+          "Them",
+          "Their"
+        ],
         "answer": "They"
       },
       {
@@ -1072,7 +1172,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja el pronombre de sujeto con su forma de objeto",
+        "q": "Match the subject pronoun with its object form",
         "pairs": [
           {
             "left": "I",
@@ -1090,7 +1190,7 @@
       },
       {
         "type": "order_words",
-        "q": "Ordena la oración:",
+        "q": "Put the words in the correct order:",
         "words": [
           "car",
           "his",
@@ -1226,13 +1326,18 @@
         "answer": "Driver"
       },
       {
-        "type": "fill_blank",
-        "q": "I need to buy a ___ for the train.",
+        "type": "mcq",
+        "q": "I need to buy a _____ for the train.",
+        "options": [
+          "ticket",
+          "traffic",
+          "driver"
+        ],
         "answer": "ticket"
       },
       {
         "type": "matching",
-        "q": "Empareja la palabra con su significado",
+        "q": "Match the word with its meaning",
         "pairs": [
           {
             "left": "traffic",
@@ -1255,7 +1360,7 @@
       },
       {
         "type": "mcq",
-        "q": "Which word means 'conducir'?",
+        "q": "Which word means 'to drive a vehicle'?",
         "options": [
           "to arrive",
           "to drive",
@@ -1264,8 +1369,13 @@
         "answer": "to drive"
       },
       {
-        "type": "fill_blank",
-        "q": "There is a lot of ___ this morning.",
+        "type": "mcq",
+        "q": "There is a lot of _____ this morning.",
+        "options": [
+          "traffic",
+          "ticket",
+          "passenger"
+        ],
         "answer": "traffic"
       },
       {
@@ -1285,7 +1395,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja el vehículo con su nombre en inglés",
+        "q": "Match the vehicle with its English name",
         "pairs": [
           {
             "left": "autobús",
@@ -1397,8 +1507,13 @@
             "answer": true
           },
           {
-            "q": "___ drives his car to work. (completa con el pronombre correcto)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "_____ drives his car to work.",
+            "options": [
+              "He",
+              "Him",
+              "His"
+            ],
             "answer": "He"
           }
         ]
@@ -1455,21 +1570,26 @@
             "answer": false
           },
           {
-            "q": "___ this your first time in Madrid? (completa)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "_____ this your first time in Madrid?",
+            "options": [
+              "Is",
+              "Are",
+              "Am"
+            ],
             "answer": "Is"
           },
           {
-            "q": "Empareja quién dice qué",
+            "q": "Match who says what",
             "type": "matching",
             "pairs": [
               {
                 "left": "Where do you want to go?",
-                "right": "El conductor"
+                "right": "The driver"
               },
               {
                 "left": "I'm here for work.",
-                "right": "El pasajero"
+                "right": "The passenger"
               }
             ]
           }
@@ -1526,8 +1646,13 @@
             "answer": "Yes"
           },
           {
-            "q": "I couldn't be late ___ work. (completa la preposición)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "I couldn't be late _____ work.",
+            "options": [
+              "for",
+              "in",
+              "at"
+            ],
             "answer": "for"
           }
         ],
@@ -1582,13 +1707,23 @@
         "answer": "me"
       },
       {
-        "type": "fill_blank",
-        "q": "This is ___ bicycle. (de ella)",
+        "type": "mcq",
+        "q": "This is _____ bicycle.",
+        "options": [
+          "she",
+          "her",
+          "hers"
+        ],
         "answer": "her"
       },
       {
-        "type": "fill_blank",
-        "q": "___ take the train. (nosotros)",
+        "type": "mcq",
+        "q": "_____ take the train.",
+        "options": [
+          "We",
+          "Us",
+          "Our"
+        ],
         "answer": "We"
       },
       {
@@ -1634,13 +1769,18 @@
         "answer": "Taxi"
       },
       {
-        "type": "fill_blank",
-        "q": "There is a lot of ___ this morning.",
+        "type": "mcq",
+        "q": "There is a lot of _____ this morning.",
+        "options": [
+          "traffic",
+          "ticket",
+          "passenger"
+        ],
         "answer": "traffic"
       },
       {
         "type": "matching",
-        "q": "Empareja el pronombre de sujeto con su forma de objeto",
+        "q": "Match the subject pronoun with its object form",
         "pairs": [
           {
             "left": "I",
@@ -1658,7 +1798,7 @@
       },
       {
         "type": "order_words",
-        "q": "Ordena la oración:",
+        "q": "Put the words in the correct order:",
         "words": [
           "car",
           "his",
@@ -1688,8 +1828,13 @@
         "answer": "to drive"
       },
       {
-        "type": "fill_blank",
-        "q": "I need to buy a ___ for the train.",
+        "type": "mcq",
+        "q": "I need to buy a _____ for the train.",
+        "options": [
+          "ticket",
+          "traffic",
+          "driver"
+        ],
         "answer": "ticket"
       },
       {
@@ -1709,7 +1854,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja la palabra con su significado",
+        "q": "Match the word with its meaning",
         "pairs": [
           {
             "left": "traffic",
@@ -1732,8 +1877,13 @@
         "answer": "They"
       },
       {
-        "type": "fill_blank",
-        "q": "The taxi driver talks to ___. (a nosotros)",
+        "type": "mcq",
+        "q": "The taxi driver talks to _____.",
+        "options": [
+          "we",
+          "us",
+          "our"
+        ],
         "answer": "us"
       },
       {
@@ -2681,8 +2831,8 @@
     "level": "A1",
     "title": "Crime",
     "grammar_topic": "Be: short answers; this/that/these/those",
-    "vocab_theme": "Crimen, policía, situaciones legales básicas",
-    "can_do": "Puede responder preguntas simples, identificar objetos y hablar de situaciones relacionadas con delitos",
+    "vocab_theme": "Crime, police, basic legal situations",
+    "can_do": "Can answer simple questions, identify objects, and talk about crime-related situations",
     "grammar_explanation": {
       "language": "es",
       "core_rule": "Las respuestas cortas con 'to be' repiten el verbo, no toda la oración ('Are you a witness? Yes, I am.'). Los demostrativos this/that/these/those señalan objetos: this/these para algo cerca, that/those para algo lejos; this/that son singulares, these/those son plurales.",
@@ -2718,56 +2868,6 @@
     },
     "grammar_practice": [
       {
-        "type": "fill_blank",
-        "q": "Is this your wallet? Yes, it ___.",
-        "answer": "is"
-      },
-      {
-        "type": "fill_blank",
-        "q": "Are you a witness? No, I'm ___.",
-        "answer": "not"
-      },
-      {
-        "type": "fill_blank",
-        "q": "Is he a police officer? Yes, he ___.",
-        "answer": "is"
-      },
-      {
-        "type": "fill_blank",
-        "q": "Are they suspects? No, they ___.",
-        "answer": "aren't"
-      },
-      {
-        "type": "fill_blank",
-        "q": "___ is my ID. (algo cerca, singular)",
-        "answer": "This"
-      },
-      {
-        "type": "fill_blank",
-        "q": "___ is the police station. (algo lejos, singular)",
-        "answer": "That"
-      },
-      {
-        "type": "fill_blank",
-        "q": "___ are my keys. (algo cerca, plural)",
-        "answer": "These"
-      },
-      {
-        "type": "fill_blank",
-        "q": "___ are the suspects over there. (algo lejos, plural)",
-        "answer": "Those"
-      },
-      {
-        "type": "fill_blank",
-        "q": "Is this a crime? Yes, it ___.",
-        "answer": "is"
-      },
-      {
-        "type": "fill_blank",
-        "q": "Are those his bikes? No, they ___.",
-        "answer": "aren't"
-      },
-      {
         "type": "mcq",
         "q": "Is this your wallet? Yes, it _____.",
         "options": [
@@ -2789,7 +2889,27 @@
       },
       {
         "type": "mcq",
-        "q": "_____ is my ID card. (cerca, singular)",
+        "q": "Is he a police officer? Yes, he _____.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "Are they suspects? No, they _____.",
+        "options": [
+          "isn't",
+          "aren't",
+          "am not"
+        ],
+        "answer": "aren't"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ is my ID.",
         "options": [
           "This",
           "These",
@@ -2799,7 +2919,67 @@
       },
       {
         "type": "mcq",
-        "q": "_____ are the stolen bikes. (lejos, plural)",
+        "q": "_____ is the police station.",
+        "options": [
+          "That",
+          "This",
+          "These"
+        ],
+        "answer": "That"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ are my keys.",
+        "options": [
+          "This",
+          "These",
+          "That"
+        ],
+        "answer": "These"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ are the suspects over there.",
+        "options": [
+          "That",
+          "This",
+          "Those"
+        ],
+        "answer": "Those"
+      },
+      {
+        "type": "mcq",
+        "q": "Is this a crime? Yes, it _____.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "Are those his bikes? No, they _____.",
+        "options": [
+          "isn't",
+          "aren't",
+          "am not"
+        ],
+        "answer": "aren't"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ is my ID card.",
+        "options": [
+          "This",
+          "These",
+          "Those"
+        ],
+        "answer": "This"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ are the stolen bikes.",
         "options": [
           "That",
           "This",
@@ -2819,7 +2999,7 @@
       },
       {
         "type": "mcq",
-        "q": "_____ are my keys. (cerca, plural)",
+        "q": "_____ are my keys.",
         "options": [
           "This",
           "These",
@@ -2839,25 +3019,25 @@
       },
       {
         "type": "matching",
-        "q": "Empareja el demostrativo con su uso",
+        "q": "Match the demonstrative with its use",
         "pairs": [
           {
             "left": "this",
-            "right": "singular, cerca"
+            "right": "singular, close"
           },
           {
             "left": "these",
-            "right": "plural, cerca"
+            "right": "plural, close"
           },
           {
             "left": "those",
-            "right": "plural, lejos"
+            "right": "plural, far"
           }
         ]
       },
       {
         "type": "order_words",
-        "q": "Ordena la oración:",
+        "q": "Put the words in the correct order:",
         "words": [
           "officer",
           "a",
@@ -2994,13 +3174,18 @@
         "answer": "A witness"
       },
       {
-        "type": "fill_blank",
-        "q": "Someone tried to ___ my bike. (robar)",
+        "type": "mcq",
+        "q": "Someone tried to _____ my bike.",
+        "options": [
+          "steal",
+          "report",
+          "witness"
+        ],
         "answer": "steal"
       },
       {
         "type": "matching",
-        "q": "Empareja la palabra con su significado",
+        "q": "Match the word with its meaning",
         "pairs": [
           {
             "left": "suspect",
@@ -3032,8 +3217,13 @@
         "answer": "The police station"
       },
       {
-        "type": "fill_blank",
-        "q": "This neighborhood is very ___. (lo opuesto a peligroso)",
+        "type": "mcq",
+        "q": "This neighborhood is very _____.",
+        "options": [
+          "safe",
+          "stolen",
+          "suspect"
+        ],
         "answer": "safe"
       },
       {
@@ -3053,7 +3243,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja el opuesto",
+        "q": "Match the opposite",
         "pairs": [
           {
             "left": "safe",
@@ -3161,8 +3351,13 @@
             "answer": "It's very safe"
           },
           {
-            "q": "___ is your ID? (completa)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "_____ is your ID?",
+            "options": [
+              "Is this",
+              "Are this",
+              "Am this"
+            ],
             "answer": "Is this"
           }
         ]
@@ -3208,21 +3403,26 @@
             "answer": "It's very helpful"
           },
           {
-            "q": "Are you a witness ___ the crime? (completa la preposición)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "Are you a witness _____ the crime?",
+            "options": [
+              "to",
+              "in",
+              "for"
+            ],
             "answer": "to"
           },
           {
-            "q": "Empareja quién dice qué",
+            "q": "Match who says what",
             "type": "matching",
             "pairs": [
               {
                 "left": "Can you describe the suspect?",
-                "right": "El oficial"
+                "right": "The officer"
               },
               {
                 "left": "I hope you find him soon.",
-                "right": "El testigo"
+                "right": "The witness"
               }
             ]
           },
@@ -3284,8 +3484,13 @@
             "answer": "Went to the police station"
           },
           {
-            "q": "I want to ___ a stolen phone. (completa)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "I want to _____ a stolen phone.",
+            "options": [
+              "report",
+              "steal",
+              "witness"
+            ],
             "answer": "report"
           }
         ],
@@ -3340,13 +3545,23 @@
         "answer": "not"
       },
       {
-        "type": "fill_blank",
-        "q": "___ is my ID. (cerca, singular)",
+        "type": "mcq",
+        "q": "_____ is my ID.",
+        "options": [
+          "This",
+          "These",
+          "Those"
+        ],
         "answer": "This"
       },
       {
-        "type": "fill_blank",
-        "q": "___ are the suspects over there. (lejos, plural)",
+        "type": "mcq",
+        "q": "_____ are the suspects over there.",
+        "options": [
+          "That",
+          "This",
+          "Those"
+        ],
         "answer": "Those"
       },
       {
@@ -3392,27 +3607,32 @@
         "answer": "A witness"
       },
       {
-        "type": "fill_blank",
-        "q": "Someone tried to ___ my bike.",
+        "type": "mcq",
+        "q": "Someone tried to _____ my bike.",
+        "options": [
+          "steal",
+          "report",
+          "witness"
+        ],
         "answer": "steal"
       },
       {
         "type": "matching",
-        "q": "Empareja el demostrativo con su uso",
+        "q": "Match the demonstrative with its use",
         "pairs": [
           {
             "left": "this",
-            "right": "singular, cerca"
+            "right": "singular, close"
           },
           {
             "left": "those",
-            "right": "plural, lejos"
+            "right": "plural, far"
           }
         ]
       },
       {
         "type": "order_words",
-        "q": "Ordena la oración:",
+        "q": "Put the words in the correct order:",
         "words": [
           "officer",
           "a",
@@ -3443,8 +3663,13 @@
         "answer": "Your ID"
       },
       {
-        "type": "fill_blank",
-        "q": "This neighborhood is very ___. (opuesto a peligroso)",
+        "type": "mcq",
+        "q": "This neighborhood is very _____.",
+        "options": [
+          "safe",
+          "stolen",
+          "suspect"
+        ],
         "answer": "safe"
       },
       {
@@ -3464,7 +3689,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja el opuesto",
+        "q": "Match the opposite",
         "pairs": [
           {
             "left": "safe",
@@ -3482,8 +3707,13 @@
         "answer": true
       },
       {
-        "type": "fill_blank",
-        "q": "Are those his bikes? No, they ___.",
+        "type": "mcq",
+        "q": "Are those his bikes? No, they _____.",
+        "options": [
+          "isn't",
+          "aren't",
+          "am not"
+        ],
         "answer": "aren't"
       },
       {
@@ -3515,7 +3745,7 @@
     "level": "A1",
     "title": "Art",
     "grammar_topic": "Verb to be: afirmativo, Yes/No questions y contractions",
-    "vocab_theme": "Arte, música, entretenimiento",
+    "vocab_theme": "Art, music, entertainment",
     "can_do": "Puede describir personas/situaciones sencillas y hablar de entretenimiento",
     "grammar_explanation": {
       "language": "es",
@@ -3547,53 +3777,103 @@
     },
     "grammar_practice": [
       {
-        "type": "fill_blank",
-        "q": "She ___ a painter. (contracción de 'is')",
+        "type": "mcq",
+        "q": "She _____ a painter.",
+        "options": [
+          "'s",
+          "are",
+          "am"
+        ],
         "answer": "'s"
       },
       {
-        "type": "fill_blank",
-        "q": "They ___ musicians. (contracción de 'are')",
+        "type": "mcq",
+        "q": "They _____ musicians.",
+        "options": [
+          "'s",
+          "'re",
+          "am"
+        ],
         "answer": "'re"
       },
       {
-        "type": "fill_blank",
-        "q": "I ___ an art student. (contracción de 'am')",
+        "type": "mcq",
+        "q": "I _____ an art student.",
+        "options": [
+          "'s",
+          "'re",
+          "'m"
+        ],
         "answer": "'m"
       },
       {
-        "type": "fill_blank",
-        "q": "___ she an artist? (pregunta)",
+        "type": "mcq",
+        "q": "_____ she an artist?",
+        "options": [
+          "Is",
+          "Are",
+          "Am"
+        ],
         "answer": "Is"
       },
       {
-        "type": "fill_blank",
-        "q": "___ they musicians? (pregunta)",
+        "type": "mcq",
+        "q": "_____ they musicians?",
+        "options": [
+          "Is",
+          "Are",
+          "Am"
+        ],
         "answer": "Are"
       },
       {
-        "type": "fill_blank",
-        "q": "He ___ not a singer. (contracción negativa de 'is not')",
+        "type": "mcq",
+        "q": "He _____ a singer.",
+        "options": [
+          "isn't",
+          "aren't",
+          "amn't"
+        ],
         "answer": "isn't"
       },
       {
-        "type": "fill_blank",
-        "q": "We ___ not at the concert. (contracción negativa de 'are not')",
+        "type": "mcq",
+        "q": "We _____ at the concert.",
+        "options": [
+          "isn't",
+          "aren't",
+          "amn't"
+        ],
         "answer": "aren't"
       },
       {
-        "type": "fill_blank",
-        "q": "___ this movie popular? (pregunta)",
+        "type": "mcq",
+        "q": "_____ this movie popular?",
+        "options": [
+          "Is",
+          "Are",
+          "Am"
+        ],
         "answer": "Is"
       },
       {
-        "type": "fill_blank",
-        "q": "It ___ a famous painting. (contracción de 'is')",
+        "type": "mcq",
+        "q": "It _____ a famous painting.",
+        "options": [
+          "'s",
+          "'re",
+          "'m"
+        ],
         "answer": "'s"
       },
       {
-        "type": "fill_blank",
-        "q": "___ you an actor? (pregunta)",
+        "type": "mcq",
+        "q": "_____ you an actor?",
+        "options": [
+          "Is",
+          "Are",
+          "Am"
+        ],
         "answer": "Are"
       },
       {
@@ -3668,7 +3948,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja la forma completa con su contracción",
+        "q": "Match the full form with its contraction",
         "pairs": [
           {
             "left": "she is",
@@ -3686,7 +3966,7 @@
       },
       {
         "type": "order_words",
-        "q": "Ordena la oración:",
+        "q": "Put the words in the correct order:",
         "words": [
           "popular?",
           "this",
@@ -3822,13 +4102,18 @@
         "answer": "The museum"
       },
       {
-        "type": "fill_blank",
-        "q": "They are in a rock ___. (grupo musical)",
+        "type": "mcq",
+        "q": "They are in a rock _____.",
+        "options": [
+          "band",
+          "exhibition",
+          "painting"
+        ],
         "answer": "band"
       },
       {
         "type": "matching",
-        "q": "Empareja la palabra con su significado",
+        "q": "Match the word with its meaning",
         "pairs": [
           {
             "left": "famous",
@@ -3860,8 +4145,13 @@
         "answer": "An actor"
       },
       {
-        "type": "fill_blank",
-        "q": "This ___ is very famous. (obra de arte)",
+        "type": "mcq",
+        "q": "This _____ is very famous.",
+        "options": [
+          "painting",
+          "band",
+          "concert"
+        ],
         "answer": "painting"
       },
       {
@@ -3881,7 +4171,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja la persona con su actividad",
+        "q": "Match the person with their activity",
         "pairs": [
           {
             "left": "artist",
@@ -3933,8 +4223,13 @@
             "answer": false
           },
           {
-            "q": "___ this painting popular? (completa)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "_____ this painting popular?",
+            "options": [
+              "Is",
+              "Are",
+              "Am"
+            ],
             "answer": "Is"
           }
         ]
@@ -3977,8 +4272,13 @@
             "answer": "No, but she went anyway"
           },
           {
-            "q": "They're ___ Sydney. (completa la preposición)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "They're _____ Sydney.",
+            "options": [
+              "from",
+              "in",
+              "at"
+            ],
             "answer": "from"
           }
         ]
@@ -4029,21 +4329,26 @@
             "answer": false
           },
           {
-            "q": "Is the exhibition ___? (completa)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "Is the exhibition _____?",
+            "options": [
+              "free",
+              "band",
+              "song"
+            ],
             "answer": "free"
           },
           {
-            "q": "Empareja quién dice qué",
+            "q": "Match who says what",
             "type": "matching",
             "pairs": [
               {
                 "left": "Is the exhibition free?",
-                "right": "El visitante nuevo"
+                "right": "The new visitor"
               },
               {
                 "left": "She's very popular in Europe.",
-                "right": "El visitante que ya sabe"
+                "right": "The visitor who already knows"
               }
             ]
           }
@@ -4094,8 +4399,13 @@
             "answer": "No, not at first"
           },
           {
-            "q": "The tickets ___ cheap, but it was worth it. (completa con weren't/wasn't)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "The tickets _____ cheap, but it was worth it.",
+            "options": [
+              "weren't",
+              "wasn't",
+              "aren't"
+            ],
             "answer": "weren't"
           }
         ],
@@ -4150,13 +4460,23 @@
         "answer": "Is"
       },
       {
-        "type": "fill_blank",
-        "q": "They ___ musicians. (contracción de are)",
+        "type": "mcq",
+        "q": "They _____ musicians.",
+        "options": [
+          "'s",
+          "'re",
+          "am"
+        ],
         "answer": "'re"
       },
       {
-        "type": "fill_blank",
-        "q": "He ___ not a singer. (contracción negativa)",
+        "type": "mcq",
+        "q": "He _____ not a singer.",
+        "options": [
+          "isn't",
+          "aren't",
+          "amn't"
+        ],
         "answer": "isn't"
       },
       {
@@ -4202,13 +4522,18 @@
         "answer": "The museum"
       },
       {
-        "type": "fill_blank",
-        "q": "They are in a rock ___.",
+        "type": "mcq",
+        "q": "They are in a rock _____.",
+        "options": [
+          "band",
+          "exhibition",
+          "painting"
+        ],
         "answer": "band"
       },
       {
         "type": "matching",
-        "q": "Empareja la forma completa con su contracción",
+        "q": "Match the full form with its contraction",
         "pairs": [
           {
             "left": "she is",
@@ -4222,7 +4547,7 @@
       },
       {
         "type": "order_words",
-        "q": "Ordena la oración:",
+        "q": "Put the words in the correct order:",
         "words": [
           "popular?",
           "this",
@@ -4252,8 +4577,13 @@
         "answer": "Talented"
       },
       {
-        "type": "fill_blank",
-        "q": "___ they musicians? (pregunta)",
+        "type": "mcq",
+        "q": "_____ they musicians?",
+        "options": [
+          "Is",
+          "Are",
+          "Am"
+        ],
         "answer": "Are"
       },
       {
@@ -4273,7 +4603,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja la persona con su actividad",
+        "q": "Match the person with their activity",
         "pairs": [
           {
             "left": "artist",
@@ -4291,8 +4621,13 @@
         "answer": true
       },
       {
-        "type": "fill_blank",
-        "q": "It ___ a famous painting. (contracción de is)",
+        "type": "mcq",
+        "q": "It _____ a famous painting.",
+        "options": [
+          "'s",
+          "'re",
+          "'m"
+        ],
         "answer": "'s"
       },
       {
@@ -4318,378 +4653,6 @@
       }
     ],
     "quiz_draw_count": 15
-  },
-  {
-    "unit_id": "A2-01",
-    "level": "A2",
-    "title": "Buying and Selling",
-    "grammar_topic": "Be en pasado: afirmativo, negativo y preguntas; count/non-count nouns",
-    "vocab_theme": "Compras, ventas, productos",
-    "can_do": "Puede hablar de compras y situaciones pasadas, describir productos, aceptar/rechazar invitaciones",
-    "grammar_explanation": {
-      "language": "es",
-      "core_rule": "El pasado del verbo 'to be' es was/were — funciona igual que am/is/are pero para el pasado. Tambien repasamos sustantivos contables (tienen plural: shirt/shirts) y no contables (no tienen plural: money, no 'moneys') porque en compras se usan constantemente juntos.",
-      "structure_notes": [
-        {
-          "label": "was/were afirmativo",
-          "explanation": "I/he/she/it + was; you/we/they + were.",
-          "example": "The store was closed yesterday."
-        },
-        {
-          "label": "was/were negativo",
-          "explanation": "wasn't / weren't.",
-          "example": "The shoes weren't expensive."
-        },
-        {
-          "label": "was/were preguntas",
-          "explanation": "Was/Were + sujeto + ...?",
-          "example": "Was the sale good this year?"
-        },
-        {
-          "label": "sustantivos contables",
-          "explanation": "Tienen plural, se cuentan con numeros: a/an, two, three...",
-          "example": "I bought two shirts and a jacket."
-        },
-        {
-          "label": "sustantivos no contables",
-          "explanation": "No tienen plural. Se usan con some/any/much/a lot of.",
-          "example": "I don't have much money left."
-        }
-      ],
-      "examples": [
-        "The market was full of people on Saturday.",
-        "There weren't any discounts last week.",
-        "Were the prices high at that store?",
-        "I bought some fruit and three apples."
-      ],
-      "exceptions": [
-        "'You' siempre usa 'were', incluso hablando de una sola persona: 'You were late', nunca 'you was' — error comun por analogia informal."
-      ],
-      "common_mistake": "Usar 'was' con sujetos plurales (they was, we was) o confundir 'money' como contable (a money, moneys) — es no contable."
-    },
-    "grammar_practice": [
-      {
-        "type": "fill_blank",
-        "q": "The store ___ open until 9pm yesterday.",
-        "answer": "was"
-      },
-      {
-        "type": "fill_blank",
-        "q": "They ___ not happy with the price.",
-        "answer": "were"
-      },
-      {
-        "type": "mcq",
-        "q": "_____ the shoes expensive?",
-        "options": [
-          "Was",
-          "Were",
-          "Is"
-        ],
-        "answer": "Were"
-      },
-      {
-        "type": "mcq",
-        "q": "I need ___ information before I buy this.",
-        "options": [
-          "a",
-          "some",
-          "many"
-        ],
-        "answer": "some"
-      },
-      {
-        "type": "fill_blank",
-        "q": "She bought two ___ (shirt) at the sale.",
-        "answer": "shirts"
-      }
-    ],
-    "vocabulary": [
-      {
-        "word": "store / shop",
-        "meaning": "tienda",
-        "example": "This store has great prices."
-      },
-      {
-        "word": "sale / discount",
-        "meaning": "oferta / descuento",
-        "example": "Everything is 20% off during the sale."
-      },
-      {
-        "word": "receipt",
-        "meaning": "recibo",
-        "example": "Keep your receipt in case you need a refund."
-      },
-      {
-        "word": "expensive / cheap",
-        "meaning": "caro / barato",
-        "example": "That jacket is too expensive for me."
-      },
-      {
-        "word": "refund",
-        "meaning": "reembolso",
-        "example": "I asked for a refund because it didn't fit."
-      },
-      {
-        "word": "customer",
-        "meaning": "cliente",
-        "example": "The customer was waiting at the counter."
-      },
-      {
-        "word": "cash / card",
-        "meaning": "efectivo / tarjeta",
-        "example": "Do you pay by cash or card?"
-      },
-      {
-        "word": "to bargain",
-        "meaning": "regatear",
-        "example": "You can bargain for a better price at the market."
-      },
-      {
-        "word": "to exchange (an item)",
-        "meaning": "cambiar un producto",
-        "example": "Can I exchange this for a bigger size?"
-      },
-      {
-        "word": "price / cost",
-        "meaning": "precio / costo",
-        "example": "The price went up last month."
-      },
-      {
-        "word": "second-hand",
-        "meaning": "de segunda mano",
-        "example": "I bought a second-hand bike."
-      },
-      {
-        "word": "brand new",
-        "meaning": "completamente nuevo",
-        "example": "This phone is brand new."
-      }
-    ],
-    "reading": {
-      "title": "My Trip to the Market",
-      "level": "A2",
-      "word_count": 145,
-      "text_type": "narrative",
-      "text": "Last Saturday, I went to the market with my mother. It was very crowded because there was a big sale. We wanted to buy some fruit and vegetables, but the lines were long. There weren't many discounts on fruit, but the vegetables were cheap. My mother bought some tomatoes, two kilos of potatoes, and a bag of onions. I bought a new shirt from a small shop near the entrance. It was brand new and not very expensive. The seller was very friendly and gave us a small discount because we bought a lot. Later, we were tired, so we sat down and had some coffee. It was a good day, even though it was very busy. Next time, I want to go earlier so the lines aren't so long.",
-      "questions": [
-        {
-          "q": "Where did the writer go last Saturday?",
-          "type": "mcq",
-          "options": [
-            "The market",
-            "A restaurant",
-            "School",
-            "Work"
-          ],
-          "answer": "The market"
-        },
-        {
-          "q": "Why were the lines long?",
-          "type": "mcq",
-          "options": [
-            "It was closing time",
-            "There was a big sale",
-            "It was raining",
-            "The market was small"
-          ],
-          "answer": "There was a big sale"
-        },
-        {
-          "q": "What did the writer buy?",
-          "type": "mcq",
-          "options": [
-            "A jacket",
-            "A shirt",
-            "Shoes",
-            "A bag"
-          ],
-          "answer": "A shirt"
-        },
-        {
-          "q": "Was the shirt expensive?",
-          "type": "true_false",
-          "answer": false
-        },
-        {
-          "q": "Why did the seller give a discount?",
-          "type": "mcq",
-          "options": [
-            "It was a holiday",
-            "They bought a lot",
-            "They paid in cash",
-            "They were regular customers"
-          ],
-          "answer": "They bought a lot"
-        }
-      ]
-    },
-    "listening": {
-      "title": "Can I Get a Refund?",
-      "level": "A2",
-      "duration_seconds_estimate": 50,
-      "text_type": "dialogue (customer service)",
-      "transcript": "A: Hi, I bought this jacket last week, but it doesn't fit. Can I get a refund?\nB: Do you have the receipt?\nA: Yes, here it is.\nB: OK, let me check... The jacket was on sale, so I can only offer a store credit, not cash.\nA: Oh, I didn't know that. Was there a sign about it?\nB: Yes, it was next to the discount rack. I'm sorry about that.\nA: That's OK. Can I exchange it for a bigger size instead?\nB: Yes, of course! Let me check if we have your size.",
-      "audio_file_placeholder": "A2U01_refund.mp3",
-      "questions": [
-        {
-          "q": "What does the customer want at first?",
-          "type": "mcq",
-          "options": [
-            "An exchange",
-            "A refund",
-            "A discount",
-            "A receipt"
-          ],
-          "answer": "A refund"
-        },
-        {
-          "q": "Why can't the customer get cash back?",
-          "type": "mcq",
-          "options": [
-            "No receipt",
-            "The jacket was on sale",
-            "The store is closing",
-            "It's too old"
-          ],
-          "answer": "The jacket was on sale"
-        },
-        {
-          "q": "Does the customer have the receipt?",
-          "type": "true_false",
-          "answer": true
-        },
-        {
-          "q": "What does the customer ask for instead?",
-          "type": "mcq",
-          "options": [
-            "A refund",
-            "A different color",
-            "A bigger size",
-            "A cheaper item"
-          ],
-          "answer": "A bigger size"
-        }
-      ]
-    },
-    "writing": {
-      "text_type": "párrafo corto",
-      "target_word_count": "40-60 palabras",
-      "prompt": "Escribe un párrafo corto (40-60 palabras) sobre la última vez que fuiste de compras. Usa was/were y al menos un sustantivo contable y uno no contable.",
-      "example_answer": "Last weekend I went shopping with my sister. The store was very busy because there was a big sale. We bought some clothes and two pairs of shoes. The prices were good, but there wasn't much time because we were in a hurry.",
-      "rubric": [
-        {
-          "criterio": "Cumplimiento de la tarea",
-          "descripcion": "Describe una experiencia de compras pasada real o inventada."
-        },
-        {
-          "criterio": "Uso de was/were",
-          "descripcion": "Usa correctamente el pasado del verbo to be en afirmativo y/o negativo."
-        },
-        {
-          "criterio": "Sustantivos contables/no contables",
-          "descripcion": "Usa al menos un ejemplo de cada tipo correctamente."
-        },
-        {
-          "criterio": "Vocabulario de la unidad",
-          "descripcion": "Usa al menos 2 palabras de la lista de vocabulario."
-        }
-      ]
-    },
-    "quiz": [
-      {
-        "type": "mcq",
-        "q": "The shoes _____ very expensive.",
-        "options": [
-          "was",
-          "were",
-          "is",
-          "are"
-        ],
-        "answer": "were"
-      },
-      {
-        "type": "mcq",
-        "q": "_____ you at the store yesterday?",
-        "options": [
-          "Was",
-          "Were",
-          "Did",
-          "Are"
-        ],
-        "answer": "Were"
-      },
-      {
-        "type": "fill_blank",
-        "q": "There ___ not many customers in the morning.",
-        "answer": "were"
-      },
-      {
-        "type": "true_false",
-        "q": "'Money' es un sustantivo contable (tiene plural: moneys).",
-        "answer": false
-      },
-      {
-        "type": "mcq",
-        "q": "I need ___ apples for the recipe.",
-        "options": [
-          "some",
-          "much",
-          "a"
-        ],
-        "answer": "some"
-      },
-      {
-        "type": "matching",
-        "q": "Empareja la palabra con su significado",
-        "pairs": [
-          {
-            "left": "refund",
-            "right": "reembolso"
-          },
-          {
-            "left": "receipt",
-            "right": "recibo"
-          },
-          {
-            "left": "discount",
-            "right": "descuento"
-          }
-        ]
-      },
-      {
-        "type": "order_words",
-        "q": "Ordena la oracion:",
-        "words": [
-          "expensive?",
-          "the",
-          "Was",
-          "jacket"
-        ],
-        "answer": "Was the jacket expensive?"
-      },
-      {
-        "type": "fill_blank",
-        "q": "He ___ not happy with his purchase.",
-        "answer": "was"
-      },
-      {
-        "type": "mcq",
-        "q": "This bike is not new, it's _____.",
-        "options": [
-          "brand new",
-          "second-hand",
-          "expensive",
-          "on sale"
-        ],
-        "answer": "second-hand"
-      },
-      {
-        "type": "true_false",
-        "q": "'Were you at the market?' es una pregunta correcta en pasado.",
-        "answer": true
-      }
-    ]
   },
   {
     "unit_id": "B1.1-01",
@@ -5573,5 +5536,4513 @@
         "answer": "I should've called."
       }
     ]
+  },
+  {
+    "unit_id": "A2-01",
+    "level": "A2",
+    "title": "Buying and Selling",
+    "grammar_topic": "Past Simple: was/were and regular verbs (-ed)",
+    "vocab_theme": "Shopping, prices, and stores",
+    "can_do": "Can talk about a shopping trip, describe prices, and talk about past actions",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Usamos el Pasado Simple para hablar de acciones terminadas en el pasado. Con el verbo 'to be', usamos 'was' (I/he/she/it) y 'were' (you/we/they). Con los demas verbos regulares, agregamos '-ed' al final.",
+      "structure_notes": [
+        {
+          "label": "was / were",
+          "explanation": "Pasado de 'to be'.",
+          "example": "I was at the store. They were happy with the price."
+        },
+        {
+          "label": "verbo + ed",
+          "explanation": "Pasado de verbos regulares.",
+          "example": "She paid... no, 'paid' es irregular. Usa: I walked to the store. She worked yesterday."
+        },
+        {
+          "label": "negativo",
+          "explanation": "did not (didn't) + verbo base.",
+          "example": "I didn't buy the shirt. It wasn't cheap."
+        },
+        {
+          "label": "pregunta",
+          "explanation": "Did + sujeto + verbo base.",
+          "example": "Did you buy anything? Was the store open?"
+        }
+      ],
+      "common_mistake": "No se agrega '-ed' despues de 'did' o 'didn't': 'I didn't bought it' esta mal, lo correcto es 'I didn't buy it'."
+    },
+    "vocabulary": [
+      {
+        "word": "Store / Shop",
+        "meaning": "tienda",
+        "example": "The store closes at 8 PM.",
+        "has_image": true,
+        "image_file": "A2-01_vocab_store.png"
+      },
+      {
+        "word": "Price",
+        "meaning": "precio",
+        "example": "The price is too high.",
+        "has_image": true,
+        "image_file": "A2-01_vocab_price.png"
+      },
+      {
+        "word": "Expensive",
+        "meaning": "caro",
+        "example": "That jacket is expensive."
+      },
+      {
+        "word": "Cheap",
+        "meaning": "barato",
+        "example": "These shoes are cheap."
+      },
+      {
+        "word": "Cash",
+        "meaning": "efectivo",
+        "example": "I paid in cash.",
+        "has_image": true,
+        "image_file": "A2-01_vocab_cash.png"
+      },
+      {
+        "word": "Credit card",
+        "meaning": "tarjeta de credito",
+        "example": "She paid with a credit card.",
+        "has_image": true,
+        "image_file": "A2-01_vocab_creditcard.png"
+      },
+      {
+        "word": "Receipt",
+        "meaning": "recibo",
+        "example": "Can I have the receipt, please?"
+      },
+      {
+        "word": "Discount",
+        "meaning": "descuento",
+        "example": "There's a 20% discount today."
+      },
+      {
+        "word": "Sale",
+        "meaning": "oferta / rebaja",
+        "example": "The store has a big sale this week."
+      },
+      {
+        "word": "Customer",
+        "meaning": "cliente",
+        "example": "The customer asked for help.",
+        "has_image": true,
+        "image_file": "A2-01_vocab_customer.png"
+      },
+      {
+        "word": "Shop assistant",
+        "meaning": "vendedor/a",
+        "example": "The shop assistant was very helpful."
+      },
+      {
+        "word": "To try on",
+        "meaning": "probarse (ropa)",
+        "example": "Can I try on this shirt?"
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-01_vocab_store.png",
+        "options": [
+          "Store",
+          "Customer",
+          "Price"
+        ],
+        "answer": "Store"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-01_vocab_price.png",
+        "options": [
+          "Discount",
+          "Price",
+          "Receipt"
+        ],
+        "answer": "Price"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-01_vocab_cash.png",
+        "options": [
+          "Cash",
+          "Credit card",
+          "Receipt"
+        ],
+        "answer": "Cash"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-01_vocab_creditcard.png",
+        "options": [
+          "Cash",
+          "Credit card",
+          "Sale"
+        ],
+        "answer": "Credit card"
+      },
+      {
+        "type": "mcq",
+        "q": "Who helps you in a store?",
+        "options": [
+          "The customer",
+          "The shop assistant",
+          "The receipt"
+        ],
+        "answer": "The shop assistant"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you get after paying, to prove your purchase?",
+        "options": [
+          "A discount",
+          "A receipt",
+          "A sale"
+        ],
+        "answer": "A receipt"
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "expensive",
+            "right": "caro"
+          },
+          {
+            "left": "cheap",
+            "right": "barato"
+          },
+          {
+            "left": "discount",
+            "right": "descuento"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "A 'sale' means prices are higher than usual.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What do you say if you want to test how clothes look before buying?",
+        "options": [
+          "Can I try on this shirt?",
+          "Can I sell this shirt?",
+          "Can I return this shirt?"
+        ],
+        "answer": "Can I try on this shirt?"
+      },
+      {
+        "type": "mcq",
+        "q": "This jacket is very _____, it costs $500.",
+        "options": [
+          "expensive",
+          "cheap",
+          "discount"
+        ],
+        "answer": "expensive"
+      },
+      {
+        "type": "true_false",
+        "q": "A 'customer' works in the store.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "How would you like to pay, in cash or with a _____?",
+        "options": [
+          "receipt",
+          "credit card",
+          "sale"
+        ],
+        "answer": "credit card"
+      },
+      {
+        "type": "matching",
+        "q": "Match the opposite",
+        "pairs": [
+          {
+            "left": "expensive",
+            "right": "cheap"
+          },
+          {
+            "left": "buy",
+            "right": "sell"
+          }
+        ]
+      }
+    ],
+    "grammar_practice": [
+      {
+        "type": "mcq",
+        "q": "I _____ at the mall yesterday.",
+        "options": [
+          "was",
+          "were",
+          "am"
+        ],
+        "answer": "was"
+      },
+      {
+        "type": "mcq",
+        "q": "They _____ happy with the price.",
+        "options": [
+          "was",
+          "were",
+          "is"
+        ],
+        "answer": "were"
+      },
+      {
+        "type": "mcq",
+        "q": "She _____ to the store this morning.",
+        "options": [
+          "walk",
+          "walked",
+          "walks"
+        ],
+        "answer": "walked"
+      },
+      {
+        "type": "mcq",
+        "q": "We _____ the store together last week.",
+        "options": [
+          "visit",
+          "visited",
+          "visits"
+        ],
+        "answer": "visited"
+      },
+      {
+        "type": "mcq",
+        "q": "The shop assistant _____ very friendly.",
+        "options": [
+          "was",
+          "were",
+          "is"
+        ],
+        "answer": "was"
+      },
+      {
+        "type": "mcq",
+        "q": "I didn't _____ the shirt, it was too expensive.",
+        "options": [
+          "buy",
+          "bought",
+          "buys"
+        ],
+        "answer": "buy"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you buy anything yesterday?",
+        "options": [
+          "Did",
+          "Was",
+          "Were"
+        ],
+        "answer": "Did"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ the store open on Sunday?",
+        "options": [
+          "Did",
+          "Was",
+          "Were"
+        ],
+        "answer": "Was"
+      },
+      {
+        "type": "mcq",
+        "q": "She _____ two shirts and a jacket.",
+        "options": [
+          "buy",
+          "bought",
+          "buys"
+        ],
+        "answer": "bought"
+      },
+      {
+        "type": "mcq",
+        "q": "They _____ money on new shoes.",
+        "options": [
+          "spend",
+          "spent",
+          "spends"
+        ],
+        "answer": "spent"
+      },
+      {
+        "type": "mcq",
+        "q": "It _____ expensive, so I bought it.",
+        "options": [
+          "wasn't",
+          "weren't",
+          "isn't"
+        ],
+        "answer": "wasn't"
+      },
+      {
+        "type": "mcq",
+        "q": "The customers _____ happy about the sale.",
+        "options": [
+          "wasn't",
+          "weren't",
+          "isn't"
+        ],
+        "answer": "weren't"
+      },
+      {
+        "type": "mcq",
+        "q": "I _____ my card at home yesterday.",
+        "options": [
+          "forget",
+          "forgot",
+          "forgets"
+        ],
+        "answer": "forgot"
+      },
+      {
+        "type": "mcq",
+        "q": "We _____ the sale last weekend.",
+        "options": [
+          "miss",
+          "missed",
+          "misses"
+        ],
+        "answer": "missed"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ she pay in cash?",
+        "options": [
+          "Did",
+          "Was",
+          "Were"
+        ],
+        "answer": "Did"
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ a discount on the jacket.",
+        "options": [
+          "get",
+          "got",
+          "gets"
+        ],
+        "answer": "got"
+      },
+      {
+        "type": "true_false",
+        "q": "'Buyed' is the correct past tense of 'buy'.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "We use 'did' + base verb to make past simple questions.",
+        "answer": true
+      },
+      {
+        "type": "matching",
+        "q": "Match the verb with its past simple form",
+        "pairs": [
+          {
+            "left": "buy",
+            "right": "bought"
+          },
+          {
+            "left": "spend",
+            "right": "spent"
+          },
+          {
+            "left": "get",
+            "right": "got"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "yesterday",
+          "store",
+          "the",
+          "at",
+          "was",
+          "I"
+        ],
+        "answer": "I was at the store yesterday"
+      }
+    ],
+    "reading": [
+      {
+        "title": "A Great Sale",
+        "word_count": 90,
+        "text": "Last Saturday, Marco went to the shopping center. There was a big sale in his favorite store. He walked around for an hour and looked at many things. He wanted a new jacket, and he found a nice one. It was $80, but with the discount, it was only $50. Marco tried it on and it fit perfectly. He paid with his credit card and got a receipt. He was very happy with his shopping trip. He also saw a customer who bought three shirts for a very cheap price!",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "Where did Marco go?",
+            "options": [
+              "A restaurant",
+              "The shopping center",
+              "The airport"
+            ],
+            "answer": "The shopping center"
+          },
+          {
+            "type": "mcq",
+            "q": "What did Marco buy?",
+            "options": [
+              "Shoes",
+              "A jacket",
+              "Shirts"
+            ],
+            "answer": "A jacket"
+          },
+          {
+            "type": "mcq",
+            "q": "How much did he pay after the discount?",
+            "options": [
+              "$80",
+              "$50",
+              "$30"
+            ],
+            "answer": "$50"
+          },
+          {
+            "type": "true_false",
+            "q": "Marco paid in cash.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "How did Marco feel about his shopping trip?",
+            "options": [
+              "Angry",
+              "Happy",
+              "Tired"
+            ],
+            "answer": "Happy"
+          }
+        ]
+      },
+      {
+        "title": "A Bad Purchase",
+        "word_count": 85,
+        "text": "Yesterday, Elena bought a pair of shoes online. The website said they were on sale, so she paid quickly. When the shoes arrived, they were the wrong size. They were also more expensive than she expected because of the shipping cost. Elena wasn't happy. She called the store and asked for a refund. The shop assistant was kind and helped her return the shoes. Elena learned that she should always check the size chart before buying shoes online.",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What did Elena buy?",
+            "options": [
+              "A jacket",
+              "Shoes",
+              "A credit card"
+            ],
+            "answer": "Shoes"
+          },
+          {
+            "type": "true_false",
+            "q": "The shoes were the right size.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "Why was the price higher than expected?",
+            "options": [
+              "Discount",
+              "Shipping cost",
+              "Tax"
+            ],
+            "answer": "Shipping cost"
+          },
+          {
+            "type": "mcq",
+            "q": "What did Elena ask for?",
+            "options": [
+              "A discount",
+              "A refund",
+              "A receipt"
+            ],
+            "answer": "A refund"
+          },
+          {
+            "type": "mcq",
+            "q": "What did Elena learn?",
+            "options": [
+              "To pay in cash",
+              "To check the size chart",
+              "To buy in stores only"
+            ],
+            "answer": "To check the size chart"
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "At the Cash Register",
+        "format": "dialogue",
+        "transcript": "A: Hi, did you find everything you were looking for?\nB: Yes, thank you. I found this jacket. Is it on sale?\nA: Yes, it's 30% off today.\nB: Great! How much is it, then?\nA: It's $56 after the discount.\nB: I'll pay with my credit card.\nA: Perfect. Here's your receipt.",
+        "audio_file": "A2-01_listening_1.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What did the customer find?",
+            "options": [
+              "Shoes",
+              "A jacket",
+              "A shirt"
+            ],
+            "answer": "A jacket"
+          },
+          {
+            "type": "mcq",
+            "q": "What discount was offered?",
+            "options": [
+              "10%",
+              "20%",
+              "30%"
+            ],
+            "answer": "30%"
+          },
+          {
+            "type": "mcq",
+            "q": "How much did the customer pay?",
+            "options": [
+              "$30",
+              "$56",
+              "$80"
+            ],
+            "answer": "$56"
+          },
+          {
+            "type": "mcq",
+            "q": "How did the customer pay?",
+            "options": [
+              "Cash",
+              "Credit card",
+              "Check"
+            ],
+            "answer": "Credit card"
+          },
+          {
+            "type": "true_false",
+            "q": "The customer got a receipt.",
+            "answer": true
+          },
+          {
+            "type": "matching",
+            "q": "Match who says what",
+            "pairs": [
+              {
+                "left": "Is it on sale?",
+                "right": "The customer"
+              },
+              {
+                "left": "Here's your receipt.",
+                "right": "The shop assistant"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "A Shopping Story",
+        "format": "monologue",
+        "transcript": "Last weekend I went shopping with my sister. We visited three stores before we found what we wanted. My sister bought a new bag, and I bought two shirts. The prices were good because it was the end-of-season sale. We spent about two hours shopping, and we were tired but happy. My sister paid in cash, but I used my credit card. It was a great day!",
+        "audio_file": "A2-01_listening_2.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "Who did the speaker go shopping with?",
+            "options": [
+              "A friend",
+              "Her sister",
+              "Her mother"
+            ],
+            "answer": "Her sister"
+          },
+          {
+            "type": "mcq",
+            "q": "How many stores did they visit?",
+            "options": [
+              "One",
+              "Two",
+              "Three"
+            ],
+            "answer": "Three"
+          },
+          {
+            "type": "mcq",
+            "q": "What did the sister buy?",
+            "options": [
+              "Shirts",
+              "A bag",
+              "Shoes"
+            ],
+            "answer": "A bag"
+          },
+          {
+            "type": "mcq",
+            "q": "Why were the prices good?",
+            "options": [
+              "It was a holiday",
+              "End-of-season sale",
+              "New store opening"
+            ],
+            "answer": "End-of-season sale"
+          },
+          {
+            "type": "true_false",
+            "q": "The speaker paid in cash.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "How did they feel at the end?",
+            "options": [
+              "Angry",
+              "Tired but happy",
+              "Bored"
+            ],
+            "answer": "Tired but happy"
+          }
+        ]
+      }
+    ],
+    "writing": {
+      "text_type": "short narrative",
+      "target_word_count": 40,
+      "prompt": {
+        "en": "Write about a time you went shopping. Where did you go? What did you buy? How much did it cost? Use at least 2 words from this unit's vocabulary.",
+        "es": "Escribe sobre una vez que fuiste de compras. ¿A dónde fuiste? ¿Qué compraste? ¿Cuánto costó? Usa al menos 2 palabras del vocabulario de esta unidad."
+      },
+      "rubric": [
+        "Uses past simple correctly",
+        "Includes at least 2 unit vocabulary words",
+        "Answers where/what/how much",
+        "Written in English"
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "I _____ at the mall yesterday.",
+        "options": [
+          "was",
+          "were",
+          "am"
+        ],
+        "answer": "was"
+      },
+      {
+        "type": "mcq",
+        "q": "They _____ happy with the price.",
+        "options": [
+          "was",
+          "were",
+          "is"
+        ],
+        "answer": "were"
+      },
+      {
+        "type": "mcq",
+        "q": "She _____ to the store this morning.",
+        "options": [
+          "walk",
+          "walked",
+          "walks"
+        ],
+        "answer": "walked"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you buy anything yesterday?",
+        "options": [
+          "Did",
+          "Was",
+          "Were"
+        ],
+        "answer": "Did"
+      },
+      {
+        "type": "mcq",
+        "q": "She _____ two shirts and a jacket.",
+        "options": [
+          "buy",
+          "bought",
+          "buys"
+        ],
+        "answer": "bought"
+      },
+      {
+        "type": "mcq",
+        "q": "It _____ expensive, so I bought it.",
+        "options": [
+          "wasn't",
+          "weren't",
+          "isn't"
+        ],
+        "answer": "wasn't"
+      },
+      {
+        "type": "mcq",
+        "q": "Who helps you in a store?",
+        "options": [
+          "The customer",
+          "The shop assistant",
+          "The receipt"
+        ],
+        "answer": "The shop assistant"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you get after paying, to prove your purchase?",
+        "options": [
+          "A discount",
+          "A receipt",
+          "A sale"
+        ],
+        "answer": "A receipt"
+      },
+      {
+        "type": "true_false",
+        "q": "A 'sale' means prices are higher than usual.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "This jacket is very _____, it costs $500.",
+        "options": [
+          "expensive",
+          "cheap",
+          "discount"
+        ],
+        "answer": "expensive"
+      },
+      {
+        "type": "true_false",
+        "q": "A 'customer' works in the store.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Match the verb with its past simple form",
+        "pairs": [
+          {
+            "left": "buy",
+            "right": "bought"
+          },
+          {
+            "left": "spend",
+            "right": "spent"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "yesterday",
+          "store",
+          "the",
+          "at",
+          "was",
+          "I"
+        ],
+        "answer": "I was at the store yesterday"
+      },
+      {
+        "type": "mcq",
+        "q": "Where did Marco go?",
+        "options": [
+          "A restaurant",
+          "The shopping center",
+          "The airport"
+        ],
+        "answer": "The shopping center"
+      },
+      {
+        "type": "mcq",
+        "q": "How much did Marco pay after the discount?",
+        "options": [
+          "$80",
+          "$50",
+          "$30"
+        ],
+        "answer": "$50"
+      },
+      {
+        "type": "mcq",
+        "q": "What did Elena buy?",
+        "options": [
+          "A jacket",
+          "Shoes",
+          "A credit card"
+        ],
+        "answer": "Shoes"
+      },
+      {
+        "type": "mcq",
+        "q": "What did the customer find in the store dialogue?",
+        "options": [
+          "Shoes",
+          "A jacket",
+          "A shirt"
+        ],
+        "answer": "A jacket"
+      },
+      {
+        "type": "mcq",
+        "q": "How much did the customer pay in the dialogue?",
+        "options": [
+          "$30",
+          "$56",
+          "$80"
+        ],
+        "answer": "$56"
+      },
+      {
+        "type": "mcq",
+        "q": "How many stores did the sister and speaker visit?",
+        "options": [
+          "One",
+          "Two",
+          "Three"
+        ],
+        "answer": "Three"
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "expensive",
+            "right": "caro"
+          },
+          {
+            "left": "cheap",
+            "right": "barato"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "'Buyed' is the correct past tense of 'buy'.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ a discount on the jacket.",
+        "options": [
+          "get",
+          "got",
+          "gets"
+        ],
+        "answer": "got"
+      }
+    ],
+    "quiz_draw_count": 15
+  },
+  {
+    "unit_id": "A2-02",
+    "level": "A2",
+    "title": "Daily Routines",
+    "grammar_topic": "Present Simple: habits and frequency adverbs",
+    "vocab_theme": "Daily activities and routines",
+    "can_do": "Can describe a typical day and talk about how often they do things",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Usamos el Presente Simple para hablar de habitos y rutinas. Con he/she/it, el verbo lleva '-s' al final. Los adverbios de frecuencia (always, usually, often, sometimes, never) van antes del verbo principal.",
+      "structure_notes": [
+        {
+          "label": "he/she/it + verbo-s",
+          "explanation": "Se agrega '-s' o '-es' en tercera persona.",
+          "example": "She wakes up at 7. He watches TV at night."
+        },
+        {
+          "label": "adverbios de frecuencia",
+          "explanation": "Van antes del verbo principal, pero despues de 'to be'.",
+          "example": "I always have breakfast. She is never late."
+        },
+        {
+          "label": "negativo",
+          "explanation": "don't / doesn't + verbo base.",
+          "example": "I don't exercise on Sundays. He doesn't cook."
+        },
+        {
+          "label": "pregunta",
+          "explanation": "Do/Does + sujeto + verbo base.",
+          "example": "Do you wake up early? Does she go to bed late?"
+        }
+      ],
+      "common_mistake": "No se debe agregar '-s' despues de 'doesn't': 'He doesn't works' esta mal, lo correcto es 'He doesn't work'."
+    },
+    "vocabulary": [
+      {
+        "word": "To wake up",
+        "meaning": "despertarse",
+        "example": "I wake up at 6 AM.",
+        "has_image": true,
+        "image_file": "A2-02_vocab_wakeup.png"
+      },
+      {
+        "word": "To get dressed",
+        "meaning": "vestirse",
+        "example": "She gets dressed quickly.",
+        "has_image": true,
+        "image_file": "A2-02_vocab_getdressed.png"
+      },
+      {
+        "word": "Breakfast",
+        "meaning": "desayuno",
+        "example": "I eat breakfast at 7:30.",
+        "has_image": true,
+        "image_file": "A2-02_vocab_breakfast.png"
+      },
+      {
+        "word": "To commute",
+        "meaning": "trasladarse al trabajo/escuela",
+        "example": "He commutes by bus."
+      },
+      {
+        "word": "Lunch break",
+        "meaning": "hora de almuerzo",
+        "example": "My lunch break is at noon."
+      },
+      {
+        "word": "To exercise",
+        "meaning": "hacer ejercicio",
+        "example": "She exercises every morning.",
+        "has_image": true,
+        "image_file": "A2-02_vocab_exercise.png"
+      },
+      {
+        "word": "Dinner",
+        "meaning": "cena",
+        "example": "We have dinner at 8 PM.",
+        "has_image": true,
+        "image_file": "A2-02_vocab_dinner.png"
+      },
+      {
+        "word": "To relax",
+        "meaning": "relajarse",
+        "example": "I relax by watching movies."
+      },
+      {
+        "word": "Bedtime",
+        "meaning": "hora de dormir",
+        "example": "My bedtime is 10 PM."
+      },
+      {
+        "word": "Alarm clock",
+        "meaning": "reloj despertador",
+        "example": "My alarm clock rings at 6."
+      },
+      {
+        "word": "Routine",
+        "meaning": "rutina",
+        "example": "My daily routine is very simple."
+      },
+      {
+        "word": "Schedule",
+        "meaning": "horario",
+        "example": "My work schedule changes every week."
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-02_vocab_wakeup.png",
+        "options": [
+          "To wake up",
+          "To relax",
+          "Bedtime"
+        ],
+        "answer": "To wake up"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-02_vocab_getdressed.png",
+        "options": [
+          "Breakfast",
+          "To get dressed",
+          "Routine"
+        ],
+        "answer": "To get dressed"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-02_vocab_breakfast.png",
+        "options": [
+          "Dinner",
+          "Breakfast",
+          "Lunch break"
+        ],
+        "answer": "Breakfast"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-02_vocab_exercise.png",
+        "options": [
+          "To exercise",
+          "To relax",
+          "To commute"
+        ],
+        "answer": "To exercise"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you do to travel to work or school?",
+        "options": [
+          "Relax",
+          "Commute",
+          "Exercise"
+        ],
+        "answer": "Commute"
+      },
+      {
+        "type": "mcq",
+        "q": "What rings to wake you up?",
+        "options": [
+          "A schedule",
+          "An alarm clock",
+          "A routine"
+        ],
+        "answer": "An alarm clock"
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "bedtime",
+            "right": "hora de dormir"
+          },
+          {
+            "left": "schedule",
+            "right": "horario"
+          },
+          {
+            "left": "to relax",
+            "right": "relajarse"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "'Dinner' is the first meal of the day.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What is the meal in the middle of the day called?",
+        "options": [
+          "Breakfast",
+          "Lunch",
+          "Dinner"
+        ],
+        "answer": "Lunch"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you call the time you usually go to sleep?",
+        "options": [
+          "Bedtime",
+          "Routine",
+          "Commute"
+        ],
+        "answer": "Bedtime"
+      },
+      {
+        "type": "true_false",
+        "q": "'To exercise' means to relax on the sofa.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What word means the same as 'a set of regular activities'?",
+        "options": [
+          "Routine",
+          "Breakfast",
+          "Alarm clock"
+        ],
+        "answer": "Routine"
+      },
+      {
+        "type": "matching",
+        "q": "Match the activity with the time of day",
+        "pairs": [
+          {
+            "left": "breakfast",
+            "right": "morning"
+          },
+          {
+            "left": "dinner",
+            "right": "night"
+          }
+        ]
+      }
+    ],
+    "grammar_practice": [
+      {
+        "type": "mcq",
+        "q": "She _____ up at 7 AM every day.",
+        "options": [
+          "wake",
+          "wakes",
+          "waking"
+        ],
+        "answer": "wakes"
+      },
+      {
+        "type": "mcq",
+        "q": "I _____ breakfast at 8.",
+        "options": [
+          "have",
+          "has",
+          "having"
+        ],
+        "answer": "have"
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ to work by bus.",
+        "options": [
+          "commute",
+          "commutes",
+          "commuting"
+        ],
+        "answer": "commutes"
+      },
+      {
+        "type": "mcq",
+        "q": "We _____ dinner at 7 PM.",
+        "options": [
+          "eat",
+          "eats",
+          "eating"
+        ],
+        "answer": "eat"
+      },
+      {
+        "type": "mcq",
+        "q": "She _____ every morning before work.",
+        "options": [
+          "exercise",
+          "exercises",
+          "exercising"
+        ],
+        "answer": "exercises"
+      },
+      {
+        "type": "mcq",
+        "q": "I _____ TV at night.",
+        "options": [
+          "watch",
+          "watches",
+          "watching"
+        ],
+        "answer": "watch"
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ get up early on weekends.",
+        "options": [
+          "don't",
+          "doesn't",
+          "isn't"
+        ],
+        "answer": "doesn't"
+      },
+      {
+        "type": "mcq",
+        "q": "I _____ like waking up early.",
+        "options": [
+          "don't",
+          "doesn't",
+          "isn't"
+        ],
+        "answer": "don't"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you wake up early?",
+        "options": [
+          "Do",
+          "Does",
+          "Are"
+        ],
+        "answer": "Do"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ she go to bed late?",
+        "options": [
+          "Do",
+          "Does",
+          "Are"
+        ],
+        "answer": "Does"
+      },
+      {
+        "type": "mcq",
+        "q": "I _____ have breakfast. It's my favorite meal.",
+        "options": [
+          "always",
+          "never",
+          "sometimes"
+        ],
+        "answer": "always"
+      },
+      {
+        "type": "mcq",
+        "q": "She is _____ late for work.",
+        "options": [
+          "always",
+          "never",
+          "usually"
+        ],
+        "answer": "never"
+      },
+      {
+        "type": "mcq",
+        "q": "We _____ exercise on Sundays. It's a rest day.",
+        "options": [
+          "always",
+          "never",
+          "usually"
+        ],
+        "answer": "never"
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ eats lunch at his desk.",
+        "options": [
+          "usually",
+          "usuallies",
+          "use"
+        ],
+        "answer": "usually"
+      },
+      {
+        "type": "mcq",
+        "q": "They _____ relax after dinner.",
+        "options": [
+          "sometime",
+          "sometimes",
+          "some times"
+        ],
+        "answer": "sometimes"
+      },
+      {
+        "type": "mcq",
+        "q": "My sister _____ her homework every night.",
+        "options": [
+          "do",
+          "does",
+          "doing"
+        ],
+        "answer": "does"
+      },
+      {
+        "type": "true_false",
+        "q": "Frequency adverbs usually go before the main verb.",
+        "answer": true
+      },
+      {
+        "type": "true_false",
+        "q": "'He don't like coffee' is grammatically correct.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Match the pronoun with the correct verb ending",
+        "pairs": [
+          {
+            "left": "he",
+            "right": "wakes"
+          },
+          {
+            "left": "I",
+            "right": "wake"
+          },
+          {
+            "left": "they",
+            "right": "wake"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "always",
+          "breakfast",
+          "have",
+          "I"
+        ],
+        "answer": "I always have breakfast"
+      }
+    ],
+    "reading": [
+      {
+        "title": "My Typical Day",
+        "word_count": 90,
+        "text": "My name is Sofia and I have a simple routine. I always wake up at 6:30 AM. Then I get dressed and have breakfast with my family. I usually commute to work by bus, and it takes about 30 minutes. I work from 9 to 5, with a lunch break at noon. After work, I sometimes exercise at the gym. I always have dinner at 7:30, and I relax by reading before bed. My bedtime is usually 10:30 PM. I never go to bed after midnight because I need to wake up early.",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What time does Sofia wake up?",
+            "options": [
+              "6:00",
+              "6:30",
+              "7:00"
+            ],
+            "answer": "6:30"
+          },
+          {
+            "type": "mcq",
+            "q": "How does she commute to work?",
+            "options": [
+              "By car",
+              "By bus",
+              "By bicycle"
+            ],
+            "answer": "By bus"
+          },
+          {
+            "type": "mcq",
+            "q": "What does she sometimes do after work?",
+            "options": [
+              "Cook",
+              "Exercise",
+              "Sleep"
+            ],
+            "answer": "Exercise"
+          },
+          {
+            "type": "true_false",
+            "q": "Sofia never goes to bed after midnight.",
+            "answer": true
+          },
+          {
+            "type": "mcq",
+            "q": "How does she relax before bed?",
+            "options": [
+              "Watching TV",
+              "Reading",
+              "Exercising"
+            ],
+            "answer": "Reading"
+          }
+        ]
+      },
+      {
+        "title": "A Different Schedule",
+        "word_count": 85,
+        "text": "Diego works at night, so his routine is different from most people. He wakes up at 2 PM and has his first meal, which is like breakfast for him. He exercises in the afternoon and relaxes before starting work at 10 PM. He works until 6 AM, then commutes home. He usually has dinner right before he sleeps, around 7 AM! His schedule is unusual, but it works well for his job. He never feels tired because his body is used to this routine.",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What time does Diego wake up?",
+            "options": [
+              "6 AM",
+              "2 PM",
+              "10 PM"
+            ],
+            "answer": "2 PM"
+          },
+          {
+            "type": "mcq",
+            "q": "When does Diego start work?",
+            "options": [
+              "9 AM",
+              "2 PM",
+              "10 PM"
+            ],
+            "answer": "10 PM"
+          },
+          {
+            "type": "true_false",
+            "q": "Diego's routine is the same as most people's.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "When does Diego have dinner?",
+            "options": [
+              "Around 7 AM",
+              "Around 7 PM",
+              "At noon"
+            ],
+            "answer": "Around 7 AM"
+          },
+          {
+            "type": "mcq",
+            "q": "How does Diego feel about his schedule?",
+            "options": [
+              "Tired",
+              "Not tired, it works for him",
+              "Confused"
+            ],
+            "answer": "Not tired, it works for him"
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "Talking About Routines",
+        "format": "dialogue",
+        "transcript": "A: What time do you usually wake up?\nB: I always wake up at 6, even on weekends.\nA: Really? I never wake up before 8 on Saturdays!\nB: I like having a routine. I exercise, then have breakfast.\nA: I usually just relax in the morning.\nB: That sounds nice too!",
+        "audio_file": "A2-02_listening_1.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What time does speaker B wake up?",
+            "options": [
+              "6",
+              "7",
+              "8"
+            ],
+            "answer": "6"
+          },
+          {
+            "type": "true_false",
+            "q": "Speaker A wakes up early on Saturdays.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "What does speaker B do after waking up?",
+            "options": [
+              "Relax",
+              "Exercise",
+              "Commute"
+            ],
+            "answer": "Exercise"
+          },
+          {
+            "type": "mcq",
+            "q": "What does speaker A usually do in the morning?",
+            "options": [
+              "Exercise",
+              "Relax",
+              "Have breakfast"
+            ],
+            "answer": "Relax"
+          },
+          {
+            "type": "true_false",
+            "q": "Speaker B likes having a routine.",
+            "answer": true
+          },
+          {
+            "type": "matching",
+            "q": "Match who says what",
+            "pairs": [
+              {
+                "left": "I always wake up at 6.",
+                "right": "Speaker B"
+              },
+              {
+                "left": "I usually just relax.",
+                "right": "Speaker A"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "A Busy Morning",
+        "format": "monologue",
+        "transcript": "My mornings are always busy. I wake up at 6:15, and I only have 45 minutes to get ready. I get dressed, eat breakfast quickly, and then I commute to work. I usually take the train, and it's always full of people. I never have time to relax in the morning. My lunch break is the only quiet time I have during the day. I always look forward to it!",
+        "audio_file": "A2-02_listening_2.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What time does the speaker wake up?",
+            "options": [
+              "6:00",
+              "6:15",
+              "6:45"
+            ],
+            "answer": "6:15"
+          },
+          {
+            "type": "mcq",
+            "q": "How does the speaker commute?",
+            "options": [
+              "By bus",
+              "By train",
+              "By car"
+            ],
+            "answer": "By train"
+          },
+          {
+            "type": "true_false",
+            "q": "The speaker has time to relax in the morning.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "What is the only quiet time of the speaker's day?",
+            "options": [
+              "Breakfast",
+              "Lunch break",
+              "Bedtime"
+            ],
+            "answer": "Lunch break"
+          },
+          {
+            "type": "true_false",
+            "q": "The train is usually empty.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "How does the speaker feel about lunch break?",
+            "options": [
+              "Bored",
+              "Looks forward to it",
+              "Doesn't care"
+            ],
+            "answer": "Looks forward to it"
+          }
+        ]
+      }
+    ],
+    "writing": {
+      "text_type": "short description",
+      "target_word_count": 40,
+      "prompt": {
+        "en": "Describe your typical day. What time do you wake up? What do you usually do? Use at least 2 frequency adverbs (always, usually, sometimes, never) and 2 words from this unit's vocabulary.",
+        "es": "Describe tu día típico. ¿A qué hora te despiertas? ¿Qué haces normalmente? Usa al menos 2 adverbios de frecuencia (always, usually, sometimes, never) y 2 palabras del vocabulario de esta unidad."
+      },
+      "rubric": [
+        "Uses present simple correctly",
+        "Includes at least 2 frequency adverbs",
+        "Includes 2 unit vocabulary words",
+        "Written in English"
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "She _____ up at 7 AM every day.",
+        "options": [
+          "wake",
+          "wakes",
+          "waking"
+        ],
+        "answer": "wakes"
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ to work by bus.",
+        "options": [
+          "commute",
+          "commutes",
+          "commuting"
+        ],
+        "answer": "commutes"
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ get up early on weekends.",
+        "options": [
+          "don't",
+          "doesn't",
+          "isn't"
+        ],
+        "answer": "doesn't"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you wake up early?",
+        "options": [
+          "Do",
+          "Does",
+          "Are"
+        ],
+        "answer": "Do"
+      },
+      {
+        "type": "mcq",
+        "q": "I _____ have breakfast. It's my favorite meal.",
+        "options": [
+          "always",
+          "never",
+          "sometimes"
+        ],
+        "answer": "always"
+      },
+      {
+        "type": "mcq",
+        "q": "She is _____ late for work.",
+        "options": [
+          "always",
+          "never",
+          "usually"
+        ],
+        "answer": "never"
+      },
+      {
+        "type": "true_false",
+        "q": "'He don't like coffee' is grammatically correct.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Match the pronoun with the correct verb ending",
+        "pairs": [
+          {
+            "left": "he",
+            "right": "wakes"
+          },
+          {
+            "left": "I",
+            "right": "wake"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "always",
+          "breakfast",
+          "have",
+          "I"
+        ],
+        "answer": "I always have breakfast"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you do to travel to work or school?",
+        "options": [
+          "Relax",
+          "Commute",
+          "Exercise"
+        ],
+        "answer": "Commute"
+      },
+      {
+        "type": "mcq",
+        "q": "What rings to wake you up?",
+        "options": [
+          "A schedule",
+          "An alarm clock",
+          "A routine"
+        ],
+        "answer": "An alarm clock"
+      },
+      {
+        "type": "true_false",
+        "q": "'Dinner' is the first meal of the day.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What is the meal in the middle of the day called?",
+        "options": [
+          "Breakfast",
+          "Lunch",
+          "Dinner"
+        ],
+        "answer": "Lunch"
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "bedtime",
+            "right": "hora de dormir"
+          },
+          {
+            "left": "schedule",
+            "right": "horario"
+          }
+        ]
+      },
+      {
+        "type": "mcq",
+        "q": "What time does Sofia wake up?",
+        "options": [
+          "6:00",
+          "6:30",
+          "7:00"
+        ],
+        "answer": "6:30"
+      },
+      {
+        "type": "mcq",
+        "q": "How does Sofia commute to work?",
+        "options": [
+          "By car",
+          "By bus",
+          "By bicycle"
+        ],
+        "answer": "By bus"
+      },
+      {
+        "type": "mcq",
+        "q": "What time does Diego wake up?",
+        "options": [
+          "6 AM",
+          "2 PM",
+          "10 PM"
+        ],
+        "answer": "2 PM"
+      },
+      {
+        "type": "mcq",
+        "q": "What time does speaker B wake up in the dialogue?",
+        "options": [
+          "6",
+          "7",
+          "8"
+        ],
+        "answer": "6"
+      },
+      {
+        "type": "mcq",
+        "q": "How does the speaker commute in the monologue?",
+        "options": [
+          "By bus",
+          "By train",
+          "By car"
+        ],
+        "answer": "By train"
+      },
+      {
+        "type": "true_false",
+        "q": "Frequency adverbs usually go before the main verb.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "My sister _____ her homework every night.",
+        "options": [
+          "do",
+          "does",
+          "doing"
+        ],
+        "answer": "does"
+      },
+      {
+        "type": "mcq",
+        "q": "We _____ exercise on Sundays. It's a rest day.",
+        "options": [
+          "always",
+          "never",
+          "usually"
+        ],
+        "answer": "never"
+      }
+    ],
+    "quiz_draw_count": 15
+  },
+  {
+    "unit_id": "A2-03",
+    "level": "A2",
+    "title": "Weather and Plans",
+    "grammar_topic": "Future with 'going to'",
+    "vocab_theme": "Weather and making plans",
+    "can_do": "Can talk about the weather and describe future plans",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Usamos 'going to' para hablar de planes o intenciones futuras que ya decidimos. La estructura es: sujeto + am/is/are + going to + verbo base.",
+      "structure_notes": [
+        {
+          "label": "afirmativo",
+          "explanation": "sujeto + am/is/are + going to + verbo.",
+          "example": "I am going to travel this weekend. She is going to visit her family."
+        },
+        {
+          "label": "negativo",
+          "explanation": "sujeto + am/is/are + not + going to + verbo.",
+          "example": "It isn't going to rain today. We aren't going to stay home."
+        },
+        {
+          "label": "pregunta",
+          "explanation": "am/is/are + sujeto + going to + verbo?",
+          "example": "Are you going to travel? Is it going to snow?"
+        },
+        {
+          "label": "uso",
+          "explanation": "Se usa para planes ya decididos, a diferencia de decisiones espontaneas.",
+          "example": "Look at those clouds! It's going to rain."
+        }
+      ],
+      "common_mistake": "No se debe olvidar el verbo 'to be': 'I going to travel' esta mal, lo correcto es 'I am going to travel'."
+    },
+    "vocabulary": [
+      {
+        "word": "Sunny",
+        "meaning": "soleado",
+        "example": "It's sunny today.",
+        "has_image": true,
+        "image_file": "A2-03_vocab_sunny.png"
+      },
+      {
+        "word": "Rainy",
+        "meaning": "lluvioso",
+        "example": "It's rainy this week.",
+        "has_image": true,
+        "image_file": "A2-03_vocab_rainy.png"
+      },
+      {
+        "word": "Cloudy",
+        "meaning": "nublado",
+        "example": "It's cloudy today.",
+        "has_image": true,
+        "image_file": "A2-03_vocab_cloudy.png"
+      },
+      {
+        "word": "Windy",
+        "meaning": "ventoso",
+        "example": "It's very windy outside."
+      },
+      {
+        "word": "Snowy",
+        "meaning": "nevado",
+        "example": "It's snowy in the mountains.",
+        "has_image": true,
+        "image_file": "A2-03_vocab_snowy.png"
+      },
+      {
+        "word": "Forecast",
+        "meaning": "pronóstico",
+        "example": "The forecast says rain tomorrow."
+      },
+      {
+        "word": "Temperature",
+        "meaning": "temperatura",
+        "example": "The temperature is 25 degrees."
+      },
+      {
+        "word": "Umbrella",
+        "meaning": "paraguas",
+        "example": "Take an umbrella, it's going to rain.",
+        "has_image": true,
+        "image_file": "A2-03_vocab_umbrella.png"
+      },
+      {
+        "word": "Weekend",
+        "meaning": "fin de semana",
+        "example": "I have plans for the weekend."
+      },
+      {
+        "word": "To pack",
+        "meaning": "empacar",
+        "example": "I need to pack my suitcase."
+      },
+      {
+        "word": "Plan",
+        "meaning": "plan",
+        "example": "What's your plan for tonight?"
+      },
+      {
+        "word": "Degrees",
+        "meaning": "grados (temperatura)",
+        "example": "It's 30 degrees today."
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-03_vocab_sunny.png",
+        "options": [
+          "Sunny",
+          "Rainy",
+          "Cloudy"
+        ],
+        "answer": "Sunny"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-03_vocab_rainy.png",
+        "options": [
+          "Sunny",
+          "Rainy",
+          "Snowy"
+        ],
+        "answer": "Rainy"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-03_vocab_cloudy.png",
+        "options": [
+          "Cloudy",
+          "Windy",
+          "Sunny"
+        ],
+        "answer": "Cloudy"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-03_vocab_umbrella.png",
+        "options": [
+          "Umbrella",
+          "Forecast",
+          "Temperature"
+        ],
+        "answer": "Umbrella"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you use to stay dry in the rain?",
+        "options": [
+          "Forecast",
+          "Umbrella",
+          "Temperature"
+        ],
+        "answer": "Umbrella"
+      },
+      {
+        "type": "mcq",
+        "q": "Where can you check tomorrow's weather?",
+        "options": [
+          "The forecast",
+          "The plan",
+          "The weekend"
+        ],
+        "answer": "The forecast"
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "windy",
+            "right": "ventoso"
+          },
+          {
+            "left": "snowy",
+            "right": "nevado"
+          },
+          {
+            "left": "degrees",
+            "right": "grados"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "'Sunny' and 'rainy' mean the same thing.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What do you do with a suitcase before a trip?",
+        "options": [
+          "Pack it",
+          "Forecast it",
+          "Plan it"
+        ],
+        "answer": "Pack it"
+      },
+      {
+        "type": "mcq",
+        "q": "The _____ is 30 degrees today, very hot!",
+        "options": [
+          "temperature",
+          "umbrella",
+          "forecast"
+        ],
+        "answer": "temperature"
+      },
+      {
+        "type": "true_false",
+        "q": "'Plan' means something you do without thinking.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "Which two days make up the 'weekend'?",
+        "options": [
+          "Monday and Tuesday",
+          "Saturday and Sunday",
+          "Wednesday and Thursday"
+        ],
+        "answer": "Saturday and Sunday"
+      },
+      {
+        "type": "matching",
+        "q": "Match the weather with the object you need",
+        "pairs": [
+          {
+            "left": "rainy",
+            "right": "umbrella"
+          },
+          {
+            "left": "sunny",
+            "right": "sunglasses"
+          }
+        ]
+      }
+    ],
+    "grammar_practice": [
+      {
+        "type": "mcq",
+        "q": "I _____ going to travel this weekend.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "am"
+      },
+      {
+        "type": "mcq",
+        "q": "She _____ going to visit her family.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "They _____ going to pack tonight.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "mcq",
+        "q": "Look at those clouds! It's _____ to rain.",
+        "options": [
+          "go",
+          "going",
+          "goes"
+        ],
+        "answer": "going"
+      },
+      {
+        "type": "mcq",
+        "q": "We are _____ to have a picnic on Saturday.",
+        "options": [
+          "go",
+          "going",
+          "goes"
+        ],
+        "answer": "going"
+      },
+      {
+        "type": "mcq",
+        "q": "He isn't _____ to come to the party.",
+        "options": [
+          "go",
+          "going",
+          "goes"
+        ],
+        "answer": "going"
+      },
+      {
+        "type": "mcq",
+        "q": "It _____ going to be sunny tomorrow.",
+        "options": [
+          "isn't",
+          "aren't",
+          "doesn't"
+        ],
+        "answer": "isn't"
+      },
+      {
+        "type": "mcq",
+        "q": "We _____ going to stay home this weekend.",
+        "options": [
+          "isn't",
+          "aren't",
+          "doesn't"
+        ],
+        "answer": "aren't"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you going to travel next month?",
+        "options": [
+          "Am",
+          "Is",
+          "Are"
+        ],
+        "answer": "Are"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ it going to snow tonight?",
+        "options": [
+          "Am",
+          "Is",
+          "Are"
+        ],
+        "answer": "Is"
+      },
+      {
+        "type": "mcq",
+        "q": "What _____ you going to do this weekend?",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "mcq",
+        "q": "I'm going to _____ my umbrella, it looks cloudy.",
+        "options": [
+          "bring",
+          "brings",
+          "bringing"
+        ],
+        "answer": "bring"
+      },
+      {
+        "type": "mcq",
+        "q": "She's going to _____ for the trip tonight.",
+        "options": [
+          "pack",
+          "packs",
+          "packing"
+        ],
+        "answer": "pack"
+      },
+      {
+        "type": "mcq",
+        "q": "They're going to _____ the beach this weekend.",
+        "options": [
+          "visit",
+          "visits",
+          "visiting"
+        ],
+        "answer": "visit"
+      },
+      {
+        "type": "true_false",
+        "q": "'Going to' is used for spontaneous decisions made at the moment.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "The structure is: subject + am/is/are + going to + base verb.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "According to the forecast, it _____ going to rain tomorrow.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "We _____ going to check the forecast before we leave.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "are"
+      },
+      {
+        "type": "matching",
+        "q": "Match the subject with the correct form of 'be'",
+        "pairs": [
+          {
+            "left": "I",
+            "right": "am"
+          },
+          {
+            "left": "she",
+            "right": "is"
+          },
+          {
+            "left": "they",
+            "right": "are"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "weekend",
+          "going",
+          "I'm",
+          "travel",
+          "to",
+          "this"
+        ],
+        "answer": "I'm going to travel this weekend"
+      }
+    ],
+    "reading": [
+      {
+        "title": "Weekend Plans",
+        "word_count": 88,
+        "text": "The forecast says it's going to be sunny this weekend, so Laura is going to visit the beach with her friends. They are going to pack a picnic and spend the whole day outside. On Sunday, the temperature is going to drop, and it's going to be cloudy. Laura's friend Mia isn't going to join them at the beach because she doesn't like hot weather. Instead, she's going to stay home and relax. They all agree that checking the forecast before making plans is a good idea.",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What is the weather going to be like on Saturday?",
+            "options": [
+              "Rainy",
+              "Sunny",
+              "Snowy"
+            ],
+            "answer": "Sunny"
+          },
+          {
+            "type": "mcq",
+            "q": "Where is Laura going to go?",
+            "options": [
+              "The mountains",
+              "The beach",
+              "A restaurant"
+            ],
+            "answer": "The beach"
+          },
+          {
+            "type": "true_false",
+            "q": "The temperature is going to drop on Sunday.",
+            "answer": true
+          },
+          {
+            "type": "mcq",
+            "q": "Why isn't Mia going to the beach?",
+            "options": [
+              "She's busy",
+              "She doesn't like hot weather",
+              "It's too far"
+            ],
+            "answer": "She doesn't like hot weather"
+          },
+          {
+            "type": "mcq",
+            "q": "What is Mia going to do instead?",
+            "options": [
+              "Travel",
+              "Stay home and relax",
+              "Go shopping"
+            ],
+            "answer": "Stay home and relax"
+          }
+        ]
+      },
+      {
+        "title": "A Trip to the Mountains",
+        "word_count": 85,
+        "text": "Next month, Carlos is going to travel to the mountains with his family. The forecast says it's going to be cold and snowy, so they are going to pack warm clothes. They aren't going to bring an umbrella because it's not going to rain. Carlos is going to bring his camera to take pictures of the snow. His sister is going to learn how to ski for the first time. They are all very excited about their winter trip.",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "Where is Carlos going to travel?",
+            "options": [
+              "The beach",
+              "The mountains",
+              "The city"
+            ],
+            "answer": "The mountains"
+          },
+          {
+            "type": "mcq",
+            "q": "What is the weather going to be like?",
+            "options": [
+              "Hot and sunny",
+              "Cold and snowy",
+              "Windy"
+            ],
+            "answer": "Cold and snowy"
+          },
+          {
+            "type": "true_false",
+            "q": "They are going to bring an umbrella.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "What is Carlos going to bring?",
+            "options": [
+              "A camera",
+              "A picnic",
+              "Sunglasses"
+            ],
+            "answer": "A camera"
+          },
+          {
+            "type": "mcq",
+            "q": "What is his sister going to learn?",
+            "options": [
+              "To swim",
+              "To ski",
+              "To cook"
+            ],
+            "answer": "To ski"
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "Making Weekend Plans",
+        "format": "dialogue",
+        "transcript": "A: What are you going to do this weekend?\nB: I'm going to check the forecast first. Is it going to rain?\nA: No, it's going to be sunny! Perfect for a picnic.\nB: Great, I'm going to bring some sandwiches.\nA: And I'm going to bring my umbrella, just in case!\nB: Good idea.",
+        "audio_file": "A2-03_listening_1.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What is speaker B going to check first?",
+            "options": [
+              "The time",
+              "The forecast",
+              "A map"
+            ],
+            "answer": "The forecast"
+          },
+          {
+            "type": "mcq",
+            "q": "What is the weather going to be like?",
+            "options": [
+              "Rainy",
+              "Sunny",
+              "Windy"
+            ],
+            "answer": "Sunny"
+          },
+          {
+            "type": "mcq",
+            "q": "What are they going to do?",
+            "options": [
+              "Travel",
+              "Have a picnic",
+              "Go shopping"
+            ],
+            "answer": "Have a picnic"
+          },
+          {
+            "type": "mcq",
+            "q": "What is speaker B going to bring?",
+            "options": [
+              "An umbrella",
+              "Sandwiches",
+              "A camera"
+            ],
+            "answer": "Sandwiches"
+          },
+          {
+            "type": "true_false",
+            "q": "Speaker A is going to bring an umbrella just in case.",
+            "answer": true
+          },
+          {
+            "type": "matching",
+            "q": "Match who says what",
+            "pairs": [
+              {
+                "left": "I'm going to bring some sandwiches.",
+                "right": "Speaker B"
+              },
+              {
+                "left": "I'm going to bring my umbrella.",
+                "right": "Speaker A"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Travel Plans",
+        "format": "monologue",
+        "transcript": "Next week, I'm going to travel to a city with a very different climate. The forecast says it's going to be cold and windy, so I'm going to pack warm clothes. I'm not going to bring my summer clothes at all. I'm going to visit museums and try local food. I'm also going to take a lot of pictures. I can't wait for this trip!",
+        "audio_file": "A2-03_listening_2.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What is the weather going to be like?",
+            "options": [
+              "Hot and sunny",
+              "Cold and windy",
+              "Rainy"
+            ],
+            "answer": "Cold and windy"
+          },
+          {
+            "type": "mcq",
+            "q": "What is the speaker going to pack?",
+            "options": [
+              "Summer clothes",
+              "Warm clothes",
+              "An umbrella"
+            ],
+            "answer": "Warm clothes"
+          },
+          {
+            "type": "true_false",
+            "q": "The speaker is going to bring summer clothes.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "What is the speaker going to do in the city?",
+            "options": [
+              "Visit museums",
+              "Go to the beach",
+              "Ski"
+            ],
+            "answer": "Visit museums"
+          },
+          {
+            "type": "true_false",
+            "q": "The speaker is excited about the trip.",
+            "answer": true
+          },
+          {
+            "type": "mcq",
+            "q": "What is the speaker going to try?",
+            "options": [
+              "Local food",
+              "New sports",
+              "New languages"
+            ],
+            "answer": "Local food"
+          }
+        ]
+      }
+    ],
+    "writing": {
+      "text_type": "short description",
+      "target_word_count": 40,
+      "prompt": {
+        "en": "Write about your plans for next weekend. What are you going to do? What's the weather going to be like? Use 'going to' and at least 2 words from this unit's vocabulary.",
+        "es": "Escribe sobre tus planes para el próximo fin de semana. ¿Qué vas a hacer? ¿Cómo va a estar el clima? Usa 'going to' y al menos 2 palabras del vocabulario de esta unidad."
+      },
+      "rubric": [
+        "Uses 'going to' correctly",
+        "Includes at least 2 unit vocabulary words",
+        "Describes a plan and weather",
+        "Written in English"
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "I _____ going to travel this weekend.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "am"
+      },
+      {
+        "type": "mcq",
+        "q": "She _____ going to visit her family.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
+      },
+      {
+        "type": "mcq",
+        "q": "Look at those clouds! It's _____ to rain.",
+        "options": [
+          "go",
+          "going",
+          "goes"
+        ],
+        "answer": "going"
+      },
+      {
+        "type": "mcq",
+        "q": "He isn't _____ to come to the party.",
+        "options": [
+          "go",
+          "going",
+          "goes"
+        ],
+        "answer": "going"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ you going to travel next month?",
+        "options": [
+          "Am",
+          "Is",
+          "Are"
+        ],
+        "answer": "Are"
+      },
+      {
+        "type": "true_false",
+        "q": "'Going to' is used for spontaneous decisions made at the moment.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Match the subject with the correct form of 'be'",
+        "pairs": [
+          {
+            "left": "I",
+            "right": "am"
+          },
+          {
+            "left": "she",
+            "right": "is"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "weekend",
+          "going",
+          "I'm",
+          "travel",
+          "to",
+          "this"
+        ],
+        "answer": "I'm going to travel this weekend"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you use to stay dry in the rain?",
+        "options": [
+          "Forecast",
+          "Umbrella",
+          "Temperature"
+        ],
+        "answer": "Umbrella"
+      },
+      {
+        "type": "mcq",
+        "q": "Where can you check tomorrow's weather?",
+        "options": [
+          "The forecast",
+          "The plan",
+          "The weekend"
+        ],
+        "answer": "The forecast"
+      },
+      {
+        "type": "true_false",
+        "q": "'Sunny' and 'rainy' mean the same thing.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "windy",
+            "right": "ventoso"
+          },
+          {
+            "left": "snowy",
+            "right": "nevado"
+          }
+        ]
+      },
+      {
+        "type": "mcq",
+        "q": "What is the weather going to be like on Saturday in the reading?",
+        "options": [
+          "Rainy",
+          "Sunny",
+          "Snowy"
+        ],
+        "answer": "Sunny"
+      },
+      {
+        "type": "mcq",
+        "q": "Where is Laura going to go?",
+        "options": [
+          "The mountains",
+          "The beach",
+          "A restaurant"
+        ],
+        "answer": "The beach"
+      },
+      {
+        "type": "mcq",
+        "q": "Where is Carlos going to travel?",
+        "options": [
+          "The beach",
+          "The mountains",
+          "The city"
+        ],
+        "answer": "The mountains"
+      },
+      {
+        "type": "mcq",
+        "q": "What is Carlos going to bring?",
+        "options": [
+          "A camera",
+          "A picnic",
+          "Sunglasses"
+        ],
+        "answer": "A camera"
+      },
+      {
+        "type": "mcq",
+        "q": "What are the speakers going to do in the dialogue?",
+        "options": [
+          "Travel",
+          "Have a picnic",
+          "Go shopping"
+        ],
+        "answer": "Have a picnic"
+      },
+      {
+        "type": "mcq",
+        "q": "What is the speaker going to pack in the monologue?",
+        "options": [
+          "Summer clothes",
+          "Warm clothes",
+          "An umbrella"
+        ],
+        "answer": "Warm clothes"
+      },
+      {
+        "type": "true_false",
+        "q": "The structure is: subject + am/is/are + going to + base verb.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "We are _____ to have a picnic on Saturday.",
+        "options": [
+          "go",
+          "going",
+          "goes"
+        ],
+        "answer": "going"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you do with a suitcase before a trip?",
+        "options": [
+          "Pack it",
+          "Forecast it",
+          "Plan it"
+        ],
+        "answer": "Pack it"
+      }
+    ],
+    "quiz_draw_count": 15
+  },
+  {
+    "unit_id": "A2-04",
+    "level": "A2",
+    "title": "Health",
+    "grammar_topic": "Should / shouldn't for advice",
+    "vocab_theme": "Health, symptoms, and doctor visits",
+    "can_do": "Can describe symptoms and give simple health advice",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Usamos 'should' para dar consejos o recomendaciones. La forma negativa es 'shouldn't'. Despues de should/shouldn't siempre va el verbo en forma base, sin importar el sujeto.",
+      "structure_notes": [
+        {
+          "label": "afirmativo",
+          "explanation": "sujeto + should + verbo base.",
+          "example": "You should see a doctor. She should rest."
+        },
+        {
+          "label": "negativo",
+          "explanation": "sujeto + shouldn't + verbo base.",
+          "example": "You shouldn't go to work if you're sick."
+        },
+        {
+          "label": "pregunta",
+          "explanation": "Should + sujeto + verbo base?",
+          "example": "Should I take medicine? Should she rest?"
+        },
+        {
+          "label": "uso",
+          "explanation": "Se usa para dar consejos, no para hablar de obligaciones fuertes.",
+          "example": "You should drink water when you have a fever."
+        }
+      ],
+      "common_mistake": "'Should' no cambia con el sujeto y no lleva 'to': 'She should to rest' esta mal, lo correcto es 'She should rest'."
+    },
+    "vocabulary": [
+      {
+        "word": "Headache",
+        "meaning": "dolor de cabeza",
+        "example": "I have a headache.",
+        "has_image": true,
+        "image_file": "A2-04_vocab_headache.png"
+      },
+      {
+        "word": "Fever",
+        "meaning": "fiebre",
+        "example": "She has a high fever.",
+        "has_image": true,
+        "image_file": "A2-04_vocab_fever.png"
+      },
+      {
+        "word": "Cough",
+        "meaning": "tos",
+        "example": "He has a bad cough."
+      },
+      {
+        "word": "Doctor",
+        "meaning": "doctor/a",
+        "example": "I need to see a doctor.",
+        "has_image": true,
+        "image_file": "A2-04_vocab_doctor.png"
+      },
+      {
+        "word": "Medicine",
+        "meaning": "medicina",
+        "example": "Take this medicine twice a day.",
+        "has_image": true,
+        "image_file": "A2-04_vocab_medicine.png"
+      },
+      {
+        "word": "Pharmacy",
+        "meaning": "farmacia",
+        "example": "The pharmacy is open 24 hours."
+      },
+      {
+        "word": "Appointment",
+        "meaning": "cita",
+        "example": "I have a doctor's appointment tomorrow."
+      },
+      {
+        "word": "To rest",
+        "meaning": "descansar",
+        "example": "You should rest at home."
+      },
+      {
+        "word": "Symptoms",
+        "meaning": "síntomas",
+        "example": "What are your symptoms?"
+      },
+      {
+        "word": "Healthy",
+        "meaning": "saludable",
+        "example": "Eating fruit is healthy."
+      },
+      {
+        "word": "Sick",
+        "meaning": "enfermo/a",
+        "example": "I feel sick today."
+      },
+      {
+        "word": "Hospital",
+        "meaning": "hospital",
+        "example": "She is in the hospital.",
+        "has_image": true,
+        "image_file": "A2-04_vocab_hospital.png"
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-04_vocab_headache.png",
+        "options": [
+          "Headache",
+          "Fever",
+          "Cough"
+        ],
+        "answer": "Headache"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-04_vocab_fever.png",
+        "options": [
+          "Headache",
+          "Fever",
+          "Medicine"
+        ],
+        "answer": "Fever"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-04_vocab_doctor.png",
+        "options": [
+          "Doctor",
+          "Pharmacy",
+          "Hospital"
+        ],
+        "answer": "Doctor"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-04_vocab_medicine.png",
+        "options": [
+          "Medicine",
+          "Appointment",
+          "Symptoms"
+        ],
+        "answer": "Medicine"
+      },
+      {
+        "type": "mcq",
+        "q": "Where do you buy medicine?",
+        "options": [
+          "The hospital",
+          "The pharmacy",
+          "The doctor"
+        ],
+        "answer": "The pharmacy"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you call a scheduled visit to the doctor?",
+        "options": [
+          "A symptom",
+          "An appointment",
+          "A fever"
+        ],
+        "answer": "An appointment"
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "cough",
+            "right": "tos"
+          },
+          {
+            "left": "to rest",
+            "right": "descansar"
+          },
+          {
+            "left": "symptoms",
+            "right": "síntomas"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "'Healthy' means the same as 'sick'.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "Where do people go for serious medical emergencies?",
+        "options": [
+          "The pharmacy",
+          "The hospital",
+          "The gym"
+        ],
+        "answer": "The hospital"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you have when your body temperature is too high?",
+        "options": [
+          "A fever",
+          "A cough",
+          "A headache"
+        ],
+        "answer": "A fever"
+      },
+      {
+        "type": "true_false",
+        "q": "'Sick' means feeling well and healthy.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What should you do when you're tired and sick?",
+        "options": [
+          "Rest",
+          "Exercise",
+          "Travel"
+        ],
+        "answer": "Rest"
+      },
+      {
+        "type": "matching",
+        "q": "Match the symptom with the body part",
+        "pairs": [
+          {
+            "left": "headache",
+            "right": "head"
+          },
+          {
+            "left": "cough",
+            "right": "throat"
+          }
+        ]
+      }
+    ],
+    "grammar_practice": [
+      {
+        "type": "mcq",
+        "q": "You _____ see a doctor if you have a fever.",
+        "options": [
+          "should",
+          "shoulds",
+          "shoulding"
+        ],
+        "answer": "should"
+      },
+      {
+        "type": "mcq",
+        "q": "She _____ rest for a few days.",
+        "options": [
+          "should",
+          "shoulds",
+          "shoulding"
+        ],
+        "answer": "should"
+      },
+      {
+        "type": "mcq",
+        "q": "You _____ go to work if you're very sick.",
+        "options": [
+          "should",
+          "shouldn't",
+          "shoulds"
+        ],
+        "answer": "shouldn't"
+      },
+      {
+        "type": "mcq",
+        "q": "He _____ take this medicine before eating.",
+        "options": [
+          "should",
+          "shouldn't",
+          "shoulds"
+        ],
+        "answer": "shouldn't"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ I take medicine for this headache?",
+        "options": [
+          "Should",
+          "Shoulds",
+          "Am"
+        ],
+        "answer": "Should"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ she see a doctor about the cough?",
+        "options": [
+          "Should",
+          "Shoulds",
+          "Is"
+        ],
+        "answer": "Should"
+      },
+      {
+        "type": "mcq",
+        "q": "You should _____ a lot of water when you have a fever.",
+        "options": [
+          "drink",
+          "drinks",
+          "drinking"
+        ],
+        "answer": "drink"
+      },
+      {
+        "type": "mcq",
+        "q": "He should _____ to the pharmacy for medicine.",
+        "options": [
+          "go",
+          "goes",
+          "going"
+        ],
+        "answer": "go"
+      },
+      {
+        "type": "mcq",
+        "q": "They shouldn't _____ if they feel sick.",
+        "options": [
+          "travel",
+          "travels",
+          "traveling"
+        ],
+        "answer": "travel"
+      },
+      {
+        "type": "mcq",
+        "q": "We should _____ healthy food every day.",
+        "options": [
+          "eat",
+          "eats",
+          "eating"
+        ],
+        "answer": "eat"
+      },
+      {
+        "type": "mcq",
+        "q": "I think you _____ make a doctor's appointment.",
+        "options": [
+          "should",
+          "shoulds",
+          "shoulding"
+        ],
+        "answer": "should"
+      },
+      {
+        "type": "mcq",
+        "q": "She _____ to rest, not to work.",
+        "options": [
+          "should",
+          "should to",
+          "shoulds"
+        ],
+        "answer": "should"
+      },
+      {
+        "type": "true_false",
+        "q": "'Should' changes form with 'he/she/it' (like 'shoulds').",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "'You should to rest' is grammatically correct.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What _____ I do if I have a fever?",
+        "options": [
+          "should",
+          "shoulds",
+          "am"
+        ],
+        "answer": "should"
+      },
+      {
+        "type": "mcq",
+        "q": "You shouldn't _____ if you have a cough, it's contagious.",
+        "options": [
+          "go to work",
+          "rest",
+          "drink water"
+        ],
+        "answer": "go to work"
+      },
+      {
+        "type": "mcq",
+        "q": "The doctor said I _____ rest for a week.",
+        "options": [
+          "should",
+          "shoulding",
+          "shoulds"
+        ],
+        "answer": "should"
+      },
+      {
+        "type": "true_false",
+        "q": "'Should' is used to give advice.",
+        "answer": true
+      },
+      {
+        "type": "matching",
+        "q": "Match the problem with the correct advice",
+        "pairs": [
+          {
+            "left": "I have a fever",
+            "right": "You should rest"
+          },
+          {
+            "left": "I have a headache",
+            "right": "You should take medicine"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "a",
+          "should",
+          "see",
+          "You",
+          "doctor"
+        ],
+        "answer": "You should see a doctor"
+      }
+    ],
+    "reading": [
+      {
+        "title": "Feeling Sick",
+        "word_count": 88,
+        "text": "Ana woke up with a headache and a fever. She didn't feel well, so she decided to call the doctor. The doctor asked about her symptoms and said she should rest at home and drink a lot of water. He also said she should take medicine for the fever. Ana shouldn't go to work until she feels better. She went to the pharmacy to buy the medicine. After a few days of rest, Ana felt much healthier. She learned that when you're sick, you should always listen to a doctor's advice.",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What symptoms did Ana have?",
+            "options": [
+              "Cough only",
+              "Headache and fever",
+              "Nothing"
+            ],
+            "answer": "Headache and fever"
+          },
+          {
+            "type": "mcq",
+            "q": "What did the doctor say she should do?",
+            "options": [
+              "Go to work",
+              "Rest and drink water",
+              "Exercise"
+            ],
+            "answer": "Rest and drink water"
+          },
+          {
+            "type": "true_false",
+            "q": "Ana should go to work while sick.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "Where did Ana go to buy medicine?",
+            "options": [
+              "The hospital",
+              "The pharmacy",
+              "The doctor's office"
+            ],
+            "answer": "The pharmacy"
+          },
+          {
+            "type": "mcq",
+            "q": "How did Ana feel after resting?",
+            "options": [
+              "Worse",
+              "The same",
+              "Healthier"
+            ],
+            "answer": "Healthier"
+          }
+        ]
+      },
+      {
+        "title": "A Doctor's Appointment",
+        "word_count": 85,
+        "text": "Miguel had a bad cough for a week, so he made a doctor's appointment. At the hospital, the doctor listened to his cough and asked about his other symptoms. The doctor said Miguel should take medicine three times a day. He also said Miguel shouldn't smoke because it makes coughs worse. Miguel should rest and eat healthy food to get better faster. Miguel followed the doctor's advice, and after two weeks, his cough was completely gone.",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "How long did Miguel have a cough before his appointment?",
+            "options": [
+              "A day",
+              "A week",
+              "A month"
+            ],
+            "answer": "A week"
+          },
+          {
+            "type": "mcq",
+            "q": "How often should Miguel take the medicine?",
+            "options": [
+              "Once a day",
+              "Twice a day",
+              "Three times a day"
+            ],
+            "answer": "Three times a day"
+          },
+          {
+            "type": "true_false",
+            "q": "The doctor said Miguel should smoke less.",
+            "answer": true
+          },
+          {
+            "type": "mcq",
+            "q": "What should Miguel eat to get better?",
+            "options": [
+              "Healthy food",
+              "Only medicine",
+              "Nothing"
+            ],
+            "answer": "Healthy food"
+          },
+          {
+            "type": "mcq",
+            "q": "How long did it take for Miguel's cough to go away?",
+            "options": [
+              "One week",
+              "Two weeks",
+              "One month"
+            ],
+            "answer": "Two weeks"
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "At the Doctor's Office",
+        "format": "dialogue",
+        "transcript": "A: What are your symptoms today?\nB: I have a headache and a fever.\nA: I see. You should rest and drink a lot of water.\nB: Should I take medicine too?\nA: Yes, take this medicine twice a day. You shouldn't go to work for two days.\nB: Thank you, doctor.",
+        "audio_file": "A2-04_listening_1.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What symptoms does speaker B have?",
+            "options": [
+              "Cough only",
+              "Headache and fever",
+              "Nothing"
+            ],
+            "answer": "Headache and fever"
+          },
+          {
+            "type": "mcq",
+            "q": "What advice does the doctor give first?",
+            "options": [
+              "Take medicine",
+              "Rest and drink water",
+              "Go to the hospital"
+            ],
+            "answer": "Rest and drink water"
+          },
+          {
+            "type": "mcq",
+            "q": "How often should the medicine be taken?",
+            "options": [
+              "Once a day",
+              "Twice a day",
+              "Three times a day"
+            ],
+            "answer": "Twice a day"
+          },
+          {
+            "type": "true_false",
+            "q": "The patient should go to work tomorrow.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "How many days should the patient stay home?",
+            "options": [
+              "One",
+              "Two",
+              "Three"
+            ],
+            "answer": "Two"
+          },
+          {
+            "type": "matching",
+            "q": "Match who says what",
+            "pairs": [
+              {
+                "left": "I have a headache and a fever.",
+                "right": "The patient"
+              },
+              {
+                "left": "You should rest.",
+                "right": "The doctor"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Giving Health Advice",
+        "format": "monologue",
+        "transcript": "My friend called me because she wasn't feeling well. She had a bad cough and a headache. I told her she should rest and drink warm tea. I also said she should call a doctor if it got worse. She shouldn't go to work while she's sick because she could make her coworkers sick too. I told her to go to the pharmacy for some medicine. I hope she feels better soon!",
+        "audio_file": "A2-04_listening_2.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "What symptoms did the friend have?",
+            "options": [
+              "Fever only",
+              "Cough and headache",
+              "Nothing serious"
+            ],
+            "answer": "Cough and headache"
+          },
+          {
+            "type": "mcq",
+            "q": "What advice was given first?",
+            "options": [
+              "Go to the hospital",
+              "Rest and drink warm tea",
+              "Take medicine"
+            ],
+            "answer": "Rest and drink warm tea"
+          },
+          {
+            "type": "true_false",
+            "q": "The friend should go to work while sick.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "Why shouldn't she go to work?",
+            "options": [
+              "She's too tired",
+              "She could make coworkers sick",
+              "It's a holiday"
+            ],
+            "answer": "She could make coworkers sick"
+          },
+          {
+            "type": "mcq",
+            "q": "Where should she go for medicine?",
+            "options": [
+              "The hospital",
+              "The pharmacy",
+              "The school"
+            ],
+            "answer": "The pharmacy"
+          },
+          {
+            "type": "true_false",
+            "q": "The speaker hopes the friend feels better soon.",
+            "answer": true
+          }
+        ]
+      }
+    ],
+    "writing": {
+      "text_type": "advice message",
+      "target_word_count": 40,
+      "prompt": {
+        "en": "A friend tells you they have a headache and a fever. Write a message giving them health advice using 'should' and 'shouldn't'. Use at least 2 words from this unit's vocabulary.",
+        "es": "Un amigo te dice que tiene dolor de cabeza y fiebre. Escribe un mensaje dándole consejos de salud usando 'should' y 'shouldn't'. Usa al menos 2 palabras del vocabulario de esta unidad."
+      },
+      "rubric": [
+        "Uses 'should/shouldn't' correctly",
+        "Includes at least 2 unit vocabulary words",
+        "Gives clear advice",
+        "Written in English"
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "You _____ see a doctor if you have a fever.",
+        "options": [
+          "should",
+          "shoulds",
+          "shoulding"
+        ],
+        "answer": "should"
+      },
+      {
+        "type": "mcq",
+        "q": "You _____ go to work if you're very sick.",
+        "options": [
+          "should",
+          "shouldn't",
+          "shoulds"
+        ],
+        "answer": "shouldn't"
+      },
+      {
+        "type": "mcq",
+        "q": "_____ I take medicine for this headache?",
+        "options": [
+          "Should",
+          "Shoulds",
+          "Am"
+        ],
+        "answer": "Should"
+      },
+      {
+        "type": "mcq",
+        "q": "You should _____ a lot of water when you have a fever.",
+        "options": [
+          "drink",
+          "drinks",
+          "drinking"
+        ],
+        "answer": "drink"
+      },
+      {
+        "type": "true_false",
+        "q": "'Should' changes form with 'he/she/it' (like 'shoulds').",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "'You should to rest' is grammatically correct.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Match the problem with the correct advice",
+        "pairs": [
+          {
+            "left": "I have a fever",
+            "right": "You should rest"
+          },
+          {
+            "left": "I have a headache",
+            "right": "You should take medicine"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "a",
+          "should",
+          "see",
+          "You",
+          "doctor"
+        ],
+        "answer": "You should see a doctor"
+      },
+      {
+        "type": "mcq",
+        "q": "Where do you buy medicine?",
+        "options": [
+          "The hospital",
+          "The pharmacy",
+          "The doctor"
+        ],
+        "answer": "The pharmacy"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you call a scheduled visit to the doctor?",
+        "options": [
+          "A symptom",
+          "An appointment",
+          "A fever"
+        ],
+        "answer": "An appointment"
+      },
+      {
+        "type": "true_false",
+        "q": "'Healthy' means the same as 'sick'.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "cough",
+            "right": "tos"
+          },
+          {
+            "left": "to rest",
+            "right": "descansar"
+          }
+        ]
+      },
+      {
+        "type": "mcq",
+        "q": "What symptoms did Ana have in the reading?",
+        "options": [
+          "Cough only",
+          "Headache and fever",
+          "Nothing"
+        ],
+        "answer": "Headache and fever"
+      },
+      {
+        "type": "mcq",
+        "q": "How often should Miguel take the medicine?",
+        "options": [
+          "Once a day",
+          "Twice a day",
+          "Three times a day"
+        ],
+        "answer": "Three times a day"
+      },
+      {
+        "type": "mcq",
+        "q": "What symptoms does the patient have in the dialogue?",
+        "options": [
+          "Cough only",
+          "Headache and fever",
+          "Nothing"
+        ],
+        "answer": "Headache and fever"
+      },
+      {
+        "type": "mcq",
+        "q": "How many days should the dialogue patient stay home?",
+        "options": [
+          "One",
+          "Two",
+          "Three"
+        ],
+        "answer": "Two"
+      },
+      {
+        "type": "mcq",
+        "q": "What symptoms did the friend have in the monologue?",
+        "options": [
+          "Fever only",
+          "Cough and headache",
+          "Nothing"
+        ],
+        "answer": "Cough and headache"
+      },
+      {
+        "type": "mcq",
+        "q": "Where do people go for serious medical emergencies?",
+        "options": [
+          "The pharmacy",
+          "The hospital",
+          "The gym"
+        ],
+        "answer": "The hospital"
+      },
+      {
+        "type": "true_false",
+        "q": "'Should' is used to give advice.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "He should _____ to the pharmacy for medicine.",
+        "options": [
+          "go",
+          "goes",
+          "going"
+        ],
+        "answer": "go"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you have when your body temperature is too high?",
+        "options": [
+          "A fever",
+          "A cough",
+          "A headache"
+        ],
+        "answer": "A fever"
+      }
+    ],
+    "quiz_draw_count": 15
+  },
+  {
+    "unit_id": "A2-05",
+    "level": "A2",
+    "title": "Travel",
+    "grammar_topic": "Comparative adjectives",
+    "vocab_theme": "Airports, hotels, and travel",
+    "can_do": "Can compare places and things, and talk about travel experiences",
+    "grammar_explanation": {
+      "language": "es",
+      "core_rule": "Usamos comparativos para comparar dos cosas. Con adjetivos cortos (1 silaba), agregamos '-er' + than. Con adjetivos largos (2+ silabas), usamos 'more' + adjetivo + than.",
+      "structure_notes": [
+        {
+          "label": "adjetivos cortos",
+          "explanation": "adjetivo + er + than.",
+          "example": "This hotel is cheaper than that one. The airport is bigger than the train station."
+        },
+        {
+          "label": "adjetivos largos",
+          "explanation": "more + adjetivo + than.",
+          "example": "This trip is more expensive than the last one."
+        },
+        {
+          "label": "irregulares",
+          "explanation": "good -> better, bad -> worse.",
+          "example": "This flight is better than the last one."
+        },
+        {
+          "label": "terminados en -y",
+          "explanation": "se cambia 'y' por 'ier'.",
+          "example": "This city is busier than my hometown."
+        }
+      ],
+      "common_mistake": "No se debe usar 'more' y '-er' juntos: 'more bigger' esta mal, lo correcto es solo 'bigger'."
+    },
+    "vocabulary": [
+      {
+        "word": "Airport",
+        "meaning": "aeropuerto",
+        "example": "The airport is very busy today.",
+        "has_image": true,
+        "image_file": "A2-05_vocab_airport.png"
+      },
+      {
+        "word": "Passport",
+        "meaning": "pasaporte",
+        "example": "Don't forget your passport.",
+        "has_image": true,
+        "image_file": "A2-05_vocab_passport.png"
+      },
+      {
+        "word": "Luggage",
+        "meaning": "equipaje",
+        "example": "My luggage is very heavy.",
+        "has_image": true,
+        "image_file": "A2-05_vocab_luggage.png"
+      },
+      {
+        "word": "Flight",
+        "meaning": "vuelo",
+        "example": "Our flight leaves at 9 AM."
+      },
+      {
+        "word": "Hotel",
+        "meaning": "hotel",
+        "example": "We stayed at a nice hotel.",
+        "has_image": true,
+        "image_file": "A2-05_vocab_hotel.png"
+      },
+      {
+        "word": "Reservation",
+        "meaning": "reservación",
+        "example": "I made a hotel reservation."
+      },
+      {
+        "word": "Map",
+        "meaning": "mapa",
+        "example": "Can you show me on the map?"
+      },
+      {
+        "word": "Tourist",
+        "meaning": "turista",
+        "example": "There are many tourists here."
+      },
+      {
+        "word": "Destination",
+        "meaning": "destino",
+        "example": "Our destination is Tokyo."
+      },
+      {
+        "word": "Journey",
+        "meaning": "viaje/trayecto",
+        "example": "It was a long journey."
+      },
+      {
+        "word": "Souvenir",
+        "meaning": "recuerdo (de viaje)",
+        "example": "I bought a souvenir for my mom."
+      },
+      {
+        "word": "Crowded",
+        "meaning": "lleno de gente",
+        "example": "The airport was very crowded."
+      }
+    ],
+    "vocab_practice": [
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-05_vocab_airport.png",
+        "options": [
+          "Airport",
+          "Hotel",
+          "Map"
+        ],
+        "answer": "Airport"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-05_vocab_passport.png",
+        "options": [
+          "Passport",
+          "Souvenir",
+          "Luggage"
+        ],
+        "answer": "Passport"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-05_vocab_luggage.png",
+        "options": [
+          "Luggage",
+          "Passport",
+          "Map"
+        ],
+        "answer": "Luggage"
+      },
+      {
+        "type": "image_match",
+        "q": "Which word matches the image?",
+        "image_file": "A2-05_vocab_hotel.png",
+        "options": [
+          "Airport",
+          "Hotel",
+          "Destination"
+        ],
+        "answer": "Hotel"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you need to enter another country?",
+        "options": [
+          "A map",
+          "A passport",
+          "A souvenir"
+        ],
+        "answer": "A passport"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you call a place full of people?",
+        "options": [
+          "Crowded",
+          "Empty",
+          "Quiet"
+        ],
+        "answer": "Crowded"
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "journey",
+            "right": "viaje"
+          },
+          {
+            "left": "destination",
+            "right": "destino"
+          },
+          {
+            "left": "reservation",
+            "right": "reservación"
+          }
+        ]
+      },
+      {
+        "type": "true_false",
+        "q": "A 'tourist' lives permanently in the place they're visiting.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What do you buy to remember a trip?",
+        "options": [
+          "A souvenir",
+          "A flight",
+          "A reservation"
+        ],
+        "answer": "A souvenir"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you use to find your way in a new city?",
+        "options": [
+          "A map",
+          "A passport",
+          "Luggage"
+        ],
+        "answer": "A map"
+      },
+      {
+        "type": "true_false",
+        "q": "'Luggage' means the same as 'passport'.",
+        "answer": false
+      },
+      {
+        "type": "mcq",
+        "q": "What is the final place you're traveling to called?",
+        "options": [
+          "Journey",
+          "Destination",
+          "Reservation"
+        ],
+        "answer": "Destination"
+      },
+      {
+        "type": "matching",
+        "q": "Match the place with the related word",
+        "pairs": [
+          {
+            "left": "airport",
+            "right": "flight"
+          },
+          {
+            "left": "hotel",
+            "right": "reservation"
+          }
+        ]
+      }
+    ],
+    "grammar_practice": [
+      {
+        "type": "mcq",
+        "q": "This hotel is _____ than that one.",
+        "options": [
+          "cheap",
+          "cheaper",
+          "more cheap"
+        ],
+        "answer": "cheaper"
+      },
+      {
+        "type": "mcq",
+        "q": "This trip is _____ than the last one.",
+        "options": [
+          "expensive",
+          "expensiver",
+          "more expensive"
+        ],
+        "answer": "more expensive"
+      },
+      {
+        "type": "mcq",
+        "q": "The airport is _____ than the train station.",
+        "options": [
+          "big",
+          "bigger",
+          "more big"
+        ],
+        "answer": "bigger"
+      },
+      {
+        "type": "mcq",
+        "q": "This city is _____ than my hometown.",
+        "options": [
+          "busy",
+          "busyer",
+          "busier"
+        ],
+        "answer": "busier"
+      },
+      {
+        "type": "mcq",
+        "q": "This flight is _____ than the last one.",
+        "options": [
+          "gooder",
+          "better",
+          "more good"
+        ],
+        "answer": "better"
+      },
+      {
+        "type": "mcq",
+        "q": "My luggage is _____ than yours.",
+        "options": [
+          "heavy",
+          "heavier",
+          "more heavy"
+        ],
+        "answer": "heavier"
+      },
+      {
+        "type": "mcq",
+        "q": "This hotel is _____ than the other one.",
+        "options": [
+          "nicer",
+          "more nicer",
+          "nice"
+        ],
+        "answer": "nicer"
+      },
+      {
+        "type": "mcq",
+        "q": "This journey is _____ than I expected.",
+        "options": [
+          "long",
+          "longer",
+          "more long"
+        ],
+        "answer": "longer"
+      },
+      {
+        "type": "mcq",
+        "q": "This destination is _____ than the beach.",
+        "options": [
+          "interesting",
+          "interestinger",
+          "more interesting"
+        ],
+        "answer": "more interesting"
+      },
+      {
+        "type": "mcq",
+        "q": "The weather here is _____ than at home.",
+        "options": [
+          "bad",
+          "badder",
+          "worse"
+        ],
+        "answer": "worse"
+      },
+      {
+        "type": "mcq",
+        "q": "This souvenir is _____ than that one.",
+        "options": [
+          "cheap",
+          "cheaper",
+          "more cheap"
+        ],
+        "answer": "cheaper"
+      },
+      {
+        "type": "mcq",
+        "q": "The new airport is _____ than the old one.",
+        "options": [
+          "modern",
+          "moderner",
+          "more modern"
+        ],
+        "answer": "more modern"
+      },
+      {
+        "type": "true_false",
+        "q": "We use 'more bigger' to say something is bigger.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "'Better' is the comparative form of 'good'.",
+        "answer": true
+      },
+      {
+        "type": "mcq",
+        "q": "This map is _____ than the one on my phone.",
+        "options": [
+          "clear",
+          "clearer",
+          "more clear"
+        ],
+        "answer": "clearer"
+      },
+      {
+        "type": "mcq",
+        "q": "This trip was _____ than I thought.",
+        "options": [
+          "short",
+          "shorter",
+          "more short"
+        ],
+        "answer": "shorter"
+      },
+      {
+        "type": "mcq",
+        "q": "Traveling by plane is _____ than by bus.",
+        "options": [
+          "fast",
+          "faster",
+          "more fast"
+        ],
+        "answer": "faster"
+      },
+      {
+        "type": "true_false",
+        "q": "Long adjectives use 'more' + adjective + than.",
+        "answer": true
+      },
+      {
+        "type": "matching",
+        "q": "Match the adjective with its comparative form",
+        "pairs": [
+          {
+            "left": "big",
+            "right": "bigger"
+          },
+          {
+            "left": "good",
+            "right": "better"
+          },
+          {
+            "left": "expensive",
+            "right": "more expensive"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "than",
+          "hotel",
+          "This",
+          "is",
+          "cheaper",
+          "that one"
+        ],
+        "answer": "This hotel is cheaper than that one"
+      }
+    ],
+    "reading": [
+      {
+        "title": "Two Hotels",
+        "word_count": 88,
+        "text": "When Carla traveled to the coast, she compared two hotels before making a reservation. The first hotel was closer to the beach, but it was more expensive. The second hotel was cheaper and quieter, but it was farther from the beach. Carla decided the second hotel was better for her because she wanted a relaxing trip. Her room had a bigger bed and a nicer view than she expected. In the end, Carla was happier with the cheaper, quieter hotel than she thought she would be.",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "Which hotel was closer to the beach?",
+            "options": [
+              "The first hotel",
+              "The second hotel",
+              "Neither"
+            ],
+            "answer": "The first hotel"
+          },
+          {
+            "type": "mcq",
+            "q": "Which hotel was cheaper?",
+            "options": [
+              "The first hotel",
+              "The second hotel",
+              "Both the same"
+            ],
+            "answer": "The second hotel"
+          },
+          {
+            "type": "true_false",
+            "q": "Carla chose the more expensive hotel.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "What was bigger than Carla expected?",
+            "options": [
+              "The bathroom",
+              "The bed",
+              "The luggage"
+            ],
+            "answer": "The bed"
+          },
+          {
+            "type": "mcq",
+            "q": "How did Carla feel about her choice?",
+            "options": [
+              "Disappointed",
+              "Happier than expected",
+              "Angry"
+            ],
+            "answer": "Happier than expected"
+          }
+        ]
+      },
+      {
+        "title": "Comparing Trips",
+        "word_count": 85,
+        "text": "Last year, Pedro visited two different cities. The first city was more crowded and more expensive than the second one. The airport in the first city was bigger, but it was also more confusing to navigate. The second city was smaller and quieter, with friendlier people. Pedro found the food in the second city tastier too. In the end, Pedro thought the second trip was better than the first one, even though the first city was more famous.",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "Which city was more crowded?",
+            "options": [
+              "The first city",
+              "The second city",
+              "Neither"
+            ],
+            "answer": "The first city"
+          },
+          {
+            "type": "mcq",
+            "q": "Which airport was bigger?",
+            "options": [
+              "The first city's",
+              "The second city's",
+              "Same size"
+            ],
+            "answer": "The first city's"
+          },
+          {
+            "type": "true_false",
+            "q": "The second city's people were friendlier.",
+            "answer": true
+          },
+          {
+            "type": "mcq",
+            "q": "Which city had tastier food?",
+            "options": [
+              "The first city",
+              "The second city",
+              "Both the same"
+            ],
+            "answer": "The second city"
+          },
+          {
+            "type": "mcq",
+            "q": "Which trip did Pedro think was better?",
+            "options": [
+              "The first trip",
+              "The second trip",
+              "Neither"
+            ],
+            "answer": "The second trip"
+          }
+        ]
+      }
+    ],
+    "listening": [
+      {
+        "title": "Choosing a Hotel",
+        "format": "dialogue",
+        "transcript": "A: This hotel looks nicer than the other one.\nB: Yes, but it's more expensive too.\nA: True. Is the location better?\nB: Yes, it's closer to the airport.\nA: Then I think it's worth it. Let's make the reservation.\nB: Great, I'll book it now.",
+        "audio_file": "A2-05_listening_1.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "Which hotel looks nicer?",
+            "options": [
+              "The first one",
+              "The other one",
+              "Both the same"
+            ],
+            "answer": "The first one"
+          },
+          {
+            "type": "true_false",
+            "q": "The nicer hotel is cheaper.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "What is better about the nicer hotel's location?",
+            "options": [
+              "Closer to the beach",
+              "Closer to the airport",
+              "Closer to downtown"
+            ],
+            "answer": "Closer to the airport"
+          },
+          {
+            "type": "mcq",
+            "q": "What do they decide to do?",
+            "options": [
+              "Look for another hotel",
+              "Make the reservation",
+              "Cancel the trip"
+            ],
+            "answer": "Make the reservation"
+          },
+          {
+            "type": "true_false",
+            "q": "Speaker B is going to book the hotel.",
+            "answer": true
+          },
+          {
+            "type": "matching",
+            "q": "Match who says what",
+            "pairs": [
+              {
+                "left": "This hotel looks nicer.",
+                "right": "Speaker A"
+              },
+              {
+                "left": "I'll book it now.",
+                "right": "Speaker B"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "My Favorite Trip",
+        "format": "monologue",
+        "transcript": "Of all the trips I've taken, my trip to the mountains was better than any other. The air was fresher than in the city, and the views were more beautiful than I expected. The hotel was smaller than the ones in the city, but it was cozier. The food was simpler, but it was tastier too. I bought more souvenirs on that trip than on any other trip. I hope to go back there again someday.",
+        "audio_file": "A2-05_listening_2.mp3",
+        "questions": [
+          {
+            "type": "mcq",
+            "q": "Which trip does the speaker like best?",
+            "options": [
+              "The beach trip",
+              "The mountain trip",
+              "The city trip"
+            ],
+            "answer": "The mountain trip"
+          },
+          {
+            "type": "mcq",
+            "q": "How was the air in the mountains?",
+            "options": [
+              "Worse",
+              "Fresher",
+              "The same"
+            ],
+            "answer": "Fresher"
+          },
+          {
+            "type": "true_false",
+            "q": "The mountain hotel was bigger than city hotels.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "How was the food?",
+            "options": [
+              "Worse",
+              "Simpler but tastier",
+              "The same"
+            ],
+            "answer": "Simpler but tastier"
+          },
+          {
+            "type": "true_false",
+            "q": "The speaker bought fewer souvenirs on this trip.",
+            "answer": false
+          },
+          {
+            "type": "mcq",
+            "q": "Does the speaker want to go back?",
+            "options": [
+              "Yes",
+              "No",
+              "Not mentioned"
+            ],
+            "answer": "Yes"
+          }
+        ]
+      }
+    ],
+    "writing": {
+      "text_type": "comparison",
+      "target_word_count": 40,
+      "prompt": {
+        "en": "Compare two places you have visited or would like to visit. Which one is bigger, cheaper, or more interesting? Use at least 2 comparative adjectives and 2 words from this unit's vocabulary.",
+        "es": "Compara dos lugares que hayas visitado o te gustaría visitar. ¿Cuál es más grande, más barato o más interesante? Usa al menos 2 adjetivos comparativos y 2 palabras del vocabulario de esta unidad."
+      },
+      "rubric": [
+        "Uses comparative adjectives correctly",
+        "Includes at least 2 unit vocabulary words",
+        "Compares two places clearly",
+        "Written in English"
+      ]
+    },
+    "quiz_pool": [
+      {
+        "type": "mcq",
+        "q": "This hotel is _____ than that one.",
+        "options": [
+          "cheap",
+          "cheaper",
+          "more cheap"
+        ],
+        "answer": "cheaper"
+      },
+      {
+        "type": "mcq",
+        "q": "This trip is _____ than the last one.",
+        "options": [
+          "expensive",
+          "expensiver",
+          "more expensive"
+        ],
+        "answer": "more expensive"
+      },
+      {
+        "type": "mcq",
+        "q": "The airport is _____ than the train station.",
+        "options": [
+          "big",
+          "bigger",
+          "more big"
+        ],
+        "answer": "bigger"
+      },
+      {
+        "type": "mcq",
+        "q": "This flight is _____ than the last one.",
+        "options": [
+          "gooder",
+          "better",
+          "more good"
+        ],
+        "answer": "better"
+      },
+      {
+        "type": "true_false",
+        "q": "We use 'more bigger' to say something is bigger.",
+        "answer": false
+      },
+      {
+        "type": "true_false",
+        "q": "'Better' is the comparative form of 'good'.",
+        "answer": true
+      },
+      {
+        "type": "matching",
+        "q": "Match the adjective with its comparative form",
+        "pairs": [
+          {
+            "left": "big",
+            "right": "bigger"
+          },
+          {
+            "left": "good",
+            "right": "better"
+          }
+        ]
+      },
+      {
+        "type": "order_words",
+        "q": "Put the words in the correct order:",
+        "words": [
+          "than",
+          "hotel",
+          "This",
+          "is",
+          "cheaper",
+          "that one"
+        ],
+        "answer": "This hotel is cheaper than that one"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you need to enter another country?",
+        "options": [
+          "A map",
+          "A passport",
+          "A souvenir"
+        ],
+        "answer": "A passport"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you call a place full of people?",
+        "options": [
+          "Crowded",
+          "Empty",
+          "Quiet"
+        ],
+        "answer": "Crowded"
+      },
+      {
+        "type": "true_false",
+        "q": "A 'tourist' lives permanently in the place they're visiting.",
+        "answer": false
+      },
+      {
+        "type": "matching",
+        "q": "Match the word with its meaning",
+        "pairs": [
+          {
+            "left": "journey",
+            "right": "viaje"
+          },
+          {
+            "left": "destination",
+            "right": "destino"
+          }
+        ]
+      },
+      {
+        "type": "mcq",
+        "q": "Which hotel was closer to the beach in the reading?",
+        "options": [
+          "The first hotel",
+          "The second hotel",
+          "Neither"
+        ],
+        "answer": "The first hotel"
+      },
+      {
+        "type": "mcq",
+        "q": "Which hotel did Carla choose?",
+        "options": [
+          "The first, expensive one",
+          "The second, cheaper one",
+          "Neither"
+        ],
+        "answer": "The second, cheaper one"
+      },
+      {
+        "type": "mcq",
+        "q": "Which city was more crowded in Pedro's story?",
+        "options": [
+          "The first city",
+          "The second city",
+          "Neither"
+        ],
+        "answer": "The first city"
+      },
+      {
+        "type": "mcq",
+        "q": "Which trip did Pedro think was better?",
+        "options": [
+          "The first trip",
+          "The second trip",
+          "Neither"
+        ],
+        "answer": "The second trip"
+      },
+      {
+        "type": "mcq",
+        "q": "Which hotel looks nicer in the dialogue?",
+        "options": [
+          "The first one",
+          "The other one",
+          "Both the same"
+        ],
+        "answer": "The first one"
+      },
+      {
+        "type": "mcq",
+        "q": "Which trip does the speaker in the monologue like best?",
+        "options": [
+          "The beach trip",
+          "The mountain trip",
+          "The city trip"
+        ],
+        "answer": "The mountain trip"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you buy to remember a trip?",
+        "options": [
+          "A souvenir",
+          "A flight",
+          "A reservation"
+        ],
+        "answer": "A souvenir"
+      },
+      {
+        "type": "mcq",
+        "q": "This city is _____ than my hometown.",
+        "options": [
+          "busy",
+          "busyer",
+          "busier"
+        ],
+        "answer": "busier"
+      },
+      {
+        "type": "mcq",
+        "q": "What do you use to find your way in a new city?",
+        "options": [
+          "A map",
+          "A passport",
+          "Luggage"
+        ],
+        "answer": "A map"
+      }
+    ],
+    "quiz_draw_count": 15
   }
 ]
