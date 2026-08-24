@@ -813,6 +813,7 @@ function CreateStudentForm({ onCreated }) {
         const uid = cred.user.uid;
         await secondaryAuth.signOut();
         await window.__db.collection("users").doc(uid).set({ role: "student", name: row.name, email: row.email, level: row.level });
+        await logChange("crear_estudiante", row.email, `Nivel: ${row.level}`);
         newResults.push({ ...row, password, status: "✅ Creado" });
       } catch (err) {
         newResults.push({ ...row, password: "", status: err.code === "auth/email-already-in-use" ? "⏭️ Ya existía" : "❌ Error" });
@@ -871,6 +872,16 @@ function CreateStudentForm({ onCreated }) {
   );
 }
 
+async function logChange(action, target, details) {
+  try {
+    const uid = window.__auth.currentUser?.uid || "unknown";
+    await window.__db.collection("changelog").add({
+      action, target, details, by: uid,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+  } catch (e) { /* si falla el log no debe frenar la accion principal */ }
+}
+
 function AdminDashboard({ t, onLogout }) {
   const [students, setStudents] = useState(null);
   const [units, setUnits] = useState(null);
@@ -895,7 +906,7 @@ function AdminDashboard({ t, onLogout }) {
         const psnap = await window.__db.collection("users").doc(s.uid).collection("progress").get();
         const data = {};
         psnap.docs.forEach((d) => { data[d.id] = d.data(); });
-        const levelUnits = allUnits.filter((u) => u.level === s.level);
+        const levelUnits = s.level === "ALL" ? allUnits : allUnits.filter((u) => u.level === s.level);
         const totalLessons = levelUnits.length * LESSON_ORDER.length;
         const doneLessons = levelUnits.reduce((sum, u) => sum + LESSON_ORDER.filter((k) => data[u.unit_id]?.[k]).length, 0);
         return { ...s, _progress: data, _pct: totalLessons ? Math.round((doneLessons / totalLessons) * 100) : 0 };
@@ -910,7 +921,28 @@ function AdminDashboard({ t, onLogout }) {
 
   const setLevel = async (student, level) => {
     await window.__db.collection("users").doc(student.uid).set({ level }, { merge: true });
+    await logChange("cambiar_nivel", student.email, `De ${student.level || "sin nivel"} a ${level}`);
     setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, level } : s)));
+  };
+
+  const deleteStudent = async (student) => {
+    if (!window.confirm(`¿Eliminar a ${student.name || student.email}? Esto borra su perfil y progreso (no la cuenta de login — eso se borra aparte en Firebase Console).`)) return;
+    const psnap = await window.__db.collection("users").doc(student.uid).collection("progress").get();
+    await Promise.all(psnap.docs.map((d) => d.ref.delete()));
+    await window.__db.collection("users").doc(student.uid).delete();
+    await logChange("eliminar_estudiante", student.email, `Nivel que tenia: ${student.level || "sin nivel"}`);
+    setStudents((prev) => prev.filter((s) => s.uid !== student.uid));
+    setExpanded(null);
+  };
+
+  const [showLog, setShowLog] = useState(false);
+  const [logEntries, setLogEntries] = useState(null);
+  const openLog = async () => {
+    setShowLog(true);
+    if (!logEntries) {
+      const snap = await window.__db.collection("changelog").orderBy("timestamp", "desc").limit(100).get();
+      setLogEntries(snap.docs.map((d) => d.data()));
+    }
   };
 
   return (
@@ -922,7 +954,26 @@ function AdminDashboard({ t, onLogout }) {
         <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, fontWeight: 800, marginBottom: 4 }}>Panel de administración</h1>
         <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 24 }}>{students ? `${students.length} estudiantes` : "Cargando..."}</p>
 
-        <CreateStudentForm onCreated={() => setReloadFlag((f) => f + 1)} />
+        <div style={{ display: "flex", gap: 10, marginBottom: 10 }}>
+          <CreateStudentForm onCreated={() => setReloadFlag((f) => f + 1)} />
+          <button onClick={openLog} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>📋 Historial de cambios</button>
+        </div>
+
+        {showLog && (
+          <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
+              <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, margin: 0 }}>Últimos 100 cambios</p>
+              <button onClick={() => setShowLog(false)} style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>Cerrar</button>
+            </div>
+            {!logEntries && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>{t.loading}</p>}
+            {logEntries && logEntries.length === 0 && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin cambios registrados todavía.</p>}
+            {logEntries && logEntries.map((e, i) => (
+              <div key={i} style={{ padding: "8px 0", borderBottom: `1px solid ${C.line}`, fontFamily: mono, fontSize: 11, color: C.ink }}>
+                <b>{e.action}</b> — {e.target} — {e.details} — {e.timestamp ? new Date(e.timestamp.seconds * 1000).toLocaleString() : ""}
+              </div>
+            ))}
+          </div>
+        )}
 
         {students && students.length === 0 && (
           <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft }}>
@@ -954,7 +1005,7 @@ function AdminDashboard({ t, onLogout }) {
 
                 {expanded === s.uid && (
                   <div style={{ borderTop: `1px solid ${C.line}`, padding: 16, background: C.cream }}>
-                    <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginBottom: 6, letterSpacing: 1 }}>NIVEL HABILITADO (solo uno)</p>
+                    <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginBottom: 6, letterSpacing: 1 }}>NIVEL HABILITADO</p>
                     <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
                       {LEVELS.map((lvl) => {
                         const selected = s.level === lvl;
@@ -968,7 +1019,18 @@ function AdminDashboard({ t, onLogout }) {
                           </button>
                         );
                       })}
+                      <button onClick={(e) => { e.stopPropagation(); setLevel(s, "ALL"); }}
+                        style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
+                          border: `1.5px solid ${s.level === "ALL" ? C.ink : C.line}`, background: s.level === "ALL" ? C.cream : "#fff",
+                          color: C.ink, cursor: "pointer" }}>
+                        TODOS (prueba) {s.level === "ALL" ? "✓" : ""}
+                      </button>
                     </div>
+
+                    <button onClick={(e) => { e.stopPropagation(); deleteStudent(s); }}
+                      style={{ fontFamily: mono, fontSize: 11, color: C.coralText, background: "none", border: `1px solid ${C.coral}`, borderRadius: 8, padding: "6px 12px", cursor: "pointer", marginBottom: 16 }}>
+                      🗑️ Eliminar estudiante
+                    </button>
 
                     {Object.keys(progressByStudent[s.uid] || {}).length === 0 && (
                       <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin actividad todavía.</p>
@@ -1138,7 +1200,7 @@ function App() {
   if (profile.role === "master") return <AdminDashboard t={t} onLogout={() => window.__auth.signOut()} />;
   if (!units || !allProgress) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{t.loading}</div>;
 
-  const visibleUnits = units.filter((u) => u.level === profile.level);
+  const visibleUnits = profile.level === "ALL" ? units : units.filter((u) => u.level === profile.level);
   const levelColor = activeUnit ? LEVEL_COLORS[activeUnit.level] : null;
 
   const unitsDone = visibleUnits.filter((u) => {
