@@ -6,7 +6,7 @@ service cloud.firestore {
     function isMaster() {
       return request.auth != null &&
         exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
-        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "master";
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.get("role", "") == "master";
     }
 
     function myProfile() {
@@ -17,17 +17,21 @@ service cloud.firestore {
     // si no tiene, la del ciclo al que pertenece; si no tiene ninguna, sin limite.
     function hasActiveAccess() {
       let u = myProfile();
-      let individualEnd = u.enrollmentEndDate;
-      let hasCycle = u.cycleId != null && exists(/databases/$(database)/documents/studyCycles/$(u.cycleId));
-      let cycleEnd = hasCycle ? get(/databases/$(database)/documents/studyCycles/$(u.cycleId)).data.endDate : null;
+      let individualEnd = u.get("enrollmentEndDate", null);
+      let cycleIdVal = u.get("cycleId", null);
+      let hasCycle = cycleIdVal != null && cycleIdVal != "" && exists(/databases/$(database)/documents/studyCycles/$(cycleIdVal));
+      let cycleEnd = hasCycle ? get(/databases/$(database)/documents/studyCycles/$(cycleIdVal)).data.get("endDate", null) : null;
       let effectiveEnd = individualEnd != null ? individualEnd : cycleEnd;
       return effectiveEnd == null || request.time <= effectiveEnd;
     }
 
-    // Contenido de las unidades: lectura solo si tiene sesion Y el acceso no ha vencido.
+    // Contenido de las unidades: lectura para cualquier usuario con sesion.
+    // (La fecha de vencimiento se revisa al guardar progreso, no aqui —
+    // revisarla aqui tambien, unidad por unidad, puede chocar con el limite
+    // de Firestore de consultas cruzadas quando se leen muchas unidades de una vez.)
     // Nadie escribe desde el navegador — solo el script de carga.
     match /units/{unitId} {
-      allow read: if request.auth != null && (isMaster() || hasActiveAccess());
+      allow read: if request.auth != null;
       allow write: if false;
     }
 
