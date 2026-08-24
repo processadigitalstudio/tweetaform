@@ -23,6 +23,8 @@
     appId: "1:13535522342:web:f72f1fef56de25c57580e7"
   };
   firebase.initializeApp(firebaseConfig);
+  // App secundaria: para crear cuentas de estudiantes SIN cerrar la sesion del master
+  window.__secondaryApp = firebase.initializeApp(firebaseConfig, "secondary");
   window.__auth = firebase.auth();
   window.__db = firebase.firestore();
   window.__firebaseReady = true;
@@ -770,11 +772,111 @@ function LevelsScreen({ units, t, name, overallProgress, allProgress, onOpenUnit
 }
 
 // ---------------- DASHBOARD DE MASTER ----------------
+function genPass() {
+  const chars = 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+  const syms = '!@#$';
+  let p = '';
+  for (let i = 0; i < 6; i++) p += chars[Math.floor(Math.random() * chars.length)];
+  p += syms[Math.floor(Math.random() * syms.length)];
+  p += Math.floor(Math.random() * 9) + 1;
+  return p;
+}
+
+function CreateStudentForm({ onCreated }) {
+  const [open, setOpen] = useState(false);
+  const [bulkText, setBulkText] = useState("");
+  const [results, setResults] = useState([]);
+  const [creating, setCreating] = useState(false);
+  const LEVELS = ["A1", "A2", "B1", "B2"];
+
+  const parseLines = () =>
+    bulkText.split("\n").map((l) => l.trim()).filter(Boolean).map((line) => {
+      const parts = line.split(",").map((p) => p.trim());
+      return { name: parts[0] || "", email: parts[1] || "", level: (parts[2] || "A1").toUpperCase() };
+    });
+
+  const createAll = async () => {
+    const rows = parseLines();
+    if (rows.length === 0) return;
+    setCreating(true);
+    const newResults = [];
+    for (const row of rows) {
+      if (!row.name || !row.email || !LEVELS.includes(row.level)) {
+        newResults.push({ ...row, password: "", status: "Fila incompleta o nivel invalido" });
+        setResults([...newResults]);
+        continue;
+      }
+      const password = genPass();
+      try {
+        const secondaryAuth = window.__secondaryApp.auth();
+        const cred = await secondaryAuth.createUserWithEmailAndPassword(row.email, password);
+        const uid = cred.user.uid;
+        await secondaryAuth.signOut();
+        await window.__db.collection("users").doc(uid).set({ role: "student", name: row.name, email: row.email, level: row.level });
+        newResults.push({ ...row, password, status: "✅ Creado" });
+      } catch (err) {
+        newResults.push({ ...row, password: "", status: err.code === "auth/email-already-in-use" ? "⏭️ Ya existía" : "❌ Error" });
+      }
+      setResults([...newResults]); // se ve el avance en vivo, fila por fila
+    }
+    setCreating(false);
+    setBulkText("");
+    onCreated();
+  };
+
+  const downloadCSV = () => {
+    const header = "name,email,password,level,status\n";
+    const body = results.map((r) => `${r.name},${r.email},${r.password},${r.level},${r.status}`).join("\n");
+    const blob = new Blob([header + body], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "estudiantes_creados.csv"; a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  if (!open) {
+    return <button onClick={() => setOpen(true)} style={{ ...navBtn(false), marginBottom: 16 }}>+ Crear estudiantes</button>;
+  }
+
+  return (
+    <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
+      <p style={{ fontFamily: font, fontSize: 13, color: C.ink, marginBottom: 6 }}>
+        Pega una fila por estudiante: <b>Nombre, Correo, Nivel</b> (A1/A2/B1/B2). La contraseña se genera sola.
+      </p>
+      <textarea value={bulkText} onChange={(e) => setBulkText(e.target.value)} rows={6}
+        placeholder={"Juan Perez, juan.perez@tweetalig.local, A1\nMaria Gomez, maria.gomez@tweetalig.local, A2"}
+        style={{ width: "100%", fontFamily: mono, fontSize: 12, padding: 10, borderRadius: 8, border: `1px solid ${C.line}`, boxSizing: "border-box", marginBottom: 10 }} />
+      <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
+        <button onClick={createAll} disabled={creating || !bulkText.trim()} style={navBtn(creating || !bulkText.trim())}>
+          {creating ? `Creando... (${results.length}/${parseLines().length})` : `Crear ${parseLines().length || ""} estudiantes`}
+        </button>
+        <button onClick={() => setOpen(false)} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>Cerrar</button>
+      </div>
+
+      {results.length > 0 && (
+        <div>
+          <div style={{ maxHeight: 220, overflowY: "auto", border: `1px solid ${C.line}`, borderRadius: 8, marginBottom: 10 }}>
+            {results.map((r, i) => (
+              <div key={i} style={{ display: "grid", gridTemplateColumns: "1.5fr 2fr 1fr 0.6fr 1.3fr", gap: 6, padding: "6px 10px", borderBottom: `1px solid ${C.line}`, fontFamily: mono, fontSize: 11 }}>
+                <span>{r.name}</span><span>{r.email}</span><span>{r.password}</span><span>{r.level}</span><span>{r.status}</span>
+              </div>
+            ))}
+          </div>
+          {!creating && (
+            <button onClick={downloadCSV} style={navBtn(false)}>⬇️ Descargar CSV con correos y contraseñas</button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function AdminDashboard({ t, onLogout }) {
   const [students, setStudents] = useState(null);
   const [units, setUnits] = useState(null);
   const [expanded, setExpanded] = useState(null);
   const [progressByStudent, setProgressByStudent] = useState({});
+  const [reloadFlag, setReloadFlag] = useState(0);
   const LEVELS = ["A1", "A2", "B1", "B2"];
 
   useEffect(() => {
@@ -804,7 +906,7 @@ function AdminDashboard({ t, onLogout }) {
       withProgress.forEach((s) => { pmap[s.uid] = s._progress; });
       setProgressByStudent(pmap);
     })();
-  }, []);
+  }, [reloadFlag]);
 
   const setLevel = async (student, level) => {
     await window.__db.collection("users").doc(student.uid).set({ level }, { merge: true });
@@ -819,6 +921,8 @@ function AdminDashboard({ t, onLogout }) {
       <div style={{ maxWidth: 780, margin: "0 auto", paddingTop: 20 }}>
         <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, fontWeight: 800, marginBottom: 4 }}>Panel de administración</h1>
         <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 24 }}>{students ? `${students.length} estudiantes` : "Cargando..."}</p>
+
+        <CreateStudentForm onCreated={() => setReloadFlag((f) => f + 1)} />
 
         {students && students.length === 0 && (
           <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft }}>
