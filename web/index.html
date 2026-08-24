@@ -43,7 +43,7 @@ const { useState, useEffect, useRef } = React;
 // MARCA TWEETALIG
 // ---------------------------------------------------------------------------
 const C = {
-  bg: "#FFFFFF",
+  bg: "#F4EDDE",
   cream: "#F4EDDE",
   ink: "#2C3D4D",
   teal: "#5DB69C",
@@ -945,6 +945,16 @@ function AdminDashboard({ t, onLogout }) {
     }
   };
 
+  const [showReports, setShowReports] = useState(false);
+  const [reports, setReports] = useState(null);
+  const openReports = async () => {
+    setShowReports(true);
+    if (!reports) {
+      const snap = await window.__db.collection("supportReports").orderBy("timestamp", "desc").limit(50).get();
+      setReports(snap.docs.map((d) => d.data()));
+    }
+  };
+
   return (
     <div style={{ background: C.bg, minHeight: "100vh", padding: "24px 18px", boxSizing: "border-box" }}>
       <button onClick={onLogout} style={{ position: "absolute", top: 18, right: 18, fontFamily: mono, fontSize: 12, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
@@ -954,10 +964,31 @@ function AdminDashboard({ t, onLogout }) {
         <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, fontWeight: 800, marginBottom: 4 }}>Panel de administración</h1>
         <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 24 }}>{students ? `${students.length} estudiantes` : "Cargando..."}</p>
 
-        <div style={{ display: "flex", gap: 10, marginBottom: 10 }}>
+        <div style={{ display: "flex", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
           <CreateStudentForm onCreated={() => setReloadFlag((f) => f + 1)} />
           <button onClick={openLog} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>📋 Historial de cambios</button>
+          <button onClick={openReports} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>🐛 Reportes de problemas</button>
         </div>
+
+        {showReports && (
+          <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
+              <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, margin: 0 }}>Últimos 50 reportes</p>
+              <button onClick={() => setShowReports(false)} style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>Cerrar</button>
+            </div>
+            {!reports && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>{t.loading}</p>}
+            {reports && reports.length === 0 && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin reportes todavía.</p>}
+            {reports && reports.map((r, i) => (
+              <div key={i} style={{ padding: "10px 0", borderBottom: `1px solid ${C.line}` }}>
+                <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: 0 }}>
+                  {r.studentName || r.studentEmail} · {r.level} · {r.unitId} · {r.lesson} · {r.timestamp ? new Date(r.timestamp.seconds * 1000).toLocaleString() : ""}
+                </p>
+                <p style={{ fontFamily: font, fontSize: 13, color: C.ink, margin: "4px 0" }}>{r.description}</p>
+                {r.screenshot && <img src={r.screenshot} alt="" style={{ maxWidth: "100%", borderRadius: 8, marginTop: 6 }} />}
+              </div>
+            ))}
+          </div>
+        )}
 
         {showLog && (
           <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
@@ -1065,6 +1096,81 @@ function AdminDashboard({ t, onLogout }) {
   );
 }
 
+function ReportProblemForm({ user, profile, activeUnit, activeLesson, onClose }) {
+  const [description, setDescription] = useState("");
+  const [exercise, setExercise] = useState("");
+  const [screenshot, setScreenshot] = useState(null); // base64
+  const [screenshotName, setScreenshotName] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(null);
+
+  const onFile = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (file.size > 800000) { setError("Image is too large. Please use a smaller screenshot (under 800KB)."); return; }
+    setError(null);
+    setScreenshotName(file.name);
+    const reader = new FileReader();
+    reader.onload = () => setScreenshot(reader.result);
+    reader.readAsDataURL(file);
+  };
+
+  const send = async () => {
+    if (!description.trim()) { setError("Please describe the problem."); return; }
+    setSending(true);
+    setError(null);
+    try {
+      await window.__db.collection("supportReports").add({
+        studentEmail: user.email,
+        studentName: profile.name || "",
+        level: profile.level || "",
+        unitId: activeUnit ? activeUnit.unit_id : "",
+        lesson: activeLesson || exercise || "",
+        description: description.trim(),
+        screenshot: screenshot || null,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+      setSent(true);
+    } catch (err) {
+      setError("Something went wrong sending your report. Please try again.");
+    }
+    setSending(false);
+  };
+
+  return (
+    <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 100, padding: 18 }}>
+      <div style={{ background: "#fff", borderRadius: 16, padding: 24, maxWidth: 420, width: "100%", maxHeight: "85vh", overflowY: "auto" }}>
+        {sent ? (
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: 36, margin: 0 }}>✅</p>
+            <p style={{ fontFamily: font, fontSize: 15, color: C.ink, marginBottom: 18 }}>Thank you! Your report was sent.</p>
+            <button onClick={onClose} style={navBtn(false)}>Close</button>
+          </div>
+        ) : (
+          <>
+            <h3 style={{ fontFamily: font, fontSize: 18, color: C.ink, marginTop: 0 }}>Report a problem</h3>
+            <p style={{ fontFamily: font, fontSize: 12, color: C.inkSoft, marginBottom: 14 }}>
+              {profile.name || user.email} · Level {profile.level || "—"} · Unit {activeUnit ? activeUnit.unit_id : "—"} · Lesson {activeLesson || "—"}
+            </p>
+            <textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={4}
+              placeholder="Describe what happened..."
+              style={{ width: "100%", fontFamily: font, fontSize: 13, padding: 10, borderRadius: 8, border: `1px solid ${C.line}`, boxSizing: "border-box", marginBottom: 10 }} />
+            <input type="file" accept="image/*" onChange={onFile}
+              style={{ fontFamily: font, fontSize: 12, marginBottom: 10 }} />
+            {screenshotName && <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, marginBottom: 10 }}>📎 {screenshotName}</p>}
+            {error && <p style={{ fontFamily: font, fontSize: 12, color: C.coralText, marginBottom: 10 }}>{error}</p>}
+            <div style={{ display: "flex", gap: 10 }}>
+              <button onClick={send} disabled={sending} style={navBtn(sending)}>{sending ? "Sending..." : "Send report"}</button>
+              <button onClick={onClose} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>Cancel</button>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function LessonCompleteScreen({ t, nextKey, onBackToUnit, onNextLesson }) {
   return (
     <div style={{ textAlign: "center", padding: "50px 0" }}>
@@ -1103,6 +1209,7 @@ function App() {
   const [progress, setProgress] = useState({});
   const [allProgress, setAllProgress] = useState(null); // progreso de TODAS las unidades, para la barra general
   const [justFinished, setJustFinished] = useState(null); // que leccion se acaba de terminar (para la pantalla de "Back to unit / Next lesson")
+  const [showReport, setShowReport] = useState(false);
   const [lang, setLang] = useState("en");
   const t = STRINGS[lang];
 
@@ -1176,9 +1283,26 @@ function App() {
     ref.get().then((snap) => setProgress(snap.exists ? snap.data() : {}));
   }, [route.unitId, user]);
 
-  const goHome = () => { window.location.hash = "#/"; };
-  const goToUnit = (unitId) => { window.location.hash = `#/unit/${encodeURIComponent(unitId)}`; };
+  const confirmLeave = () => {
+    if (activeLesson && justFinished !== activeLesson) {
+      return window.confirm("Your progress in this lesson hasn't been saved yet. If you leave now, you will lose it. Are you sure you want to leave?");
+    }
+    return true;
+  };
+  const goHome = () => { if (confirmLeave()) window.location.hash = "#/"; };
+  const goToUnit = (unitId) => { if (confirmLeave()) window.location.hash = `#/unit/${encodeURIComponent(unitId)}`; };
   const goToLesson = (unitId, key) => { window.location.hash = `#/unit/${encodeURIComponent(unitId)}/lesson/${key}`; };
+
+  useEffect(() => {
+    const onBeforeUnload = (e) => {
+      if (activeLesson && justFinished !== activeLesson) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => window.removeEventListener("beforeunload", onBeforeUnload);
+  }, [activeLesson, justFinished]);
 
   const markComplete = async (key, extra) => {
     const next = { ...progress, [key]: true, ...(extra || {}) };
@@ -1207,11 +1331,13 @@ function App() {
     const p = allProgress[u.unit_id] || {};
     return LESSON_ORDER.every((k) => p[k]);
   }).length;
+  const totalLessons = visibleUnits.length * LESSON_ORDER.length;
+  const doneLessons = visibleUnits.reduce((sum, u) => sum + LESSON_ORDER.filter((k) => allProgress[u.unit_id]?.[k]).length, 0);
   const overallProgress = {
     level: profile.level,
     unitsDone,
     unitsTotal: visibleUnits.length,
-    pct: visibleUnits.length ? Math.round((unitsDone / visibleUnits.length) * 100) : 0,
+    pct: totalLessons ? Math.round((doneLessons / totalLessons) * 100) : 0,
   };
 
   return (
@@ -1234,12 +1360,19 @@ function App() {
               {lang === "en" ? "ES" : "EN"}
             </button>
           )}
-          <button onClick={() => window.__auth.signOut()}
+          <button onClick={() => setShowReport(true)}
+            style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: `1px solid ${C.line}`, borderRadius: 999, padding: "5px 10px", cursor: "pointer" }}>
+            ❓ Help
+          </button>
+          <button onClick={() => confirmLeave() && window.__auth.signOut()}
             style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
             {t.logout}
           </button>
         </div>
       </div>
+      {showReport && (
+        <ReportProblemForm user={user} profile={profile} activeUnit={activeUnit} activeLesson={activeLesson} onClose={() => setShowReport(false)} />
+      )}
       <div style={{ padding: "24px 18px" }}>
       <div style={{ maxWidth: 460, margin: "0 auto" }}>
         {!activeUnit && <LevelsScreen units={visibleUnits} t={t} name={profile.name} overallProgress={overallProgress} allProgress={allProgress} onOpenUnit={(u) => goToUnit(u.unit_id)} />}

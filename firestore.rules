@@ -46,6 +46,15 @@ service cloud.firestore {
       allow read, write: if isMaster();
     }
 
+    // Reportes de problemas que envian los estudiantes:
+    // cualquier usuario con sesion puede crear uno (nunca editarlo despues),
+    // solo el master los puede leer.
+    match /supportReports/{reportId} {
+      allow create: if request.auth != null;
+      allow read: if isMaster();
+      allow update, delete: if false;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
