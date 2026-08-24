@@ -13,16 +13,14 @@ service cloud.firestore {
       return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
     }
 
-    // Revisa si al usuario ya se le vencio el acceso: primero su fecha individual;
-    // si no tiene, la del ciclo al que pertenece; si no tiene ninguna, sin limite.
+    // Revisa si al usuario ya se le vencio el acceso, usando SOLO su fecha individual
+    // (no la del ciclo aqui, para evitar el limite de consultas cruzadas de Firestore
+    // que causaba errores de permisos intermitentes). La fecha del ciclo se sigue
+    // revisando y bloqueando visualmente desde la app (pantalla "Access expired").
     function hasActiveAccess() {
       let u = myProfile();
       let individualEnd = u.get("enrollmentEndDate", null);
-      let cycleIdVal = u.get("cycleId", null);
-      let hasCycle = cycleIdVal != null && cycleIdVal != "" && exists(/databases/$(database)/documents/studyCycles/$(cycleIdVal));
-      let cycleEnd = hasCycle ? get(/databases/$(database)/documents/studyCycles/$(cycleIdVal)).data.get("endDate", null) : null;
-      let effectiveEnd = individualEnd != null ? individualEnd : cycleEnd;
-      return effectiveEnd == null || request.time <= effectiveEnd;
+      return individualEnd == null || request.time <= individualEnd;
     }
 
     // Contenido de las unidades: lectura para cualquier usuario con sesion.

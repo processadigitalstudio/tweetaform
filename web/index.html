@@ -79,7 +79,7 @@ const STRINGS = {
     login: "Log in", email: "Email", password: "Password", loginBtn: "Log in", loginError: "Incorrect email or password.",
     logout: "Log out", home: "Home", unit: "Unit", textN: (i, n) => `Text ${i} of ${n}`, audioN: (i, n) => `Audio ${i} of ${n}`,
     correctOutOf: (c, t) => `${c} out of ${t} correct`, loading: "Loading...", percentComplete: (p) => `${p}% complete`,
-    lessonComplete: "Lesson complete!", nextLesson: "Next", unitsCompleted: "units completed", lessonsWord: "lessons", showHint: "Show grammar hint", hideHint: "Hide grammar hint",
+    lessonComplete: "Lesson complete!", nextLesson: "Next", nextUnit: "Next unit", unitsCompleted: "units completed", lessonsWord: "lessons", showHint: "Show grammar hint", hideHint: "Hide grammar hint",
   },
   es: {
     tagline: "Tu curso de inglés",
@@ -94,7 +94,7 @@ const STRINGS = {
     login: "Iniciar sesión", email: "Correo", password: "Contraseña", loginBtn: "Iniciar sesión", loginError: "Correo o contraseña incorrectos.",
     logout: "Cerrar sesión", home: "Inicio", unit: "Unidad", textN: (i, n) => `Texto ${i} de ${n}`, audioN: (i, n) => `Audio ${i} de ${n}`,
     correctOutOf: (c, t) => `${c} de ${t} correctas`, loading: "Cargando...", percentComplete: (p) => `${p}% completado`,
-    lessonComplete: "¡Lección completada!", nextLesson: "Siguiente", unitsCompleted: "unidades completadas", lessonsWord: "lecciones", showHint: "Ver ayuda de gramática", hideHint: "Ocultar ayuda de gramática",
+    lessonComplete: "¡Lección completada!", nextLesson: "Siguiente", nextUnit: "Siguiente unidad", unitsCompleted: "unidades completadas", lessonsWord: "lecciones", showHint: "Ver ayuda de gramática", hideHint: "Ocultar ayuda de gramática",
   },
 };
 
@@ -678,9 +678,12 @@ function LoginScreen({ t }) {
 }
 
 // ---------------- MAPA DE UNIDAD ----------------
-function UnitMap({ unit, levelColor, progress, t, onOpenLesson, onBack }) {
+function UnitMap({ unit, levelColor, progress, t, visibleUnits, onOpenLesson, onOpenUnit, onBack }) {
   const doneCount = LESSON_ORDER.filter((k) => progress[k]).length;
   const pct = Math.round((doneCount / LESSON_ORDER.length) * 100);
+  const sortedIds = (visibleUnits || []).map((u) => u.unit_id).sort();
+  const myIdx = sortedIds.indexOf(unit.unit_id);
+  const nextUnit = myIdx >= 0 && myIdx < sortedIds.length - 1 ? visibleUnits.find((u) => u.unit_id === sortedIds[myIdx + 1]) : null;
 
   return (
     <div>
@@ -716,7 +719,12 @@ function UnitMap({ unit, levelColor, progress, t, onOpenLesson, onBack }) {
       {doneCount === LESSON_ORDER.length && (
         <div style={{ textAlign: "center", marginTop: 24 }}>
           <Stamp label={unit.level} />
-          <p style={{ fontFamily: font, fontSize: 16, color: C.ink, marginTop: 10, fontWeight: 700 }}>{t.unitComplete}</p>
+          <p style={{ fontFamily: font, fontSize: 16, color: C.ink, marginTop: 10, fontWeight: 700, marginBottom: 20 }}>{t.unitComplete}</p>
+          {nextUnit && (
+            <button onClick={() => onOpenUnit(nextUnit)} style={{ ...navBtn(false), padding: "12px 24px" }}>
+              {t.nextUnit}: {nextUnit.title} →
+            </button>
+          )}
         </div>
       )}
     </div>
@@ -1668,8 +1676,8 @@ function App() {
       <div style={{ maxWidth: 460, margin: "0 auto" }}>
         {!activeUnit && <LevelsScreen units={visibleUnits} t={t} name={profile.name} overallProgress={overallProgress} allProgress={allProgress} onOpenUnit={(u) => goToUnit(u.unit_id)} />}
         {activeUnit && !activeLesson && (
-          <UnitMap unit={activeUnit} levelColor={levelColor} progress={progress} t={t}
-            onOpenLesson={(k) => goToLesson(activeUnit.unit_id, k)} onBack={goHome} />
+          <UnitMap unit={activeUnit} levelColor={levelColor} progress={progress} t={t} visibleUnits={visibleUnits}
+            onOpenLesson={(k) => goToLesson(activeUnit.unit_id, k)} onOpenUnit={(u) => goToUnit(u.unit_id)} onBack={goHome} />
         )}
         {activeUnit && activeLesson && (
           <div>
