@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="google" content="notranslate" />
 <title>Tweetaform</title>
 </head>
-<body style="margin:0;">
+<body style="margin:0;" class="notranslate" translate="no">
 <div id="root"></div>
 
 <!-- Firebase (SDK clasico, sin "import" — mas compatible con navegadores administrados) -->
@@ -695,18 +696,16 @@ function UnitMap({ unit, levelColor, progress, t, onOpenLesson, onBack }) {
 
       {LESSON_ORDER.map((key, i) => {
         const done = progress[key];
-        const isQuiz = key === "quiz";
-        const locked = isQuiz && !LESSON_ORDER.slice(0, 5).every((k) => progress[k]);
         return (
-          <div key={key} onClick={() => !locked && onOpenLesson(key)}
-            style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 0", borderBottom: i < 5 ? `1px solid ${C.line}` : "none", cursor: locked ? "default" : "pointer", opacity: locked ? 0.5 : 1 }}>
+          <div key={key} onClick={() => onOpenLesson(key)}
+            style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 0", borderBottom: i < 5 ? `1px solid ${C.line}` : "none", cursor: "pointer" }}>
             <div style={{ width: 40, height: 40, borderRadius: "50%", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center",
               background: done ? C.ink : "#fff", border: `2px solid ${done ? C.ink : levelColor.main}` }}>
               <span style={{ color: done ? "#fff" : levelColor.main, fontFamily: font, fontWeight: 700 }}>{done ? "✓" : i + 1}</span>
             </div>
             <div>
               <p style={{ fontFamily: font, fontSize: 15, fontWeight: 600, color: C.ink, margin: 0 }}>{t.lessons[key]}</p>
-              <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: 0 }}>{done ? t.completed : locked ? t.lockedQuiz : t.available}</p>
+              <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: 0 }}>{done ? t.completed : t.available}</p>
             </div>
           </div>
         );
@@ -773,17 +772,37 @@ function LevelsScreen({ units, t, name, overallProgress, allProgress, onOpenUnit
 // ---------------- DASHBOARD DE MASTER ----------------
 function AdminDashboard({ t, onLogout }) {
   const [students, setStudents] = useState(null);
+  const [units, setUnits] = useState(null);
   const [expanded, setExpanded] = useState(null);
   const [progressByStudent, setProgressByStudent] = useState({});
   const LEVELS = ["A1", "A2", "B1", "B2"];
 
   useEffect(() => {
     (async () => {
-      const snap = await window.__db.collection("users").get();
-      const list = snap.docs
-        .map((d) => ({ uid: d.id, ...d.data() }))
-        .filter((u) => u.role === "student");
-      setStudents(list);
+      const [usersSnap, unitsSnap] = await Promise.all([
+        window.__db.collection("users").get(),
+        window.__db.collection("units").get(),
+      ]);
+      const allUnits = unitsSnap.docs.map((d) => d.data());
+      setUnits(allUnits);
+
+      const list = usersSnap.docs.map((d) => ({ uid: d.id, ...d.data() })).filter((u) => u.role === "student");
+
+      // Traer el progreso de TODOS de una vez, para poder mostrar el % en la lista sin tener que abrir cada uno
+      const withProgress = await Promise.all(list.map(async (s) => {
+        const psnap = await window.__db.collection("users").doc(s.uid).collection("progress").get();
+        const data = {};
+        psnap.docs.forEach((d) => { data[d.id] = d.data(); });
+        const levelUnits = allUnits.filter((u) => u.level === s.level);
+        const totalLessons = levelUnits.length * LESSON_ORDER.length;
+        const doneLessons = levelUnits.reduce((sum, u) => sum + LESSON_ORDER.filter((k) => data[u.unit_id]?.[k]).length, 0);
+        return { ...s, _progress: data, _pct: totalLessons ? Math.round((doneLessons / totalLessons) * 100) : 0 };
+      }));
+
+      setStudents(withProgress);
+      const pmap = {};
+      withProgress.forEach((s) => { pmap[s.uid] = s._progress; });
+      setProgressByStudent(pmap);
     })();
   }, []);
 
@@ -792,23 +811,12 @@ function AdminDashboard({ t, onLogout }) {
     setStudents((prev) => prev.map((s) => (s.uid === student.uid ? { ...s, level } : s)));
   };
 
-  const openProgress = async (student) => {
-    if (expanded === student.uid) { setExpanded(null); return; }
-    setExpanded(student.uid);
-    if (!progressByStudent[student.uid]) {
-      const snap = await window.__db.collection("users").doc(student.uid).collection("progress").get();
-      const data = {};
-      snap.docs.forEach((d) => { data[d.id] = d.data(); });
-      setProgressByStudent((prev) => ({ ...prev, [student.uid]: data }));
-    }
-  };
-
   return (
     <div style={{ background: C.bg, minHeight: "100vh", padding: "24px 18px", boxSizing: "border-box" }}>
       <button onClick={onLogout} style={{ position: "absolute", top: 18, right: 18, fontFamily: mono, fontSize: 12, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
         {t.logout}
       </button>
-      <div style={{ maxWidth: 640, margin: "0 auto", paddingTop: 20 }}>
+      <div style={{ maxWidth: 780, margin: "0 auto", paddingTop: 20 }}>
         <h1 style={{ fontFamily: font, fontSize: 26, color: C.ink, fontWeight: 800, marginBottom: 4 }}>Panel de administración</h1>
         <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 24 }}>{students ? `${students.length} estudiantes` : "Cargando..."}</p>
 
@@ -818,63 +826,74 @@ function AdminDashboard({ t, onLogout }) {
           </p>
         )}
 
-        {students && students.map((s) => (
-          <div key={s.uid} style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, marginBottom: 10, overflow: "hidden" }}>
-            <div style={{ padding: "14px 16px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }} onClick={() => openProgress(s)}>
-              <div>
-                <p style={{ fontFamily: font, fontSize: 15, fontWeight: 700, color: C.ink, margin: 0 }}>{s.name || s.email}</p>
-                <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, margin: 0 }}>{s.email}</p>
-              </div>
-              <span style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft }}>{expanded === s.uid ? "▲" : "▼"}</span>
+        {students && students.length > 0 && (
+          <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, overflow: "hidden" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "2fr 0.7fr 1fr 0.8fr 24px", gap: 8, padding: "10px 14px", background: C.cream, fontFamily: mono, fontSize: 10, color: C.inkSoft, letterSpacing: 1 }}>
+              <span>NOMBRE</span><span>NIVEL</span><span>PROGRESO</span><span>TIEMPO</span><span></span>
             </div>
-
-            <div style={{ padding: "0 16px 14px" }}>
-              <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginBottom: 6, letterSpacing: 1 }}>NIVEL HABILITADO (solo uno)</p>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                {LEVELS.map((lvl) => {
-                  const selected = s.level === lvl;
-                  const lc = LEVEL_COLORS[lvl];
-                  return (
-                    <button key={lvl} onClick={(e) => { e.stopPropagation(); setLevel(s, lvl); }}
-                      style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
-                        border: `1.5px solid ${selected ? lc.main : C.line}`, background: selected ? lc.soft : "#fff",
-                        color: selected ? C.ink : C.inkSoft, cursor: "pointer" }}>
-                      {lvl} {selected ? "✓" : ""}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {expanded === s.uid && (
-              <div style={{ borderTop: `1px solid ${C.line}`, padding: 16, background: C.cream }}>
-                {!progressByStudent[s.uid] && <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>{t.loading}</p>}
-                {progressByStudent[s.uid] && Object.keys(progressByStudent[s.uid]).length === 0 && (
-                  <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin actividad todavía.</p>
-                )}
-                {progressByStudent[s.uid] && Object.entries(progressByStudent[s.uid]).map(([unitId, p]) => (
-                  <div key={unitId} style={{ marginBottom: 12 }}>
-                    <p style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 4 }}>{unitId}</p>
-                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 6 }}>
-                      {LESSON_ORDER.map((k) => (
-                        <span key={k} style={{ fontFamily: mono, fontSize: 10, padding: "2px 8px", borderRadius: 999,
-                          background: p[k] ? C.ink : "#fff", color: p[k] ? "#fff" : C.inkSoft, border: `1px solid ${C.line}` }}>
-                          {k}
-                        </span>
-                      ))}
-                    </div>
-                    {p.writing_text && (
-                      <div style={{ background: "#fff", borderRadius: 8, padding: 10, marginTop: 4 }}>
-                        <p style={{ fontFamily: font, fontSize: 12, color: C.inkSoft, marginBottom: 4 }}>Writing enviado:</p>
-                        <p style={{ fontFamily: font, fontSize: 13, color: C.ink, whiteSpace: "pre-wrap" }}>{p.writing_text}</p>
-                      </div>
-                    )}
+            {students.map((s) => (
+              <div key={s.uid}>
+                <div onClick={() => setExpanded(expanded === s.uid ? null : s.uid)}
+                  style={{ display: "grid", gridTemplateColumns: "2fr 0.7fr 1fr 0.8fr 24px", gap: 8, alignItems: "center", padding: "12px 14px", borderTop: `1px solid ${C.line}`, cursor: "pointer" }}>
+                  <div style={{ overflow: "hidden" }}>
+                    <p style={{ fontFamily: font, fontSize: 14, fontWeight: 700, color: C.ink, margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{s.name || s.email}</p>
+                    <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, margin: 0 }}>{s.email}</p>
                   </div>
-                ))}
+                  <span style={{ fontFamily: mono, fontSize: 11, fontWeight: 700, color: LEVEL_COLORS[s.level]?.main || C.inkSoft }}>{s.level || "—"}</span>
+                  <div>
+                    <ProgressBar pct={s._pct} color={LEVEL_COLORS[s.level]?.main} />
+                    <span style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft }}>{s._pct}%</span>
+                  </div>
+                  <span style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft }}>{s.totalMinutes ? `${s.totalMinutes}m` : "—"}</span>
+                  <span style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, textAlign: "center" }}>{expanded === s.uid ? "▲" : "▼"}</span>
+                </div>
+
+                {expanded === s.uid && (
+                  <div style={{ borderTop: `1px solid ${C.line}`, padding: 16, background: C.cream }}>
+                    <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginBottom: 6, letterSpacing: 1 }}>NIVEL HABILITADO (solo uno)</p>
+                    <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16 }}>
+                      {LEVELS.map((lvl) => {
+                        const selected = s.level === lvl;
+                        const lc = LEVEL_COLORS[lvl];
+                        return (
+                          <button key={lvl} onClick={(e) => { e.stopPropagation(); setLevel(s, lvl); }}
+                            style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999,
+                              border: `1.5px solid ${selected ? lc.main : C.line}`, background: selected ? lc.soft : "#fff",
+                              color: selected ? C.ink : C.inkSoft, cursor: "pointer" }}>
+                            {lvl} {selected ? "✓" : ""}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {Object.keys(progressByStudent[s.uid] || {}).length === 0 && (
+                      <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>Sin actividad todavía.</p>
+                    )}
+                    {Object.entries(progressByStudent[s.uid] || {}).map(([unitId, p]) => (
+                      <div key={unitId} style={{ marginBottom: 12 }}>
+                        <p style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, color: C.ink, marginBottom: 4 }}>{unitId}</p>
+                        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 6 }}>
+                          {LESSON_ORDER.map((k) => (
+                            <span key={k} style={{ fontFamily: mono, fontSize: 10, padding: "2px 8px", borderRadius: 999,
+                              background: p[k] ? C.ink : "#fff", color: p[k] ? "#fff" : C.inkSoft, border: `1px solid ${C.line}` }}>
+                              {k}{p.quiz_score != null && k === "quiz" ? ` ${p.quiz_score}%` : ""}
+                            </span>
+                          ))}
+                        </div>
+                        {p.writing_text && (
+                          <div style={{ background: "#fff", borderRadius: 8, padding: 10, marginTop: 4 }}>
+                            <p style={{ fontFamily: font, fontSize: 12, color: C.inkSoft, marginBottom: 4 }}>Writing enviado:</p>
+                            <p style={{ fontFamily: font, fontSize: 13, color: C.ink, whiteSpace: "pre-wrap" }}>{p.writing_text}</p>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
+            ))}
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
@@ -963,6 +982,20 @@ function App() {
       snap.docs.forEach((d) => { data[d.id] = d.data(); });
       setAllProgress(data);
     })();
+  }, [user, profile]);
+
+  // Registrar tiempo en la plataforma: suma 1 minuto cada 60 segundos mientras la pestana esta activa
+  useEffect(() => {
+    if (!user || profile?.role !== "student") return;
+    const interval = setInterval(() => {
+      if (document.visibilityState === "visible") {
+        window.__db.collection("users").doc(user.uid).set(
+          { totalMinutes: firebase.firestore.FieldValue.increment(1) },
+          { merge: true }
+        );
+      }
+    }, 60000);
+    return () => clearInterval(interval);
   }, [user, profile]);
 
   const activeUnit = units ? units.find((u) => u.unit_id === route.unitId) || null : null;
