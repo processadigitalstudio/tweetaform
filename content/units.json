@@ -1797,53 +1797,93 @@
     },
     "grammar_practice": [
       {
-        "type": "fill_blank",
-        "q": "There ___ a menu on the table. (is/are)",
+        "type": "mcq",
+        "q": "There _____ a menu on the table.",
+        "options": [
+          "is",
+          "are"
+        ],
         "answer": "is"
       },
       {
-        "type": "fill_blank",
-        "q": "There ___ three waiters today. (is/are)",
+        "type": "mcq",
+        "q": "There _____ three waiters today.",
+        "options": [
+          "is",
+          "are"
+        ],
         "answer": "are"
       },
       {
-        "type": "fill_blank",
-        "q": "I would like ___ apple. (a/an)",
+        "type": "mcq",
+        "q": "I would like _____ apple.",
+        "options": [
+          "a",
+          "an"
+        ],
         "answer": "an"
       },
       {
-        "type": "fill_blank",
-        "q": "I would like ___ sandwich. (a/an)",
+        "type": "mcq",
+        "q": "I would like _____ sandwich.",
+        "options": [
+          "a",
+          "an"
+        ],
         "answer": "a"
       },
       {
-        "type": "fill_blank",
-        "q": "There ___ a chef in the kitchen.",
+        "type": "mcq",
+        "q": "There _____ a chef in the kitchen.",
+        "options": [
+          "is",
+          "are"
+        ],
         "answer": "is"
       },
       {
-        "type": "fill_blank",
-        "q": "There ___ five tables in this restaurant.",
+        "type": "mcq",
+        "q": "There _____ five tables in this restaurant.",
+        "options": [
+          "is",
+          "are"
+        ],
         "answer": "are"
       },
       {
-        "type": "fill_blank",
-        "q": "Can I have ___ orange juice, please? (a/an)",
+        "type": "mcq",
+        "q": "Can I have _____ orange juice, please?",
+        "options": [
+          "a",
+          "an"
+        ],
         "answer": "an"
       },
       {
-        "type": "fill_blank",
-        "q": "There ___ two desserts on the menu.",
+        "type": "mcq",
+        "q": "There _____ two desserts on the menu.",
+        "options": [
+          "is",
+          "are"
+        ],
         "answer": "are"
       },
       {
-        "type": "fill_blank",
-        "q": "There ___ a bill on the table.",
+        "type": "mcq",
+        "q": "There _____ a bill on the table.",
+        "options": [
+          "is",
+          "are"
+        ],
         "answer": "is"
       },
       {
-        "type": "fill_blank",
-        "q": "There ___ many dishes to choose from.",
+        "type": "mcq",
+        "q": "There _____ many dishes to choose from.",
+        "options": [
+          "is",
+          "are"
+        ],
         "answer": "are"
       },
       {
@@ -1912,7 +1952,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja el sustantivo con su plural",
+        "q": "Match the noun with its plural",
         "pairs": [
           {
             "left": "table",
@@ -1930,7 +1970,7 @@
       },
       {
         "type": "order_words",
-        "q": "Ordena la oración:",
+        "q": "Put the words in the correct order:",
         "words": [
           "are",
           "There",
@@ -2066,13 +2106,18 @@
         "answer": "The chef"
       },
       {
-        "type": "fill_blank",
-        "q": "Can I see the ___, please? (lo que muestra los platos disponibles)",
+        "type": "mcq",
+        "q": "Can I see the _____, please? (the list of dishes you can order)",
+        "options": [
+          "menu",
+          "bill",
+          "chef"
+        ],
         "answer": "menu"
       },
       {
         "type": "matching",
-        "q": "Empareja la palabra con su significado",
+        "q": "Match the word with its meaning",
         "pairs": [
           {
             "left": "bill",
@@ -2104,8 +2149,13 @@
         "answer": "The bill"
       },
       {
-        "type": "fill_blank",
-        "q": "For ___, I want ice cream. (lo dulce al final)",
+        "type": "mcq",
+        "q": "For _____, I want ice cream. (the sweet food at the end of a meal)",
+        "options": [
+          "dessert",
+          "menu",
+          "bill"
+        ],
         "answer": "dessert"
       },
       {
@@ -2115,7 +2165,7 @@
       },
       {
         "type": "mcq",
-        "q": "Which word means 'pedir comida'?",
+        "q": "Which word means 'to ask for food or drinks'?",
         "options": [
           "to order",
           "to drink",
@@ -2125,7 +2175,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja el utensilio con su uso",
+        "q": "Match the utensil with its use",
         "pairs": [
           {
             "left": "fork",
@@ -2187,8 +2237,12 @@
             "answer": "Chocolate cake"
           },
           {
-            "q": "There ___ many delicious dishes. (completa)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "There _____ many delicious dishes.",
+            "options": [
+              "is",
+              "are"
+            ],
             "answer": "are"
           }
         ]
@@ -2301,21 +2355,25 @@
             "answer": true
           },
           {
-            "q": "There ___ a chocolate cake on the menu. (completa)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "There _____ a chocolate cake on the menu.",
+            "options": [
+              "is",
+              "are"
+            ],
             "answer": "is"
           },
           {
-            "q": "Empareja quién dice qué",
+            "q": "Match who says what",
             "type": "matching",
             "pairs": [
               {
                 "left": "Are you ready to order?",
-                "right": "El mesero"
+                "right": "The waiter"
               },
               {
                 "left": "I'll have that.",
-                "right": "El cliente"
+                "right": "The customer"
               }
             ]
           }
@@ -2372,8 +2430,12 @@
             "answer": "The chocolate cake"
           },
           {
-            "q": "The restaurant ___ cash and cards. (completa con accepts/accept)",
-            "type": "fill_blank",
+            "type": "mcq",
+            "q": "The restaurant _____ cash and cards.",
+            "options": [
+              "accepts",
+              "accept"
+            ],
             "answer": "accepts"
           }
         ],
@@ -2426,13 +2488,21 @@
         "answer": "are"
       },
       {
-        "type": "fill_blank",
-        "q": "I want ___ orange, please. (a/an)",
+        "type": "mcq",
+        "q": "I want _____ orange, please.",
+        "options": [
+          "a",
+          "an"
+        ],
         "answer": "an"
       },
       {
-        "type": "fill_blank",
-        "q": "I want ___ banana, please. (a/an)",
+        "type": "mcq",
+        "q": "I want _____ banana, please.",
+        "options": [
+          "a",
+          "an"
+        ],
         "answer": "a"
       },
       {
@@ -2478,13 +2548,18 @@
         "answer": "The chef"
       },
       {
-        "type": "fill_blank",
-        "q": "For ___, I want ice cream.",
+        "type": "mcq",
+        "q": "For _____, I want ice cream.",
+        "options": [
+          "dessert",
+          "menu",
+          "bill"
+        ],
         "answer": "dessert"
       },
       {
         "type": "matching",
-        "q": "Empareja el sustantivo con su plural",
+        "q": "Match the noun with its plural",
         "pairs": [
           {
             "left": "table",
@@ -2498,7 +2573,7 @@
       },
       {
         "type": "order_words",
-        "q": "Ordena la oración:",
+        "q": "Put the words in the correct order:",
         "words": [
           "are",
           "There",
@@ -2519,7 +2594,7 @@
       },
       {
         "type": "mcq",
-        "q": "Which word means 'pedir comida'?",
+        "q": "Which word means 'to ask for food or drinks'?",
         "options": [
           "to order",
           "to drink",
@@ -2528,8 +2603,12 @@
         "answer": "to order"
       },
       {
-        "type": "fill_blank",
-        "q": "There ___ a chef in the kitchen.",
+        "type": "mcq",
+        "q": "There _____ a chef in the kitchen.",
+        "options": [
+          "is",
+          "are"
+        ],
         "answer": "is"
       },
       {
@@ -2548,7 +2627,7 @@
       },
       {
         "type": "matching",
-        "q": "Empareja la palabra con su significado",
+        "q": "Match the word with its meaning",
         "pairs": [
           {
             "left": "bill",
@@ -2566,8 +2645,12 @@
         "answer": false
       },
       {
-        "type": "fill_blank",
-        "q": "There ___ many dishes to choose from.",
+        "type": "mcq",
+        "q": "There _____ many dishes to choose from.",
+        "options": [
+          "is",
+          "are"
+        ],
         "answer": "are"
       },
       {

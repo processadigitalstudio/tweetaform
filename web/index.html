@@ -1065,6 +1065,10 @@ function App() {
                 {activeLesson === "listening" && <ListeningLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("listening")} />}
                 {activeLesson === "writing" && <WritingLesson unit={activeUnit} levelColor={levelColor} t={t} lang={lang} onComplete={(text) => markComplete("writing", { writing_text: text, writing_submitted_at: new Date().toISOString() })} />}
                 {activeLesson === "quiz" && <QuizLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={(score) => markComplete("quiz", { quiz_score: score })} />}
+                <button onClick={() => goToUnit(activeUnit.unit_id)}
+                  style={{ ...navBtn(false), width: "100%", marginTop: 30, background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>
+                  ← {t.backToUnit}
+                </button>
               </>
             )}
           </div>
