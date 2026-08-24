@@ -42,12 +42,13 @@ service cloud.firestore {
     //   auto-asignarse el rol de master ni habilitarse niveles el mismo.
     match /users/{userId} {
       allow read: if request.auth != null && (request.auth.uid == userId || isMaster());
-      // El master puede escribir cualquier cosa. Un estudiante SOLO puede actualizar
-      // su propio campo totalMinutes (para el conteo de tiempo) — nada mas, para que
-      // nunca pueda cambiarse el rol o el nivel el mismo.
+      // El master puede escribir cualquier cosa. Un estudiante puede actualizar su
+      // propio documento (ej. totalMinutes, currentPassword) SIEMPRE Y CUANDO no
+      // toque su propio rol ni su nivel — asi nunca puede auto-asignarse mas acceso.
       allow write: if isMaster() ||
         (request.auth != null && request.auth.uid == userId &&
-         request.resource.data.diff(resource.data).affectedKeys().hasOnly(["totalMinutes"]));
+         request.resource.data.get("role", "") == resource.data.get("role", "") &&
+         request.resource.data.get("level", null) == resource.data.get("level", null));
     }
 
     // Progreso de cada estudiante (incluye el texto del writing):
@@ -74,9 +75,12 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
-    // Ciclos de estudio (fechas de inicio/fin de cada clase): solo el master.
+    // Ciclos de estudio (fechas de inicio/fin de cada clase):
+    // el master puede todo. Un estudiante puede leer SOLO el ciclo al que el
+    // mismo pertenece (para saber si ya vencio), nada mas.
     match /studyCycles/{cycleId} {
-      allow read, write: if isMaster();
+      allow read: if isMaster() || (request.auth != null && myProfile().get("cycleId", null) == cycleId);
+      allow write: if isMaster();
     }
 
     match /{document=**} {
