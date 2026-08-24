@@ -806,7 +806,16 @@ function CreateStudentForm({ onCreated }) {
   const parseLines = () =>
     bulkText.split("\n").map((l) => l.trim()).filter(Boolean).map((line) => {
       const parts = line.split(",").map((p) => p.trim());
-      return { name: parts[0] || "", email: parts[1] || "", level: (parts[2] || "A1").toUpperCase(), cycleCode: parts[3] || "" };
+      const firstName = parts[0] || "";
+      const lastName = parts[1] || "";
+      return {
+        firstName, lastName,
+        name: `${firstName} ${lastName}`.trim(),
+        email: parts[2] || "",
+        level: (parts[3] || "A1").toUpperCase(),
+        cycleCode: parts[4] || "",
+        sede: parts[5] || "",
+      };
     });
 
   const createAll = async () => {
@@ -816,7 +825,7 @@ function CreateStudentForm({ onCreated }) {
     const newResults = [];
     const cyclesSeen = new Set();
     for (const row of rows) {
-      if (!row.name || !row.email || !LEVELS.includes(row.level)) {
+      if (!row.firstName || !row.email || !LEVELS.includes(row.level)) {
         newResults.push({ ...row, password: "", status: "Fila incompleta o nivel invalido" });
         setResults([...newResults]);
         continue;
@@ -835,10 +844,10 @@ function CreateStudentForm({ onCreated }) {
         }
 
         await window.__db.collection("users").doc(uid).set({
-          role: "student", name: row.name, email: row.email, level: row.level,
-          cycleId: row.cycleCode || null, currentPassword: password,
+          role: "student", name: row.name, firstName: row.firstName, email: row.email, level: row.level,
+          cycleId: row.cycleCode || null, sede: row.sede || null, currentPassword: password,
         });
-        await logChange("crear_estudiante", row.email, `Nivel: ${row.level}${row.cycleCode ? `, Ciclo: ${row.cycleCode}` : ""}`);
+        await logChange("crear_estudiante", row.email, `Nivel: ${row.level}${row.cycleCode ? `, Ciclo: ${row.cycleCode}` : ""}${row.sede ? `, Sede: ${row.sede}` : ""}`);
         newResults.push({ ...row, password, status: "✅ Creado" });
       } catch (err) {
         newResults.push({ ...row, password: "", status: err.code === "auth/email-already-in-use" ? "⏭️ Ya existía" : "❌ Error" });
@@ -851,8 +860,8 @@ function CreateStudentForm({ onCreated }) {
   };
 
   const downloadCSV = () => {
-    const header = "name,email,password,level,cycle,status\n";
-    const body = results.map((r) => `${r.name},${r.email},${r.password},${r.level},${r.cycleCode},${r.status}`).join("\n");
+    const header = "firstName,lastName,email,password,level,cycle,sede,status\n";
+    const body = results.map((r) => `${r.firstName},${r.lastName},${r.email},${r.password},${r.level},${r.cycleCode},${r.sede},${r.status}`).join("\n");
     const blob = new Blob([header + body], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -867,10 +876,10 @@ function CreateStudentForm({ onCreated }) {
   return (
     <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
       <p style={{ fontFamily: font, fontSize: 13, color: C.ink, marginBottom: 6 }}>
-        Pega una fila por estudiante: <b>Nombre, Correo, Nivel, Ciclo</b> (el ciclo es opcional — ej. C12026-1 — y se crea solo si no existe). La contraseña se genera sola.
+        Pega una fila por estudiante: <b>Nombre, Apellido, Correo, Nivel, Ciclo, Sede</b> (Ciclo y Sede son opcionales — Sede es solo informativa, ej. Cartagena/Sincelejo/Barranquilla). La contraseña se genera sola.
       </p>
       <textarea value={bulkText} onChange={(e) => setBulkText(e.target.value)} rows={6}
-        placeholder={"Juan Perez, juan.perez@tweetalig.local, A1, C12026-1\nMaria Gomez, maria.gomez@tweetalig.local, A2, C12026-1"}
+        placeholder={"Juan, Perez, juan.perez@tweetalig.local, A1, C12026-1, Cartagena\nMaria, Gomez, maria.gomez@tweetalig.local, A2, C12026-1, Sincelejo"}
         style={{ width: "100%", fontFamily: mono, fontSize: 12, padding: 10, borderRadius: 8, border: `1px solid ${C.line}`, boxSizing: "border-box", marginBottom: 10 }} />
       <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
         <button onClick={createAll} disabled={creating || !bulkText.trim()} style={navBtn(creating || !bulkText.trim())}>
@@ -883,8 +892,8 @@ function CreateStudentForm({ onCreated }) {
         <div>
           <div style={{ maxHeight: 220, overflowY: "auto", border: `1px solid ${C.line}`, borderRadius: 8, marginBottom: 10 }}>
             {results.map((r, i) => (
-              <div key={i} style={{ display: "grid", gridTemplateColumns: "1.3fr 1.8fr 0.9fr 0.5fr 0.7fr 1.1fr", gap: 6, padding: "6px 10px", borderBottom: `1px solid ${C.line}`, fontFamily: mono, fontSize: 11 }}>
-                <span>{r.name}</span><span>{r.email}</span><span>{r.password}</span><span>{r.level}</span><span>{r.cycleCode}</span><span>{r.status}</span>
+              <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.6fr 0.8fr 0.5fr 0.7fr 0.8fr 1fr", gap: 6, padding: "6px 10px", borderBottom: `1px solid ${C.line}`, fontFamily: mono, fontSize: 11 }}>
+                <span>{r.firstName}</span><span>{r.lastName}</span><span>{r.email}</span><span>{r.password}</span><span>{r.level}</span><span>{r.cycleCode}</span><span>{r.sede}</span><span>{r.status}</span>
               </div>
             ))}
           </div>
@@ -1088,19 +1097,19 @@ function AdminDashboard({ t, onLogout }) {
   const filteredStudents = students ? students.filter((s) => !cycleFilter || s.cycleId === cycleFilter) : null;
 
   const downloadStudentsCSV = () => {
-    const header = "name,email,level,cycle,enrollment_end_date,total_minutes,overall_pct,unit_id,vocab,grammar,reading,listening,writing,quiz,quiz_score\n";
+    const header = "name,email,sede,level,cycle,enrollment_end_date,total_minutes,overall_pct,unit_id,vocab,grammar,reading,listening,writing,quiz,quiz_score\n";
     const rows = [];
     filteredStudents.forEach((s) => {
       const cycleName = (cycles || []).find((c) => c.id === s.cycleId)?.name || "";
       const p = progressByStudent[s.uid] || {};
       const unitIds = Object.keys(p);
       if (unitIds.length === 0) {
-        rows.push([s.name, s.email, s.level || "", cycleName, timestampToDateStr(s.enrollmentEndDate), s.totalMinutes || 0, s._pct, "", "", "", "", "", "", "", ""].join(","));
+        rows.push([s.name, s.email, s.sede || "", s.level || "", cycleName, timestampToDateStr(s.enrollmentEndDate), s.totalMinutes || 0, s._pct, "", "", "", "", "", "", "", ""].join(","));
       } else {
         unitIds.forEach((unitId) => {
           const up = p[unitId];
           rows.push([
-            s.name, s.email, s.level || "", cycleName, timestampToDateStr(s.enrollmentEndDate), s.totalMinutes || 0, s._pct,
+            s.name, s.email, s.sede || "", s.level || "", cycleName, timestampToDateStr(s.enrollmentEndDate), s.totalMinutes || 0, s._pct,
             unitId, up.vocab ? "1" : "0", up.grammar ? "1" : "0", up.reading ? "1" : "0", up.listening ? "1" : "0", up.writing ? "1" : "0", up.quiz ? "1" : "0", up.quiz_score ?? "",
           ].join(","));
         });
@@ -1199,7 +1208,8 @@ function AdminDashboard({ t, onLogout }) {
           return (
             <div>
               <h2 style={{ fontFamily: font, fontSize: 22, color: C.ink, fontWeight: 800, marginBottom: 4 }}>{s.name || s.email}</h2>
-              <p style={{ fontFamily: mono, fontSize: 13, color: C.inkSoft, marginBottom: 20 }}>{s.email}</p>
+              <p style={{ fontFamily: mono, fontSize: 13, color: C.inkSoft, marginBottom: 4 }}>{s.email}</p>
+              <p style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, marginBottom: 20 }}>Sede: {s.sede || "—"}</p>
 
               <PasswordBox student={s} onUpdated={(pw) => setStudents((prev) => prev.map((st) => (st.uid === s.uid ? { ...st, currentPassword: pw } : st)))} />
 
@@ -1697,7 +1707,7 @@ function App() {
       )}
       <div style={{ padding: "24px 18px" }}>
       <div style={{ maxWidth: 460, margin: "0 auto" }}>
-        {!activeUnit && <LevelsScreen units={visibleUnits} t={t} name={profile.name} overallProgress={overallProgress} allProgress={allProgress} onOpenUnit={(u) => goToUnit(u.unit_id)} />}
+        {!activeUnit && <LevelsScreen units={visibleUnits} t={t} name={profile.firstName || (profile.name || "").split(" ")[0]} overallProgress={overallProgress} allProgress={allProgress} onOpenUnit={(u) => goToUnit(u.unit_id)} />}
         {activeUnit && !activeLesson && (
           <UnitMap unit={activeUnit} levelColor={levelColor} progress={progress} t={t} visibleUnits={visibleUnits}
             onOpenLesson={(k) => goToLesson(activeUnit.unit_id, k)} onOpenUnit={(u) => goToUnit(u.unit_id)} onBack={goHome} />
