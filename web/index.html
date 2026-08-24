@@ -792,7 +792,7 @@ function CreateStudentForm({ onCreated }) {
   const parseLines = () =>
     bulkText.split("\n").map((l) => l.trim()).filter(Boolean).map((line) => {
       const parts = line.split(",").map((p) => p.trim());
-      return { name: parts[0] || "", email: parts[1] || "", level: (parts[2] || "A1").toUpperCase() };
+      return { name: parts[0] || "", email: parts[1] || "", level: (parts[2] || "A1").toUpperCase(), cycleCode: parts[3] || "" };
     });
 
   const createAll = async () => {
@@ -800,6 +800,7 @@ function CreateStudentForm({ onCreated }) {
     if (rows.length === 0) return;
     setCreating(true);
     const newResults = [];
+    const cyclesSeen = new Set();
     for (const row of rows) {
       if (!row.name || !row.email || !LEVELS.includes(row.level)) {
         newResults.push({ ...row, password: "", status: "Fila incompleta o nivel invalido" });
@@ -812,8 +813,18 @@ function CreateStudentForm({ onCreated }) {
         const cred = await secondaryAuth.createUserWithEmailAndPassword(row.email, password);
         const uid = cred.user.uid;
         await secondaryAuth.signOut();
-        await window.__db.collection("users").doc(uid).set({ role: "student", name: row.name, email: row.email, level: row.level });
-        await logChange("crear_estudiante", row.email, `Nivel: ${row.level}`);
+
+        // Si trae codigo de ciclo, crea el ciclo (si no existia) y lo asigna al estudiante
+        if (row.cycleCode && !cyclesSeen.has(row.cycleCode)) {
+          await window.__db.collection("studyCycles").doc(row.cycleCode).set({ name: row.cycleCode }, { merge: true });
+          cyclesSeen.add(row.cycleCode);
+        }
+
+        await window.__db.collection("users").doc(uid).set({
+          role: "student", name: row.name, email: row.email, level: row.level,
+          cycleId: row.cycleCode || null,
+        });
+        await logChange("crear_estudiante", row.email, `Nivel: ${row.level}${row.cycleCode ? `, Ciclo: ${row.cycleCode}` : ""}`);
         newResults.push({ ...row, password, status: "✅ Creado" });
       } catch (err) {
         newResults.push({ ...row, password: "", status: err.code === "auth/email-already-in-use" ? "⏭️ Ya existía" : "❌ Error" });
@@ -826,8 +837,8 @@ function CreateStudentForm({ onCreated }) {
   };
 
   const downloadCSV = () => {
-    const header = "name,email,password,level,status\n";
-    const body = results.map((r) => `${r.name},${r.email},${r.password},${r.level},${r.status}`).join("\n");
+    const header = "name,email,password,level,cycle,status\n";
+    const body = results.map((r) => `${r.name},${r.email},${r.password},${r.level},${r.cycleCode},${r.status}`).join("\n");
     const blob = new Blob([header + body], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -842,10 +853,10 @@ function CreateStudentForm({ onCreated }) {
   return (
     <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
       <p style={{ fontFamily: font, fontSize: 13, color: C.ink, marginBottom: 6 }}>
-        Pega una fila por estudiante: <b>Nombre, Correo, Nivel</b> (A1/A2/B1/B2). La contraseña se genera sola.
+        Pega una fila por estudiante: <b>Nombre, Correo, Nivel, Ciclo</b> (el ciclo es opcional — ej. C12026-1 — y se crea solo si no existe). La contraseña se genera sola.
       </p>
       <textarea value={bulkText} onChange={(e) => setBulkText(e.target.value)} rows={6}
-        placeholder={"Juan Perez, juan.perez@tweetalig.local, A1\nMaria Gomez, maria.gomez@tweetalig.local, A2"}
+        placeholder={"Juan Perez, juan.perez@tweetalig.local, A1, C12026-1\nMaria Gomez, maria.gomez@tweetalig.local, A2, C12026-1"}
         style={{ width: "100%", fontFamily: mono, fontSize: 12, padding: 10, borderRadius: 8, border: `1px solid ${C.line}`, boxSizing: "border-box", marginBottom: 10 }} />
       <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
         <button onClick={createAll} disabled={creating || !bulkText.trim()} style={navBtn(creating || !bulkText.trim())}>
@@ -858,8 +869,8 @@ function CreateStudentForm({ onCreated }) {
         <div>
           <div style={{ maxHeight: 220, overflowY: "auto", border: `1px solid ${C.line}`, borderRadius: 8, marginBottom: 10 }}>
             {results.map((r, i) => (
-              <div key={i} style={{ display: "grid", gridTemplateColumns: "1.5fr 2fr 1fr 0.6fr 1.3fr", gap: 6, padding: "6px 10px", borderBottom: `1px solid ${C.line}`, fontFamily: mono, fontSize: 11 }}>
-                <span>{r.name}</span><span>{r.email}</span><span>{r.password}</span><span>{r.level}</span><span>{r.status}</span>
+              <div key={i} style={{ display: "grid", gridTemplateColumns: "1.3fr 1.8fr 0.9fr 0.5fr 0.7fr 1.1fr", gap: 6, padding: "6px 10px", borderBottom: `1px solid ${C.line}`, fontFamily: mono, fontSize: 11 }}>
+                <span>{r.name}</span><span>{r.email}</span><span>{r.password}</span><span>{r.level}</span><span>{r.cycleCode}</span><span>{r.status}</span>
               </div>
             ))}
           </div>
@@ -986,14 +997,17 @@ function AdminDashboard({ t, onLogout }) {
   };
 
   const addCycle = async (name, startDate, endDate) => {
-    const ref = await window.__db.collection("studyCycles").add({ name, startDate, endDate });
-    setCycles((prev) => [{ id: ref.id, name, startDate, endDate }, ...(prev || [])]);
+    await window.__db.collection("studyCycles").doc(name).set({ name, startDate, endDate });
+    setCycles((prev) => [{ id: name, name, startDate, endDate }, ...(prev || []).filter((c) => c.id !== name)]);
   };
+
+  const [cycleFilter, setCycleFilter] = useState("");
+  const filteredStudents = students ? students.filter((s) => !cycleFilter || s.cycleId === cycleFilter) : null;
 
   const downloadStudentsCSV = () => {
     const header = "name,email,level,cycle,enrollment_end_date,total_minutes,overall_pct,unit_id,vocab,grammar,reading,listening,writing,quiz,quiz_score\n";
     const rows = [];
-    students.forEach((s) => {
+    filteredStudents.forEach((s) => {
       const cycleName = (cycles || []).find((c) => c.id === s.cycleId)?.name || "";
       const p = progressByStudent[s.uid] || {};
       const unitIds = Object.keys(p);
@@ -1034,30 +1048,41 @@ function AdminDashboard({ t, onLogout }) {
 
         {view === "main" && (
           <>
-            <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 24 }}>{students ? `${students.length} estudiantes` : "Cargando..."}</p>
+            <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft, marginBottom: 24 }}>
+              {filteredStudents ? `${filteredStudents.length} estudiantes${cycleFilter ? ` en ${cycleFilter}` : ""}` : "Cargando..."}
+            </p>
 
-            <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap", alignItems: "center" }}>
               <CreateStudentForm onCreated={() => setReloadFlag((f) => f + 1)} />
               <button onClick={openLog} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>📋 Historial de cambios</button>
               <button onClick={openReports} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>🐛 Reportes de problemas</button>
               <button onClick={() => setView("cycles")} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>📅 Ciclos de estudio</button>
-              {students && students.length > 0 && (
-                <button onClick={downloadStudentsCSV} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>⬇️ Descargar CSV de progreso</button>
+              {filteredStudents && filteredStudents.length > 0 && (
+                <button onClick={downloadStudentsCSV} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>
+                  ⬇️ Descargar CSV{cycleFilter ? ` (${cycleFilter})` : ""}
+                </button>
+              )}
+              {cycles && cycles.length > 0 && (
+                <select value={cycleFilter} onChange={(e) => setCycleFilter(e.target.value)}
+                  style={{ fontFamily: font, fontSize: 13, padding: 8, borderRadius: 8, border: `1px solid ${C.line}` }}>
+                  <option value="">Todos los ciclos</option>
+                  {cycles.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+                </select>
               )}
             </div>
 
-            {students && students.length === 0 && (
+            {filteredStudents && filteredStudents.length === 0 && (
               <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft }}>
-                Todavía no hay estudiantes. Créalos con "+ Crear estudiantes" arriba.
+                {cycleFilter ? "Ningún estudiante en ese ciclo." : 'Todavía no hay estudiantes. Créalos con "+ Crear estudiantes" arriba.'}
               </p>
             )}
 
-            {students && students.length > 0 && (
+            {filteredStudents && filteredStudents.length > 0 && (
               <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 12, overflow: "hidden" }}>
                 <div style={{ display: "grid", gridTemplateColumns: "2fr 0.6fr 1fr 0.7fr 1fr 40px", gap: 8, padding: "10px 16px", background: C.cream, fontFamily: mono, fontSize: 10, color: C.inkSoft, letterSpacing: 1 }}>
                   <span>NOMBRE</span><span>NIVEL</span><span>PROGRESO</span><span>TIEMPO</span><span>CICLO</span><span></span>
                 </div>
-                {students.map((s) => (
+                {filteredStudents.map((s) => (
                   <div key={s.uid} onClick={() => { setProfileUid(s.uid); setView("profile"); }}
                     style={{ display: "grid", gridTemplateColumns: "2fr 0.6fr 1fr 0.7fr 1fr 40px", gap: 8, alignItems: "center", padding: "12px 16px", borderTop: `1px solid ${C.line}`, cursor: "pointer" }}>
                     <div style={{ overflow: "hidden" }}>
