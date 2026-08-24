@@ -23,7 +23,12 @@ service cloud.firestore {
     //   auto-asignarse el rol de master ni habilitarse niveles el mismo.
     match /users/{userId} {
       allow read: if request.auth != null && (request.auth.uid == userId || isMaster());
-      allow write: if isMaster();
+      // El master puede escribir cualquier cosa. Un estudiante SOLO puede actualizar
+      // su propio campo totalMinutes (para el conteo de tiempo) — nada mas, para que
+      // nunca pueda cambiarse el rol o el nivel el mismo.
+      allow write: if isMaster() ||
+        (request.auth != null && request.auth.uid == userId &&
+         request.resource.data.diff(resource.data).affectedKeys().hasOnly(["totalMinutes"]));
     }
 
     // Progreso de cada estudiante (incluye el texto del writing):
