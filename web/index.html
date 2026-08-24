@@ -71,7 +71,7 @@ const STRINGS = {
     levels: "Levels", lesson: "LESSON",
     lessons: { vocab: "Vocabulary", grammar: "Grammar", reading: "Reading", listening: "Listening", writing: "Writing", quiz: "Unit quiz" },
     completed: "Completed", available: "Available", lockedQuiz: "Complete the 5 lessons first",
-    unitComplete: "Unit complete!", previous: "Previous", next: "Next", finishLesson: "Finish lesson",
+    unitComplete: "Unit complete!", allLessonsDone: "All lessons done!", levelComplete: "Level complete! 🎉", previous: "Previous", next: "Next", finishLesson: "Finish lesson",
     guidedPractice: "Practice", commonMistake: "Common mistake: ",
     playAudio: "Play audio", playAgain: "Play again", send: "Send", sent: "Sent ✓",
     quizTitle: "Unit quiz", quizSubtitle: "Final assessment", backToUnit: "Back to unit",
@@ -86,7 +86,7 @@ const STRINGS = {
     levels: "Niveles", lesson: "LECCIÓN",
     lessons: { vocab: "Vocabulario", grammar: "Gramática", reading: "Reading", listening: "Listening", writing: "Writing", quiz: "Quiz de unidad" },
     completed: "Completada", available: "Disponible", lockedQuiz: "Completa las 5 lecciones primero",
-    unitComplete: "¡Unidad completada!", previous: "Anterior", next: "Siguiente", finishLesson: "Terminar lección",
+    unitComplete: "¡Unidad completada!", allLessonsDone: "¡Todas las lecciones listas!", levelComplete: "¡Nivel completado! 🎉", previous: "Anterior", next: "Siguiente", finishLesson: "Terminar lección",
     guidedPractice: "Práctica", commonMistake: "Error común: ",
     playAudio: "Reproducir audio", playAgain: "Reproducir de nuevo", send: "Enviar", sent: "Enviado ✓",
     quizTitle: "Quiz de unidad", quizSubtitle: "Evaluación final", backToUnit: "Volver a la unidad",
@@ -718,8 +718,7 @@ function UnitMap({ unit, levelColor, progress, t, visibleUnits, onOpenLesson, on
 
       {doneCount === LESSON_ORDER.length && (
         <div style={{ textAlign: "center", marginTop: 24 }}>
-          <Stamp label={unit.level} />
-          <p style={{ fontFamily: font, fontSize: 16, color: C.ink, marginTop: 10, fontWeight: 700, marginBottom: 20 }}>{t.unitComplete}</p>
+          <p style={{ fontFamily: font, fontSize: 15, color: levelColor.main, fontWeight: 700, marginBottom: 20 }}>✓ {t.allLessonsDone}</p>
           {nextUnit && (
             <button onClick={() => onOpenUnit(nextUnit)} style={{ ...navBtn(false), padding: "12px 24px" }}>
               {t.nextUnit}: {nextUnit.title} →
@@ -742,6 +741,13 @@ function LevelsScreen({ units, t, name, overallProgress, allProgress, onOpenUnit
         {name ? `Hola, ${name}` : "Tweetaform"}
       </h1>
       <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft, marginBottom: 20, textAlign: "center" }}>{t.tagline}</p>
+
+      {overallProgress && overallProgress.unitsTotal > 0 && overallProgress.unitsDone === overallProgress.unitsTotal && (
+        <div style={{ textAlign: "center", marginBottom: 24 }}>
+          <Stamp label={overallProgress.level} />
+          <p style={{ fontFamily: font, fontSize: 17, color: C.ink, marginTop: 10, fontWeight: 800 }}>{t.levelComplete}</p>
+        </div>
+      )}
 
       {overallProgress && (
         <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 14, padding: 16, marginBottom: 24 }}>
