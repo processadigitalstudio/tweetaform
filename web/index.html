@@ -749,7 +749,7 @@ function LevelsScreen({ units, t, name, overallProgress, allProgress, onOpenUnit
       )}
 
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        {units.map((u) => {
+        {units.filter((u) => LEVEL_COLORS[u.level]).map((u) => {
           const lc = LEVEL_COLORS[u.level];
           const p = (allProgress && allProgress[u.unit_id]) || {};
           const doneCount = LESSON_ORDER.filter((k) => p[k]).length;
