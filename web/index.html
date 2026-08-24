@@ -76,6 +76,7 @@ const STRINGS = {
     login: "Log in", email: "Email", password: "Password", loginBtn: "Log in", loginError: "Incorrect email or password.",
     logout: "Log out", home: "Home", unit: "Unit", textN: (i, n) => `Text ${i} of ${n}`, audioN: (i, n) => `Audio ${i} of ${n}`,
     correctOutOf: (c, t) => `${c} out of ${t} correct`, loading: "Loading...", percentComplete: (p) => `${p}% complete`,
+    lessonComplete: "Lesson complete!", nextLesson: "Next", unitsCompleted: "units completed", lessonsWord: "lessons", showHint: "Show grammar hint", hideHint: "Hide grammar hint",
   },
   es: {
     tagline: "Tu curso de inglés",
@@ -90,6 +91,7 @@ const STRINGS = {
     login: "Iniciar sesión", email: "Correo", password: "Contraseña", loginBtn: "Iniciar sesión", loginError: "Correo o contraseña incorrectos.",
     logout: "Cerrar sesión", home: "Inicio", unit: "Unidad", textN: (i, n) => `Texto ${i} de ${n}`, audioN: (i, n) => `Audio ${i} de ${n}`,
     correctOutOf: (c, t) => `${c} de ${t} correctas`, loading: "Cargando...", percentComplete: (p) => `${p}% completado`,
+    lessonComplete: "¡Lección completada!", nextLesson: "Siguiente", unitsCompleted: "unidades completadas", lessonsWord: "lecciones", showHint: "Ver ayuda de gramática", hideHint: "Ocultar ayuda de gramática",
   },
 };
 
@@ -448,14 +450,39 @@ function VocabLesson({ unit, levelColor, t, onComplete }) {
 }
 
 // ---------------- GRAMATICA ----------------
+function GrammarCard({ unit, levelColor, t }) {
+  const g = unit.grammar_explanation;
+  return (
+    <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 14, padding: 20, marginBottom: 20, borderTop: `4px solid ${levelColor.main}` }}>
+      <p style={{ fontFamily: font, fontSize: 14, color: C.ink, lineHeight: 1.6, marginBottom: 16 }}>{g.core_rule}</p>
+      {g.structure_notes.map((s, i) => (
+        <div key={i} style={{ marginBottom: 10, paddingLeft: 12, borderLeft: `3px solid ${levelColor.soft}` }}>
+          <span style={{ fontFamily: mono, fontSize: 13, fontWeight: "bold", color: C.ink }}>{s.label}</span>
+          <span style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}> — {s.explanation}</span>
+          <p style={{ fontFamily: font, fontSize: 13, fontStyle: "italic", color: C.ink, margin: "2px 0 0" }}>{s.example}</p>
+        </div>
+      ))}
+      <div style={{ marginTop: 14, background: C.coralSoft, borderRadius: 10, padding: "10px 14px" }}>
+        <span style={{ fontFamily: font, fontSize: 12, fontWeight: "bold", color: C.coralText }}>{t.commonMistake}</span>
+        <span style={{ fontFamily: font, fontSize: 12, color: C.ink }}>{g.common_mistake}</span>
+      </div>
+    </div>
+  );
+}
+
 function GrammarLesson({ unit, levelColor, t, onComplete }) {
   const [phase, setPhase] = useState("present");
-  const g = unit.grammar_explanation;
+  const [showHint, setShowHint] = useState(false);
 
   if (phase === "practice") {
     return (
       <div>
         <LessonHeader title={t.lessons.grammar} subtitle={t.guidedPractice} levelColor={levelColor} t={t} />
+        <button onClick={() => setShowHint((h) => !h)}
+          style={{ fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 14px", borderRadius: 999, border: `1.5px solid ${levelColor.main}`, background: showHint ? levelColor.soft : "#fff", color: C.ink, cursor: "pointer", marginBottom: 16 }}>
+          💡 {showHint ? t.hideHint : t.showHint}
+        </button>
+        {showHint && <GrammarCard unit={unit} levelColor={levelColor} t={t} />}
         <ExerciseFlow items={unit.grammar_practice} levelColor={levelColor} t={t} onFinish={() => onComplete()} />
       </div>
     );
@@ -464,23 +491,11 @@ function GrammarLesson({ unit, levelColor, t, onComplete }) {
   return (
     <div>
       <LessonHeader title={t.lessons.grammar} subtitle={unit.grammar_topic} levelColor={levelColor} t={t} />
-      <div style={{ background: "#fff", border: `1px solid ${C.line}`, borderRadius: 14, padding: 20, marginBottom: 20, borderTop: `4px solid ${levelColor.main}` }}>
-        <p style={{ fontFamily: font, fontSize: 14, color: C.ink, lineHeight: 1.6, marginBottom: 16 }}>{g.core_rule}</p>
-        {g.structure_notes.map((s, i) => (
-          <div key={i} style={{ marginBottom: 10, paddingLeft: 12, borderLeft: `3px solid ${levelColor.soft}` }}>
-            <span style={{ fontFamily: mono, fontSize: 13, fontWeight: "bold", color: C.ink }}>{s.label}</span>
-            <span style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}> — {s.explanation}</span>
-            <p style={{ fontFamily: font, fontSize: 13, fontStyle: "italic", color: C.ink, margin: "2px 0 0" }}>{s.example}</p>
-          </div>
-        ))}
-        <div style={{ marginTop: 14, background: C.coralSoft, borderRadius: 10, padding: "10px 14px" }}>
-          <span style={{ fontFamily: font, fontSize: 12, fontWeight: "bold", color: C.coralText }}>{t.commonMistake}</span>
-          <span style={{ fontFamily: font, fontSize: 12, color: C.ink }}>{g.common_mistake}</span>
-        </div>
-      </div>
+      <GrammarCard unit={unit} levelColor={levelColor} t={t} />
       <button onClick={() => setPhase("practice")} style={{ ...navBtn(false), width: "100%" }}>{t.guidedPractice}</button>
     </div>
   );
+
 }
 
 // ---------------- READING (texto pegado a las preguntas, con Back) ----------------
@@ -605,8 +620,7 @@ function QuizLesson({ unit, levelColor, t, onComplete }) {
   if (result) {
     return (
       <div style={{ textAlign: "center", padding: "30px 0" }}>
-        <Stamp label={unit.level} />
-        <p style={{ fontFamily: font, fontSize: 30, color: C.ink, marginTop: 16, fontWeight: 800 }}>{Math.round((result.c / result.n) * 100)}%</p>
+        <p style={{ fontFamily: font, fontSize: 40, color: C.ink, marginTop: 16, fontWeight: 800 }}>{Math.round((result.c / result.n) * 100)}%</p>
         <p style={{ fontFamily: font, fontSize: 14, color: C.inkSoft, marginBottom: 20 }}>{t.correctOutOf(result.c, result.n)}</p>
         <button onClick={() => onComplete(Math.round((result.c / result.n) * 100))} style={{ ...navBtn(false), padding: "12px 30px" }}>{t.backToUnit}</button>
       </div>
@@ -709,7 +723,7 @@ function UnitMap({ unit, levelColor, progress, t, onOpenLesson, onBack }) {
 }
 
 // ---------------- NIVELES (un solo nivel por estudiante, con saludo y progreso general) ----------------
-function LevelsScreen({ units, t, name, overallProgress, onOpenUnit }) {
+function LevelsScreen({ units, t, name, overallProgress, allProgress, onOpenUnit }) {
   return (
     <div>
       <div style={{ textAlign: "center", marginBottom: 8 }}>
@@ -728,19 +742,26 @@ function LevelsScreen({ units, t, name, overallProgress, onOpenUnit }) {
           </div>
           <ProgressBar pct={overallProgress.pct} color={LEVEL_COLORS[overallProgress.level]?.main} />
           <p style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, marginTop: 6 }}>
-            {overallProgress.unitsDone} / {overallProgress.unitsTotal} unidades completadas
+            {overallProgress.unitsDone} / {overallProgress.unitsTotal} {t.unitsCompleted}
           </p>
         </div>
       )}
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {units.map((u) => {
           const lc = LEVEL_COLORS[u.level];
+          const p = (allProgress && allProgress[u.unit_id]) || {};
+          const doneCount = LESSON_ORDER.filter((k) => p[k]).length;
+          const pct = Math.round((doneCount / LESSON_ORDER.length) * 100);
           return (
             <div key={u.unit_id} onClick={() => onOpenUnit(u)}
-              style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#fff", border: `1px solid ${C.line}`, borderLeft: `4px solid ${lc.main}`, borderRadius: 12, padding: "14px 16px", cursor: "pointer" }}>
-              <span style={{ fontFamily: font, fontSize: 14, color: C.ink }}>{u.title}</span>
-              <span style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft }}>{u.unit_id}</span>
+              style={{ background: "#fff", border: `1px solid ${C.line}`, borderLeft: `4px solid ${lc.main}`, borderRadius: 12, padding: "14px 16px", cursor: "pointer" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                <span style={{ fontFamily: font, fontSize: 14, color: C.ink, fontWeight: 600 }}>{u.title}</span>
+                <span style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft }}>{u.unit_id}</span>
+              </div>
+              <ProgressBar pct={pct} color={lc.main} />
+              <p style={{ fontFamily: mono, fontSize: 10, color: C.inkSoft, marginTop: 4, marginBottom: 0 }}>{doneCount}/{LESSON_ORDER.length} {t.lessonsWord}</p>
             </div>
           );
         })}
@@ -859,15 +880,44 @@ function AdminDashboard({ t, onLogout }) {
   );
 }
 
+function LessonCompleteScreen({ t, nextKey, onBackToUnit, onNextLesson }) {
+  return (
+    <div style={{ textAlign: "center", padding: "50px 0" }}>
+      <p style={{ fontSize: 44, margin: 0 }}>✅</p>
+      <p style={{ fontFamily: font, fontSize: 20, fontWeight: 800, color: C.ink, margin: "12px 0 28px" }}>{t.lessonComplete}</p>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 280, margin: "0 auto" }}>
+        {nextKey && (
+          <button onClick={onNextLesson} style={navBtn(false)}>{t.nextLesson}: {t.lessons[nextKey]}</button>
+        )}
+        <button onClick={onBackToUnit} style={{ ...navBtn(false), background: "#fff", color: C.ink, border: `1px solid ${C.line}` }}>
+          {t.backToUnit}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// NAVEGACION POR URL — asi el boton "atras" del navegador funciona de verdad
+// ---------------------------------------------------------------------------
+function parseHash() {
+  const h = window.location.hash.replace(/^#\/?/, "");
+  const parts = h.split("/").filter(Boolean);
+  if (parts[0] === "unit" && parts[1]) {
+    return { unitId: decodeURIComponent(parts[1]), lessonKey: parts[2] === "lesson" ? parts[3] : null };
+  }
+  return { unitId: null, lessonKey: null };
+}
+
 function App() {
   const [ready, setReady] = useState(!!window.__firebaseReady);
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null); // { role, enabledLevels, ... }
   const [units, setUnits] = useState(null);
-  const [activeUnit, setActiveUnit] = useState(null);
-  const [activeLesson, setActiveLesson] = useState(null);
+  const [route, setRoute] = useState(() => parseHash()); // { unitId, lessonKey } — viene de la URL
   const [progress, setProgress] = useState({});
   const [allProgress, setAllProgress] = useState(null); // progreso de TODAS las unidades, para la barra general
+  const [justFinished, setJustFinished] = useState(null); // que leccion se acaba de terminar (para la pantalla de "Back to unit / Next lesson")
   const [lang, setLang] = useState("en");
   const t = STRINGS[lang];
 
@@ -876,6 +926,12 @@ function App() {
     const h = () => setReady(true);
     window.addEventListener("firebase-ready", h);
     return () => window.removeEventListener("firebase-ready", h);
+  }, []);
+
+  useEffect(() => {
+    const onHashChange = () => { setRoute(parseHash()); setJustFinished(null); };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
   useEffect(() => {
@@ -909,14 +965,21 @@ function App() {
     })();
   }, [user, profile]);
 
-  const openUnit = async (u) => {
-    setActiveUnit(u);
-    const cached = allProgress && allProgress[u.unit_id];
-    setProgress(cached || {});
-    const ref = window.__db.collection("users").doc(user.uid).collection("progress").doc(u.unit_id);
-    const snap = await ref.get();
-    setProgress(snap.exists ? snap.data() : {});
-  };
+  const activeUnit = units ? units.find((u) => u.unit_id === route.unitId) || null : null;
+  const activeLesson = route.lessonKey;
+
+  // cuando cambia la unidad activa (por URL), cargar su progreso
+  useEffect(() => {
+    if (!user || !route.unitId) { setProgress({}); return; }
+    const cached = allProgress && allProgress[route.unitId];
+    if (cached) setProgress(cached);
+    const ref = window.__db.collection("users").doc(user.uid).collection("progress").doc(route.unitId);
+    ref.get().then((snap) => setProgress(snap.exists ? snap.data() : {}));
+  }, [route.unitId, user]);
+
+  const goHome = () => { window.location.hash = "#/"; };
+  const goToUnit = (unitId) => { window.location.hash = `#/unit/${encodeURIComponent(unitId)}`; };
+  const goToLesson = (unitId, key) => { window.location.hash = `#/unit/${encodeURIComponent(unitId)}/lesson/${key}`; };
 
   const markComplete = async (key, extra) => {
     const next = { ...progress, [key]: true, ...(extra || {}) };
@@ -924,7 +987,12 @@ function App() {
     setAllProgress((prev) => ({ ...(prev || {}), [activeUnit.unit_id]: next }));
     const ref = window.__db.collection("users").doc(user.uid).collection("progress").doc(activeUnit.unit_id);
     await ref.set({ [key]: true, ...(extra || {}) }, { merge: true });
-    setActiveLesson(null);
+    setJustFinished(key);
+  };
+
+  const nextLessonKey = (key) => {
+    const i = LESSON_ORDER.indexOf(key);
+    return i >= 0 && i < LESSON_ORDER.length - 1 ? LESSON_ORDER[i + 1] : null;
   };
 
   if (!ready) return <div style={{ padding: 40, fontFamily: font, textAlign: "center" }}>{STRINGS.en.loading}</div>;
@@ -950,12 +1018,12 @@ function App() {
   return (
     <div style={{ background: C.bg, minHeight: "100vh", boxSizing: "border-box" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 18px", borderBottom: `1px solid ${C.line}`, background: "#fff" }}>
-        <button onClick={() => { setActiveUnit(null); setActiveLesson(null); }}
+        <button onClick={goHome}
           style={{ fontFamily: font, fontSize: 13, fontWeight: 700, color: C.ink, background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
           🏠 {t.home}
         </button>
         {activeUnit && (
-          <button onClick={() => setActiveLesson(null)}
+          <button onClick={() => goToUnit(activeUnit.unit_id)}
             style={{ fontFamily: font, fontSize: 13, fontWeight: 700, color: levelColor.main, background: "none", border: "none", cursor: "pointer" }}>
             {t.unit.toUpperCase()} · {activeUnit.unit_id}
           </button>
@@ -975,22 +1043,30 @@ function App() {
       </div>
       <div style={{ padding: "24px 18px" }}>
       <div style={{ maxWidth: 460, margin: "0 auto" }}>
-        {!activeUnit && <LevelsScreen units={visibleUnits} t={t} name={profile.name} overallProgress={overallProgress} onOpenUnit={openUnit} />}
+        {!activeUnit && <LevelsScreen units={visibleUnits} t={t} name={profile.name} overallProgress={overallProgress} allProgress={allProgress} onOpenUnit={(u) => goToUnit(u.unit_id)} />}
         {activeUnit && !activeLesson && (
           <UnitMap unit={activeUnit} levelColor={levelColor} progress={progress} t={t}
-            onOpenLesson={(k) => setActiveLesson(k)} onBack={() => setActiveUnit(null)} />
+            onOpenLesson={(k) => goToLesson(activeUnit.unit_id, k)} onBack={goHome} />
         )}
         {activeUnit && activeLesson && (
           <div>
-            <button onClick={() => setActiveLesson(null)} style={{ border: "none", background: "none", padding: 0, color: C.inkSoft, fontFamily: font, fontSize: 14, cursor: "pointer", marginBottom: 16 }}>
+            <button onClick={() => goToUnit(activeUnit.unit_id)} style={{ border: "none", background: "none", padding: 0, color: C.inkSoft, fontFamily: font, fontSize: 14, cursor: "pointer", marginBottom: 16 }}>
               ← {activeUnit.title}
             </button>
-            {activeLesson === "vocab" && <VocabLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("vocab")} />}
-            {activeLesson === "grammar" && <GrammarLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("grammar")} />}
-            {activeLesson === "reading" && <ReadingLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("reading")} />}
-            {activeLesson === "listening" && <ListeningLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("listening")} />}
-            {activeLesson === "writing" && <WritingLesson unit={activeUnit} levelColor={levelColor} t={t} lang={lang} onComplete={(text) => markComplete("writing", { writing_text: text, writing_submitted_at: new Date().toISOString() })} />}
-            {activeLesson === "quiz" && <QuizLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={(score) => markComplete("quiz", { quiz_score: score })} />}
+            {justFinished === activeLesson ? (
+              <LessonCompleteScreen t={t} nextKey={nextLessonKey(activeLesson)}
+                onBackToUnit={() => goToUnit(activeUnit.unit_id)}
+                onNextLesson={() => goToLesson(activeUnit.unit_id, nextLessonKey(activeLesson))} />
+            ) : (
+              <>
+                {activeLesson === "vocab" && <VocabLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("vocab")} />}
+                {activeLesson === "grammar" && <GrammarLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("grammar")} />}
+                {activeLesson === "reading" && <ReadingLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("reading")} />}
+                {activeLesson === "listening" && <ListeningLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={() => markComplete("listening")} />}
+                {activeLesson === "writing" && <WritingLesson unit={activeUnit} levelColor={levelColor} t={t} lang={lang} onComplete={(text) => markComplete("writing", { writing_text: text, writing_submitted_at: new Date().toISOString() })} />}
+                {activeLesson === "quiz" && <QuizLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={(score) => markComplete("quiz", { quiz_score: score })} />}
+              </>
+            )}
           </div>
         )}
       </div>

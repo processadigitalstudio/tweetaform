@@ -41,53 +41,103 @@
     },
     "grammar_practice": [
       {
-        "type": "fill_blank",
-        "q": "I ___ Camila.",
+        "type": "mcq",
+        "q": "I _____ Camila.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "am"
       },
       {
-        "type": "fill_blank",
-        "q": "She ___ a teacher.",
+        "type": "mcq",
+        "q": "She _____ a teacher.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "is"
       },
       {
-        "type": "fill_blank",
-        "q": "They ___ not from Tokyo.",
+        "type": "mcq",
+        "q": "They _____ not from Tokyo.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "are"
       },
       {
-        "type": "fill_blank",
-        "q": "We ___ friends.",
+        "type": "mcq",
+        "q": "We _____ friends.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "are"
       },
       {
-        "type": "fill_blank",
-        "q": "He ___ not a student.",
+        "type": "mcq",
+        "q": "He _____ not a student.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "is"
       },
       {
-        "type": "fill_blank",
-        "q": "___ you ready? (pregunta)",
-        "answer": "Are"
+        "type": "mcq",
+        "q": "_____ you ready?",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "are"
       },
       {
-        "type": "fill_blank",
-        "q": "___ she from Madrid? (pregunta)",
-        "answer": "Is"
+        "type": "mcq",
+        "q": "_____ she from Madrid?",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
+        "answer": "is"
       },
       {
-        "type": "fill_blank",
-        "q": "I ___ not late.",
+        "type": "mcq",
+        "q": "I _____ not late.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "am"
       },
       {
-        "type": "fill_blank",
-        "q": "You ___ my friend.",
+        "type": "mcq",
+        "q": "You _____ my friend.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "are"
       },
       {
-        "type": "fill_blank",
-        "q": "It ___ far from here.",
+        "type": "mcq",
+        "q": "It _____ far from here.",
+        "options": [
+          "am",
+          "is",
+          "are"
+        ],
         "answer": "is"
       },
       {
