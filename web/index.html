@@ -74,7 +74,7 @@ const STRINGS = {
     quizTitle: "Unit quiz", quizSubtitle: "Final assessment", backToUnit: "Back to unit",
     check: "Check", answerLabel: "Answer: ", typeAnswer: "Type your answer", trueLabel: "True", falseLabel: "False",
     login: "Log in", email: "Email", password: "Password", loginBtn: "Log in", loginError: "Incorrect email or password.",
-    logout: "Log out", textN: (i, n) => `Text ${i} of ${n}`, audioN: (i, n) => `Audio ${i} of ${n}`,
+    logout: "Log out", home: "Home", textN: (i, n) => `Text ${i} of ${n}`, audioN: (i, n) => `Audio ${i} of ${n}`,
     correctOutOf: (c, t) => `${c} out of ${t} correct`, loading: "Loading...",
   },
   es: {
@@ -88,7 +88,7 @@ const STRINGS = {
     quizTitle: "Quiz de unidad", quizSubtitle: "Evaluación final", backToUnit: "Volver a la unidad",
     check: "Comprobar", answerLabel: "Respuesta: ", typeAnswer: "Escribe tu respuesta", trueLabel: "Verdadero", falseLabel: "Falso",
     login: "Iniciar sesión", email: "Correo", password: "Contraseña", loginBtn: "Iniciar sesión", loginError: "Correo o contraseña incorrectos.",
-    logout: "Cerrar sesión", textN: (i, n) => `Texto ${i} de ${n}`, audioN: (i, n) => `Audio ${i} de ${n}`,
+    logout: "Cerrar sesión", home: "Inicio", textN: (i, n) => `Texto ${i} de ${n}`, audioN: (i, n) => `Audio ${i} de ${n}`,
     correctOutOf: (c, t) => `${c} de ${t} correctas`, loading: "Cargando...",
   },
 };
@@ -142,18 +142,41 @@ function navBtn(disabled) {
 // ---------------------------------------------------------------------------
 // UN EJERCICIO INDIVIDUAL
 // ---------------------------------------------------------------------------
-function Exercise({ item, levelColor, t, onAnswered }) {
-  const [selected, setSelected] = useState(null);
-  const [textVal, setTextVal] = useState("");
-  const [checked, setChecked] = useState(false);
+// ---------------------------------------------------------------------------
+// LOGICA COMPARTIDA: revisar respuesta y saber si ya esta lista para avanzar
+// (no se usa para mostrar nada en pantalla mientras se responde — solo al final)
+// ---------------------------------------------------------------------------
+function checkAnswer(item, answer) {
+  if (answer == null) return false;
+  if (item.type === "matching") {
+    return item.pairs.every((p) => answer[p.left] === p.right);
+  }
+  if (item.type === "order_words") {
+    return typeof answer === "string" && answer.trim() === item.answer.trim();
+  }
+  if (item.type === "fill_blank") {
+    return typeof answer === "string" && answer.trim().toLowerCase() === item.answer.trim().toLowerCase();
+  }
+  return answer === item.answer;
+}
 
-  const isCorrect = (val) => {
-    if (item.type === "true_false") return val === item.answer;
-    if (typeof item.answer === "string") return val.trim().toLowerCase() === item.answer.trim().toLowerCase();
-    return val === item.answer;
-  };
-  const commit = (val) => { setSelected(val); setChecked(true); onAnswered && onAnswered(isCorrect(val)); };
+function isAnswerReady(item, answer) {
+  if (item.type === "matching") return answer && Object.keys(answer).length === item.pairs.length;
+  if (item.type === "order_words") return typeof answer === "string" && answer.trim().length > 0;
+  if (item.type === "fill_blank") return typeof answer === "string" && answer.trim().length > 0;
+  return answer != null;
+}
 
+function formatCorrectAnswer(item) {
+  if (item.type === "matching") return item.pairs.map((p) => `${p.left} → ${p.right}`).join("; ");
+  if (item.type === "true_false") return item.answer ? "True" : "False";
+  return String(item.answer);
+}
+
+// ---------------------------------------------------------------------------
+// UN EJERCICIO — solo captura la respuesta, no dice si esta bien o mal todavia
+// ---------------------------------------------------------------------------
+function Exercise({ item, levelColor, t, answer, onChange }) {
   return (
     <div>
       <p style={{ fontFamily: font, color: C.ink, fontSize: 17, marginBottom: 20, lineHeight: 1.5 }}>{item.q}</p>
@@ -163,157 +186,125 @@ function Exercise({ item, levelColor, t, onAnswered }) {
       )}
 
       {(item.type === "mcq" || item.type === "image_match") && (
-        <>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-            {item.options.map((opt) => {
-              const isSel = selected === opt;
-              const good = checked && isSel && isCorrect(opt);
-              const bad = checked && isSel && !isCorrect(opt);
-              return (
-                <button key={opt} onClick={() => !checked && setSelected(opt)}
-                  style={{ fontFamily: font, fontSize: 15, padding: "12px 18px", borderRadius: 12,
-                    border: `1.5px solid ${good ? levelColor.main : bad ? C.coral : isSel ? C.ink : C.line}`,
-                    background: good ? levelColor.soft : bad ? C.coralSoft : isSel ? C.cream : "#fff",
-                    color: C.ink, cursor: checked ? "default" : "pointer", fontWeight: isSel ? 700 : 400 }}>
-                  {opt}
-                </button>
-              );
-            })}
-          </div>
-          {!checked && (
-            <button disabled={selected == null} onClick={() => commit(selected)}
-              style={{ ...navBtn(selected == null), marginTop: 14 }}>
-              {t.check}
-            </button>
-          )}
-        </>
-      )}
-
-      {item.type === "true_false" && (
-        <>
-          <div style={{ display: "flex", gap: 10 }}>
-            {[true, false].map((val) => {
-              const label = val ? t.trueLabel : t.falseLabel;
-              const isSel = selected === val;
-              const good = checked && isSel && isCorrect(val);
-              const bad = checked && isSel && !isCorrect(val);
-              return (
-                <button key={label} onClick={() => !checked && setSelected(val)}
-                  style={{ fontFamily: font, fontSize: 15, padding: "12px 24px", borderRadius: 12,
-                    border: `1.5px solid ${good ? levelColor.main : bad ? C.coral : isSel ? C.ink : C.line}`,
-                    background: good ? levelColor.soft : bad ? C.coralSoft : isSel ? C.cream : "#fff",
-                    color: C.ink, cursor: checked ? "default" : "pointer", fontWeight: isSel ? 700 : 400 }}>
-                  {label}
-                </button>
-              );
-            })}
-          </div>
-          {!checked && (
-            <button disabled={selected == null} onClick={() => commit(selected)}
-              style={{ ...navBtn(selected == null), marginTop: 14 }}>
-              {t.check}
-            </button>
-          )}
-        </>
-      )}
-
-      {item.type === "fill_blank" && (
-        <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
-          <input value={textVal} disabled={checked} onChange={(e) => setTextVal(e.target.value)} placeholder={t.typeAnswer}
-            style={{ fontFamily: mono, fontSize: 15, padding: "10px 14px", borderRadius: 10,
-              border: `1.5px solid ${checked ? (isCorrect(textVal) ? levelColor.main : C.coral) : C.line}`,
-              background: checked ? (isCorrect(textVal) ? levelColor.soft : C.coralSoft) : "#fff", color: C.ink, width: 180 }} />
-          {!checked && (
-            <button onClick={() => textVal.trim() && commit(textVal)}
-              style={{ fontFamily: font, fontSize: 14, padding: "10px 16px", borderRadius: 10, border: "none", background: C.ink, color: "#fff", cursor: "pointer" }}>
-              {t.check}
-            </button>
-          )}
-          {checked && !isCorrect(textVal) && <span style={{ fontFamily: font, fontSize: 14, color: C.coralText }}>{t.answerLabel}{item.answer}</span>}
-        </div>
-      )}
-
-      {item.type === "matching" && (
-        <MatchingExercise item={item} levelColor={levelColor} checked={checked} t={t} onDone={(ok) => commit(ok)} />
-      )}
-
-      {item.type === "order_words" && (
-        <OrderWordsExercise item={item} levelColor={levelColor} checked={checked} t={t} onDone={(val) => commit(val)} />
-      )}
-    </div>
-  );
-}
-
-function MatchingExercise({ item, levelColor, checked, onDone, t }) {
-  const [picked, setPicked] = useState({});
-  const [leftSel, setLeftSel] = useState(null);
-  const [rightOptions] = useState(() => shuffle(item.pairs.map((p) => p.right))); // se baraja UNA sola vez, no en cada render
-  const allPicked = Object.keys(picked).length === item.pairs.length;
-
-  const pickRight = (right) => {
-    if (leftSel == null || checked) return;
-    setPicked({ ...picked, [leftSel]: right });
-    setLeftSel(null);
-  };
-
-  const verify = () => {
-    const allCorrect = item.pairs.every((p) => picked[p.left] === p.right);
-    onDone(allCorrect);
-  };
-
-  return (
-    <div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 14 }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {item.pairs.map((p) => (
-            <button key={p.left} disabled={checked || picked[p.left]} onClick={() => setLeftSel(p.left)}
-              style={{ fontFamily: font, fontSize: 14, padding: "10px 14px", borderRadius: 10,
-                border: `1.5px solid ${leftSel === p.left ? C.ink : C.line}`,
-                background: picked[p.left] ? levelColor.soft : "#fff", cursor: checked ? "default" : "pointer", textAlign: "left" }}>
-              {p.left} {picked[p.left] ? `→ ${picked[p.left]}` : ""}
-            </button>
-          ))}
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {rightOptions.map((r) => {
-            const used = Object.values(picked).includes(r);
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+          {item.options.map((opt) => {
+            const isSel = answer === opt;
             return (
-              <button key={r} disabled={used || checked} onClick={() => pickRight(r)}
-                style={{ fontFamily: font, fontSize: 14, padding: "10px 14px", borderRadius: 10,
-                  border: `1.5px solid ${C.line}`, background: used ? C.cream : "#fff",
-                  color: used ? C.inkSoft : C.ink, cursor: used || checked ? "default" : "pointer" }}>
-                {r}
+              <button key={opt} onClick={() => onChange(opt)}
+                style={{ fontFamily: font, fontSize: 15, padding: "12px 18px", borderRadius: 12,
+                  border: `1.5px solid ${isSel ? C.ink : C.line}`,
+                  background: isSel ? C.cream : "#fff",
+                  color: C.ink, cursor: "pointer", fontWeight: isSel ? 700 : 400 }}>
+                {opt}
               </button>
             );
           })}
         </div>
-      </div>
-      {!checked && (
-        <button disabled={!allPicked} onClick={verify} style={navBtn(!allPicked)}>{t.check}</button>
+      )}
+
+      {item.type === "true_false" && (
+        <div style={{ display: "flex", gap: 10 }}>
+          {[true, false].map((val) => {
+            const label = val ? t.trueLabel : t.falseLabel;
+            const isSel = answer === val;
+            return (
+              <button key={label} onClick={() => onChange(val)}
+                style={{ fontFamily: font, fontSize: 15, padding: "12px 24px", borderRadius: 12,
+                  border: `1.5px solid ${isSel ? C.ink : C.line}`,
+                  background: isSel ? C.cream : "#fff",
+                  color: C.ink, cursor: "pointer", fontWeight: isSel ? 700 : 400 }}>
+                {label}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {item.type === "fill_blank" && (
+        <input value={answer || ""} onChange={(e) => onChange(e.target.value)} placeholder={t.typeAnswer}
+          style={{ fontFamily: mono, fontSize: 15, padding: "10px 14px", borderRadius: 10,
+            border: `1.5px solid ${C.line}`, background: "#fff", color: C.ink, width: 180 }} />
+      )}
+
+      {item.type === "matching" && (
+        <MatchingInput item={item} levelColor={levelColor} value={answer || {}} onChange={onChange} />
+      )}
+
+      {item.type === "order_words" && (
+        <OrderWordsInput item={item} levelColor={levelColor} value={answer || ""} onChange={onChange} />
       )}
     </div>
   );
 }
 
-function OrderWordsExercise({ item, levelColor, checked, onDone, t }) {
+function MatchingInput({ item, levelColor, value, onChange }) {
+  const [leftSel, setLeftSel] = useState(null);
+  const [rightOptions] = useState(() => shuffle(item.pairs.map((p) => p.right)));
+
+  const pickRight = (right) => {
+    if (leftSel == null) return;
+    onChange({ ...value, [leftSel]: right });
+    setLeftSel(null);
+  };
+
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {item.pairs.map((p) => (
+          <button key={p.left} onClick={() => setLeftSel(p.left)}
+            style={{ fontFamily: font, fontSize: 14, padding: "10px 14px", borderRadius: 10,
+              border: `1.5px solid ${leftSel === p.left ? C.ink : C.line}`,
+              background: value[p.left] ? levelColor.soft : "#fff", cursor: "pointer", textAlign: "left" }}>
+            {p.left} {value[p.left] ? `→ ${value[p.left]}` : ""}
+          </button>
+        ))}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {rightOptions.map((r) => {
+          const used = Object.values(value).includes(r);
+          return (
+            <button key={r} disabled={used} onClick={() => pickRight(r)}
+              style={{ fontFamily: font, fontSize: 14, padding: "10px 14px", borderRadius: 10,
+                border: `1.5px solid ${C.line}`, background: used ? C.cream : "#fff",
+                color: used ? C.inkSoft : C.ink, cursor: used ? "default" : "pointer" }}>
+              {r}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function OrderWordsInput({ item, levelColor, value, onChange }) {
+  const built = value ? value.split(" ").filter(Boolean) : [];
   const [pool, setPool] = useState(() => shuffle(item.words));
-  const [built, setBuilt] = useState([]);
 
   const addWord = (w, i) => {
-    if (checked) return;
-    setBuilt([...built, w]);
-    const next = [...pool];
-    next.splice(i, 1);
-    setPool(next);
+    const nextBuilt = [...built, w];
+    const nextPool = [...pool];
+    nextPool.splice(i, 1);
+    setPool(nextPool);
+    onChange(nextBuilt.join(" "));
   };
-  const finish = () => onDone(built.join(" "));
+  const removeWord = (i) => {
+    const word = built[i];
+    const nextBuilt = built.filter((_, idx) => idx !== i);
+    setPool([...pool, word]);
+    onChange(nextBuilt.join(" "));
+  };
 
   return (
     <div>
       <div style={{ minHeight: 46, border: `1.5px dashed ${C.line}`, borderRadius: 10, padding: 10, marginBottom: 14, display: "flex", flexWrap: "wrap", gap: 8 }}>
-        {built.map((w, i) => <span key={i} style={{ fontFamily: font, fontSize: 15, padding: "6px 10px", background: levelColor.soft, borderRadius: 8 }}>{w}</span>)}
+        {built.map((w, i) => (
+          <span key={i} onClick={() => removeWord(i)}
+            style={{ fontFamily: font, fontSize: 15, padding: "6px 10px", background: levelColor.soft, borderRadius: 8, cursor: "pointer" }}>
+            {w}
+          </span>
+        ))}
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {pool.map((w, i) => (
           <button key={i} onClick={() => addWord(w, i)}
             style={{ fontFamily: font, fontSize: 15, padding: "8px 14px", borderRadius: 8, border: `1px solid ${C.line}`, background: "#fff", cursor: "pointer" }}>
@@ -321,28 +312,71 @@ function OrderWordsExercise({ item, levelColor, checked, onDone, t }) {
           </button>
         ))}
       </div>
-      {!checked && pool.length === 0 && (
-        <button onClick={finish} style={navBtn(false)}>{t.check}</button>
-      )}
     </div>
   );
 }
 
 // ---------------------------------------------------------------------------
-// FLUJO: un ejercicio a la vez, con barra de progreso arriba
+// RESUMEN AL FINAL — se ve solo despues de responder todo
+// ---------------------------------------------------------------------------
+function SummaryScreen({ records, t, levelColor, onContinue }) {
+  const correctCount = records.filter((r) => r.correct).length;
+  return (
+    <div>
+      <div style={{ textAlign: "center", marginBottom: 24 }}>
+        <p style={{ fontFamily: font, fontSize: 28, color: C.ink, fontWeight: 800, margin: 0 }}>{correctCount}/{records.length}</p>
+        <p style={{ fontFamily: font, fontSize: 13, color: C.inkSoft }}>{t.correctOutOf(correctCount, records.length)}</p>
+      </div>
+      {records.map((r, i) => (
+        <div key={i} style={{ background: r.correct ? levelColor.soft : C.coralSoft, borderRadius: 12, padding: "12px 16px", marginBottom: 8 }}>
+          <p style={{ fontFamily: font, fontSize: 14, color: C.ink, margin: 0 }}>
+            <b>{r.correct ? "✓" : "✗"}</b> {r.item.q}
+          </p>
+          {!r.correct && (
+            <p style={{ fontFamily: font, fontSize: 13, color: C.coralText, margin: "4px 0 0" }}>
+              {t.answerLabel}{formatCorrectAnswer(r.item)}
+            </p>
+          )}
+        </div>
+      ))}
+      <button onClick={onContinue} style={{ ...navBtn(false), width: "100%", marginTop: 10 }}>{t.next}</button>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// FLUJO: un ejercicio a la vez, sin revelar nada — resumen al final
 // ---------------------------------------------------------------------------
 function ExerciseFlow({ items, levelColor, t, onFinish }) {
   const [idx, setIdx] = useState(0);
-  const [answered, setAnswered] = useState(false);
-  const [correctCount, setCorrectCount] = useState(0);
+  const [answer, setAnswer] = useState(null);
+  const [records, setRecords] = useState([]);
+  const [showSummary, setShowSummary] = useState(false);
+
+  if (showSummary) {
+    const correctCount = records.filter((r) => r.correct).length;
+    return (
+      <SummaryScreen records={records} t={t} levelColor={levelColor}
+        onContinue={() => onFinish(correctCount, records.length)} />
+    );
+  }
+
+  const item = items[idx];
+  const ready = isAnswerReady(item, answer);
   const pct = Math.round((idx / items.length) * 100);
-  const finished = idx >= items.length;
 
-  useEffect(() => {
-    if (finished) onFinish(correctCount, items.length);
-  }, [finished]);
-
-  if (finished) return null;
+  const next = () => {
+    const correct = checkAnswer(item, answer);
+    const nextRecords = [...records, { item, answer, correct }];
+    setAnswer(null);
+    if (idx + 1 >= items.length) {
+      setRecords(nextRecords);
+      setShowSummary(true);
+    } else {
+      setRecords(nextRecords);
+      setIdx((i) => i + 1);
+    }
+  };
 
   return (
     <div>
@@ -350,22 +384,14 @@ function ExerciseFlow({ items, levelColor, t, onFinish }) {
         <ProgressBar pct={pct} color={levelColor.main} />
         <span style={{ fontFamily: mono, fontSize: 12, color: C.inkSoft, whiteSpace: "nowrap" }}>{idx + 1}/{items.length}</span>
       </div>
-      <Exercise
-        key={idx}
-        item={items[idx]}
-        levelColor={levelColor}
-        t={t}
-        onAnswered={(ok) => { setAnswered(true); if (ok) setCorrectCount((c) => c + 1); }}
-      />
-      <button
-        disabled={!answered}
-        onClick={() => { setAnswered(false); setIdx((i) => i + 1); }}
-        style={{ ...navBtn(!answered), width: "100%", marginTop: 24 }}>
+      <Exercise key={idx} item={item} levelColor={levelColor} t={t} answer={answer} onChange={setAnswer} />
+      <button disabled={!ready} onClick={next} style={{ ...navBtn(!ready), width: "100%", marginTop: 24 }}>
         {t.next}
       </button>
     </div>
   );
 }
+
 
 function LessonHeader({ title, subtitle, levelColor, t }) {
   return (
@@ -908,18 +934,27 @@ function App() {
   };
 
   return (
-    <div style={{ background: C.bg, minHeight: "100vh", padding: "24px 18px", boxSizing: "border-box", position: "relative" }}>
-      {!(activeLesson === "quiz") && (
-        <button onClick={() => setLang((l) => (l === "en" ? "es" : "en"))}
-          style={{ position: "absolute", top: 18, right: 18, fontFamily: mono, fontSize: 12, fontWeight: 700, padding: "6px 12px", borderRadius: 999, border: `1px solid ${C.line}`, background: "#fff", color: C.ink, cursor: "pointer" }}>
-          {lang === "en" ? "Ver en español" : "View in English"}
+    <div style={{ background: C.bg, minHeight: "100vh", boxSizing: "border-box" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 18px", borderBottom: `1px solid ${C.line}`, background: "#fff" }}>
+        <button onClick={() => { setActiveUnit(null); setActiveLesson(null); }}
+          style={{ fontFamily: font, fontSize: 13, fontWeight: 700, color: C.ink, background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
+          🏠 {t.home}
         </button>
-      )}
-      <button onClick={() => window.__auth.signOut()}
-        style={{ position: "absolute", top: 18, left: 18, fontFamily: mono, fontSize: 12, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
-        {t.logout}
-      </button>
-      <div style={{ maxWidth: 460, margin: "0 auto", paddingTop: 36 }}>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          {!(activeLesson === "quiz") && (
+            <button onClick={() => setLang((l) => (l === "en" ? "es" : "en"))}
+              style={{ fontFamily: mono, fontSize: 11, fontWeight: 700, padding: "5px 10px", borderRadius: 999, border: `1px solid ${C.line}`, background: "#fff", color: C.ink, cursor: "pointer" }}>
+              {lang === "en" ? "ES" : "EN"}
+            </button>
+          )}
+          <button onClick={() => window.__auth.signOut()}
+            style={{ fontFamily: mono, fontSize: 11, color: C.inkSoft, background: "none", border: "none", cursor: "pointer" }}>
+            {t.logout}
+          </button>
+        </div>
+      </div>
+      <div style={{ padding: "24px 18px" }}>
+      <div style={{ maxWidth: 460, margin: "0 auto" }}>
         {!activeUnit && <LevelsScreen units={visibleUnits} t={t} name={profile.name} overallProgress={overallProgress} onOpenUnit={openUnit} />}
         {activeUnit && !activeLesson && (
           <UnitMap unit={activeUnit} levelColor={levelColor} progress={progress} t={t}
@@ -938,6 +973,7 @@ function App() {
             {activeLesson === "quiz" && <QuizLesson unit={activeUnit} levelColor={levelColor} t={t} onComplete={(score) => markComplete("quiz", { quiz_score: score })} />}
           </div>
         )}
+      </div>
       </div>
     </div>
   );
